@@ -44,8 +44,8 @@ development_status:
   1-5-sticky-contact-bar: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-content-collections-schema-and-service-data-structure: backlog
+  epic-2: in-progress
+  2-1-content-collections-schema-and-service-data-structure: done
   2-2-service-page-layout-and-core-components: backlog
   2-3-childrens-lessons-page: backlog
   2-4-adult-riding-page: backlog

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Équi 22 — Design Directions</title>
+<style>
+  :root {
+    --green: #2D5F3F;
+    --green-light: #3A7A50;
+    --blue: #1B6B93;
+    --blue-light: #2488B5;
+    --cream: #FAF8F5;
+    --beige: #F0EDE8;
+    --text: #2C2C2C;
+    --text-secondary: #6B7280;
+    --white: #FFFFFF;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1a2e;
+    color: var(--text);
+  }
+
+  /* === NAV SELECTOR === */
+  .direction-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: #1a1a2e; border-bottom: 1px solid #333;
+    padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .direction-nav h1 {
+    color: #fff; font-size: 14px; font-weight: 600;
+    margin-right: 8px; white-space: nowrap;
+  }
+  .direction-nav button {
+    padding: 8px 16px; border-radius: 20px; border: 1px solid #555;
+    background: transparent; color: #ccc; cursor: pointer;
+    font-size: 13px; transition: all 0.2s;
+  }
+  .direction-nav button:hover { border-color: var(--blue-light); color: #fff; }
+  .direction-nav button.active {
+    background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600;
+  }
+  .direction-nav .label {
+    color: #888; font-size: 12px; margin-left: auto;
+  }
+
+  /* === SECTIONS === */
+  .direction-section {
+    display: none; padding-top: 70px; min-height: 100vh;
+  }
+  .direction-section.active { display: block; }
+
+  /* === OVERVIEW === */
+  .overview { background: #1a1a2e; color: #fff; padding: 80px 24px 60px; }
+  .overview-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+  }
+  .overview h2 { text-align: center; font-size: 28px; margin-bottom: 12px; }
+  .overview .subtitle { text-align: center; color: #aaa; margin-bottom: 40px; font-size: 15px; }
+  .overview-card {
+    background: #252540; border-radius: var(--radius); padding: 28px;
+    border: 1px solid #333; transition: border-color 0.2s;
+  }
+  .overview-card:hover { border-color: var(--blue-light); }
+  .overview-card h3 { font-size: 18px; margin-bottom: 8px; color: var(--blue-light); }
+  .overview-card p { color: #bbb; font-size: 14px; line-height: 1.6; }
+  .overview-card .tag {
+    display: inline-block; margin-top: 12px; padding: 4px 10px;
+    background: rgba(27,107,147,0.2); border-radius: 12px;
+    font-size: 11px; color: var(--blue-light);
+  }
+
+  /* === MOCKUP WRAPPER === */
+  .mockup-frame {
+    max-width: 420px; margin: 0 auto; background: var(--cream);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  .mockup-label {
+    text-align: center; color: #aaa; font-size: 13px;
+    padding: 20px 0 12px; font-style: italic;
+  }
+  .desktop-frame {
+    max-width: 960px; margin: 0 auto; background: var(--cream);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+
+  /* ===================== */
+  /* DIRECTION C — HYBRIDE */
+  /* ===================== */
+
+  /* Navbar */
+  .c-navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; background: var(--white);
+    border-bottom: 1px solid #e5e2dd;
+  }
+  .c-navbar .logo {
+    font-family: 'Georgia', serif; font-size: 18px; font-weight: 700;
+    color: var(--green);
+  }
+  .c-navbar .logo span { color: var(--blue); }
+  .c-navbar .hamburger {
+    width: 28px; height: 20px; display: flex; flex-direction: column;
+    justify-content: space-between; cursor: pointer;
+  }
+  .c-navbar .hamburger span {
+    display: block; height: 2px; background: var(--text); border-radius: 1px;
+  }
+
+  /* Hero */
+  .c-hero {
+    position: relative; height: 280px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 40%, var(--blue) 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 24px 20px; color: var(--white);
+  }
+  .c-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23000' fill-opacity='0.15' width='400' height='300'/%3E%3Ctext x='200' y='140' text-anchor='middle' fill='%23fff' fill-opacity='0.3' font-size='14' font-family='sans-serif'%3EPhoto : enfants souriants sur poneys%3C/text%3E%3Ctext x='200' y='160' text-anchor='middle' fill='%23fff' fill-opacity='0.2' font-size='11' font-family='sans-serif'%3Eambiance chaleureuse, lumière naturelle%3C/text%3E%3C/svg%3E") center/cover;
+  }
+  .c-hero-content { position: relative; z-index: 1; }
+  .c-hero h1 {
+    font-family: 'Georgia', serif; font-size: 26px;
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .c-hero p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; line-height: 1.5; }
+
+  /* Profile routing */
+  .c-profiles {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .c-profiles a {
+    display: inline-block; padding: 10px 16px;
+    background: rgba(255,255,255,0.2); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 24px; color: #fff; text-decoration: none;
+    font-size: 13px; font-weight: 500; transition: all 0.2s;
+  }
+  .c-profiles a:hover { background: rgba(255,255,255,0.35); }
+
+  /* Section */
+  .c-section {
+    padding: 32px 20px;
+  }
+  .c-section.alt { background: var(--beige); }
+  .c-section h2 {
+    font-family: 'Georgia', serif; font-size: 22px;
+    color: var(--green); margin-bottom: 16px;
+  }
+  .c-section p {
+    font-size: 15px; line-height: 1.7; color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  /* Service cards */
+  .c-services { display: flex; flex-direction: column; gap: 16px; }
+  .c-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden;
+    display: flex; gap: 0;
+  }
+  .c-card-img {
+    width: 110px; min-height: 100px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 10px; text-align: center;
+    padding: 8px;
+  }
+  .c-card-body { padding: 14px 16px; flex: 1; }
+  .c-card-body h3 { font-size: 16px; color: var(--text); margin-bottom: 4px; }
+  .c-card-body .price {
+    font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 6px;
+  }
+  .c-card-body .desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* Tarifs */
+  .c-tarif-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px; margin: 12px 0;
+  }
+  .c-tarif-table th {
+    text-align: left; padding: 10px 12px;
+    background: var(--green); color: #fff;
+    font-weight: 600; font-size: 13px;
+  }
+  .c-tarif-table td {
+    padding: 10px 12px; border-bottom: 1px solid #e5e2dd;
+  }
+  .c-tarif-table tr:last-child td { border-bottom: none; }
+  .c-tarif-table .highlight { color: var(--blue); font-weight: 600; }
+
+  /* Testimonial */
+  .c-testimonial {
+    background: var(--white); border-radius: var(--radius);
+    padding: 20px; box-shadow: var(--shadow);
+    border-left: 4px solid var(--blue); margin: 16px 0;
+  }
+  .c-testimonial .quote {
+    font-size: 14px; line-height: 1.7; color: var(--text);
+    font-style: italic; margin-bottom: 8px;
+  }
+  .c-testimonial .author {
+    font-size: 13px; color: var(--text-secondary); font-weight: 600;
+  }
+  .c-testimonial .stars { color: #F59E0B; font-size: 14px; }
+
+  /* Planning */
+  .c-planning-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid #e5e2dd;
+    font-size: 14px;
+  }
+  .c-planning-item:last-child { border-bottom: none; }
+  .c-planning-item .day { font-weight: 600; color: var(--green); min-width: 80px; }
+  .c-planning-item .time { color: var(--text-secondary); }
+  .c-planning-item .level {
+    background: var(--beige); padding: 4px 10px; border-radius: 12px;
+    font-size: 12px; color: var(--text);
+  }
+
+  /* CTA */
+  .c-cta-bar {
+    display: flex; gap: 10px; margin: 16px 0;
+  }
+  .c-btn {
+    flex: 1; padding: 14px 16px; border-radius: var(--radius-sm);
+    text-align: center; font-size: 15px; font-weight: 600;
+    text-decoration: none; cursor: pointer; border: none;
+    transition: all 0.2s;
+  }
+  .c-btn-phone {
+    background: var(--green); color: #fff;
+  }
+  .c-btn-phone:hover { background: var(--green-light); }
+  .c-btn-whatsapp {
+    background: #25D366; color: #fff;
+  }
+  .c-btn-whatsapp:hover { background: #20bd5a; }
+
+  /* Sticky footer */
+  .c-sticky-footer {
+    position: sticky; bottom: 0;
+    display: flex; gap: 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+  .c-sticky-btn {
+    flex: 1; padding: 14px; text-align: center;
+    font-size: 14px; font-weight: 600; color: #fff;
+    text-decoration: none; display: flex; align-items: center;
+    justify-content: center; gap: 6px;
+  }
+  .c-sticky-btn.phone { background: var(--green); }
+  .c-sticky-btn.whatsapp { background: #25D366; }
+
+  /* Footer */
+  .c-footer {
+    background: var(--text); color: #aaa; padding: 24px 20px;
+    font-size: 13px; line-height: 1.8;
+  }
+  .c-footer strong { color: #fff; }
+
+  /* ===================== */
+  /* DIRECTION B — CLUB    */
+  /* ===================== */
+
+  .b-navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 16px; background: var(--green); color: #fff;
+  }
+  .b-navbar .logo {
+    font-family: 'Georgia', serif; font-size: 17px; font-weight: 700;
+  }
+  .b-navbar .hamburger span { background: #fff; }
+
+  .b-hero {
+    padding: 24px 20px; background: var(--cream);
+    text-align: center;
+  }
+  .b-hero h1 {
+    font-family: 'Georgia', serif; font-size: 24px;
+    color: var(--green); margin-bottom: 8px;
+  }
+  .b-hero p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+
+  .b-profiles {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 0 20px 24px;
+  }
+  .b-profile-btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: var(--white);
+    border: 2px solid #e5e2dd; border-radius: var(--radius-sm);
+    text-decoration: none; color: var(--text); transition: all 0.2s;
+  }
+  .b-profile-btn:hover { border-color: var(--blue); }
+  .b-profile-btn .icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--beige); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .b-profile-btn .label { font-weight: 600; font-size: 15px; }
+  .b-profile-btn .sub { font-size: 12px; color: var(--text-secondary); }
+
+  .b-quick-info {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    padding: 0 20px;
+  }
+  .b-info-card {
+    background: var(--white); border-radius: var(--radius-sm);
+    padding: 16px; box-shadow: var(--shadow); text-align: center;
+  }
+  .b-info-card .number { font-size: 24px; font-weight: 700; color: var(--green); }
+  .b-info-card .desc { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+  .b-services-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    padding: 0 20px;
+  }
+  .b-service-card {
+    background: var(--white); border-radius: var(--radius-sm);
+    padding: 16px; box-shadow: var(--shadow); text-align: center;
+    text-decoration: none; color: var(--text); transition: all 0.2s;
+  }
+  .b-service-card:hover { box-shadow: var(--shadow-lg); }
+  .b-service-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .b-service-card h3 { font-size: 14px; margin-bottom: 4px; }
+  .b-service-card .from { font-size: 12px; color: var(--blue); font-weight: 600; }
+
+  /* ======================== */
+  /* DIRECTION C2 — COMBINED  */
+  /* ======================== */
+
+  /* Inherits from C with B's efficiency elements */
+
+  /* === DESKTOP VIEWS === */
+  .d-navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 40px; background: var(--white);
+    border-bottom: 1px solid #e5e2dd;
+  }
+  .d-navbar .logo {
+    font-family: 'Georgia', serif; font-size: 22px; font-weight: 700;
+    color: var(--green);
+  }
+  .d-navbar .logo span { color: var(--blue); }
+  .d-navbar nav { display: flex; gap: 28px; }
+  .d-navbar nav a {
+    text-decoration: none; font-size: 14px; color: var(--text);
+    font-weight: 500; padding: 8px 0;
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+  }
+  .d-navbar nav a:hover { color: var(--green); border-bottom-color: var(--green); }
+  .d-navbar .cta {
+    padding: 10px 20px; background: var(--blue); color: #fff;
+    border-radius: var(--radius-sm); text-decoration: none;
+    font-size: 14px; font-weight: 600;
+  }
+
+  .d-hero {
+    display: flex; min-height: 380px;
+  }
+  .d-hero-text {
+    flex: 1; padding: 60px 40px; display: flex; flex-direction: column;
+    justify-content: center; background: var(--cream);
+  }
+  .d-hero-text h1 {
+    font-family: 'Georgia', serif; font-size: 36px; line-height: 1.2;
+    color: var(--green); margin-bottom: 16px;
+  }
+  .d-hero-text p {
+    font-size: 16px; line-height: 1.7; color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+  .d-hero-img {
+    flex: 1;
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); font-size: 14px;
+  }
+  .d-profiles {
+    display: flex; gap: 12px;
+  }
+  .d-profiles a {
+    padding: 12px 24px; background: var(--blue); color: #fff;
+    border-radius: var(--radius-sm); text-decoration: none;
+    font-size: 14px; font-weight: 600; transition: all 0.2s;
+  }
+  .d-profiles a:nth-child(2) { background: var(--green); }
+  .d-profiles a:nth-child(3) { background: transparent; color: var(--green); border: 2px solid var(--green); }
+  .d-profiles a:hover { opacity: 0.9; }
+
+  .d-services {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    padding: 48px 40px; max-width: 960px;
+  }
+  .d-service-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden; transition: all 0.2s;
+  }
+  .d-service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .d-service-card .img {
+    height: 140px;
+    background: linear-gradient(135deg, var(--green), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); font-size: 11px;
+  }
+  .d-service-card .body { padding: 16px; }
+  .d-service-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .d-service-card .price { font-size: 14px; color: var(--blue); font-weight: 600; }
+  .d-service-card .desc { font-size: 13px; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; }
+
+  /* Page padding */
+  .page-padding { padding: 40px 24px; }
+  .page-padding.bg-dark { background: #1a1a2e; }
+
+  .compare-label {
+    text-align: center; color: #fff; font-size: 20px;
+    font-family: 'Georgia', serif; padding: 40px 0 16px;
+  }
+  .compare-sub {
+    text-align: center; color: #888; font-size: 14px;
+    padding-bottom: 32px;
+  }
+
+  .two-col {
+    display: flex; gap: 32px; max-width: 920px;
+    margin: 0 auto; flex-wrap: wrap; justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="direction-nav">
+  <h1>Équi 22 — Directions Design</h1>
+  <button class="active" onclick="show('overview')">Vue d'ensemble</button>
+  <button onclick="show('c-mobile')">C: Mobile</button>
+  <button onclick="show('b-mobile')">B: Mobile</button>
+  <button onclick="show('c-desktop')">C: Desktop</button>
+  <button onclick="show('c-service')">C: Page service</button>
+  <span class="label">Ouvrir dans le navigateur pour explorer</span>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="direction-section active">
+  <div class="overview">
+    <h2>Directions Design — Équi 22</h2>
+    <p class="subtitle">Explorez les variations visuelles. Direction C (Hybride Storytelling) recommandée, enrichie d'éléments de B (Club Familial).</p>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>Direction C — Hybride Storytelling</h3>
+        <p>Hero émotionnel avec accroche + aiguillage par profil. Rythme alterné émotion → information → émotion → action. Le meilleur des deux mondes.</p>
+        <span class="tag">Recommandée</span>
+      </div>
+      <div class="overview-card">
+        <h3>Direction B — Club Familial</h3>
+        <p>Navbar verte identitaire, aiguillage par profil proéminent, grille de services compacte. Efficace et direct — le planning et les tarifs en premier.</p>
+        <span class="tag">Éléments intégrés en C</span>
+      </div>
+      <div class="overview-card">
+        <h3>Combinaison C + B</h3>
+        <p>Structure storytelling de C + efficacité informationnelle de B. Hero émotionnel mais compact, services en grille, tarifs visibles rapidement.</p>
+        <span class="tag">Direction retenue</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIRECTION C — MOBILE HOMEPAGE -->
+<div id="c-mobile" class="direction-section">
+  <div class="page-padding bg-dark">
+    <p class="mockup-label">Direction C — Homepage Mobile (420px)</p>
+    <div class="mockup-frame">
+      <!-- Navbar -->
+      <div class="c-navbar">
+        <div class="logo">Équi <span>22</span></div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="c-hero">
+        <div class="c-hero-content">
+          <h1>L'équitation pour tous, dans la bonne humeur</h1>
+          <p>Centre équestre familial à Yffiniac, près de Saint-Brieuc. Cours, pensions, stages, compétitions.</p>
+          <div class="c-profiles">
+            <a href="#">Mon enfant</a>
+            <a href="#">Je suis adulte</a>
+            <a href="#">Propriétaire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="c-section">
+        <h2>Nos activités</h2>
+        <div class="c-services">
+          <div class="c-card">
+            <div class="c-card-img">Photo<br>enfants</div>
+            <div class="c-card-body">
+              <h3>Cours enfants</h3>
+              <div class="price">Dès 17,50€/h</div>
+              <div class="desc">Dès 3 ans. Baby poney, galops, compétition.</div>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-card-img">Photo<br>adultes</div>
+            <div class="c-card-body">
+              <h3>Équitation adulte</h3>
+              <div class="price">Dès 18,75€/h</div>
+              <div class="desc">Débutant ou confirmé. Votre rythme, vos objectifs.</div>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-card-img">Photo<br>paddock</div>
+            <div class="c-card-body">
+              <h3>Pension chevaux</h3>
+              <div class="price">Dès 250€/mois</div>
+              <div class="desc">Box, paddock ou pré. 10 hectares, bien-être animal.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="c-section alt">
+        <div class="c-testimonial">
+          <div class="stars">★★★★★</div>
+          <div class="quote">"Ma fille adore ses cours du mercredi. L'ambiance est top, les monitrices sont adorables et les poneys sont bien traités. On recommande !"</div>
+          <div class="author">— Sophie, maman de Léa (8 ans)</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="c-section">
+        <h2>Une question ?</h2>
+        <p>Appelez-nous ou envoyez un message WhatsApp. On vous répond rapidement !</p>
+        <div class="c-cta-bar">
+          <a class="c-btn c-btn-phone" href="#">📞 Appeler</a>
+          <a class="c-btn c-btn-whatsapp" href="#">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="c-footer">
+        <strong>Équi 22</strong><br>
+        Yffiniac, Côtes-d'Armor<br>
+        06 22 16 64 52<br>
+        equi22.yffiniac@gmail.com
+      </div>
+
+      <!-- Sticky -->
+      <div class="c-sticky-footer">
+        <a class="c-sticky-btn phone" href="#">📞 Appeler</a>
+        <a class="c-sticky-btn whatsapp" href="#">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIRECTION B — MOBILE HOMEPAGE -->
+<div id="b-mobile" class="direction-section">
+  <div class="page-padding bg-dark">
+    <p class="mockup-label">Direction B — Homepage Mobile (420px)</p>
+    <div class="mockup-frame">
+      <!-- Navbar verte -->
+      <div class="b-navbar">
+        <div class="logo">Équi 22</div>
+        <div class="hamburger" style="width:28px;height:20px;display:flex;flex-direction:column;justify-content:space-between;">
+          <span style="display:block;height:2px;background:#fff;border-radius:1px;"></span>
+          <span style="display:block;height:2px;background:#fff;border-radius:1px;"></span>
+          <span style="display:block;height:2px;background:#fff;border-radius:1px;"></span>
+        </div>
+      </div>
+
+      <!-- Hero compact -->
+      <div class="b-hero">
+        <h1>Centre équestre familial à Yffiniac</h1>
+        <p>Cours, pensions, stages et compétitions près de Saint-Brieuc</p>
+      </div>
+
+      <!-- Profile routing -->
+      <div class="b-profiles">
+        <a class="b-profile-btn" href="#">
+          <div class="icon">👧</div>
+          <div><div class="label">Mon enfant veut monter</div><div class="sub">Cours dès 3 ans, baby poney, galops</div></div>
+        </a>
+        <a class="b-profile-btn" href="#">
+          <div class="icon">🧑</div>
+          <div><div class="label">Je suis adulte</div><div class="sub">Débutant ou confirmé, sans jugement</div></div>
+        </a>
+        <a class="b-profile-btn" href="#">
+          <div class="icon">🐴</div>
+          <div><div class="label">Je cherche une pension</div><div class="sub">Box, paddock, pré — 10 hectares</div></div>
+        </a>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="c-section alt">
+        <div class="b-quick-info">
+          <div class="b-info-card">
+            <div class="number">4.7★</div>
+            <div class="desc">Note Google</div>
+          </div>
+          <div class="b-info-card">
+            <div class="number">50+</div>
+            <div class="desc">Chevaux & poneys</div>
+          </div>
+          <div class="b-info-card">
+            <div class="number">10ha</div>
+            <div class="desc">De prés</div>
+          </div>
+          <div class="b-info-card">
+            <div class="number">6</div>
+            <div class="desc">Disciplines</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services grid -->
+      <div class="c-section">
+        <h2 style="font-family:Georgia,serif;font-size:20px;color:var(--green);margin-bottom:16px;">Nos activités</h2>
+        <div class="b-services-grid">
+          <a class="b-service-card" href="#">
+            <div class="icon">🏇</div>
+            <h3>Cours</h3>
+            <div class="from">Dès 17,50€/h</div>
+          </a>
+          <a class="b-service-card" href="#">
+            <div class="icon">🏕️</div>
+            <h3>Stages</h3>
+            <div class="from">110€/semaine</div>
+          </a>
+          <a class="b-service-card" href="#">
+            <div class="icon">🐎</div>
+            <h3>Pension</h3>
+            <div class="from">Dès 250€/mois</div>
+          </a>
+          <a class="b-service-card" href="#">
+            <div class="icon">🏆</div>
+            <h3>Compétition</h3>
+            <div class="from">Dès 55€</div>
+          </a>
+          <a class="b-service-card" href="#">
+            <div class="icon">🌿</div>
+            <h3>Balades</h3>
+            <div class="from">25€</div>
+          </a>
+          <a class="b-service-card" href="#">
+            <div class="icon">🐴</div>
+            <h3>Élevage</h3>
+            <div class="from">Bihan Braz</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sticky -->
+      <div class="c-sticky-footer">
+        <a class="c-sticky-btn phone" href="#">📞 Appeler</a>
+        <a class="c-sticky-btn whatsapp" href="#">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIRECTION C — DESKTOP -->
+<div id="c-desktop" class="direction-section">
+  <div class="page-padding bg-dark">
+    <p class="mockup-label">Direction C — Homepage Desktop (960px)</p>
+    <div class="desktop-frame">
+      <!-- Navbar -->
+      <div class="d-navbar">
+        <div class="logo">Équi <span>22</span></div>
+        <nav>
+          <a href="#">Cours</a>
+          <a href="#">Pension</a>
+          <a href="#">Stages</a>
+          <a href="#">Compétition</a>
+          <a href="#">Élevage</a>
+          <a href="#">Tarifs</a>
+        </nav>
+        <a class="cta" href="#">Nous contacter</a>
+      </div>
+
+      <!-- Hero split -->
+      <div class="d-hero">
+        <div class="d-hero-text">
+          <h1>L'équitation pour tous, dans la bonne humeur</h1>
+          <p>Centre équestre familial à Yffiniac, entre Saint-Brieuc et Lamballe. Cours enfants et adultes, pensions, stages vacances, compétitions.</p>
+          <div class="d-profiles">
+            <a href="#">Cours pour mon enfant</a>
+            <a href="#">Je suis adulte</a>
+            <a href="#">Pension cheval</a>
+          </div>
+        </div>
+        <div class="d-hero-img">
+          Photo : enfants souriants<br>sur poneys, lumière chaude
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div style="background:var(--beige);padding:16px 0 24px;">
+        <div class="d-services">
+          <div class="d-service-card">
+            <div class="img">Photo cours enfants</div>
+            <div class="body">
+              <h3>Cours enfants</h3>
+              <div class="price">Dès 17,50€/h</div>
+              <div class="desc">Baby poney dès 3 ans, galops, compétition</div>
+            </div>
+          </div>
+          <div class="d-service-card">
+            <div class="img">Photo adultes</div>
+            <div class="body">
+              <h3>Équitation adulte</h3>
+              <div class="price">Dès 18,75€/h</div>
+              <div class="desc">Votre rythme, vos objectifs. Sans jugement.</div>
+            </div>
+          </div>
+          <div class="d-service-card">
+            <div class="img">Photo pension</div>
+            <div class="body">
+              <h3>Pension chevaux</h3>
+              <div class="price">Dès 250€/mois</div>
+              <div class="desc">Box, paddock, pré. 10 hectares, bien-être animal.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer mini -->
+      <div class="c-footer" style="text-align:center;">
+        <strong>Équi 22</strong> — Yffiniac, Côtes-d'Armor — 06 22 16 64 52
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIRECTION C — SERVICE PAGE MOBILE -->
+<div id="c-service" class="direction-section">
+  <div class="page-padding bg-dark">
+    <p class="mockup-label">Direction C — Page "Cours enfants" Mobile</p>
+    <div class="mockup-frame">
+      <!-- Navbar -->
+      <div class="c-navbar">
+        <div class="logo">Équi <span>22</span></div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- Hero service -->
+      <div class="c-hero" style="height:200px;">
+        <div class="c-hero-content">
+          <h1>Cours d'équitation enfants</h1>
+          <p>Dès 3 ans, dans un cadre sécurisé et bienveillant</p>
+        </div>
+      </div>
+
+      <!-- Promesse -->
+      <div class="c-section">
+        <p><strong>Votre enfant rêve de monter à cheval ?</strong> Chez Équi 22, on l'accueille avec le sourire, on lui trouve le poney parfait, et on l'accompagne à son rythme — du baby poney jusqu'aux compétitions.</p>
+      </div>
+
+      <!-- Planning -->
+      <div class="c-section alt">
+        <h2>Planning des cours</h2>
+        <div class="c-planning-item">
+          <span class="day">Mercredi</span>
+          <span class="time">10h</span>
+          <span class="level">Baby poney</span>
+        </div>
+        <div class="c-planning-item">
+          <span class="day">Mercredi</span>
+          <span class="time">11h</span>
+          <span class="level">Débutant 6-9 ans</span>
+        </div>
+        <div class="c-planning-item">
+          <span class="day">Mercredi</span>
+          <span class="time">14h</span>
+          <span class="level">Compet G2/3</span>
+        </div>
+        <div class="c-planning-item">
+          <span class="day">Mercredi</span>
+          <span class="time">15h</span>
+          <span class="level">Débutant 10+</span>
+        </div>
+        <div class="c-planning-item">
+          <span class="day">Samedi</span>
+          <span class="time">11h</span>
+          <span class="level">Débutant 6-9 ans</span>
+        </div>
+      </div>
+
+      <!-- Tarifs -->
+      <div class="c-section">
+        <h2>Tarifs cours enfants</h2>
+        <table class="c-tarif-table">
+          <tr>
+            <th>Formule</th>
+            <th>Prix</th>
+            <th>€/h</th>
+          </tr>
+          <tr>
+            <td>Carte 40 leçons/an</td>
+            <td class="highlight">700€</td>
+            <td>17,50€</td>
+          </tr>
+          <tr>
+            <td>Carte 30 leçons/an</td>
+            <td>560€</td>
+            <td>18,60€</td>
+          </tr>
+          <tr>
+            <td>Carte 10 leçons</td>
+            <td>230€</td>
+            <td>23€</td>
+          </tr>
+          <tr>
+            <td>Séance d'essai</td>
+            <td class="highlight" colspan="2">Gratuite</td>
+          </tr>
+        </table>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:8px;">
+          + Licence FFE : 30€/an · Cotisation : 60€/an<br>
+          Réductions : -5% 2e enfant, -10% 3e enfant
+        </p>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="c-section alt">
+        <div class="c-testimonial">
+          <div class="stars">★★★★★</div>
+          <div class="quote">"Les monitrices sont au top, ma fille progresse vite et surtout elle est heureuse d'y aller chaque mercredi !"</div>
+          <div class="author">— Nathalie, maman d'Emma</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="c-section">
+        <h2>Envie d'essayer ?</h2>
+        <p>La première séance est offerte ! Appelez-nous pour réserver un créneau d'essai pour votre enfant.</p>
+        <div class="c-cta-bar">
+          <a class="c-btn c-btn-phone" href="#">📞 Appeler</a>
+          <a class="c-btn c-btn-whatsapp" href="#">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="c-footer">
+        <strong>Équi 22</strong><br>
+        Yffiniac, Côtes-d'Armor<br>
+        06 22 16 64 52
+      </div>
+
+      <!-- Sticky -->
+      <div class="c-sticky-footer">
+        <a class="c-sticky-btn phone" href="#">📞 Appeler</a>
+        <a class="c-sticky-btn whatsapp" href="#">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.direction-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.direction-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://equi22.fr/sitemap-index.xml

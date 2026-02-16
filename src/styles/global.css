@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+}
+
+@plugin "daisyui/theme" {
+  name: "equi22";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #FAF8F5;
+  --color-base-200: #F0EDE8;
+  --color-base-300: #E2DDD6;
+  --color-base-content: #2C2C2C;
+  --color-primary: #2D5F3F;
+  --color-primary-content: #FFFFFF;
+  --color-secondary: #1B6B93;
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #1B6B93;
+  --color-accent-content: #FFFFFF;
+  --color-neutral: #2C2C2C;
+  --color-neutral-content: #FAF8F5;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+}

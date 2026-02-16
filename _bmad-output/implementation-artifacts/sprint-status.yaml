@@ -1,0 +1,88 @@
+# generated: 2026-02-14
+# project: equi-22
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-02-14
+project: equi-22
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: done
+  1-1-initialize-astro-project-with-core-integrations: done
+  1-2-base-layout-with-seo-infrastructure: done
+  1-3-responsive-navbar: done
+  1-4-footer-with-practical-information: done
+  1-5-sticky-contact-bar: done
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-content-collections-schema-and-service-data-structure: backlog
+  2-2-service-page-layout-and-core-components: backlog
+  2-3-childrens-lessons-page: backlog
+  2-4-adult-riding-page: backlog
+  2-5-horse-boarding-page: backlog
+  2-6-holiday-camps-page: backlog
+  2-7-competitions-page: backlog
+  2-8-global-pricing-page: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-homepage-hero-and-profile-routing: backlog
+  3-2-service-cards-grid-on-homepage: backlog
+  3-3-homepage-news-section-with-freshness-logic: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-contact-form-component-with-web3forms-integration: backlog
+  4-2-dedicated-contact-page: backlog
+  epic-4-retrospective: optional
+
+  epic-5: backlog
+  5-1-about-page-center-values-and-instructors: backlog
+  5-2-structured-photo-gallery: backlog
+  5-3-google-reviews-display: backlog
+  epic-5-retrospective: optional
+
+  epic-6: backlog
+  6-1-blog-infrastructure-and-article-template: backlog
+  6-2-launch-blog-articles: backlog
+  6-3-event-blog-articles: backlog
+  epic-6-retrospective: optional
+
+  epic-7: backlog
+  7-1-legal-pages: backlog
+  7-2-analytics-integration: backlog
+  7-3-custom-404-page: backlog
+  7-4-accessibility-compliance-and-cross-cutting-standards: backlog
+  7-5-build-validation-and-ci-cd-pipeline: backlog
+  7-6-off-site-seo-actions: backlog
+  epic-7-retrospective: optional

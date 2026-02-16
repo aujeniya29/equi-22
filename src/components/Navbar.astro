@@ -1,0 +1,206 @@
+---
+import { mainMenu } from '../data/navigation.ts';
+import { business } from '../data/business.ts';
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav aria-label="Navigation principale" class="fixed top-0 left-0 right-0 z-50 bg-base-100 shadow-sm">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="font-serif text-xl lg:text-2xl font-bold text-primary hover:opacity-80 motion-safe:transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded">
+        {business.name}
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-6">
+        {mainMenu.slice(0, -1).map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'text-sm motion-safe:transition-colors relative group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded',
+              currentPath === link.href || currentPath.startsWith(link.href + '/')
+                ? 'text-primary font-semibold'
+                : 'text-base-content hover:text-primary',
+            ]}
+          >
+            {link.label}
+            <span
+              class:list={[
+                'absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left motion-safe:transition-transform motion-safe:duration-200',
+                currentPath === link.href || currentPath.startsWith(link.href + '/')
+                  ? 'scale-x-100'
+                  : 'scale-x-0 group-hover:scale-x-100',
+              ]}
+            />
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Contact Button (Desktop) -->
+      <div class="hidden lg:block">
+        <a href="/contact" class="btn btn-secondary">
+          Nous contacter
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        class="lg:hidden w-11 h-11 flex items-center justify-center text-base-content hover:text-primary motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-50 invisible opacity-0 motion-safe:transition-all motion-safe:duration-300"
+    aria-hidden="true"
+  >
+    <!-- Backdrop -->
+    <div id="mobile-menu-backdrop" class="absolute inset-0 bg-black/30"></div>
+
+    <!-- Menu Panel -->
+    <div class="absolute inset-y-0 right-0 w-full bg-base-100 translate-x-full motion-safe:transition-transform motion-safe:duration-300" id="mobile-menu-panel">
+      <div class="flex flex-col h-full">
+        <!-- Mobile Menu Header -->
+        <div class="flex items-center justify-between h-16 px-4 border-b border-base-200">
+          <span class="font-serif text-xl font-bold text-primary">
+            {business.name}
+          </span>
+          <button
+            id="menu-close"
+            type="button"
+            aria-label="Fermer le menu"
+            class="w-11 h-11 flex items-center justify-center text-base-content hover:text-primary motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Links -->
+        <div class="flex-1 overflow-y-auto">
+          <div class="flex flex-col py-4">
+            {mainMenu.map((link) => (
+              <a
+                href={link.href}
+                class:list={[
+                  'px-4 py-4 text-lg motion-safe:transition-colors min-h-[44px] flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+                  currentPath === link.href || currentPath.startsWith(link.href + '/')
+                    ? 'text-primary font-semibold bg-base-200'
+                    : 'text-base-content hover:bg-base-200 hover:text-primary',
+                ]}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const closeButton = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+
+  // Focus trap: collect focusable elements within the menu panel
+  function getFocusableElements(): HTMLElement[] {
+    if (!menuPanel) return [];
+    return Array.from(
+      menuPanel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+  }
+
+  function openMenu() {
+    if (!mobileMenu || !menuPanel) return;
+    mobileMenu.classList.remove('invisible', 'opacity-0');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuPanel.classList.remove('translate-x-full');
+    menuPanel.classList.add('translate-x-0');
+    menuButton?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button when menu opens
+    closeButton?.focus();
+  }
+
+  function closeMenu() {
+    if (!mobileMenu || !menuPanel) return;
+    menuPanel.classList.remove('translate-x-0');
+    menuPanel.classList.add('translate-x-full');
+    mobileMenu.classList.add('opacity-0');
+    // Wait for transition to finish before hiding
+    const handleTransitionEnd = () => {
+      mobileMenu.classList.add('invisible');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      menuPanel.removeEventListener('transitionend', handleTransitionEnd);
+    };
+    menuPanel.addEventListener('transitionend', handleTransitionEnd);
+    // Fallback in case transitionend doesn't fire (prefers-reduced-motion)
+    setTimeout(() => {
+      mobileMenu.classList.add('invisible');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }, 350);
+    menuButton?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    // Return focus to hamburger button
+    menuButton?.focus();
+  }
+
+  menuButton?.addEventListener('click', openMenu);
+  closeButton?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking on a link
+  menuPanel?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking on backdrop
+  backdrop?.addEventListener('click', closeMenu);
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('invisible')) {
+      closeMenu();
+    }
+  });
+
+  // Focus trap within mobile menu
+  mobileMenu?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = getFocusableElements();
+    if (focusable.length === 0) return;
+
+    const firstEl = focusable[0];
+    const lastEl = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      }
+    } else {
+      if (document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    }
+  });
+</script>

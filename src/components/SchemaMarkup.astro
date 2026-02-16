@@ -1,0 +1,74 @@
+---
+import { business } from '../data/business.ts';
+
+interface Props {
+  serviceType?: string;
+  serviceDescription?: string;
+}
+
+const { serviceType, serviceDescription } = Astro.props;
+
+const dayMapping: Record<string, string[]> = {
+  'Lundi - Vendredi': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  'Samedi': ['Saturday'],
+  'Dimanche': ['Sunday'],
+};
+
+const openingHoursSpecification = business.openingHours
+  .filter((entry) => entry.hours !== 'Fermé')
+  .map((entry) => {
+    const [opens, closes] = entry.hours.split(' - ').map((t) => t.replace('h', ':'));
+    return {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: dayMapping[entry.days] || [],
+      opens,
+      closes,
+    };
+  });
+
+const siteUrl = Astro.site?.href || 'https://equi22.fr';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: business.name,
+  url: siteUrl,
+  telephone: business.phone,
+  email: business.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address,
+    addressLocality: business.city,
+    postalCode: business.postalCode,
+    addressCountry: 'FR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: business.gps.latitude,
+    longitude: business.gps.longitude,
+  },
+  openingHoursSpecification,
+  sameAs: [business.social.facebook, business.social.instagram],
+};
+
+const serviceSchema = serviceType && serviceDescription ? {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: serviceType,
+  description: serviceDescription,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: business.name,
+    url: siteUrl,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: business.city,
+  },
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+{serviceSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+)}

@@ -58,8 +58,20 @@ Au centre équestre Equi 22, nous accueillons les enfants dès 3 ans avec des co
 
 ## Un environnement pédagogique et sécurisé
 
-Nos monitrices diplômées mettent tout en œuvre pour transmettre leur passion de l'équitation dans le respect du bien-être des poneys et des chevaux. La sécurité est notre priorité : équipements adaptés, poneys sélectionnés pour leur caractère calme, et groupes à effectifs réduits pour un suivi personnalisé.
+Nos monitrices diplômées mettent tout en œuvre pour transmettre leur passion de l'équitation dans le respect du bien-être des poneys et des chevaux. La sécurité est notre priorité : **équipements homologués et adaptés à leur taille**, **poneys sélectionnés pour leur caractère calme et leur patience**, et **groupes de 6 enfants maximum pour un suivi personnalisé**. Vous pouvez confier votre enfant en toute sérénité.
 
 ## Apprentissage et plaisir
 
 Les cours enfants permettent d'acquérir progressivement les bases de l'équitation : soins aux poneys, monte, exercices ludiques en manège et en carrière. Au-delà de la technique, votre enfant développe confiance en soi, autonomie et respect de l'animal.
+
+## Votre enfant progressera à son rythme
+
+Chez nous, chaque enfant avance selon sa propre progression, de la première rencontre avec un poney aux galops fédéraux :
+
+- **Baby Poney (3–5 ans)** — Première découverte du poney en main. L'enfant apprend à toucher, brosser, et monter au pas avec aide. Objectif : créer un lien de confiance et de plaisir.
+- **Découverte (6–8 ans)** — Les bases de la monte : position, équilibre, arrêts et direction au pas et au trot. L'enfant gagne en autonomie sur le poney.
+- **Galop 1–2 (8–12 ans)** — Premiers galops en groupe, exercices de souplesse sur le poney, découverte des différents poneys de l'écurie. Préparation aux premiers diplômes fédéraux.
+- **Galop 3–4 (12–14 ans)** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
+- **Galop 5–7 (14 ans et +)** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
+
+Nos monitrices adaptent chaque séance au niveau réel de l'enfant, pas à un calendrier rigide.

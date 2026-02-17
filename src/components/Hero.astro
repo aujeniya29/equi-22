@@ -1,0 +1,33 @@
+---
+import { Picture } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  imageSrc?: ImageMetadata;
+  imageAlt: string;
+}
+
+const { title, description, imageSrc, imageAlt } = Astro.props;
+---
+
+<section class="relative w-full h-[300px] lg:h-[450px] overflow-hidden">
+  {imageSrc ? (
+    <Picture
+      src={imageSrc}
+      formats={['avif', 'webp']}
+      alt={imageAlt}
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      fetchpriority="high"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  ) : (
+    <div class="absolute inset-0 bg-base-200"></div>
+  )}
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative z-10 flex flex-col justify-end h-full max-w-5xl mx-auto px-4 pb-8 lg:pb-12">
+    <h1 class="text-3xl lg:text-5xl font-serif text-white mb-2">{title}</h1>
+    <p class="text-lg lg:text-xl text-white/90 max-w-2xl">{description}</p>
+  </div>
+</section>

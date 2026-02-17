@@ -1,0 +1,55 @@
+---
+interface ScheduleItem {
+  day: string;
+  time: string;
+  level: string;
+}
+
+interface Props {
+  schedule: ScheduleItem[];
+  bgClass?: string;
+}
+
+const { schedule, bgClass = 'bg-base-100' } = Astro.props;
+---
+
+{schedule && schedule.length > 0 && (
+  <section class={`py-12 lg:py-16 ${bgClass}`}>
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-8">Planning</h2>
+
+      <!-- Desktop table -->
+      <div class="hidden lg:block overflow-x-auto">
+        <table class="table table-lg">
+          <thead>
+            <tr>
+              <th>Jour</th>
+              <th>Horaire</th>
+              <th>Niveau</th>
+            </tr>
+          </thead>
+          <tbody>
+            {schedule.map((slot) => (
+              <tr>
+                <td class="font-semibold text-primary">{slot.day}</td>
+                <td>{slot.time}</td>
+                <td><span class="badge badge-outline">{slot.level}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile cards — each row visually distinct -->
+      <div class="lg:hidden space-y-3">
+        {schedule.map((slot) => (
+          <div class="card border border-base-300 bg-base-100 p-4">
+            <p class="font-semibold text-primary">{slot.day}</p>
+            <p class="text-sm text-base-content/70 mt-1">{slot.time}</p>
+            <span class="badge badge-outline mt-2">{slot.level}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

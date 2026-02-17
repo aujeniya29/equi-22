@@ -4,7 +4,7 @@ description: "Des cours adaptés à chaque âge, du baby poney aux Galops, dans 
 seoTitle: "Cours équitation enfants Yffiniac Saint-Brieuc | Equi 22"
 seoDescription: "Cours d'équitation pour enfants dès 3 ans à Yffiniac. Baby poney, initiation, perfectionnement. Planning, tarifs et inscriptions."
 ogImage: "/images/services/cours-enfants-og.jpg"
-heroImage: "/images/hero/cours-enfants.jpg"
+heroImage: "/src/assets/images/hero/cours-enfants.png"
 heroImageAlt: "Enfants souriants sur des poneys dans le manège du centre équestre Equi 22"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les cours enfants. Pourriez-vous me donner des informations sur les horaires et les tarifs ?"
 order: 1

@@ -1,11 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProfileRouting from '../components/ProfileRouting.astro';
-// Replace with a real center overview photo once available:
+import ServiceCard from '../components/ServiceCard.astro';
 import homepageHero from '../assets/images/hero/homepage.png';
 
 const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du centre équestre Équi 22.";
+
+const allServices = await getCollection('services');
+const services = [...allServices].sort((a, b) => a.data.order - b.data.order);
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+);
+
+const serviceImages = await Promise.all(
+  services.map(async (service) => {
+    const imageModule = images[service.data.heroImage];
+    if (!imageModule) {
+      throw new Error(`Hero image not found: ${service.data.heroImage}`);
+    }
+    return (await imageModule()).default;
+  })
+);
 ---
 
 <BaseLayout
@@ -22,4 +40,15 @@ const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du c
   >
     <ProfileRouting />
   </Hero>
+
+  <section class="py-12 bg-base-200" aria-labelledby="services-heading">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 id="services-heading" class="text-2xl lg:text-3xl font-serif text-center mb-8">Nos services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <ServiceCard service={service} heroImageSrc={serviceImages[index]} />
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

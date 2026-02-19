@@ -6,12 +6,13 @@ interface Props {
   description: string;
   imageSrc?: ImageMetadata;
   imageAlt: string;
+  heightClass?: string;
 }
 
-const { title, description, imageSrc, imageAlt } = Astro.props;
+const { title, description, imageSrc, imageAlt, heightClass = 'h-[300px] lg:h-[450px]' } = Astro.props;
 ---
 
-<section class="relative w-full h-[300px] lg:h-[450px] overflow-hidden">
+<section class={`relative w-full ${heightClass} overflow-hidden`}>
   {imageSrc ? (
     <Picture
       src={imageSrc}
@@ -29,5 +30,6 @@ const { title, description, imageSrc, imageAlt } = Astro.props;
   <div class="relative z-10 flex flex-col justify-end h-full max-w-5xl mx-auto px-4 pb-8 lg:pb-12">
     <h1 class="text-3xl lg:text-5xl font-serif text-white mb-2">{title}</h1>
     <p class="text-lg lg:text-xl text-white/90 max-w-2xl">{description}</p>
+    <slot />
   </div>
 </section>

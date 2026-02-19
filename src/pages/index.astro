@@ -1,10 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProfileRouting from '../components/ProfileRouting.astro';
+// Replace with a real center overview photo once available:
+import homepageHero from '../assets/images/hero/homepage.png';
+
+const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du centre équestre Équi 22.";
 ---
 
 <BaseLayout
   title="Accueil"
-  description="Équi 22 — Centre équestre à Yffiniac. Cours d'équitation enfants et adultes, pension chevaux, stages vacances, compétitions."
+  description="Centre équestre à Yffiniac, Côtes-d'Armor. Cours enfants et adultes, pension chevaux, stages et compétitions. Découvrez Équi 22."
+  whatsappMessage={whatsappMessage}
 >
-  <h1>Équi 22</h1>
+  <Hero
+    title="Vivez l'équitation en Bretagne"
+    description="Cours pour enfants, adultes, pension chevaux et stages — au cœur des Côtes-d'Armor."
+    imageSrc={homepageHero}
+    imageAlt="Enfants souriants sur des poneys dans le manège du centre équestre Equi 22"
+    heightClass="min-h-[450px] lg:min-h-[600px]"
+  >
+    <ProfileRouting />
+  </Hero>
 </BaseLayout>

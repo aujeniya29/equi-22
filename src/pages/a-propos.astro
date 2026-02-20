@@ -1,6 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { business } from '../data/business';
@@ -40,6 +40,74 @@ const instructors: Instructor[] = [
 ];
 
 const whatsappMessage = `Bonjour, je souhaite en savoir plus sur le centre équestre ${business.name} à ${business.city}.`;
+
+// --- GALLERY SECTION ---
+
+// Gallery photo slot — imageSrc is optional so the page builds before client provides photos
+interface GalleryPhoto {
+  imageSrc?: ImageMetadata;
+  alt: string;
+}
+
+// Gallery zone — a named facility zone with its photo grid
+interface GalleryZone {
+  title: string;
+  photos: GalleryPhoto[];
+}
+
+// How to add real photos (when client provides them):
+// 1. Add the image file to src/assets/images/gallery/ (e.g., carrieres-1.jpg)
+// 2. Uncomment the matching import below
+// 3. Replace the { alt: '...' } object with { imageSrc: varName, alt: '...' }
+//
+// import gallerieCarrieres1 from '../assets/images/gallery/carrieres-1.jpg';
+// import gallerieCarrieres2 from '../assets/images/gallery/carrieres-2.jpg';
+// import gallerieBoxes1 from '../assets/images/gallery/boxes-1.jpg';
+// import gallerieBoxes2 from '../assets/images/gallery/boxes-2.jpg';
+// import galleriePaddocks1 from '../assets/images/gallery/paddocks-1.jpg';
+// import galleriePaddocks2 from '../assets/images/gallery/paddocks-2.jpg';
+// import gallerieChemins1 from '../assets/images/gallery/chemins-1.jpg';
+// import gallerieChemins2 from '../assets/images/gallery/chemins-2.jpg';
+// import gallerieEnvironnement1 from '../assets/images/gallery/environnement-1.jpg';
+// import gallerieEnvironnement2 from '../assets/images/gallery/environnement-2.jpg';
+
+const galleryZones: GalleryZone[] = [
+  {
+    title: 'Carrières',
+    photos: [
+      { alt: 'Carrière couverte du centre équestre Équi 22 à Yffiniac' },
+      { alt: 'Carrière extérieure en herbe du centre équestre Équi 22' },
+    ],
+  },
+  {
+    title: 'Boxes',
+    photos: [
+      { alt: 'Boxes spacieux et lumineux du centre équestre Équi 22' },
+      { alt: 'Cheval dans son box au centre équestre Équi 22 à Yffiniac' },
+    ],
+  },
+  {
+    title: 'Paddocks & Prés',
+    photos: [
+      { alt: 'Paddocks du centre équestre Équi 22 en Bretagne' },
+      { alt: 'Chevaux au pré au centre équestre Équi 22 à Yffiniac' },
+    ],
+  },
+  {
+    title: 'Chemins de randonnée',
+    photos: [
+      { alt: 'Chemin de randonnée équestre en Bretagne depuis le centre Équi 22' },
+      { alt: 'Balade en forêt depuis le centre équestre Équi 22 à Yffiniac' },
+    ],
+  },
+  {
+    title: 'Environnement',
+    photos: [
+      { alt: 'Vue du centre équestre Équi 22 en pleine nature bretonne' },
+      { alt: 'Paysage breton entourant le centre équestre Équi 22 à Yffiniac' },
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -185,6 +253,46 @@ const whatsappMessage = `Bonjour, je souhaite en savoir plus sur le centre éque
         <div class="aspect-[4/3] overflow-hidden rounded-xl">
           <div class="w-full h-full bg-[#F0EDE8]" aria-hidden="true" />
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structured photo gallery — organized by facility zone (FR21, FR22, FR23, FR24) -->
+  <section class="py-12 lg:py-16 bg-base-100">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-3">Notre galerie</h2>
+      <p class="text-base-content/70 mb-10 max-w-2xl">
+        Des installations authentiques photographiées au fil des saisons — carrières, boxes,
+        paddocks et les chemins de la campagne bretonne.
+      </p>
+
+      <div class="space-y-12">
+        {galleryZones.map((zone) => (
+          <div>
+            <h3 class="text-lg font-semibold text-base-content mb-4">{zone.title}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {zone.photos.map((photo) => (
+                <div class="aspect-[4/3] overflow-hidden rounded-xl">
+                  {photo.imageSrc ? (
+                    <Picture
+                      src={photo.imageSrc}
+                      formats={['avif', 'webp']}
+                      widths={[400, 800]}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      alt={photo.alt}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      class="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div class="w-full h-full bg-[#F0EDE8]" aria-hidden="true" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

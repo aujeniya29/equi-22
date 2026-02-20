@@ -6,6 +6,7 @@ import Hero from './Hero.astro';
 import PlanningBlock from './PlanningBlock.astro';
 import PricingTable from './PricingTable.astro';
 import Testimonial from './Testimonial.astro';
+import GoogleReviews from './GoogleReviews.astro';
 import { business } from '../data/business';
 
 interface Props {
@@ -83,6 +84,11 @@ const ctaBg        = BG[idx % 2];
       bgClass={testimonialBg}
     />
   )}
+
+  <!-- Google reviews badge — trust signal near testimonial -->
+  <div class="flex justify-center py-4 bg-base-100">
+    <GoogleReviews />
+  </div>
 
   <!-- CTA Section -->
   <section class={`py-12 lg:py-16 ${ctaBg}`}>

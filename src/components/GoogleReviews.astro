@@ -1,0 +1,40 @@
+---
+import { business } from '../data/business';
+
+interface Props {
+  variant?: 'badge' | 'inline';
+}
+
+const { variant = 'badge' } = Astro.props;
+const { rating, reviewCount, googleBusinessUrl } = business.googleReviews;
+---
+
+{variant === 'badge' ? (
+  <a
+    href={googleBusinessUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`Voir les avis Google de ${business.name}`}
+    class="inline-flex flex-col items-center gap-1 rounded-xl border border-base-300 bg-base-100 px-4 py-3 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+  >
+    <div class="flex items-center gap-1.5">
+      <span aria-hidden="true" class="text-yellow-400 text-lg">★</span>
+      <span class="text-lg font-bold text-base-content">{rating}</span>
+      <span class="text-base-content/60">/5</span>
+      <span class="text-sm text-base-content/70">— {reviewCount} avis Google</span>
+    </div>
+    <span class="text-xs text-base-content/50">Avis vérifiés Google</span>
+  </a>
+) : (
+  <a
+    href={googleBusinessUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`Voir les avis Google de ${business.name}`}
+    class="inline-flex items-center gap-1.5 text-sm text-base-content/70 hover:text-primary focus:outline-none focus:ring-1 focus:ring-primary rounded"
+  >
+    <span aria-hidden="true" class="text-yellow-400">★</span>
+    <span class="font-semibold text-base-content">{rating}/5</span>
+    <span>({reviewCount} avis Google)</span>
+  </a>
+)}

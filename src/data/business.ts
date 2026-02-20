@@ -13,6 +13,12 @@ export interface GpsCoordinates {
   longitude: number;
 }
 
+export interface GoogleReviews {
+  rating: number;
+  reviewCount: number;
+  googleBusinessUrl: string;
+}
+
 export interface BusinessInfo {
   name: string;
   address: string;
@@ -24,6 +30,7 @@ export interface BusinessInfo {
   openingHours: OpeningHours[];
   gps: GpsCoordinates;
   social: SocialLinks;
+  googleReviews: GoogleReviews;
 }
 
 export const business: BusinessInfo = {
@@ -46,5 +53,10 @@ export const business: BusinessInfo = {
   social: {
     facebook: 'https://www.facebook.com/equi22',
     instagram: 'https://www.instagram.com/equi22',
+  },
+  googleReviews: {
+    rating: 4.8,
+    reviewCount: 32,
+    googleBusinessUrl: 'https://g.page/r/PLACEHOLDER/review',
   },
 };

@@ -6,6 +6,7 @@ import ProfileRouting from '../components/ProfileRouting.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import NewsCard from '../components/NewsCard.astro';
 import homepageHero from '../assets/images/hero/homepage.png';
+import GoogleReviews from '../components/GoogleReviews.astro';
 
 const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du centre équestre Équi 22.";
 
@@ -49,6 +50,11 @@ const recentNews = [...allNews]
   >
     <ProfileRouting />
   </Hero>
+
+  <!-- Google reviews trust signal — between hero and service cards -->
+  <div class="flex justify-center py-6 bg-base-100">
+    <GoogleReviews />
+  </div>
 
   <section class="py-12 bg-base-200" aria-labelledby="services-heading">
     <div class="max-w-5xl mx-auto px-4">

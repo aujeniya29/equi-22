@@ -4,6 +4,7 @@ import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { business } from '../data/business';
+import GoogleReviews from '../components/GoogleReviews.astro';
 
 // Instructor type — imageSrc is optional so the page builds before real photos are ready
 interface Instructor {
@@ -142,6 +143,9 @@ const galleryZones: GalleryZone[] = [
           Nos valeurs ne changent pas : bienveillance, respect du cheval, progression à votre rythme.
           Pas de jugement, pas de pression. Juste le plaisir du contact avec l'animal.
         </p>
+      </div>
+      <div class="mt-6">
+        <GoogleReviews variant="inline" />
       </div>
     </div>
   </section>

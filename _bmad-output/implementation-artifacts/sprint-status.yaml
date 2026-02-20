@@ -58,12 +58,12 @@ development_status:
   epic-3: in-progress
   3-1-homepage-hero-and-profile-routing: done
   3-2-service-cards-grid-on-homepage: done
-  3-3-homepage-news-section-with-freshness-logic: backlog
+  3-3-homepage-news-section-with-freshness-logic: done
   epic-3-retrospective: optional
 
-  epic-4: backlog
-  4-1-contact-form-component-with-web3forms-integration: backlog
-  4-2-dedicated-contact-page: backlog
+  epic-4: in-progress
+  4-1-contact-form-component-with-web3forms-integration: done
+  4-2-dedicated-contact-page: done
   epic-4-retrospective: optional
 
   epic-5: backlog

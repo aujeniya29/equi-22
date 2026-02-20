@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Blog"
+  description="Conseils, histoires et ressources sur l'équitation à Yffiniac et en Côtes-d'Armor."
+>
+    <section class="py-16 bg-base-100">
+      <div class="container mx-auto max-w-3xl px-4">
+        <h1 class="text-4xl font-serif text-base-content mb-4">Blog</h1>
+        <p class="text-base-content/70 mb-12">
+          Conseils, histoires et ressources pour tous les passionnés de cheval.
+        </p>
+
+        {posts.length === 0 ? (
+          <p class="text-base-content/60 text-center py-16">
+            Nos premiers articles arrivent bientôt !
+          </p>
+        ) : (
+          <ul class="flex flex-col gap-10">
+            {posts.map((post) => (
+              <li>
+                <article class="border-b border-base-300 pb-10">
+                  <time
+                    datetime={post.data.date.toISOString()}
+                    class="text-sm text-base-content/50 uppercase tracking-wide"
+                  >
+                    {formatDate(post.data.date)}
+                  </time>
+                  <h2 class="text-2xl font-serif text-base-content mt-1 mb-3">
+                    <a
+                      href={`/blog/${post.id}`}
+                      class="hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded transition"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h2>
+                  <p class="text-base-content/70 mb-4">{post.data.excerpt}</p>
+                  <a
+                    href={`/blog/${post.id}`}
+                    class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded"
+                    aria-label={`Lire l'article : ${post.data.title}`}
+                  >
+                    Lire l'article →
+                  </a>
+                </article>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+</BaseLayout>

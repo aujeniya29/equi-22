@@ -37,6 +37,8 @@ const pricingBg    = BG[idx % 2];
 if (hasPricing) idx++;
 const testimonialBg = BG[idx % 2];
 if (hasTestimonial) idx++;
+const reviewsBg    = BG[idx % 2]; // GoogleReviews always renders — must participate in alternation
+idx++;
 const ctaBg        = BG[idx % 2];
 ---
 
@@ -86,7 +88,7 @@ const ctaBg        = BG[idx % 2];
   )}
 
   <!-- Google reviews badge — trust signal near testimonial -->
-  <div class="flex justify-center py-4 bg-base-100">
+  <div class={`flex justify-center py-8 ${reviewsBg}`}>
     <GoogleReviews />
   </div>
 

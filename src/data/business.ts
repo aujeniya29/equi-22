@@ -57,6 +57,7 @@ export const business: BusinessInfo = {
   googleReviews: {
     rating: 4.8,
     reviewCount: 32,
+    // TODO: Replace with actual Google Business Profile URL once available from client
     googleBusinessUrl: 'https://g.page/r/PLACEHOLDER/review',
   },
 };

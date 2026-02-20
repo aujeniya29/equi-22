@@ -1,6 +1,6 @@
 # Story 5.3: Google Reviews Display
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -403,3 +403,4 @@ _No issues encountered. Clean build first pass._
 | Date | Change |
 |---|---|
 | 2026-02-20 | Story 5-3 implemented: GoogleReviews component created and integrated on homepage, about page, and all 5 service pages via ServicePage.astro |
+| 2026-02-20 | Code review fixes: M1 — ServicePage.astro bg alternation fixed (reviewsBg computed via idx system, py-4→py-8); M2 — GoogleReviews.astro contrast raised text-base-content/50→/70; L1 — inline variant adds sr-only "Avis vérifiés Google"; L2 — index.astro div→section with aria-label; L3 — aria-label includes "(nouvel onglet)"; L4 — business.ts TODO comment on placeholder URL |

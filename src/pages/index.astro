@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProfileRouting from '../components/ProfileRouting.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import NewsCard from '../components/NewsCard.astro';
 import homepageHero from '../assets/images/hero/homepage.png';
 
 const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du centre équestre Équi 22.";
@@ -24,6 +25,14 @@ const serviceImages = await Promise.all(
     return (await imageModule()).default;
   })
 );
+
+// News section — build-time freshness filtering
+const cutoffDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+const allNews = await getCollection('news');
+const recentNews = [...allNews]
+  .filter(item => item.data.date >= cutoffDate)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -51,4 +60,17 @@ const serviceImages = await Promise.all(
       </div>
     </div>
   </section>
+
+  {recentNews.length > 0 && (
+    <section class="py-12 bg-base-100" aria-labelledby="news-heading">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 id="news-heading" class="text-2xl lg:text-3xl font-serif text-center mb-8">Actualités</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentNews.map((item) => (
+            <NewsCard news={item} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>

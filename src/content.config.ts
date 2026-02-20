@@ -54,4 +54,14 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { services };
+const news = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    excerpt: z.string(),
+    link: z.string().optional(),
+  }),
+});
+
+export const collections = { services, news };

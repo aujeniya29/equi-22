@@ -1,0 +1,357 @@
+---
+interface Props {
+  variant?: 'generic' | 'cours' | 'pension' | 'evenement';
+}
+
+const { variant = 'generic' } = Astro.props;
+const accessKey = import.meta.env.WEB3FORMS_KEY ?? '';
+const uid = Math.random().toString(36).slice(2, 9);
+---
+
+<div data-contact-form class="w-full">
+  <p class="contact-obligatoire-note text-sm text-base-content/60 mb-6">* Obligatoire</p>
+
+  <form class="flex flex-col gap-5" novalidate>
+    <!-- Web3Forms required hidden fields -->
+    <input type="hidden" name="access_key" value={accessKey} />
+    <input type="hidden" name="subject" value="Nouvelle demande de contact — Équi 22" />
+    <input type="hidden" name="form_variant" value={variant} />
+    <input type="hidden" name="from_name" value="Équi 22 Site Web" />
+    <!-- Honeypot: hidden from real users, traps bots -->
+    <input
+      type="checkbox"
+      name="botcheck"
+      style="display:none;"
+      tabindex="-1"
+      aria-hidden="true"
+    />
+
+    <!-- Prénom (required, all variants) -->
+    <div class="form-control">
+      <label class="label pb-1" for={`contact-prenom-${uid}`}>
+        <span class="label-text font-medium">Prénom *</span>
+      </label>
+      <input
+        type="text"
+        id={`contact-prenom-${uid}`}
+        name="prenom"
+        class="input input-bordered w-full"
+        required
+        autocomplete="given-name"
+        aria-describedby={`contact-prenom-${uid}-error`}
+      />
+      <p id={`contact-prenom-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+        Merci d'indiquer votre prénom.
+      </p>
+    </div>
+
+    <!-- Téléphone (required, all variants) -->
+    <div class="form-control">
+      <label class="label pb-1" for={`contact-telephone-${uid}`}>
+        <span class="label-text font-medium">Téléphone *</span>
+      </label>
+      <input
+        type="tel"
+        id={`contact-telephone-${uid}`}
+        name="telephone"
+        class="input input-bordered w-full"
+        required
+        autocomplete="tel"
+        aria-describedby={`contact-telephone-${uid}-error`}
+      />
+      <p id={`contact-telephone-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+        Merci d'indiquer votre numéro de téléphone pour qu'on puisse vous rappeler.
+      </p>
+    </div>
+
+    <!-- Cours variant: Âge de l'enfant (optional) -->
+    {variant === 'cours' && (
+      <div class="form-control">
+        <label class="label pb-1" for={`contact-age-enfant-${uid}`}>
+          <span class="label-text font-medium">Âge de l'enfant</span>
+        </label>
+        <input
+          type="text"
+          id={`contact-age-enfant-${uid}`}
+          name="age_enfant"
+          class="input input-bordered w-full"
+          placeholder="ex : 8 ans"
+          autocomplete="off"
+        />
+      </div>
+    )}
+
+    <!-- Pension variant: Type d'équidé (optional select) -->
+    {variant === 'pension' && (
+      <div class="form-control">
+        <label class="label pb-1" for={`contact-type-equide-${uid}`}>
+          <span class="label-text font-medium">Type d'équidé</span>
+        </label>
+        <select
+          id={`contact-type-equide-${uid}`}
+          name="type_equide"
+          class="select select-bordered w-full"
+        >
+          <option value="">— Sélectionner —</option>
+          <option value="poney">Poney</option>
+          <option value="cheval">Cheval</option>
+        </select>
+      </div>
+    )}
+
+    <!-- Événement variant: 3 required extra fields -->
+    {variant === 'evenement' && (
+      <>
+        <div class="form-control">
+          <label class="label pb-1" for={`contact-type-evenement-${uid}`}>
+            <span class="label-text font-medium">Type d'événement *</span>
+          </label>
+          <select
+            id={`contact-type-evenement-${uid}`}
+            name="type_evenement"
+            class="select select-bordered w-full"
+            required
+            aria-describedby={`contact-type-evenement-${uid}-error`}
+          >
+            <option value="">— Sélectionner —</option>
+            <option value="anniversaire">Anniversaire poney</option>
+            <option value="scolaire">Sortie scolaire</option>
+            <option value="team-building">Team-building</option>
+            <option value="autre">Autre</option>
+          </select>
+          <p id={`contact-type-evenement-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+            Merci de sélectionner un type d'événement.
+          </p>
+        </div>
+
+        <div class="form-control">
+          <label class="label pb-1" for={`contact-date-souhaitee-${uid}`}>
+            <span class="label-text font-medium">Date souhaitée *</span>
+          </label>
+          <input
+            type="text"
+            id={`contact-date-souhaitee-${uid}`}
+            name="date_souhaitee"
+            class="input input-bordered w-full"
+            placeholder="ex : juin 2026"
+            required
+            aria-describedby={`contact-date-souhaitee-${uid}-error`}
+          />
+          <p id={`contact-date-souhaitee-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+            Merci d'indiquer une date souhaitée.
+          </p>
+        </div>
+
+        <div class="form-control">
+          <label class="label pb-1" for={`contact-nb-participants-${uid}`}>
+            <span class="label-text font-medium">Nombre de participants *</span>
+          </label>
+          <input
+            type="number"
+            id={`contact-nb-participants-${uid}`}
+            name="nb_participants"
+            class="input input-bordered w-full"
+            min="1"
+            required
+            aria-describedby={`contact-nb-participants-${uid}-error`}
+          />
+          <p id={`contact-nb-participants-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+            Merci d'indiquer le nombre de participants (minimum 1).
+          </p>
+        </div>
+      </>
+    )}
+
+    <!-- Message (required, all variants) -->
+    <div class="form-control">
+      <label class="label pb-1" for={`contact-message-${uid}`}>
+        <span class="label-text font-medium">Message *</span>
+      </label>
+      <textarea
+        id={`contact-message-${uid}`}
+        name="message"
+        class="textarea textarea-bordered w-full min-h-[120px]"
+        required
+        aria-describedby={`contact-message-${uid}-error`}
+      ></textarea>
+      <p id={`contact-message-${uid}-error`} class="text-error text-sm mt-1 hidden" role="alert">
+        Merci d'écrire votre message.
+      </p>
+    </div>
+
+    <!-- Submit button -->
+    <div>
+      <button
+        type="submit"
+        class="contact-submit-btn btn btn-primary w-full sm:w-auto min-h-[44px]"
+      >
+        Envoyer ma demande
+      </button>
+    </div>
+  </form>
+
+  <!-- Success alert (outside <form> so it remains visible when form is hidden) -->
+  <div
+    class="contact-success alert alert-success hidden mt-5"
+    role="status"
+    aria-live="polite"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span>Merci ! On vous rappelle dans les 24h.</span>
+  </div>
+
+  <!-- Error alert (outside <form> so layout is consistent; shown on submission failure) -->
+  <div
+    class="contact-error-msg alert alert-error hidden mt-5"
+    role="alert"
+    aria-live="assertive"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span>Une erreur s'est produite. Merci de réessayer ou de nous appeler directement.</span>
+  </div>
+</div>
+
+<script>
+  // Handles all ContactForm instances on the page (deduped by Astro module bundler)
+  document.querySelectorAll<HTMLElement>('[data-contact-form]').forEach((wrapper) => {
+    const form = wrapper.querySelector('form');
+    if (!form) return;
+
+    const submitBtn = wrapper.querySelector<HTMLButtonElement>('.contact-submit-btn');
+    const successEl = wrapper.querySelector('.contact-success');
+    const errorEl = wrapper.querySelector('.contact-error-msg');
+    const obligatoireNote = wrapper.querySelector('.contact-obligatoire-note');
+
+    // --- Validation helpers ---
+
+    function getErrorEl(field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement): HTMLElement | null {
+      const id = field.getAttribute('aria-describedby');
+      return id ? wrapper.querySelector(`#${id}`) : null;
+    }
+
+    function setValid(field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement): void {
+      const tag = field.tagName.toLowerCase();
+      if (tag === 'textarea') {
+        field.classList.remove('textarea-error');
+        field.classList.add('textarea-success');
+      } else if (tag === 'select') {
+        field.classList.remove('select-error');
+        field.classList.add('select-success');
+      } else {
+        field.classList.remove('input-error');
+        field.classList.add('input-success');
+      }
+      getErrorEl(field)?.classList.add('hidden');
+    }
+
+    function setInvalid(field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement): void {
+      const tag = field.tagName.toLowerCase();
+      if (tag === 'textarea') {
+        field.classList.remove('textarea-success');
+        field.classList.add('textarea-error');
+      } else if (tag === 'select') {
+        field.classList.remove('select-success');
+        field.classList.add('select-error');
+      } else {
+        field.classList.remove('input-success');
+        field.classList.add('input-error');
+      }
+      getErrorEl(field)?.classList.remove('hidden');
+    }
+
+    function validateField(field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement): boolean {
+      if (!field.hasAttribute('required')) return true;
+      const value = field.value.trim();
+      if (value.length === 0) {
+        setInvalid(field);
+        return false;
+      }
+      // Enforce min constraint for number fields (novalidate disables native browser check)
+      if (field instanceof HTMLInputElement && field.type === 'number' && field.hasAttribute('min')) {
+        const num = Number(value);
+        const min = Number(field.min);
+        if (isNaN(num) || num < min) {
+          setInvalid(field);
+          return false;
+        }
+      }
+      setValid(field);
+      return true;
+    }
+
+    // Collect validatable fields (skip hidden/honeypot)
+    const validatableFields = Array.from(
+      form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
+        'input:not([type="hidden"]):not([type="checkbox"]), textarea, select'
+      )
+    );
+
+    // --- Blur validation ---
+    validatableFields.forEach((field) => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+
+    // --- Form submission ---
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Validate all required fields, collect invalid ones
+      let isValid = true;
+      const invalidFields: (HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement)[] = [];
+      validatableFields.forEach((field) => {
+        if (field.hasAttribute('required') && !validateField(field)) {
+          isValid = false;
+          invalidFields.push(field);
+        }
+      });
+
+      if (!isValid) {
+        invalidFields[0]?.focus();
+        return;
+      }
+
+      // Loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours…';
+      }
+      errorEl?.classList.add('hidden');
+
+      // Build FormData (includes `access_key` from hidden input automatically)
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await res.json() as { success: boolean; message?: string };
+
+        if (data.success) {
+          // Hide form and obligatoire note, show success
+          form.classList.add('hidden');
+          obligatoireNote?.classList.add('hidden');
+          successEl?.classList.remove('hidden');
+        } else {
+          // Re-enable button, show error
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Envoyer ma demande';
+          }
+          errorEl?.classList.remove('hidden');
+        }
+      } catch {
+        // Network error
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Envoyer ma demande';
+        }
+        errorEl?.classList.remove('hidden');
+      }
+    });
+  });
+</script>

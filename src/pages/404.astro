@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page introuvable"
+  description="Cette page n'existe pas ou a été déplacée. Revenez à l'accueil ou explorez nos services d'équitation."
+  noindex={true}
+>
+  <section aria-labelledby="heading-404" class="min-h-screen flex items-center justify-center bg-base-100 py-24 px-4">
+    <div class="max-w-2xl w-full text-center">
+
+      <p class="text-6xl mb-4" aria-hidden="true">🐴</p>
+
+      <h1 id="heading-404" class="text-3xl md:text-4xl font-serif text-base-content mb-4">
+        Oups, ce chemin ne mène nulle part !
+      </h1>
+      <p class="text-base-content/70 text-lg mb-10">
+        La page que vous cherchez a peut-être été déplacée ou n'existe plus.<br class="hidden sm:inline" />
+        Mais on peut vous aider à trouver ce qu'il vous faut :
+      </p>
+
+      <nav aria-label="Pages populaires" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <a
+          href="/cours-enfants"
+          class="card bg-base-200 hover:bg-base-300 transition-colors border border-base-300 p-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-xl"
+        >
+          <p class="font-serif text-lg text-base-content mb-1">Cours enfants</p>
+          <p class="text-base-content/60 text-sm">Baby poney, enfants, ados — tous niveaux</p>
+        </a>
+
+        <a
+          href="/equitation-adulte"
+          class="card bg-base-200 hover:bg-base-300 transition-colors border border-base-300 p-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-xl"
+        >
+          <p class="font-serif text-lg text-base-content mb-1">Équitation adulte</p>
+          <p class="text-base-content/60 text-sm">Débutants bienvenus, à votre rythme</p>
+        </a>
+
+        <a
+          href="/pension-chevaux"
+          class="card bg-base-200 hover:bg-base-300 transition-colors border border-base-300 p-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-xl"
+        >
+          <p class="font-serif text-lg text-base-content mb-1">Pension chevaux</p>
+          <p class="text-base-content/60 text-sm">Box, paddock, prairie — bien-être animal</p>
+        </a>
+
+        <a
+          href="/tarifs"
+          class="card bg-base-200 hover:bg-base-300 transition-colors border border-base-300 p-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-xl"
+        >
+          <p class="font-serif text-lg text-base-content mb-1">Nos tarifs</p>
+          <p class="text-base-content/60 text-sm">Toutes les formules, transparentes</p>
+        </a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/" class="btn btn-primary btn-wide">
+          Retour à l'accueil
+        </a>
+        <a href="/contact" class="btn btn-outline btn-wide">
+          Nous contacter
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

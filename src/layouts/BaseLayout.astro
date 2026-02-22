@@ -14,6 +14,7 @@ interface Props {
   serviceType?: string;
   serviceDescription?: string;
   whatsappMessage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   serviceType,
   serviceDescription,
   whatsappMessage,
+  noindex = false,
 } = Astro.props;
 
 const siteName = 'Équi 22';
@@ -58,6 +60,7 @@ const umamiId = import.meta.env.UMAMI_ID;
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <SchemaMarkup serviceType={serviceType} serviceDescription={serviceDescription} />
     {umamiId && (
       <script is:inline async src="https://cloud.umami.is/script.js" data-website-id={umamiId} data-domains="equi22.fr"></script>

@@ -22,6 +22,7 @@ const { pricing, pricingNotes, bgClass = 'bg-base-200' } = Astro.props;
     <!-- Desktop table -->
     <div class="hidden lg:block overflow-x-auto">
       <table class="table">
+        <caption class="sr-only">Tableau des tarifs</caption>
         <thead>
           <tr>
             <th>Formule</th>
@@ -66,7 +67,7 @@ const { pricing, pricingNotes, bgClass = 'bg-base-200' } = Astro.props;
       <ul class="mt-6 space-y-1 text-sm text-base-content/70">
         {pricingNotes.map((note) => (
           <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 mt-0.5 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mt-0.5 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             {note}

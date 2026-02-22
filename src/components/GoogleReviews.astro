@@ -15,7 +15,7 @@ const { rating, reviewCount, googleBusinessUrl } = business.googleReviews;
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`Voir les avis Google de ${business.name} (nouvel onglet)`}
-    class="inline-flex flex-col items-center gap-1 rounded-xl border border-base-300 bg-base-100 px-4 py-3 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+    class="inline-flex flex-col items-center gap-1 rounded-xl border border-base-300 bg-base-100 px-4 py-3 shadow-sm transition hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
   >
     <div class="flex items-center gap-1.5">
       <span aria-hidden="true" class="text-yellow-400 text-lg">★</span>
@@ -31,7 +31,7 @@ const { rating, reviewCount, googleBusinessUrl } = business.googleReviews;
     target="_blank"
     rel="noopener noreferrer"
     aria-label={`Voir les avis Google de ${business.name} (nouvel onglet)`}
-    class="inline-flex items-center gap-1.5 text-sm text-base-content/70 hover:text-primary focus:outline-none focus:ring-1 focus:ring-primary rounded"
+    class="inline-flex items-center gap-1.5 text-sm text-base-content/70 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
   >
     <span aria-hidden="true" class="text-yellow-400">★</span>
     <span class="font-semibold text-base-content">{rating}/5</span>

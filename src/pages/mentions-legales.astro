@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business.ts';
+---
+
+<BaseLayout
+  title="Mentions légales — Équi 22"
+  description="Mentions légales du site equi22.fr : éditeur, hébergeur, droits de propriété intellectuelle et informations CNIL."
+>
+  <main class="py-16 bg-base-100">
+    <div class="container mx-auto max-w-3xl px-4">
+
+      <h1 class="text-4xl font-serif text-base-content mb-10">Mentions légales</h1>
+
+      <section class="mb-10" aria-labelledby="editeur-heading">
+        <h2 id="editeur-heading" class="text-2xl font-serif text-base-content mb-4">
+          Éditeur du site
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Le site <strong>equi22.fr</strong> est édité par :
+        </p>
+        <ul class="mt-3 space-y-1 text-base-content/80">
+          <li><strong>Raison sociale :</strong> {business.name}</li>
+          <li><strong>Forme juridique :</strong> {business.legalForm}</li>
+          <li><strong>SIRET :</strong> {business.siret}</li>
+          <li><strong>Adresse :</strong> {business.address}, {business.postalCode} {business.city}</li>
+          <li>
+            <strong>Téléphone :</strong>{' '}
+            <a
+              href={`tel:${business.phone.replace(/\s/g, '')}`}
+              class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            >
+              {business.phone}
+            </a>
+          </li>
+          <li>
+            <strong>Email :</strong>{' '}
+            <a
+              href={`mailto:${business.email}`}
+              class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            >
+              {business.email}
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-10" aria-labelledby="hebergeur-heading">
+        <h2 id="hebergeur-heading" class="text-2xl font-serif text-base-content mb-4">
+          Hébergeur
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Le site est hébergé par :
+        </p>
+        <ul class="mt-3 space-y-1 text-base-content/80">
+          <li><strong>Raison sociale :</strong> Cloudflare, Inc.</li>
+          <li><strong>Adresse :</strong> 101 Townsend St, San Francisco, CA 94107, États-Unis</li>
+          <li>
+            <strong>Site web :</strong>{' '}
+            <a
+              href="https://www.cloudflare.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+              aria-label="Site de Cloudflare (nouvel onglet)"
+            >
+              cloudflare.com
+            </a>
+          </li>
+        </ul>
+        <p class="mt-3 text-base-content/70 text-sm">
+          Le site est servi via le réseau CDN de Cloudflare Pages. Aucune donnée utilisateur n'est stockée sur les serveurs de Cloudflare au-delà des logs d'accès techniques habituels.
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="cnil-heading">
+        <h2 id="cnil-heading" class="text-2xl font-serif text-base-content mb-4">
+          Données personnelles & CNIL
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Ce site traite des données personnelles dans le cadre de son formulaire de contact. Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez de droits sur vos données.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          Pour en savoir plus sur la collecte et le traitement de vos données, consultez notre{' '}
+          <a
+            href="/politique-confidentialite"
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+          >
+            Politique de confidentialité
+          </a>.
+        </p>
+        <p class="mt-3 text-base-content/70 text-sm">
+          La Commission Nationale de l'Informatique et des Libertés (CNIL) est l'autorité de contrôle compétente en France :{' '}
+          <a
+            href="https://www.cnil.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            aria-label="Site de la CNIL (nouvel onglet)"
+          >
+            cnil.fr
+          </a>.
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="propriete-heading">
+        <h2 id="propriete-heading" class="text-2xl font-serif text-base-content mb-4">
+          Propriété intellectuelle
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          L'ensemble du contenu de ce site — textes, photographies, illustrations, logos — est la propriété de {business.name}, sauf mention contraire explicite. Toute reproduction, même partielle, est interdite sans autorisation préalable écrite de l'éditeur.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          Les marques et logos présents sur ce site sont déposés par leurs propriétaires respectifs.
+        </p>
+      </section>
+
+      <section aria-labelledby="responsabilite-heading">
+        <h2 id="responsabilite-heading" class="text-2xl font-serif text-base-content mb-4">
+          Responsabilité
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Les informations publiées sur ce site sont fournies à titre indicatif. {business.name} s'efforce de maintenir ces informations à jour mais ne saurait être tenu responsable d'éventuelles erreurs ou omissions, ni des conséquences de leur utilisation.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          Les liens vers des sites externes sont fournis à titre informatif. {business.name} n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
+        </p>
+      </section>
+
+    </div>
+  </main>
+</BaseLayout>

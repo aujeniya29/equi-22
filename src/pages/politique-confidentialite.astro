@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business.ts';
+
+// ← Mettre à jour manuellement à chaque modification du contenu de cette page
+const lastUpdated = '22 février 2026';
+---
+
+<BaseLayout
+  title="Politique de confidentialité — Équi 22"
+  description="Comment Équi 22 collecte, utilise et protège vos données personnelles. Analytics cookieless, formulaire de contact, droits RGPD."
+>
+  <main class="py-16 bg-base-100">
+    <div class="container mx-auto max-w-3xl px-4">
+
+      <h1 class="text-4xl font-serif text-base-content mb-4">
+        Politique de confidentialité
+      </h1>
+      <p class="text-base-content/50 text-sm mb-10">Dernière mise à jour : {lastUpdated}</p>
+
+      <section class="mb-10" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" class="text-2xl font-serif text-base-content mb-4">
+          Notre engagement
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Chez {business.name}, nous faisons simple : nous collectons le minimum de données nécessaires, nous ne les revendons pas, et nous vous expliquons clairement ce que nous faisons avec.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          Cette page vous explique, en langage clair, quelles données nous collectons lorsque vous visitez ce site ou nous contactez via le formulaire.
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="analytics-heading">
+        <h2 id="analytics-heading" class="text-2xl font-serif text-base-content mb-4">
+          Mesure d'audience (analytics)
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Ce site utilise <strong>Umami Cloud</strong>, un outil d'analyse d'audience respectueux de la vie privée.
+        </p>
+        <ul class="mt-4 space-y-2 text-base-content/80">
+          <li class="flex gap-2">
+            <span class="text-success font-bold shrink-0">✓</span>
+            <span><strong>Sans cookies :</strong> Umami ne dépose aucun cookie sur votre navigateur.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success font-bold shrink-0">✓</span>
+            <span><strong>Sans identification :</strong> Aucune adresse IP ni identifiant personnel n'est stocké. Les données sont agrégées et anonymisées.</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-success font-bold shrink-0">✓</span>
+            <span><strong>Sans bandeau de consentement :</strong> Parce qu'Umami est cookieless, nous n'avons pas besoin de vous demander votre accord pour l'analyse d'audience. La CNIL confirme qu'aucune bannière n'est requise pour ce type d'outil.</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-base-content/80 leading-relaxed">
+          <strong>Ce que nous mesurons :</strong> les pages visitées, le pays de connexion (via IP, non stockée), le type d'appareil, et la source de trafic (référent). Ces données nous permettent de comprendre ce qui intéresse nos visiteurs et d'améliorer le site.
+        </p>
+        <p class="mt-3 text-base-content/70 text-sm">
+          En savoir plus sur Umami :{' '}
+          <a
+            href="https://umami.is/docs/faq"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            aria-label="FAQ Umami — vie privée (nouvel onglet)"
+          >
+            umami.is/docs/faq
+          </a>
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="formulaire-heading">
+        <h2 id="formulaire-heading" class="text-2xl font-serif text-base-content mb-4">
+          Formulaire de contact
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Lorsque vous remplissez notre formulaire de contact, nous collectons :
+        </p>
+        <ul class="mt-3 space-y-1 text-base-content/80 list-disc list-inside">
+          <li>Votre prénom</li>
+          <li>Votre numéro de téléphone</li>
+          <li>Votre message</li>
+          <li>Des champs contextuels selon la demande (type d'événement, nombre de participants, etc.)</li>
+        </ul>
+        <p class="mt-4 text-base-content/80 leading-relaxed">
+          <strong>Pourquoi :</strong> Pour vous recontacter et répondre à votre demande.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          <strong>Comment :</strong> Vos données sont transmises par email directement à notre équipe via <strong>Web3Forms</strong>, un service de traitement de formulaires. <strong>Elles ne sont pas stockées sur un serveur :</strong> une fois l'email envoyé, vos données ne sont conservées que dans notre boîte mail.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          <strong>Durée de conservation :</strong> Le temps nécessaire au traitement de votre demande, et au maximum 12 mois.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          <strong>Base légale :</strong> Votre consentement, exprimé en remplissant et soumettant le formulaire.
+        </p>
+        <p class="mt-3 text-base-content/70 text-sm">
+          En savoir plus sur Web3Forms :{' '}
+          <a
+            href="https://web3forms.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            aria-label="Politique de confidentialité Web3Forms (nouvel onglet)"
+          >
+            web3forms.com/privacy
+          </a>
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="partage-heading">
+        <h2 id="partage-heading" class="text-2xl font-serif text-base-content mb-4">
+          Partage des données
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Nous ne vendons pas vos données. Nous ne les partageons pas avec des tiers à des fins commerciales. Les seuls prestataires qui accèdent à vos données sont ceux listés ci-dessus (Umami, Web3Forms), dans le strict cadre de leur service.
+        </p>
+      </section>
+
+      <section class="mb-10" aria-labelledby="droits-heading">
+        <h2 id="droits-heading" class="text-2xl font-serif text-base-content mb-4">
+          Vos droits
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Conformément au RGPD, vous disposez des droits suivants sur vos données :
+        </p>
+        <ul class="mt-3 space-y-1 text-base-content/80 list-disc list-inside">
+          <li><strong>Droit d'accès :</strong> obtenir une copie de vos données</li>
+          <li><strong>Droit de rectification :</strong> corriger des données inexactes</li>
+          <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
+          <li><strong>Droit d'opposition :</strong> vous opposer à un traitement</li>
+          <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
+        </ul>
+        <p class="mt-4 text-base-content/80 leading-relaxed">
+          Pour exercer ces droits, contactez-nous par email à{' '}
+          <a
+            href={`mailto:${business.email}`}
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+          >
+            {business.email}
+          </a>.
+          Nous répondrons dans un délai de 30 jours.
+        </p>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+          Si vous estimez que vos droits ne sont pas respectés, vous pouvez également déposer une réclamation auprès de la{' '}
+          <a
+            href="https://www.cnil.fr/fr/plaintes"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+            aria-label="Déposer une plainte auprès de la CNIL (nouvel onglet)"
+          >
+            CNIL
+          </a>.
+        </p>
+      </section>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="text-2xl font-serif text-base-content mb-4">
+          Contact
+        </h2>
+        <p class="text-base-content/80 leading-relaxed">
+          Pour toute question relative à cette politique de confidentialité :
+        </p>
+        <address class="mt-3 text-base-content/80 not-italic">
+          <strong>{business.name}</strong><br />
+          {business.address}<br />
+          {business.postalCode} {business.city}<br />
+          <a
+            href={`mailto:${business.email}`}
+            class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
+          >
+            {business.email}
+          </a>
+        </address>
+      </section>
+
+    </div>
+  </main>
+</BaseLayout>

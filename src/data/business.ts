@@ -21,6 +21,8 @@ export interface GoogleReviews {
 
 export interface BusinessInfo {
   name: string;
+  legalForm: string;
+  siret: string;
   address: string;
   city: string;
   postalCode: string;
@@ -35,6 +37,9 @@ export interface BusinessInfo {
 
 export const business: BusinessInfo = {
   name: 'Équi 22',
+  // TODO: Replace with actual legal form and SIRET once provided by client
+  legalForm: 'Entreprise individuelle',
+  siret: '000 000 000 00000',
   address: '123 Rue de la Prairie',
   city: 'Yffiniac',
   postalCode: '22120',

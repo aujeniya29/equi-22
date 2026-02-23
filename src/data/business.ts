@@ -39,16 +39,15 @@ export const business: BusinessInfo = {
   name: 'Équi 22',
   // TODO: Replace with actual legal form and SIRET once provided by client
   legalForm: 'Entreprise individuelle',
-  siret: '000 000 000 00000',
-  address: '123 Rue de la Prairie',
+  siret: '52509937000021',
+  address: 'Route de la Barre',
   city: 'Yffiniac',
   postalCode: '22120',
-  phone: '+33 2 96 00 00 00',
-  whatsapp: '+33 6 00 00 00 00',
-  email: 'contact@equi22.fr',
+  phone: '+33 6 22 16 64 52',
+  whatsapp: '+33 6 22 16 64 52',
+  email: 'equi22.yffiniac@gmail.com',
   openingHours: [
-    { days: 'Lundi - Vendredi', hours: '9h00 - 18h00' },
-    { days: 'Samedi', hours: '9h00 - 12h00' },
+    { days: 'Lundi - Samedi', hours: '8h00 - 20h00' },
     { days: 'Dimanche', hours: 'Fermé' },
   ],
   gps: {
@@ -56,13 +55,13 @@ export const business: BusinessInfo = {
     longitude: -2.8167,
   },
   social: {
-    facebook: 'https://www.facebook.com/equi22',
-    instagram: 'https://www.instagram.com/equi22',
+    facebook: 'https://www.facebook.com/equi22.centre.equestre.yffiniac/?locale=fr_FR',
+    instagram: 'https://www.instagram.com/equi_22/',
   },
   googleReviews: {
-    rating: 4.8,
-    reviewCount: 32,
+    rating: 4.3,
+    reviewCount: 200,
     // TODO: Replace with actual Google Business Profile URL once available from client
-    googleBusinessUrl: 'https://g.page/r/PLACEHOLDER/review',
+    googleBusinessUrl: 'https://share.google/dgf0rQXBTQyYYMt4f',
   },
 };

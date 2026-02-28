@@ -9,6 +9,7 @@ export const mainMenu: NavLink[] = [
   { label: 'Pension', href: '/pension-chevaux' },
   { label: 'Stages vacances', href: '/stages-vacances' },
   { label: 'Compétitions', href: '/competitions' },
+  { label: 'Élevage', href: '/elevage' },
   { label: 'Tarifs', href: '/tarifs' },
   { label: 'Blog', href: '/blog' },
   { label: 'À propos', href: '/a-propos' },

@@ -41,6 +41,18 @@ const services = defineCollection({
       level: z.string(),
     })).optional(),
 
+    // Animals (élevage)
+    animals: z.array(z.object({
+      nom: z.string(),
+      role: z.enum(['etalon', 'pouliniere', 'poulain']),
+      race: z.string().optional(),
+      anneeNaissance: z.number().int().optional(),
+      photo: z.string().optional(),
+      prix: z.string().optional(),
+      description: z.string(),
+      palmares: z.array(z.string()).optional(),
+    })).optional(),
+
     // Testimonial
     testimonial: z.object({
       quote: z.string(),

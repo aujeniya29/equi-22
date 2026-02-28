@@ -7,6 +7,7 @@ import PlanningBlock from './PlanningBlock.astro';
 import PricingTable from './PricingTable.astro';
 import Testimonial from './Testimonial.astro';
 import GoogleReviews from './GoogleReviews.astro';
+import BreedingAnimals from './BreedingAnimals.astro';
 import { business } from '../data/business';
 
 interface Props {
@@ -26,6 +27,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
 // so the rhythm holds even when planning or testimonial are absent.
 const hasSchedule = !!(data.schedule && data.schedule.length > 0);
 const hasPricing = !!(data.pricing && data.pricing.length > 0);
+const hasAnimals = !!(data.animals && data.animals.length > 0);
 const hasTestimonial = !!data.testimonial;
 
 const BG = ['bg-base-200', 'bg-base-100'] as const;
@@ -35,6 +37,8 @@ const planningBg   = BG[idx % 2];   // bg-base-100 (computed even if absent, to 
 if (hasSchedule) idx++;
 const pricingBg    = BG[idx % 2];
 if (hasPricing) idx++;
+const animalsBg    = BG[idx % 2];
+if (hasAnimals) idx++;
 const testimonialBg = BG[idx % 2];
 if (hasTestimonial) idx++;
 const reviewsBg    = BG[idx % 2]; // GoogleReviews always renders — must participate in alternation
@@ -75,6 +79,11 @@ const ctaBg        = BG[idx % 2];
   <!-- Pricing Section (conditional) -->
   {hasPricing && (
     <PricingTable pricing={data.pricing!} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+  )}
+
+  <!-- Animals Section (conditional, élevage only) -->
+  {hasAnimals && (
+    <BreedingAnimals animals={data.animals!} bgClass={animalsBg} />
   )}
 
   <!-- Testimonial Section (conditional) -->

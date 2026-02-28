@@ -1,0 +1,125 @@
+---
+import { Image } from 'astro:assets';
+
+interface Animal {
+  nom: string;
+  role: 'etalon' | 'pouliniere' | 'poulain';
+  race?: string;
+  anneeNaissance?: number;
+  photo?: string;
+  prix?: string;
+  description: string;
+  palmares?: string[];
+}
+
+interface Props {
+  animals: Animal[];
+  bgClass: string;
+}
+
+const { animals, bgClass } = Astro.props;
+
+const roleOrder: Animal['role'][] = ['etalon', 'pouliniere', 'poulain'];
+const roleLabels: Record<Animal['role'], string> = {
+  etalon: 'Étalons',
+  pouliniere: 'Poulinières',
+  poulain: 'Poulains & Pouliches',
+};
+
+const prixLabels: Record<Animal['role'], string | null> = {
+  etalon: 'Tarif saillie',
+  pouliniere: null,
+  poulain: 'Prix de vente',
+};
+
+const groups = roleOrder
+  .map((role) => ({ role, items: animals.filter((a) => a.role === role) }))
+  .filter((g) => g.items.length > 0);
+
+const photoModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/elevage/*.{jpg,jpeg,png,webp}'
+);
+---
+
+<section class={`py-12 lg:py-16 ${bgClass}`}>
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-10 text-center">
+      Nos chevaux
+    </h2>
+
+    {groups.map(({ role, items }) => (
+      <div class="mb-12 last:mb-0">
+        <h3 class="text-xl font-serif text-base-content/80 mb-6 border-b border-base-content/10 pb-2">
+          {roleLabels[role]}
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map(async (animal) => {
+            const photoKey = animal.photo
+              ? `/src/assets/images/elevage/${animal.photo}`
+              : null;
+            const photoModule = photoKey && photoModules[photoKey]
+              ? await photoModules[photoKey]()
+              : null;
+            const photoSrc = photoModule?.default ?? null;
+
+            return (
+              <article class="card bg-base-100 shadow-sm border border-base-content/5 overflow-hidden">
+                {/* Photo or silhouette */}
+                <figure class="h-48 bg-base-200 flex items-center justify-center overflow-hidden">
+                  {photoSrc ? (
+                    <Image
+                      src={photoSrc}
+                      alt={`Photo de ${animal.nom}`}
+                      width={400}
+                      height={300}
+                      class="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <svg
+                      viewBox="0 0 120 80"
+                      class="w-32 h-24 text-base-content/20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      {/* Simple horse silhouette */}
+                      <path d="M95 18c-2-3-5-5-8-5l-3 1-2-4c-1-2-3-3-5-3h-6c-3 0-5 1-6 3l-4 8-10 4-8 2-8 6-5 8-3 10v10h6v-8l3-8 5-4 8-2 10-4 4-2 2 2v24h6V44l2-4 4-2h4l6 2 4 6v16h6V46l-2-8-3-6 4-7 4-5-1-2z" />
+                      <ellipse cx="25" cy="65" rx="12" ry="5" opacity=".3" />
+                    </svg>
+                  )}
+                </figure>
+
+                <div class="card-body p-4 gap-2">
+                  <h4 class="card-title text-lg font-serif">{animal.nom}</h4>
+
+                  {(animal.race || animal.anneeNaissance) && (
+                    <p class="text-sm text-base-content/60">
+                      {[animal.race, animal.anneeNaissance ? `né(e) en ${animal.anneeNaissance}` : null]
+                        .filter(Boolean)
+                        .join(' · ')}
+                    </p>
+                  )}
+
+                  <p class="text-sm text-base-content/80 leading-relaxed">{animal.description}</p>
+
+                  {animal.prix && prixLabels[role] && (
+                    <p class="text-sm font-medium text-primary mt-1">
+                      {prixLabels[role]} : {animal.prix}
+                    </p>
+                  )}
+
+                  {animal.palmares && animal.palmares.length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      {animal.palmares.map((entry) => (
+                        <span class="badge badge-outline badge-sm">{entry}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -8,27 +8,51 @@ heroImageAlt: "Groupe d'enfants souriant pendant un stage vacances équitation a
 whatsappMessage: "Bonjour, je suis intéressé(e) par les stages vacances équitation. Pourriez-vous me donner des informations sur les prochains stages et les places disponibles ?"
 order: 4
 pricing:
-  - label: "Demi-journée"
+  - label: "Demi-journée — cavalier du club"
+    price: "30"
+    unit: "demi-journée"
+    highlight: false
+  - label: "Demi-journée — cavalier extérieur"
     price: "35"
     unit: "demi-journée"
     highlight: false
-  - label: "Journée complète"
-    price: "60"
-    unit: "jour"
+  - label: "4 demi-journées — cavalier du club"
+    price: "110"
+    unit: "forfait"
     highlight: false
-  - label: "Mini-stage 3 jours"
-    price: "165"
-    unit: "stage"
+  - label: "4 demi-journées — cavalier extérieur"
+    price: "120"
+    unit: "forfait"
     highlight: false
-  - label: "Stage complet 5 jours"
-    price: "250"
+  - label: "Stage à thème demi-journée — cavalier du club"
+    price: "35"
+    unit: "demi-journée"
+    highlight: false
+  - label: "Stage à thème demi-journée — cavalier extérieur"
+    price: "40"
+    unit: "demi-journée"
+    highlight: false
+  - label: "Stage semaine (été) — cavalier du club"
+    price: "280"
     unit: "semaine"
+    highlight: false
+  - label: "Stage semaine (été) — cavalier extérieur"
+    price: "300"
+    unit: "semaine"
+    highlight: false
+  - label: "Pack stages : 3×(4 demi-journées) + 1 semaine — club"
+    price: "550"
+    unit: "pack"
     highlight: true
+  - label: "Pack stages : 3×(4 demi-journées) + 1 semaine — extérieur"
+    price: "600"
+    unit: "pack"
+    highlight: false
 pricingNotes:
   - "Encadrement diplômé, assurance et matériel de sécurité inclus"
-  - "Pique-nique ou repas non fourni — prévoir le repas pour les journées complètes"
   - "Licence FFE journalière incluse pour les non-licenciés"
-  - "Réduction de 10% à partir du 2e enfant de la même famille"
+  - "Stage à la semaine disponible en été uniquement"
+  - "Pique-nique ou repas non fourni — prévoir le repas"
 testimonial:
   quote: "Mon fils a passé une semaine formidable. Il parle encore de son cheval préféré et réclame le prochain stage !"
   author: "Nathalie, maman de Tom (9 ans)"

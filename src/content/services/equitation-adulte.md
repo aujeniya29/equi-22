@@ -8,20 +8,42 @@ heroImageAlt: "Adultes en cours d'équitation dans un cadre détendu au centre �
 whatsappMessage: "Bonjour, je suis intéressé(e) par les cours adultes. Pourriez-vous me donner des informations sur les horaires et les tarifs ?"
 order: 2
 pricing:
-  - label: "Cours à l'unité"
-    price: "30"
+  - label: "Heure de passage / essai"
+    price: "35"
     unit: "séance"
     highlight: false
-  - label: "Carte 10 séances"
-    price: "270"
+  - label: "Carte liberté 10h (valable 6 mois)"
+    price: "260"
     unit: "carte"
     highlight: false
-  - label: "Forfait annuel 40 séances"
-    price: "850"
-    unit: "an"
+  - label: "Carte 30h — payable en 10 fois"
+    price: "59"
+    unit: "mois"
+    highlight: false
+  - label: "Carte 35h — payable en 10 fois"
+    price: "66"
+    unit: "mois"
+    highlight: false
+  - label: "Pack découverte 3 mois (10h + 1 stage)"
+    price: "130"
+    unit: "mois"
+    highlight: false
+  - label: "Pack fidélité annuel (35 cours + 3 stages)"
+    price: "120"
+    unit: "mois"
     highlight: true
+  - label: "Pack nature & découverte annuel (10h + balades)"
+    price: "50"
+    unit: "mois"
+    highlight: false
+  - label: "Pack prémium compétition annuel (2h/sem + 1 concours/mois)"
+    price: "250"
+    unit: "mois"
+    highlight: false
 pricingNotes:
-  - "Licence FFE obligatoire (36€/an pour les adultes)"
+  - "Licence FFE : 40€/an (adultes)"
+  - "Cotisation annuelle : 35€ — Vacanciers : 70€"
+  - "Cartes annuelles payables en 10 fois de septembre à juin"
   - "Casque prêté pour les premières séances"
 schedule:
   - day: "Mardi"

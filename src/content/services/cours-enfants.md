@@ -9,25 +9,55 @@ heroImageAlt: "Enfants souriants sur des poneys dans le manège du centre éques
 whatsappMessage: "Bonjour, je suis intéressé(e) par les cours enfants. Pourriez-vous me donner des informations sur les horaires et les tarifs ?"
 order: 1
 pricing:
-  - label: "Cours à l'unité"
+  - label: "Baby (3-5 ans) — Séance découverte"
     price: "25"
     unit: "séance"
     highlight: false
-  - label: "Carte 10 séances"
-    price: "220"
+  - label: "Baby (3-5 ans) — Carte 10h (valable 6 mois)"
+    price: "200"
     unit: "carte"
     highlight: false
-  - label: "Forfait annuel 40 séances"
-    price: "700"
-    unit: "an"
+  - label: "Baby (3-5 ans) — Carte 20h annuelle"
+    price: "35"
+    unit: "mois"
+    highlight: false
+  - label: "Heure de passage / essai"
+    price: "30"
+    unit: "séance"
+    highlight: false
+  - label: "Carte liberté 10h (valable 6 mois)"
+    price: "230"
+    unit: "carte"
+    highlight: false
+  - label: "Carte 30h — payable en 10 fois"
+    price: "56"
+    unit: "mois"
+    highlight: false
+  - label: "Carte 35h — payable en 10 fois"
+    price: "62"
+    unit: "mois"
+    highlight: false
+  - label: "Pack découverte 3 mois (10h + 1 stage)"
+    price: "110"
+    unit: "mois"
+    highlight: false
+  - label: "Pack fidélité annuel (35 cours + 3 stages)"
+    price: "100"
+    unit: "mois"
     highlight: true
-  - label: "Stage vacances (5 jours)"
-    price: "180"
-    unit: "stage"
+  - label: "Pack nature & découverte annuel (10h + balades)"
+    price: "45"
+    unit: "mois"
+    highlight: false
+  - label: "Pack prémium compétition annuel (2h/sem + 1 concours/mois)"
+    price: "220"
+    unit: "mois"
     highlight: false
 pricingNotes:
-  - "Licence FFE obligatoire (25€/an pour les mineurs)"
-  - "Réduction de 10% à partir du 2e enfant"
+  - "Licence FFE : 30€/an (mineurs)"
+  - "Cotisation annuelle : 30€ — Vacanciers : 60€"
+  - "Cartes annuelles payables en 10 fois de septembre à juin"
+  - "Carte 20h baby réglable en 2 fois sur demande"
 schedule:
   - day: "Mercredi"
     time: "14h00 - 15h00"

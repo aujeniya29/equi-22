@@ -8,26 +8,69 @@ heroImageAlt: "Installations de pension pour chevaux au centre équestre Equi 22
 whatsappMessage: "Bonjour, je suis interesse(e) par la pension chevaux. Pourriez-vous me donner des informations sur les formules et organiser une visite des installations ?"
 order: 3
 pricing:
-  - label: "Box individuel"
+  - label: "Pension box/paddock — poney (< 150 cm)"
     price: "350"
     unit: "mois"
     highlight: false
-  - label: "Paddock avec abri"
-    price: "280"
-    unit: "mois"
-    highlight: true
-  - label: "Pré"
-    price: "200"
+  - label: "Pension box/paddock — cheval (> 150 cm)"
+    price: "400"
     unit: "mois"
     highlight: false
-  - label: "Demi-pension"
+  - label: "Paddock individuel — poney"
+    price: "260"
+    unit: "mois"
+    highlight: true
+  - label: "Paddock individuel — cheval"
+    price: "280"
+    unit: "mois"
+    highlight: false
+  - label: "Pré en troupeau — poney"
+    price: "250"
+    unit: "mois"
+    highlight: false
+  - label: "Pré en troupeau — cheval"
+    price: "270"
+    unit: "mois"
+    highlight: false
+  - label: "Pension équidé de club — pré troupeau (poney)"
+    price: "270"
+    unit: "mois"
+    highlight: false
+  - label: "Pension équidé de club — pré troupeau (cheval)"
+    price: "300"
+    unit: "mois"
+    highlight: false
+  - label: "Demi-pension votre équidé — pré troupeau (poney)"
+    price: "160"
+    unit: "mois"
+    highlight: false
+  - label: "Demi-pension votre équidé — pré troupeau (cheval)"
+    price: "170"
+    unit: "mois"
+    highlight: false
+  - label: "Demi-pension équidé de club — pré troupeau (poney)"
     price: "180"
     unit: "mois"
     highlight: false
+  - label: "Demi-pension équidé de club — pré troupeau (cheval)"
+    price: "200"
+    unit: "mois"
+    highlight: false
+  - label: "Option confort propriétaire (1h collectif + 1 cours part./mois)"
+    price: "70"
+    unit: "mois"
+    highlight: false
+  - label: "Option compétition propriétaire (1h collectif + 1 concours + 1 cours part./mois)"
+    price: "150"
+    unit: "mois"
+    highlight: false
 pricingNotes:
-  - "Tous les tarifs incluent : alimentation (foin à volonté + compléments), sortie quotidienne au paddock, suivi vétérinaire de base"
+  - "1h de cours collectif offert par semaine inclus dans toutes les formules pension votre équidé"
+  - "Travail : 15€/séance ou 170€/mois (3 séances/semaine)"
+  - "Alimentation spécifique (enrubannage) : 40€/mois en supplément"
   - "Vermifuge et soins dentaires organisés collectivement (coût au réel)"
   - "Maréchal-ferrant coordonné par le centre (coût au réel)"
+  - "Chevaux au pair selon les besoins du club — conditions à voir ensemble"
 testimonial:
   quote: "Depuis que mes chevaux sont à Equi 22, je dors tranquille. Les installations sont impeccables et Aurélia me tient informée au moindre souci."
   author: "Claire, propriétaire de 2 chevaux"

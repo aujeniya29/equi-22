@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/images/logo.webp';
 import { mainMenu } from '../data/navigation.ts';
 import { business } from '../data/business.ts';
 
@@ -7,10 +9,10 @@ const currentPath = Astro.url.pathname;
 
 <nav aria-label="Navigation principale" class="fixed top-0 left-0 right-0 z-50 bg-base-100 shadow-sm">
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-16 lg:h-20">
+    <div class="flex items-center justify-between h-20 lg:h-24">
       <!-- Logo -->
-      <a href="/" class="font-serif text-xl lg:text-2xl font-bold text-primary hover:opacity-80 motion-safe:transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded">
-        {business.name}
+      <a href="/" class="hover:opacity-80 motion-safe:transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded" aria-label="Équi 22 — Accueil">
+        <Image src={logoSrc} alt="Logo Équi 22 — Centre équestre Yffiniac" width={160} height={160} class="h-16 lg:h-20 w-auto" loading="eager" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -73,10 +75,10 @@ const currentPath = Astro.url.pathname;
     <div class="absolute inset-y-0 right-0 w-full bg-base-100 translate-x-full motion-safe:transition-transform motion-safe:duration-300" id="mobile-menu-panel">
       <div class="flex flex-col h-full">
         <!-- Mobile Menu Header -->
-        <div class="flex items-center justify-between h-16 px-4 border-b border-base-200">
-          <span class="font-serif text-xl font-bold text-primary">
-            {business.name}
-          </span>
+        <div class="flex items-center justify-between h-20 px-4 border-b border-base-200">
+          <a href="/" aria-label="Équi 22 — Accueil">
+            <Image src={logoSrc} alt="Logo Équi 22" width={128} height={128} class="h-16 w-auto" loading="eager" />
+          </a>
           <button
             id="menu-close"
             type="button"

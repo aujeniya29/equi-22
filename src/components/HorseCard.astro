@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  horse: CollectionEntry<'vente'>;
+  heroImage?: ImageMetadata;
+}
+
+const { horse, heroImage } = Astro.props;
+const { title, espece, race, anneeNaissance, sexe, niveau, prix, vendu } = horse.data;
+
+const age = new Date().getFullYear() - anneeNaissance;
+const ageLabel = age <= 1 ? `${age} an` : `${age} ans`;
+
+const sexeLabels: Record<string, string> = {
+  hongre: 'Hongre',
+  jument: 'Jument',
+  etalon: 'Étalon',
+};
+---
+
+<article class={`bg-base-100 rounded-2xl shadow-md overflow-hidden motion-safe:hover:shadow-lg motion-safe:hover:-translate-y-1 motion-safe:transition-[box-shadow,transform] motion-safe:duration-200 ${vendu ? 'opacity-70' : ''}`}>
+  <a
+    href={`/vente/${horse.id}`}
+    class="flex flex-col h-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-2xl"
+    aria-label={`Voir la fiche de ${title}`}
+  >
+    <!-- Photo -->
+    <div class="relative aspect-[4/3] overflow-hidden bg-base-200">
+      {heroImage ? (
+        <Image
+          src={heroImage}
+          alt={`Photo de ${title}`}
+          width={400}
+          height={300}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-full h-full flex items-center justify-center text-base-content/20">
+          <svg viewBox="0 0 120 80" class="w-24 h-16" fill="currentColor" aria-hidden="true">
+            <path d="M95 18c-2-3-5-5-8-5l-3 1-2-4c-1-2-3-3-5-3h-6c-3 0-5 1-6 3l-4 8-10 4-8 2-8 6-5 8-3 10v10h6v-8l3-8 5-4 8-2 10-4 4-2 2 2v24h6V44l2-4 4-2h4l6 2 4 6v16h6V46l-2-8-3-6 4-7 4-5-1-2z" />
+          </svg>
+        </div>
+      )}
+      {vendu && (
+        <div class="absolute inset-0 bg-base-content/40 flex items-center justify-center">
+          <span class="badge badge-error badge-lg text-base font-bold px-4 py-3 uppercase tracking-wide">Vendu</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Info -->
+    <div class="p-4 flex flex-col gap-1 flex-1">
+      <div class="flex items-start justify-between gap-2">
+        <h3 class="font-serif text-lg text-base-content leading-snug">{title}</h3>
+        <span class={`badge badge-sm shrink-0 mt-0.5 ${espece === 'poney' ? 'badge-secondary' : 'badge-neutral'}`}>
+          {espece === 'poney' ? 'Poney' : 'Cheval'}
+        </span>
+      </div>
+
+      <p class="text-sm text-base-content/60">
+        {race} · {sexeLabels[sexe]} · {ageLabel}
+      </p>
+
+      {niveau && (
+        <p class="text-sm text-base-content/70">{niveau}</p>
+      )}
+
+      <p class="text-primary font-semibold mt-auto pt-2">{prix}</p>
+    </div>
+  </a>
+</article>

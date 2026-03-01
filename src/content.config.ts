@@ -66,6 +66,27 @@ const services = defineCollection({
   }),
 });
 
+const vente = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/vente' }),
+  schema: z.object({
+    title: z.string(),
+    espece: z.enum(['cheval', 'poney']),
+    race: z.string(),
+    anneeNaissance: z.number().int(),
+    sexe: z.enum(['hongre', 'jument', 'etalon']),
+    taille: z.string().optional(),
+    robe: z.string().optional(),
+    niveau: z.string().optional(),
+    disciplines: z.array(z.string()).optional(),
+    prix: z.string(),
+    photoPrincipale: z.string().optional(),
+    photos: z.array(z.string()).optional(),
+    vendu: z.boolean().default(false),
+    seoTitle: z.string(),
+    seoDescription: z.string(),
+  }),
+});
+
 const news = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
   schema: z.object({
@@ -89,4 +110,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { services, news, blog };
+export const collections = { services, news, blog, vente };

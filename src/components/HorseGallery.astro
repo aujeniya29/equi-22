@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  images: ImageMetadata[];
+  horseName: string;
+}
+
+const { images, horseName } = Astro.props;
+
+// At least one image required to render the gallery
+if (images.length === 0) return;
+---
+
+<div class="space-y-3">
+  <!-- Main photo -->
+  <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-base-200">
+    {images.map((img, i) => (
+      <Image
+        src={img}
+        alt={i === 0 ? `Photo principale de ${horseName}` : `Photo ${i + 1} de ${horseName}`}
+        width={800}
+        height={600}
+        class={`gallery-img w-full h-full object-cover absolute inset-0 transition-opacity duration-200 ${i === 0 ? '' : 'opacity-0 pointer-events-none'}`}
+        data-index={i}
+        loading={i === 0 ? 'eager' : 'lazy'}
+      />
+    ))}
+  </div>
+
+  <!-- Thumbnails (only shown when there are multiple photos) -->
+  {images.length > 1 && (
+    <div class="flex gap-2 overflow-x-auto pb-1 snap-x">
+      {images.map((img, i) => (
+        <button
+          type="button"
+          class={`gallery-thumb shrink-0 w-20 h-16 rounded-lg overflow-hidden focus-visible:outline-2 focus-visible:outline-primary snap-start transition-opacity ${i === 0 ? 'ring-2 ring-primary' : 'opacity-60 hover:opacity-90'}`}
+          data-index={i}
+          aria-label={`Afficher la photo ${i + 1} de ${horseName}`}
+        >
+          <Image
+            src={img}
+            alt=""
+            width={160}
+            height={120}
+            class="w-full h-full object-cover pointer-events-none"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  const imgs = document.querySelectorAll<HTMLElement>('.gallery-img');
+  const thumbs = document.querySelectorAll<HTMLButtonElement>('.gallery-thumb');
+
+  function show(index: number) {
+    imgs.forEach((img, i) => {
+      img.classList.toggle('opacity-0', i !== index);
+      img.classList.toggle('pointer-events-none', i !== index);
+    });
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('ring-2', i === index);
+      thumb.classList.toggle('ring-primary', i === index);
+      thumb.classList.toggle('opacity-60', i !== index);
+      thumb.classList.toggle('opacity-90', false);
+    });
+  }
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const index = Number(thumb.dataset.index);
+      show(index);
+    });
+  });
+</script>

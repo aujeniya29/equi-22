@@ -8,8 +8,8 @@ heroImageAlt: "Installations de pension pour chevaux au centre équestre Equi 22
 whatsappMessage: "Bonjour, je suis interesse(e) par la pension chevaux. Pourriez-vous me donner des informations sur les formules et organiser une visite des installations ?"
 order: 3
 pricingGroups:
-  - title: "Votre équidé"
-    subtitle: "Pensions et demi-pensions pour les propriétaires qui amènent leur cheval ou poney"
+  - title: "Pensions"
+    subtitle: "Pensions pour les propriétaires"
     notes:
       - "1h de cours collectif offert par semaine inclus dans toutes les formules pension"
       - "Alimentation spécifique (enrubannage) : 40€/mois en supplément"

@@ -51,57 +51,106 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
             </a>
           </div>
 
-          <!-- Desktop table -->
-          {(() => {
-            const rows = service.data.pricing
-              ?? service.data.pricingGroups?.flatMap(g => g.items)
-              ?? [];
-            return (
-              <>
-                <div class="hidden lg:block overflow-x-auto">
-                  <table class="table">
-                    <caption class="sr-only">Tarifs {service.data.title}</caption>
-                    <thead>
-                      <tr>
-                        <th>Formule</th>
-                        <th>Tarif</th>
-                        <th>Unité</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rows.map((row) => (
-                        <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
-                          <td class="font-medium">
-                            {row.label}
-                            {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
-                          </td>
-                          <td class="text-lg font-bold">{row.price}€</td>
-                          <td class="text-base-content/60">/{row.unit}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+          <!-- Tarifs groupés ou plats -->
+          {service.data.pricingGroups && service.data.pricingGroups.length > 0 ? (
+            <div class="space-y-10">
+              {service.data.pricingGroups.map((group) => (
+                <div>
+                  <div class="mb-4 border-b border-base-content/15 pb-2">
+                    <h3 class="text-lg font-semibold text-base-content">{group.title}</h3>
+                    {group.subtitle && <p class="text-sm text-base-content/60 mt-0.5">{group.subtitle}</p>}
+                  </div>
 
-                <div class="lg:hidden space-y-3">
-                  {rows.map((row) => (
-                    <div class={`card ${cardBgClass} shadow-sm p-4 ${row.highlight ? 'border-2 border-primary' : ''}`}>
-                      <div class="flex justify-between items-center">
-                        <div>
-                          <p class="font-medium">{row.label}</p>
-                          {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
-                        </div>
-                        <div class="text-right">
-                          <p class="text-xl font-bold">{row.price}€</p>
-                          <p class="text-sm text-base-content/60">/{row.unit}</p>
+                  <div class="hidden lg:block overflow-x-auto">
+                    <table class="table">
+                      <caption class="sr-only">{group.title}</caption>
+                      <thead><tr><th>Formule</th><th>Tarif</th><th>Unité</th></tr></thead>
+                      <tbody>
+                        {group.items.map((row) => (
+                          <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
+                            <td class="font-medium">
+                              {row.label}
+                              {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
+                            </td>
+                            <td class="text-lg font-bold">{row.price}€</td>
+                            <td class="text-base-content/60">/{row.unit}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="lg:hidden space-y-3">
+                    {group.items.map((row) => (
+                      <div class={`card ${cardBgClass} shadow-sm p-4 ${row.highlight ? 'border-2 border-primary' : ''}`}>
+                        <div class="flex justify-between items-center">
+                          <div>
+                            <p class="font-medium">{row.label}</p>
+                            {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
+                          </div>
+                          <div class="text-right">
+                            <p class="text-xl font-bold">{row.price}€</p>
+                            <p class="text-sm text-base-content/60">/{row.unit}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+
+                  {group.notes && group.notes.length > 0 && (
+                    <ul class="mt-4 space-y-1 text-sm text-base-content/70">
+                      {group.notes.map((note) => (
+                        <li class="flex items-start gap-2">
+                          <svg class="w-4 h-4 mt-0.5 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {note}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-              </>
-            );
-          })()}
+              ))}
+            </div>
+          ) : (
+            <>
+              <div class="hidden lg:block overflow-x-auto">
+                <table class="table">
+                  <caption class="sr-only">Tarifs {service.data.title}</caption>
+                  <thead><tr><th>Formule</th><th>Tarif</th><th>Unité</th></tr></thead>
+                  <tbody>
+                    {(service.data.pricing ?? []).map((row) => (
+                      <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
+                        <td class="font-medium">
+                          {row.label}
+                          {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
+                        </td>
+                        <td class="text-lg font-bold">{row.price}€</td>
+                        <td class="text-base-content/60">/{row.unit}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="lg:hidden space-y-3">
+                {(service.data.pricing ?? []).map((row) => (
+                  <div class={`card ${cardBgClass} shadow-sm p-4 ${row.highlight ? 'border-2 border-primary' : ''}`}>
+                    <div class="flex justify-between items-center">
+                      <div>
+                        <p class="font-medium">{row.label}</p>
+                        {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
+                      </div>
+                      <div class="text-right">
+                        <p class="text-xl font-bold">{row.price}€</p>
+                        <p class="text-sm text-base-content/60">/{row.unit}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
 
           <!-- Service-specific pricing notes -->
           {service.data.pricingNotes && service.data.pricingNotes.length > 0 && (

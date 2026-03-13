@@ -26,7 +26,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(d
 // Compute alternating backgrounds based on which sections are actually present,
 // so the rhythm holds even when planning or testimonial are absent.
 const hasSchedule = !!(data.schedule && data.schedule.length > 0);
-const hasPricing = !!(data.pricing && data.pricing.length > 0);
+const hasPricing = !!(data.pricing && data.pricing.length > 0) || !!(data.pricingGroups && data.pricingGroups.length > 0);
 const hasAnimals = !!(data.animals && data.animals.length > 0);
 const hasTestimonial = !!data.testimonial;
 
@@ -78,7 +78,7 @@ const ctaBg        = BG[idx % 2];
 
   <!-- Pricing Section (conditional) -->
   {hasPricing && (
-    <PricingTable pricing={data.pricing!} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+    <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
   )}
 
   <!-- Animals Section (conditional, élevage only) -->

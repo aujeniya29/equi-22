@@ -8,8 +8,9 @@ interface Props {
 }
 
 const { service, heroImageSrc } = Astro.props;
-const { title, description, pricing, heroImageAlt } = service.data;
-const startingPrice = pricing[0];
+const { title, description, pricing, pricingGroups, heroImageAlt } = service.data;
+const firstItem = pricing?.[0] ?? pricingGroups?.[0]?.items?.[0];
+const startingPrice = firstItem!;
 const serviceUrl = `/${service.id}`;
 ---
 

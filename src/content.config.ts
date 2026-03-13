@@ -25,14 +25,27 @@ const services = defineCollection({
     // Display
     order: z.number().int(),
 
-    // Pricing
+    // Pricing — flat list (used by most pages)
     pricing: z.array(z.object({
       label: z.string(),
       price: z.string(),
       unit: z.string(),
       highlight: z.boolean().default(false),
-    })).min(1),
+    })).optional(),
     pricingNotes: z.array(z.string()).optional(),
+
+    // Pricing — grouped (used when tarifs need separate sections)
+    pricingGroups: z.array(z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      items: z.array(z.object({
+        label: z.string(),
+        price: z.string(),
+        unit: z.string(),
+        highlight: z.boolean().default(false),
+      })),
+      notes: z.array(z.string()).optional(),
+    })).optional(),
 
     // Schedule
     schedule: z.array(z.object({

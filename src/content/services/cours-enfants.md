@@ -54,26 +54,25 @@ pricing:
     unit: "mois"
     highlight: false
 pricingNotes:
-  - "Licence FFE : 30€/an (mineurs)"
-  - "Cotisation annuelle : 30€ — Vacanciers : 60€"
+  - "Licence FFE obligatoire pour tous : 30€ pour les mineurs, 40€ pour les adultes"
+  - "Cotisation annuelle : 60€ pour les mineurs, 70€ pour les adultes"
   - "Cartes annuelles payables en 10 fois de septembre à juin"
-  - "Carte 20h baby réglable en 2 fois sur demande"
 schedule:
   - day: "Mercredi"
     time: "14h00 - 15h00"
     level: "Baby poney (3-5 ans)"
   - day: "Mercredi"
     time: "15h00 - 16h00"
-    level: "Découverte (6-8 ans)"
+    level: "Découverte (6-9 ans)"
   - day: "Mercredi"
     time: "16h00 - 17h00"
-    level: "Galop 1-3 (8-12 ans)"
+    level: "Galop 1-3"
   - day: "Samedi"
     time: "10h00 - 11h00"
     level: "Baby poney (3-5 ans)"
   - day: "Samedi"
     time: "11h00 - 12h00"
-    level: "Tous niveaux (6-14 ans)"
+    level: "Tous niveaux"
 testimonial:
   quote: "Ma fille attend le mercredi avec impatience ! Les monitrices sont adorables et très pédagogues."
   author: "Sophie, maman de Léa (8 ans)"
@@ -99,9 +98,9 @@ Les cours enfants permettent d'acquérir progressivement les bases de l'équitat
 Chez nous, chaque enfant avance selon sa propre progression, de la première rencontre avec un poney aux galops fédéraux :
 
 - **Baby Poney (3–5 ans)** — Première découverte du poney en main. L'enfant apprend à toucher, brosser, et monter au pas avec aide. Objectif : créer un lien de confiance et de plaisir.
-- **Découverte (6–8 ans)** — Les bases de la monte : position, équilibre, arrêts et direction au pas et au trot. L'enfant gagne en autonomie sur le poney.
-- **Galop 1–2 (8–12 ans)** — Premiers galops en groupe, exercices de souplesse sur le poney, découverte des différents poneys de l'écurie. Préparation aux premiers diplômes fédéraux.
-- **Galop 3–4 (12–14 ans)** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
-- **Galop 5–7 (14 ans et +)** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
+- **Découverte (6-9 ans)** — Les bases de la monte : position, équilibre, arrêts et direction au pas et au trot. L'enfant gagne en autonomie sur le poney.
+- **Galop 1–2** — Premiers galops en groupe, exercices de souplesse sur le poney, découverte des différents poneys de l'écurie. Préparation aux premiers diplômes fédéraux.
+- **Galop 3–4** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
+- **Galop 5–7** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
 
 Nos monitrices adaptent chaque séance au niveau réel de l'enfant, pas à un calendrier rigide.

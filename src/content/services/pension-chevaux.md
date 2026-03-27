@@ -27,7 +27,7 @@ pricingGroups:
       - label: "Paddock individuel — poney"
         price: "260"
         unit: "mois"
-        highlight: true
+        highlight: false
       - label: "Paddock individuel — cheval"
         price: "280"
         unit: "mois"
@@ -60,7 +60,7 @@ pricingGroups:
       - label: "Forfait travail (3 séances/semaine)"
         price: "170"
         unit: "mois"
-        highlight: true
+        highlight: false
   - title: "Équidés du club"
     subtitle: "Pensions et demi-pensions sur les poneys et chevaux du centre"
     notes:
@@ -82,6 +82,19 @@ pricingGroups:
         price: "200"
         unit: "mois"
         highlight: false
+      - label: "Tiers-pension shetland"
+        price: "90"
+        unit: "mois"
+        highlight: false
+      - label: "Tiers-pension poney C"
+        price: "120"
+        unit: "mois"
+        highlight: false
+      - label: "Tiers-pension cheval"
+        price: "150"
+        unit: "mois"
+        highlight: false
+      
 testimonial:
   quote: "Depuis que mes chevaux sont à Equi 22, je dors tranquille. Les installations sont impeccables et Aurélia me tient informée au moindre souci."
   author: "Claire, propriétaire de 2 chevaux"
@@ -118,15 +131,15 @@ On ne vous dira pas "nous aimons les chevaux" — on vous montre comment :
 
 ## Nos formules de pension
 
-Que vous choisissiez le box, le paddock, le pré ou la demi-pension, le niveau de soin est identique. Seuls l'hébergement et le temps de travail changent — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous.
+Que vous choisissiez la pension boxe, le paddock, le pré ou la demi-pension, le niveau de soin est identique. Seuls l'hébergement et le temps de travail changent — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous.
 
-### Box individuel
+### Box / paddock individuel
 
-Un box spacieux avec matelas de litière, curé et refait chaque jour. Idéal pour les chevaux qui ont besoin d'un espace personnel au calme.
+Un box spacieux avec matelas, curé et refait chaque jour. Idéal pour les chevaux qui ont besoin d'un espace personnel au calme. Sortie au paddock quotidienne.
 
-### Paddock avec abri
+### Paddock individuel
 
-Un paddock individuel ou en petit groupe avec abri couvert. Le meilleur rapport espace/confort pour les chevaux qui aiment vivre dehors.
+Un paddock individuel ou en petit groupe. Le meilleur rapport espace/confort pour les chevaux qui aiment vivre dehors.
 
 ### Pré
 
@@ -135,6 +148,12 @@ La vie au grand air dans nos prairies bretonnes. Idéal pour les chevaux au repo
 ### Demi-pension
 
 Votre cheval est au centre, vous le montez selon un planning défini avec l'équipe. Les soins quotidiens et l'alimentation sont assurés par le centre — vous profitez de votre cheval sans les contraintes de la gestion quotidienne.
+
+### Tiers-pension
+
+Vous souhaitez vous occuper d'un poney ou d'un cheval sans les contraintes du propriétaire . 
+Nous vous proposons le tiers de pension sur la cavalerie du centre-équestre.
+Ce tiers de pension vous permet de venir monter ou travailler en liberté deux fois par semaine. (Cette formule ne contient aucuns cours)
 
 ## Vous êtes propriétaire ? Venez visiter.
 

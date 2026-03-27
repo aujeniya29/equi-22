@@ -61,6 +61,23 @@ pricingGroups:
         price: "170"
         unit: "mois"
         highlight: false
+  - title: "Soins"
+    subtitle: "Si votre cheval nécessite des soins et que vous n'avez pas les connaissance et/ou le temps de lui prodiguer, notre équipe est en mesure de les réaliser selon un planning défini ensemble"
+    notes:
+      - "Tarifs en fonction des actes dont voici quelques exemples"
+    items:
+      - label: "Administration de sirop"
+        price: "5"
+        unit: "jour"
+        highlight: false
+      - label: "Pose d'argile"
+        price: "5"
+        unit: "jour"
+        highlight: false
+      - label: "Réalisation de pansements"
+        price: "15"
+        unit: "pansement"
+        highlight: false
   - title: "Équidés du club"
     subtitle: "Pensions et demi-pensions sur les poneys et chevaux du centre"
     notes:
@@ -151,7 +168,7 @@ Votre cheval est au centre, vous le montez selon un planning défini avec l'équ
 
 ### Tiers-pension
 
-Vous souhaitez vous occuper d'un poney ou d'un cheval sans les contraintes du propriétaire . 
+Vous souhaitez vous occuper d'un poney ou d'un cheval sans les contraintes du propriétaire ? 
 Nous vous proposons le tiers de pension sur la cavalerie du centre-équestre.
 Ce tiers de pension vous permet de venir monter ou travailler en liberté deux fois par semaine. (Cette formule ne contient aucuns cours)
 

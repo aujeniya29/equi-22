@@ -10,9 +10,10 @@ order: 3
 pricingGroups:
   - title: "Pensions"
     subtitle: "Pensions pour les propriétaires"
+    highlightedNotes:
+      - "Pour les chevaux présentant des problèmes respiratoires, nous avons le plaisir de vous proposer du foin préfanné, idéal dans ce genre de situation"
     notes:
       - "1h de cours collectif offert par semaine inclus dans toutes les formules pension"
-      - "Alimentation spécifique (enrubannage) : 40€/mois en supplément"
       - "Vermifuge et soins dentaires organisés collectivement (coût au réel)"
       - "Maréchal-ferrant coordonné par le centre (coût au réel)"
     items:
@@ -48,6 +49,10 @@ pricingGroups:
         price: "150"
         unit: "mois"
         highlight: false
+      - label: "Carte propriétaires 10 heures"
+        price: "110"
+        unit: "carte"
+        highlight: false
   - title: "Travail du cheval"
     subtitle: "Votre cheval travaillé par notre équipe, selon un programme adapté à son niveau"
     notes:
@@ -79,7 +84,7 @@ pricingGroups:
         unit: "pansement"
         highlight: false
   - title: "Équidés du club"
-    subtitle: "Pensions et demi-pensions sur les poneys et chevaux du centre"
+    subtitle: "Pensions, demi-pensions et tiers de pensions sur les poneys et chevaux du centre"
     notes:
       - "Chevaux au pair selon les besoins du club — conditions à voir ensemble"
     items:
@@ -156,7 +161,7 @@ Un box spacieux avec matelas, curé et refait chaque jour. Idéal pour les cheva
 
 ### Paddock individuel
 
-Un paddock individuel ou en petit groupe. Le meilleur rapport espace/confort pour les chevaux qui aiment vivre dehors.
+Un paddock individuel ou en petit groupe. Le Meilleure offre espace/confort pour les chevaux qui aiment vivre dehors.
 
 ### Pré
 

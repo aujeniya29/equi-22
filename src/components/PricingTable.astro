@@ -11,6 +11,7 @@ interface PricingGroup {
   subtitle?: string;
   items: PricingRow[];
   notes?: string[];
+  highlightedNotes?: string[];
 }
 
 interface Props {
@@ -55,7 +56,7 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
                     <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
                       <td class="font-medium">
                         {row.label}
-                        {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
+                        {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleure offre</span>}
                       </td>
                       <td class="text-lg font-bold">{row.price}€</td>
                       <td class="text-base-content/60">/{row.unit}</td>
@@ -72,7 +73,7 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
                   <div class="flex justify-between items-center">
                     <div>
                       <p class="font-medium">{row.label}</p>
-                      {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
+                      {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleure offre</span>}
                     </div>
                     <div class="text-right">
                       <p class="text-xl font-bold">{row.price}€</p>
@@ -82,6 +83,20 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
                 </div>
               ))}
             </div>
+
+            {/* Per-group highlighted notes */}
+            {group.highlightedNotes && group.highlightedNotes.length > 0 && (
+              <ul class="mt-4 space-y-2">
+                {group.highlightedNotes.map((note) => (
+                  <li class="flex items-start gap-2 border-l-2 border-primary bg-primary/5 px-3 py-2 rounded-r text-sm font-medium text-base-content">
+                    <svg class="w-4 h-4 mt-0.5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            )}
 
             {/* Per-group notes */}
             {group.notes && group.notes.length > 0 && (
@@ -118,7 +133,7 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
                 <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
                   <td class="font-medium">
                     {row.label}
-                    {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
+                    {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleure offre</span>}
                   </td>
                   <td class="text-lg font-bold">{row.price}€</td>
                   <td class="text-base-content/60">/{row.unit}</td>
@@ -135,7 +150,7 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
               <div class="flex justify-between items-center">
                 <div>
                   <p class="font-medium">{row.label}</p>
-                  {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
+                  {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleure offre</span>}
                 </div>
                 <div class="text-right">
                   <p class="text-xl font-bold">{row.price}€</p>

@@ -827,7 +827,7 @@ flowchart TD
 **4. Bloc Tarifs**
 
 - **Purpose :** Présenter les formules tarifaires de façon claire et comparable
-- **États :** Default | Avec highlight sur meilleur rapport qualité/prix
+- **États :** Default | Avec highlight sur Meilleure offre qualité/prix
 - **Variantes :** Compact (page service, 3-5 lignes) | Complet (page tarifs, toutes formules)
 - **Notes additionnelles :** Licence, cotisation, réductions affichées sous le tableau
 - **Accessibilité :** `<table>` sémantique, `<caption>` descriptif, cellules `<th>` pour en-têtes

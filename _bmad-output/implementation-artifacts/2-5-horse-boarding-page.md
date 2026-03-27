@@ -191,7 +191,7 @@ Que vous choisissiez le box, le paddock ou le pre, le niveau de soin est identiq
 Un box spacieux avec matelas de litiere, cure et refait chaque jour. Ideal pour les chevaux qui ont besoin d'un espace personnel au calme.
 
 ### Paddock avec abri
-Un paddock individuel ou en petit groupe avec abri couvert. Le meilleur rapport espace/confort pour les chevaux qui aiment vivre dehors.
+Un paddock individuel ou en petit groupe avec abri couvert. Le Meilleure offre espace/confort pour les chevaux qui aiment vivre dehors.
 
 ### Pre
 La vie au grand air dans nos prairies bretonnes. Ideal pour les chevaux au repos ou les poneys rustiques.

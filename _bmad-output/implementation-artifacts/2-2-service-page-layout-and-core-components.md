@@ -271,7 +271,7 @@ const { pricing, pricingNotes } = Astro.props;
             <tr class={row.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}>
               <td class="font-medium">
                 {row.label}
-                {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleur rapport</span>}
+                {row.highlight && <span class="badge badge-primary badge-sm ml-2">Meilleure offre</span>}
               </td>
               <td class="text-lg font-bold">{row.price}€</td>
               <td class="text-base-content/60">/{row.unit}</td>
@@ -288,7 +288,7 @@ const { pricing, pricingNotes } = Astro.props;
           <div class="flex justify-between items-center">
             <div>
               <p class="font-medium">{row.label}</p>
-              {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleur rapport</span>}
+              {row.highlight && <span class="badge badge-primary badge-sm mt-1">Meilleure offre</span>}
             </div>
             <div class="text-right">
               <p class="text-xl font-bold">{row.price}€</p>

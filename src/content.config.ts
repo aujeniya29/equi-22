@@ -45,6 +45,7 @@ const services = defineCollection({
         highlight: z.boolean().default(false),
       })),
       notes: z.array(z.string()).optional(),
+      highlightedNotes: z.array(z.string()).optional(),
     })).optional(),
 
     // Schedule

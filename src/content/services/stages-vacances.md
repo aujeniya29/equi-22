@@ -1,112 +1,134 @@
 ---
 title: "Stages vacances équitation"
-description: "Stages d'équitation pendant les vacances scolaires à Yffiniac. Demi-journée, journée, mini-stage 3 jours ou semaine — pour les enfants de 5 à 14 ans, tous niveaux."
+description: "Stages d'équitation pendant les vacances scolaires à Yffiniac. Demi-journée, journée ou semaine — pour les enfants dès 3 ans et les adultes, tous niveaux."
 seoTitle: "Stage équitation vacances Côtes-d'Armor Yffiniac | Equi 22"
-seoDescription: "Stages équitation vacances à Yffiniac près de Saint-Brieuc. Demi-journée, journée ou semaine, 5–14 ans, tous niveaux. Encadrement diplômé."
+seoDescription: "Stages équitation vacances à Yffiniac près de Saint-Brieuc. Demi-journée, journée ou semaine, dès 3 ans et adultes, tous niveaux. Encadrement diplômé."
 heroImage: "/src/assets/images/hero/stages-vacances.png"
 heroImageAlt: "Groupe d'enfants souriant pendant un stage vacances équitation au centre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les stages vacances équitation. Pourriez-vous me donner des informations sur les prochains stages et les places disponibles ?"
 order: 4
-pricing:
-  - label: "Demi-journée — cavalier du club"
-    price: "30"
-    unit: "demi-journée"
-    highlight: false
-  - label: "Demi-journée — cavalier extérieur"
-    price: "35"
-    unit: "demi-journée"
-    highlight: false
-  - label: "4 demi-journées — cavalier du club"
-    price: "110"
-    unit: "forfait"
-    highlight: false
-  - label: "4 demi-journées — cavalier extérieur"
-    price: "120"
-    unit: "forfait"
-    highlight: false
-  - label: "Stage à thème demi-journée — cavalier du club"
-    price: "35"
-    unit: "demi-journée"
-    highlight: false
-  - label: "Stage à thème demi-journée — cavalier extérieur"
-    price: "40"
-    unit: "demi-journée"
-    highlight: false
-  - label: "Stage semaine (été) — cavalier du club"
-    price: "280"
-    unit: "semaine"
-    highlight: false
-  - label: "Stage semaine (été) — cavalier extérieur"
-    price: "300"
-    unit: "semaine"
-    highlight: false
-  - label: "Pack stages : 3×(4 demi-journées) + 1 semaine — club"
-    price: "550"
-    unit: "pack"
-    highlight: true
-  - label: "Pack stages : 3×(4 demi-journées) + 1 semaine — extérieur"
-    price: "600"
-    unit: "pack"
-    highlight: false
+pricingGroups:
+  - title: "Mini-stage poneys — dès 3 ans"
+    subtitle: "9h30–11h — prévoir un goûter"
+    items:
+      - label: "Demi-journée"
+        price: "25"
+        unit: "demi-journée"
+        highlight: false
+      - label: "Forfait 4 demi-journées (lun, mar, jeu, ven)"
+        price: "100"
+        unit: "forfait"
+        highlight: false
+  - title: "Stage découverte — dès 6 ans"
+    subtitle: "9h30–12h — prévoir un goûter"
+    items:
+      - label: "Demi-journée — cavalier du club"
+        price: "30"
+        unit: "demi-journée"
+        highlight: false
+      - label: "Demi-journée — cavalier extérieur"
+        price: "35"
+        unit: "demi-journée"
+        highlight: false
+      - label: "Forfait 4 demi-journées (lun, mar, jeu, ven) — cavalier du club"
+        price: "110"
+        unit: "forfait"
+        highlight: false
+      - label: "Forfait 4 demi-journées (lun, mar, jeu, ven) — cavalier extérieur"
+        price: "120"
+        unit: "forfait"
+        highlight: false
+  - title: "Stage à thème"
+    subtitle: "14h–17h — prévoir un goûter"
+    items:
+      - label: "Demi-journée — cavalier du club"
+        price: "35"
+        unit: "demi-journée"
+        highlight: false
+      - label: "Demi-journée — cavalier extérieur"
+        price: "40"
+        unit: "demi-journée"
+        highlight: false
+  - title: "Stage semaine — été"
+    subtitle: "Lun–Ven, 9h–17h — prévoir déjeuner, 2 goûters et une tenue de rechange"
+    highlightedNotes:
+      - "Apéro et spectacle organisés le vendredi soir"
+    items:
+      - label: "Semaine — cavalier du club"
+        price: "280"
+        unit: "semaine"
+        highlight: false
+      - label: "Semaine — cavalier extérieur"
+        price: "300"
+        unit: "semaine"
+        highlight: false
+  - title: "Stage adulte"
+    subtitle: "Dimanche à la journée"
+    items:
+      - label: "Journée — cavalier du club"
+        price: "70"
+        unit: "journée"
+        highlight: false
+      - label: "Journée — cavalier extérieur"
+        price: "80"
+        unit: "journée"
+        highlight: false
+  - title: "Weekend passage de galop"
+    subtitle: "Weekend de 3 jours — ouvert à tous"
+    items:
+      - label: "Weekend passage de galop"
+        price: "150"
+        unit: "weekend"
+        highlight: false
 pricingNotes:
-  - "Encadrement diplômé, assurance et matériel de sécurité inclus"
-  - "Licence FFE journalière incluse pour les non-licenciés"
-  - "Stage à la semaine disponible en été uniquement"
-  - "Pique-nique ou repas non fourni — prévoir le repas"
+  - "10 participants maximum par groupe de niveau"
+  - "Encadrement diplômé, assurance incluse"
+  - "Pas de stage pendant les vacances de Noël"
 testimonial:
   quote: "Mon fils a passé une semaine formidable. Il parle encore de son cheval préféré et réclame le prochain stage !"
   author: "Nathalie, maman de Tom (9 ans)"
   stars: 5
-serviceType: "Stages vacances équitation pour enfants"
-serviceDescription: "Stages équitation pendant les vacances scolaires au centre équestre Equi 22 à Yffiniac. Formules demi-journée, journée, 3 jours ou semaine complète pour les 5-14 ans, tous niveaux."
+serviceType: "Stages vacances équitation enfants et adultes"
+serviceDescription: "Stages équitation pendant les vacances scolaires au centre équestre Equi 22 à Yffiniac. Formules demi-journée, journée ou semaine complète, dès 3 ans et adultes, tous niveaux."
 ---
 
-## Une semaine (ou une journée) dans la peau d'un cavalier
+## Une journée (ou une semaine) dans la peau d'un cavalier
 
 Nos stages vacances permettent aux enfants de vivre l'équitation de l'intérieur : monter à cheval bien sûr, mais aussi apprendre à s'occuper des poneys, comprendre leurs besoins et créer un vrai lien. À la fin de la semaine, votre enfant repart avec une vraie autonomie — et l'impatience du prochain stage.
 
-Les stages sont ouverts aux enfants de **5 à 14 ans**, de tous niveaux — du grand débutant qui n'a jamais approché un poney jusqu'aux cavaliers déjà licenciés. Nos monitrices diplômées forment des groupes homogènes par niveau et par âge pour que chacun progresse à son rythme.
+Les stages enfants sont ouverts **dès 3 ans**, de tous niveaux — du grand débutant qui n'a jamais approché un poney jusqu'aux cavaliers déjà licenciés. Nous formons des groupes homogènes par niveau et par âge (10 participants maximum) pour que chacun progresse à son rythme.
+
+Nous proposons également des **stages adultes** le dimanche à la journée, ainsi que des **weekends de 3 jours passage de galop** ouverts à tous.
 
 ## Au programme du stage
 
 Chaque journée de stage est construite autour de l'équitation et du soin aux animaux :
 
-- **Séances de monte** — En manège ou en carrière selon le niveau, 2 séances par journée complète
-- **Soins aux poneys** — Brossage, curage des pieds, harnachement : votre enfant apprend les gestes du cavalier responsable
+- **Séances de monte** — En manège ou en carrière selon le niveau
+- **Soins aux poneys** — Brossage, curage des pieds, harnachement : les gestes du cavalier responsable
 - **Activités ludiques** — Jeux à poney, gymkhana, quiz équestre : l'apprentissage par le jeu
 - **Découverte de l'écurie** — Alimentation, observation du comportement des chevaux, vocabulaire équestre
-- **Temps libre** — Goûter et échanges avec les autres enfants du stage dans un cadre convivial
+- **Goûter** — Moment convivial entre les enfants du stage
 
-## Une journée type au stage
-
-- **Matin (9h–12h)** : Accueil, soins aux poneys, séance de monte (1h)
-- **Pause repas (12h–13h30)** : Repas apporté par l'enfant, temps libre
-- **Après-midi (13h30–17h)** : Activité équestre, séance de monte (1h), rangement et soins du soir
-
-Pour les demi-journées, deux créneaux sont disponibles : matin (9h–12h) ou après-midi (13h30–17h).
+Pour les stages été, l'ambiance monte d'un cran le vendredi soir : apéro et spectacle organisés avec les familles.
 
 ## Ce qu'il faut apporter
 
 - Casque d'équitation homologué CE (norme EN 1384, obligatoire — nous en avons en prêt si nécessaire)
-- Bottes ou chaussures à talon (minimum 1 cm) — protège-tibias recommandés
+- Bottes ou chaussures à talon (minimum 1 cm)
 - Tenue confortable et adaptée au mouvement
-- Pique-nique et gourde pour les journées complètes
-- Crème solaire les jours de beau temps
-
-Pas de surbottes, pas de vêtements synthétiques glissants. En cas de doute, contactez-nous.
+- Goûter pour tous les stages
+- Pour les stages été : déjeuner, 2 goûters et une tenue de rechange
 
 ## Quand ont lieu nos stages ?
 
-Nous organisons des stages pendant **toutes les vacances scolaires** :
+Nous organisons des stages pendant **toutes les vacances scolaires, sauf à Noël** :
 
-- **Vacances de la Toussaint** — Stage de 3 ou 5 jours
-- **Vacances de Noël** — Stage de 3 jours (selon demandes)
-- **Vacances d'hiver** — Stage de 5 jours
-- **Vacances de printemps** — Stage de 5 jours + demi-journées
-- **Vacances d'été** — Stages intensifs semaine par semaine, de juillet à mi-août
+- **Vacances de la Toussaint** — Demi-journées et stages découverte
+- **Vacances d'hiver** — Demi-journées et stages découverte
+- **Vacances de printemps** — Demi-journées, stages découverte et stages à thème
+- **Vacances d'été** — Stages semaine complète (lun–ven, 9h–17h), de juillet à mi-août
 
 > **Prochain stage à venir** — Les dates et les places disponibles sont communiquées par WhatsApp et sur nos réseaux sociaux. Contactez-nous pour rejoindre la liste d'attente ou réserver votre place dès l'ouverture des inscriptions.
 
-## Des places limitées pour un encadrement de qualité
-
-Nous limitons volontairement nos groupes à **8 enfants par groupe** pour garantir un encadrement individuel. Les stages affichent souvent complets plusieurs semaines à l'avance — n'attendez pas les dernières vacances pour réserver.
+Les stages affichent souvent complets plusieurs semaines à l'avance — n'attendez pas les dernières vacances pour réserver.

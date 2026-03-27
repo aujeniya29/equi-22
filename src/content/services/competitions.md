@@ -21,16 +21,13 @@ pricing:
     unit: "concours"
     highlight: false
 pricingNotes:
-  - "Licence FFE compétition obligatoire (non incluse — environ 55€/an adulte, 45€/an jeune)"
-  - "Droits d'engagement fixés par l'organisateur (non inclus — généralement 15–40€ par épreuve)"
-  - "Équipement de compétition conforme FFE requis — disponible à la location sur demande"
-  - "Pack Saison inclut 6 séances de préparation spécialisée + accompagnement de votre coach sur les concours"
+  - "Licence FFE obligatoire"
 testimonial:
   quote: "Mon premier concours, j'étais terrifiée. Avec le soutien de l'équipe, j'ai franchi mes premiers obstacles et j'en veux encore !"
   author: "Céline, cavalière adulte (Galop 5)"
   stars: 5
 serviceType: "Préparation et accompagnement compétition équestre"
-serviceDescription: "Préparation aux concours de saut d'obstacles (CSO) et Hunter au centre équestre Equi 22 à Yffiniac. Encadrement diplômé, logistique transport, programme saison pour cavaliers à partir de la Galop 4."
+serviceDescription: "Préparation aux concours de saut d'obstacles (CSO), Hunter et mountain trail au centre équestre Equi 22 à Yffiniac. Encadrement diplômé, logistique transport, programme saison pour cavaliers tout niveaux."
 ---
 
 ## La compétition : une aventure à vivre ensemble
@@ -43,19 +40,24 @@ Nos cavaliers participent aux compétitions organisées sous l'égide de la **F�
 
 ### Concours de Saut d'Obstacles (CSO)
 
-Le CSO est la discipline phare de notre club. Nos cavaliers participent à des épreuves allant de la **Basse Compétition** (obstacles de 60 à 80 cm) jusqu'au niveau régional pour les plus confirmés. L'objectif : progresser à son rythme, d'un obstacle à l'autre, d'un concours à l'autre.
+Le CSO est la discipline phare de notre club. Nos cavaliers participent à des épreuves allant de la **Poney/CLub 4** jusqu'au niveau amateur pour les plus confirmés. L'objectif : progresser à son rythme, d'un obstacle à l'autre, d'un concours à l'autre.
 
 ### Hunter
 
 Plus technique, le Hunter juge à la fois la régularité des allures, l'expression du cheval et la fluidité du parcours. Une discipline qui récompense la qualité de la relation entre le cavalier et son cheval — parfaite pour ceux qui aiment le travail de précision.
 
+### Mountain trail
+
+Le mountain trail démontre la qualité de la relation homme-cheval et vise à montrer **confiance, courage et calme**. En compétition le cavalier est jugé sur sa qualité relationnelle avec son cheval, la discrétion de ses demandes et utilisation de ses aides, la qualité de chaque  franchissement de dispositif, les trajectoires ...
+Le cheval est jugé sur sa franchise, sa capacité à faire confiance à son cavalier mais également sa capacité à évaluer par lui même l'obstacle à franchir.
+
 ## Conditions de participation
 
 Pour concourir avec Equi 22, il faut :
 
-- Avoir obtenu le **Galop 4** (niveau minimum pour la Basse Compétition)
-- Détenir une **licence FFE compétition** (nous pouvons vous accompagner pour l'inscription)
-- Présenter un équipement conforme aux règlements FFE (bombe homologuée, tenue de concours, protège-bottes)
+- Avoir obtenu le **Galop 2** pour le CSO, le Hunter ou le dressage. Le **Galop 0** pour le Mountain trail
+- Détenir une **licence FFE**
+- Présenter un équipement conforme aux règlements FFE (bombe homologuée, tenue de concours, ...)
 - Avoir l'accord de votre monitrice après évaluation de votre niveau et de votre préparation
 
 Pas encore à ce niveau ? Parlez-en à votre monitrice — une saison de préparation ciblée peut changer les choses plus vite que vous ne le pensez.
@@ -65,7 +67,7 @@ Pas encore à ce niveau ? Parlez-en à votre monitrice — une saison de prépar
 La différence entre un concours réussi et une journée stressante, c'est souvent la préparation. Nos séances de préparation spécifiques au concours travaillent :
 
 - **La technique de saut** — impulsion, trajectoire, réception
-- **La gestion du stress** — exercices de respiration, simulation de parcours en loge
+- **La gestion du stress**
 - **La lecture de parcours** — analyser les combinaisons, repérer les pièges
 - **La logistique** — pansage de concours, tenue, timing de la journée
 
@@ -73,11 +75,7 @@ Le **Pack Saison Compétition** inclut 6 séances de préparation spécialisée 
 
 ## Le calendrier des concours
 
-Nos cavaliers participent principalement aux concours régionaux organisés par les comités équestres bretons :
-
-- **Saison printanière** — concours locaux du printemps, montée en puissance jusqu'au début de l'été
-- **Pause estivale** — quelques concours outdoor selon les opportunités de la saison
-- **Saison automnale** — reprise des concours à l'automne, clôture de saison avant l'hiver
+Nos cavaliers participent principalement aux concours régionaux organisés par les comités équestres bretons.
 
 > **Prochain concours à venir** — Le programme de la saison est partagé par WhatsApp et affiché à l'écurie dès que les dates sont publiées par les organisateurs. Contactez-nous pour rejoindre la liste de diffusion compétition.
 

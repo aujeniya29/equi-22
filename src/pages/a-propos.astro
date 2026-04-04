@@ -6,7 +6,21 @@ import Hero from '../components/Hero.astro';
 import { business } from '../data/business';
 import GoogleReviews from '../components/GoogleReviews.astro';
 
-// Instructor type — imageSrc is optional so the page builds before real photos are ready
+import aProposHero from '../assets/images/hero/a-propos.jpg';
+import aurelia from '../assets/images/team/aurelia.jpg';
+import monitrice from '../assets/images/team/monitrice.jpg';
+import gallerieCarrieres1 from '../assets/images/gallery/carrieres-1.jpg';
+import gallerieCarrieres2 from '../assets/images/gallery/carrieres-2.jpg';
+import galleriePaddocks1 from '../assets/images/gallery/paddocks-1.jpg';
+import galleriePaddocks2 from '../assets/images/gallery/paddocks-2.jpg';
+import gallerieChemins1 from '../assets/images/gallery/chemins-1.jpg';
+import gallerieChemins2 from '../assets/images/gallery/chemins-2.jpg';
+import gallerieBoxes1 from '../assets/images/gallery/boxes-1.jpg';
+import gallerieEnvironnement1 from '../assets/images/gallery/environnement-1.jpg';
+import gallerieEnvironnement2 from '../assets/images/gallery/environnement-2.jpg';
+import installationsHighlight from '../assets/images/gallery/installations-highlight.jpg';
+
+// Instructor type
 interface Instructor {
   firstName: string;
   role: string;
@@ -17,95 +31,75 @@ interface Instructor {
   imageAlt: string;
 }
 
-// Instructor data — add imageSrc imports when real photos are available:
-//   import instructeur1 from '../assets/images/team/instructeur-1.jpg';
-//   import instructeur2 from '../assets/images/team/instructeur-2.jpg';
-// Then set imageSrc: instructeur1, imageSrc: instructeur2 below.
 const instructors: Instructor[] = [
   {
-    firstName: 'Marie',
+    firstName: 'Aurélia',
     role: 'Monitrice principale',
-    personality: "Douce et attentionnée, Marie met les débutants à l'aise dès la première séance.",
+    personality: "Douce et attentionnée, Aurélia met les débutants à l'aise dès la première séance.",
     philosophy: "Apprendre l'équitation, c'est d'abord apprendre à écouter le cheval. On avance à votre rythme, jamais au mien.",
     qualifications: "BPJEPS Équitation — 12 ans d'expérience",
-    imageAlt: 'Marie, monitrice principale du centre équestre Équi 22',
+    imageSrc: aurelia,
+    imageAlt: 'Aurélia, monitrice principale du centre équestre Équi 22',
   },
   {
-    firstName: 'Thomas',
-    role: 'Moniteur compétition',
-    personality: 'Passionné de CSO, Thomas partage son enthousiasme avec exigence et bienveillance.',
-    philosophy: "La compétition n'est pas une fin en soi — c'est un prétexte magnifique pour se dépasser et comprendre son cheval.",
-    qualifications: 'BPJEPS Équitation — Juge fédéral FFE',
-    imageAlt: 'Thomas, moniteur compétition du centre équestre Équi 22',
+    // TODO: renseigner le prénom de la monitrice
+    firstName: 'Notre monitrice',
+    role: 'Monitrice',
+    personality: "Passionnée et bienveillante, elle accompagne chaque cavalier avec enthousiasme et pédagogie.",
+    philosophy: "Chaque cavalier est unique. Mon rôle est de trouver la clé qui fait progresser chacun à son propre rythme.",
+    qualifications: 'BPJEPS Équitation',
+    imageSrc: monitrice,
+    imageAlt: 'Monitrice du centre équestre Équi 22',
   },
 ];
 
 const whatsappMessage = `Bonjour, je souhaite en savoir plus sur le centre équestre ${business.name} à ${business.city}.`;
 
-// --- GALLERY SECTION ---
-
-// Gallery photo slot — imageSrc is optional so the page builds before client provides photos
+// Gallery photo slot
 interface GalleryPhoto {
   imageSrc?: ImageMetadata;
   alt: string;
 }
 
-// Gallery zone — a named facility zone with its photo grid
+// Gallery zone
 interface GalleryZone {
   title: string;
   photos: GalleryPhoto[];
 }
 
-// How to add real photos (when client provides them):
-// 1. Add the image file to src/assets/images/gallery/ (e.g., carrieres-1.jpg)
-// 2. Uncomment the matching import below
-// 3. Replace the { alt: '...' } object with { imageSrc: varName, alt: '...' }
-//
-// import gallerieCarrieres1 from '../assets/images/gallery/carrieres-1.jpg';
-// import gallerieCarrieres2 from '../assets/images/gallery/carrieres-2.jpg';
-// import gallerieBoxes1 from '../assets/images/gallery/boxes-1.jpg';
-// import gallerieBoxes2 from '../assets/images/gallery/boxes-2.jpg';
-// import galleriePaddocks1 from '../assets/images/gallery/paddocks-1.jpg';
-// import galleriePaddocks2 from '../assets/images/gallery/paddocks-2.jpg';
-// import gallerieChemins1 from '../assets/images/gallery/chemins-1.jpg';
-// import gallerieChemins2 from '../assets/images/gallery/chemins-2.jpg';
-// import gallerieEnvironnement1 from '../assets/images/gallery/environnement-1.jpg';
-// import gallerieEnvironnement2 from '../assets/images/gallery/environnement-2.jpg';
-
 const galleryZones: GalleryZone[] = [
   {
     title: 'Carrières',
     photos: [
-      { alt: 'Carrière couverte du centre équestre Équi 22 à Yffiniac' },
-      { alt: 'Carrière extérieure en herbe du centre équestre Équi 22' },
+      { imageSrc: gallerieCarrieres1, alt: 'Carrière couverte du centre équestre Équi 22 à Yffiniac' },
+      { imageSrc: gallerieCarrieres2, alt: 'Carrière extérieure en herbe du centre équestre Équi 22' },
     ],
   },
   {
     title: 'Boxes',
     photos: [
-      { alt: 'Boxes spacieux et lumineux du centre équestre Équi 22' },
-      { alt: 'Cheval dans son box au centre équestre Équi 22 à Yffiniac' },
+        { imageSrc: gallerieBoxes1, alt: 'Boxes du centre équestre Équi 22 à Yffiniac' },
     ],
   },
   {
     title: 'Paddocks & Prés',
     photos: [
-      { alt: 'Paddocks du centre équestre Équi 22 en Bretagne' },
-      { alt: 'Chevaux au pré au centre équestre Équi 22 à Yffiniac' },
+      { imageSrc: galleriePaddocks1, alt: 'Cheval en liberté dans les paddocks du centre équestre Équi 22' },
+      { imageSrc: galleriePaddocks2, alt: 'Chevaux au pré au centre équestre Équi 22 à Yffiniac' },
     ],
   },
   {
     title: 'Chemins de randonnée',
     photos: [
-      { alt: 'Chemin de randonnée équestre en Bretagne depuis le centre Équi 22' },
-      { alt: 'Balade en forêt depuis le centre équestre Équi 22 à Yffiniac' },
+      { imageSrc: gallerieChemins1, alt: 'Chemin de randonnée équestre en Bretagne depuis le centre Équi 22' },
+      { imageSrc: gallerieChemins2, alt: 'Balade sur la plage depuis le centre équestre Équi 22 à Yffiniac' },
     ],
   },
   {
     title: 'Environnement',
     photos: [
-      { alt: 'Vue du centre équestre Équi 22 en pleine nature bretonne' },
-      { alt: 'Paysage breton entourant le centre équestre Équi 22 à Yffiniac' },
+      { imageSrc: gallerieEnvironnement1, alt: 'Vue du centre équestre Équi 22 en pleine nature bretonne' },
+      { imageSrc: gallerieEnvironnement2, alt: 'Paysage breton entourant le centre équestre Équi 22 à Yffiniac' },
     ],
   },
 ];
@@ -116,11 +110,12 @@ const galleryZones: GalleryZone[] = [
   description="Découvrez l'histoire du centre équestre Équi 22 à Yffiniac, notre pédagogie bienveillante et notre équipe d'enseignants passionnés."
   whatsappMessage={whatsappMessage}
 >
-  <!-- Hero — imageSrc omitted until real photo is available; Hero.astro renders bg-base-200 fallback -->
   <Hero
     title="Équi 22 — Notre histoire"
     description="Un centre équestre ancré en Bretagne, guidé par la bienveillance et le respect du cheval."
-    imageAlt="Vue du centre équestre Équi 22 à Yffiniac"
+    imageSrc={aProposHero}
+    imageAlt="Cavaliers sur la plage bretonne avec les chevaux du centre équestre Équi 22"
+    heightClass="min-h-[450px] lg:min-h-[600px]"
   />
 
   <!-- Center history & values -->
@@ -189,7 +184,6 @@ const galleryZones: GalleryZone[] = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         {instructors.map((instructor) => (
           <article class="bg-base-100 rounded-xl overflow-hidden shadow-sm">
-            <!-- Photo or beige placeholder at 3:2 ratio (CLS = 0) -->
             <div class="aspect-[3/2] overflow-hidden">
               {instructor.imageSrc ? (
                 <Image
@@ -204,7 +198,6 @@ const galleryZones: GalleryZone[] = [
                 <div class="w-full h-full bg-[#F0EDE8]" aria-hidden="true" />
               )}
             </div>
-            <!-- Profile content -->
             <div class="p-6 flex flex-col gap-3">
               <div>
                 <h3 class="text-xl font-serif text-base-content">{instructor.firstName}</h3>
@@ -255,13 +248,20 @@ const galleryZones: GalleryZone[] = [
           </ul>
         </div>
         <div class="aspect-[4/3] overflow-hidden rounded-xl">
-          <div class="w-full h-full bg-[#F0EDE8]" aria-hidden="true" />
+          <Image
+            src={installationsHighlight}
+            alt="Carrière couverte du centre équestre Équi 22 à Yffiniac"
+            width={800}
+            height={600}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Structured photo gallery — organized by facility zone (FR21, FR22, FR23, FR24) -->
+  <!-- Structured photo gallery -->
   <section class="py-12 lg:py-16 bg-base-100">
     <div class="max-w-5xl mx-auto px-4">
       <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-3">Notre galerie</h2>

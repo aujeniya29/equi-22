@@ -3,7 +3,7 @@ title: "Compétitions équestres"
 description: "Participez aux concours CSO, Hunter, dressage ou mountain trail avec Equi 22. Encadrement, préparation et logistique inclus."
 seoTitle: "Compétition équitation Côtes-d'Armor Yffiniac | Equi 22"
 seoDescription: "Compétitions équestres CSO, Hunter, dressage ou mountain trail près de Saint-Brieuc. - Equi 22 Yffiniac."
-heroImage: "/src/assets/images/hero/competitions.png"
+heroImage: "/src/assets/images/hero/competitions.jpg"
 heroImageAlt: "Cavalier franchissant un obstacle lors d'un concours de saut d'obstacles au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les compétitions équestres. Pourriez-vous me donner des informations sur le programme de la saison et les conditions de participation ?"
 order: 5

@@ -3,7 +3,7 @@ title: "Pension chevaux"
 description: "Pension pour chevaux et poneys à Yffiniac. Box, paddock ou pré — des installations soignées, une alimentation de qualité et un suivi vétérinaire rigoureux."
 seoTitle: "Pension chevaux Saint-Brieuc Yffiniac | Equi 22"
 seoDescription: "Pension pour chevaux à Yffiniac près de Saint-Brieuc. Box, paddock, pré. Installations entretenues, foin à volonté, suivi vétérinaire. Visitez nos installations."
-heroImage: "/src/assets/images/hero/pension-chevaux.png"
+heroImage: "/src/assets/images/hero/pension-chevaux.jpg"
 heroImageAlt: "Installations de pension pour chevaux au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis interesse(e) par la pension chevaux. Pourriez-vous me donner des informations sur les formules et organiser une visite des installations ?"
 order: 3

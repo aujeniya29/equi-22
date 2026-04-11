@@ -103,4 +103,4 @@ Chez nous, chaque enfant avance selon sa propre progression, de la première ren
 - **Galop 3–4** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
 - **Galop 5–7** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
 
-Nos monitrices adaptent chaque séance au niveau réel de l'enfant, pas à un calendrier rigide.
+Nos monitrices adaptent chaque séance au niveau des enfants.

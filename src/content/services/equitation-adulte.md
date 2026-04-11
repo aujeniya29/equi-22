@@ -69,17 +69,17 @@ serviceDescription: "Cours d'équitation pour adultes débutants et confirmés a
 
 ## Pas de jugement, pas de pression
 
-Vous n'avez jamais monté à cheval ? Vous avez arrêté il y a 20 ans ? Peu importe votre point de départ. Au centre équestre Equi 22, les adultes sont les bienvenus — sans regard, sans comparaison. Ici, on avance à votre rythme, selon vos envies.
+Vous n'êtes jamais monté à cheval ? Vous avez arrêté il y a 20 ans ? Peu importe votre point de départ. Au centre équestre Equi 22, les adultes sont les bienvenus — sans regard, sans comparaison. Ici, on avance à votre rythme, selon vos envies.
 
 ## Des cours pensés pour les adultes
 
-Nos cours adultes se déroulent en petits groupes réservés aux adultes, pour que vous vous sentiez à l'aise dès la première séance. Nos monitrices adaptent chaque exercice à votre niveau réel et à vos objectifs personnels : découverte, balade, perfectionnement ou simplement le plaisir d'être avec les chevaux.
+Nos cours adultes se déroulent en petits groupes réservés aux adultes, pour que vous vous sentiez à l'aise dès la première séance. Nos monitrices adaptent chaque exercice à votre niveau et à vos objectifs personnels : découverte, balade, perfectionnement ou simplement le plaisir d'être avec les chevaux.
 
-Les chevaux de notre centre sont sélectionnés pour leur calme et leur patience — des partenaires idéaux pour débuter en toute confiance. Les adultes montent des chevaux, et non des poneys, pour un confort adapté à votre morphologie.
+Les chevaux de notre centre sont sélectionnés pour leur calme et leur patience — des partenaires idéaux pour débuter en toute confiance.
 
 ## Un moment pour vous
 
-Beaucoup de nos cavaliers adultes décrivent leur séance hebdomadaire comme un vrai moment de déconnexion. Loin du quotidien, au contact de la nature et des chevaux, vous retrouvez un espace rien qu'à vous. Pas de performance à atteindre, pas de pression — juste le plaisir de progresser.
+Beaucoup de nos cavaliers adultes décrivent leur séance hebdomadaire comme un vrai moment de déconnexion. Loin du quotidien, au contact de la nature et des chevaux. Pas de performance à atteindre, pas de pression — juste le plaisir de progresser.
 
 ## Sessions en soirée et le week-end
 

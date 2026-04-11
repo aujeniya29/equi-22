@@ -64,13 +64,6 @@ Pas encore à ce niveau ? Parlez-en à votre monitrice — une saison de prépar
 
 ## Préparer un concours sérieusement
 
-La différence entre un concours réussi et une journée stressante, c'est souvent la préparation. Nos séances de préparation spécifiques au concours travaillent :
-
-- **La technique de saut** — impulsion, trajectoire, réception
-- **La gestion du stress**
-- **La lecture de parcours** — analyser les combinaisons, repérer les pièges
-- **La logistique** — pansage de concours, tenue, timing de la journée
-
 Le **Pack Saison Compétition** inclut 6 séances de préparation spécialisée + l'accompagnement de votre coach sur les concours auxquels vous participez.
 
 ## Le calendrier des concours

@@ -127,11 +127,9 @@ serviceDescription: "Pension équine au centre équestre Equi 22 à Yffiniac. Bo
 
 ## Des installations pensées pour le bien-être de votre cheval
 
-Au centre équestre Equi 22, la pension est notre activité principale depuis l'ouverture. Nos installations à Yffiniac, entre campagne et littoral breton, accueillent chevaux et poneys toute l'année : paddocks ouverts, boxes aérés, prairies entretenues. La meilleure façon de juger une pension, c'est de la visiter — voici ce que vous trouverez.
+ Nos installations à Yffiniac, entre campagne et littoral breton, accueillent chevaux et poneys toute l'année : paddocks sécurisés, boxes sur matelas, prairies entretenues. La meilleure façon de juger une pension, c'est de la visiter — voici ce que vous trouverez.
 
 ## Ce qui est inclus dans votre pension
-
-Pas de petites lignes, pas de suppléments cachés. Voici ce que toutes nos formules de pension incluent :
 
 - **Alimentation** — Foin à volonté distribué matin et soir, compléments alimentaires adaptés aux besoins de chaque cheval
 - **Sortie quotidienne** — Accès au paddock tous les jours, quelle que soit la formule choisie
@@ -140,7 +138,7 @@ Pas de petites lignes, pas de suppléments cachés. Voici ce que toutes nos form
 - **Protocole vermifuge** — Vermifugation collective organisée par le centre (4 fois par an)
 - **Accès aux installations** — Carrière, manège couvert et chemins de balade accessibles aux propriétaires
 
-## Le bien-être animal, en actes
+## Le bien-être animal
 
 On ne vous dira pas "nous aimons les chevaux" — on vous montre comment :
 
@@ -178,5 +176,3 @@ Nous vous proposons le tiers de pension sur la cavalerie du centre-équestre.
 Ce tiers de pension vous permet de venir monter ou travailler en liberté deux fois par semaine. (Cette formule ne contient aucuns cours)
 
 ## Vous êtes propriétaire ? Venez visiter.
-
-La meilleure façon de juger une pension, c'est de la voir. Appelez-nous pour planifier une visite des installations — on vous montre tout, sans rendez-vous formel. Vous pourrez rencontrer l'équipe, voir les chevaux au paddock et poser toutes vos questions.

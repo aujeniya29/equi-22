@@ -30,6 +30,8 @@ const { title, description, imageSrc, imageAlt, heightClass = 'h-[300px] lg:h-[4
   <div class="relative z-10 flex flex-col max-w-5xl mx-auto px-4 pt-12 lg:pt-16 pb-8 lg:pb-12">
     <h1 class="text-3xl lg:text-5xl font-serif text-white mb-2">{title}</h1>
     <p class="text-lg lg:text-xl text-white/90 max-w-2xl">{description}</p>
-    <slot />
+    <div class="mt-auto pt-20 lg:pt-28">
+      <slot />
+    </div>
   </div>
 </section>

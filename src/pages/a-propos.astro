@@ -281,6 +281,7 @@ const galleryZones: GalleryZone[] = [
                     <Picture
                       src={photo.imageSrc}
                       formats={['avif', 'webp']}
+                      fallbackFormat="webp"
                       widths={[400, 800]}
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       alt={photo.alt}

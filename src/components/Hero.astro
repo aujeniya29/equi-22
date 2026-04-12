@@ -17,6 +17,7 @@ const { title, description, imageSrc, imageAlt, heightClass = 'h-[300px] lg:h-[4
     <Picture
       src={imageSrc}
       formats={['avif', 'webp']}
+      fallbackFormat="webp"
       alt={imageAlt}
       widths={[640, 960, 1280, 1920]}
       sizes="100vw"

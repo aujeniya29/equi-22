@@ -2,7 +2,7 @@
 interface ScheduleItem {
   day: string;
   time: string;
-  level: string;
+  level?: string;
 }
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { schedule, bgClass = 'bg-base-100' } = Astro.props;
+const hasLevels = schedule.some((s) => s.level);
 ---
 
 {schedule && schedule.length > 0 && (
@@ -26,7 +27,7 @@ const { schedule, bgClass = 'bg-base-100' } = Astro.props;
             <tr>
               <th>Jour</th>
               <th>Horaire</th>
-              <th>Niveau</th>
+              {hasLevels && <th>Niveau</th>}
             </tr>
           </thead>
           <tbody>
@@ -34,7 +35,7 @@ const { schedule, bgClass = 'bg-base-100' } = Astro.props;
               <tr>
                 <td class="font-semibold text-primary">{slot.day}</td>
                 <td>{slot.time}</td>
-                <td><span class="badge badge-outline">{slot.level}</span></td>
+                {hasLevels && <td><span class="badge badge-outline">{slot.level}</span></td>}
               </tr>
             ))}
           </tbody>
@@ -47,7 +48,7 @@ const { schedule, bgClass = 'bg-base-100' } = Astro.props;
           <div class="card border border-base-300 bg-base-100 p-4">
             <p class="font-semibold text-primary">{slot.day}</p>
             <p class="text-sm text-base-content/70 mt-1">{slot.time}</p>
-            <span class="badge badge-outline mt-2">{slot.level}</span>
+            {slot.level && <span class="badge badge-outline mt-2">{slot.level}</span>}
           </div>
         ))}
       </div>

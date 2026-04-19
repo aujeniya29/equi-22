@@ -17,8 +17,8 @@ pricing:
     unit: "saison"
     highlight: true
   - label: "Participation aux frais de transport"
-    price: "20"
-    unit: "concours"
+    price: "1"
+    unit: "€/kilomètres"
     highlight: false
 pricingNotes:
   - "Licence FFE obligatoire"
@@ -27,7 +27,7 @@ testimonial:
   author: "Céline, cavalière adulte (Galop 5)"
   stars: 5
 serviceType: "Préparation et accompagnement compétition équestre"
-serviceDescription: "Préparation aux concours de saut d'obstacles (CSO), Hunter et mountain trail au centre équestre Equi 22 à Yffiniac. Encadrement diplômé, logistique transport, programme saison pour cavaliers tout niveaux."
+serviceDescription: "Préparation aux concours de saut d'obstacles (CSO), Hunter, dressage et mountain trail au centre équestre Equi 22 à Yffiniac. Encadrement diplômé, logistique transport, programme saison pour cavaliers tout niveaux."
 ---
 
 ## La compétition : une aventure à vivre ensemble
@@ -45,6 +45,10 @@ Le CSO est la discipline phare de notre club. Nos cavaliers participent à des �
 ### Hunter
 
 Plus technique, le Hunter juge à la fois la régularité des allures, l'expression du cheval et la fluidité du parcours. Une discipline qui récompense la qualité de la relation entre le cavalier et son cheval — parfaite pour ceux qui aiment le travail de précision.
+
+### Dressage
+
+Le dressage, c'est apprendre à communiquer avec son cheval dans la subtilité et la précision. Une discipline accessible à tous, où la complicité entre cavalier et monture devient le cœur de chaque séance.
 
 ### Mountain trail
 

@@ -11,7 +11,7 @@ pricingGroups:
   - title: "Pensions"
     subtitle: "Pensions pour les propriétaires"
     highlightedNotes:
-      - "Pour les chevaux présentant des problèmes respiratoires, nous avons le plaisir de vous proposer du foin préfanné, idéal dans ce genre de situation"
+      - "Pour les chevaux présentant des problèmes respiratoires, nous avons le plaisir de vous proposer du foin préfanné, idéal dans ce genre de situation (Facturé en sus)"
     notes:
       - "1h de cours collectif offert par semaine inclus dans toutes les formules pension"
       - "Vermifuge et soins dentaires organisés collectivement (coût au réel)"
@@ -86,6 +86,7 @@ pricingGroups:
   - title: "Équidés du club"
     subtitle: "Pensions, demi-pensions et tiers de pensions sur les poneys et chevaux du centre"
     notes:
+      - "Les tiers de pensions ne sont pas disponibles sur les chevaux de propiétaires"
       - "Chevaux au pair selon les besoins du club — conditions à voir ensemble"
     items:
       - label: "Pension pré troupeau — poney"
@@ -151,7 +152,7 @@ On ne vous dira pas "nous aimons les chevaux" — on vous montre comment :
 
 ## Nos formules de pension
 
-Que vous choisissiez la pension boxe, le paddock, le pré ou la demi-pension, le niveau de soin est identique. Seuls l'hébergement et le temps de travail changent — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous.
+Que vous choisissiez la pension box/paddock, la pension paddock individuel, la pension pré ou la demi-pension, le niveau de soin est identique. Seuls l'hébergement et le temps de travail changent — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous.
 
 ### Box / paddock individuel
 

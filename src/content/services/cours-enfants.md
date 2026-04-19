@@ -54,9 +54,13 @@ pricing:
     unit: "mois"
     highlight: false
 pricingNotes:
+  - "Les cartes de 10 heures sont payables en 3 fois sans frais"
+  - "Les cartes de 20, 30 et 35 heures sont payables en 10 fois sans frais"
   - "Licence FFE obligatoire pour tous : 30€ pour les mineurs, 40€ pour les adultes"
   - "Cotisation annuelle : 60€ pour les mineurs, 70€ pour les adultes"
   - "Cartes annuelles payables en 10 fois de septembre à juin"
+  - "10 cavaliers maximum par cours"
+  - "Pour les babys et les débutants, un accompagnateur est demandé pour plus de sécurité (Au minimum le premier trimestre)"
 schedule:
   - day: "Mercredi"
     time: "14h00 - 15h00"

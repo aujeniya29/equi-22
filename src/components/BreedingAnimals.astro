@@ -9,6 +9,9 @@ interface Animal {
   photo?: string;
   prix?: string;
   description: string;
+  pere?: string;
+  mere?: string;
+  pereDeMere?: string;
   palmares?: string[];
 }
 
@@ -97,6 +100,14 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
                         .filter(Boolean)
                         .join(' · ')}
                     </p>
+                  )}
+
+                  {(animal.pere || animal.mere || animal.pereDeMere) && (
+                    <dl class="text-sm text-base-content/60 grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5">
+                      {animal.pere && <><dt class="font-medium">Père</dt><dd>{animal.pere}</dd></>}
+                      {animal.mere && <><dt class="font-medium">Mère</dt><dd>{animal.mere}</dd></>}
+                      {animal.pereDeMere && <><dt class="font-medium">Père de mère</dt><dd>{animal.pereDeMere}</dd></>}
+                    </dl>
                   )}
 
                   <p class="text-sm text-base-content/80 leading-relaxed">{animal.description}</p>

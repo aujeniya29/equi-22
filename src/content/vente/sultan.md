@@ -1,39 +1,40 @@
 ---
-title: "Sultan"
+title: "Oraia de Bihan braz"
 espece: "cheval"
-race: "Selle Français"
-anneeNaissance: 2017
-sexe: "hongre"
+race: "Anglo-arabe facteur Selle Français"
+anneeNaissance: 2024
+sexe: "Jument"
 taille: "1m68"
-robe: "Alezan brûlé"
-niveau: "CSO 100 cm"
+robe: "Léopard"
+niveau: "2 ans"
 disciplines:
   - "CSO"
   - "Hunter"
   - "Dressage"
-prix: "8 500 €"
+prix: "10 000 €"
 photoPrincipale: "sultan-01.jpg"
 photos:
   - "sultan-02.jpg"
   - "sultan-03.jpg"
 vendu: false
-seoTitle: "Sultan — Hongre Selle Français CSO 100 cm à vendre | Equi 22 Yffiniac"
-seoDescription: "Hongre Selle Français 8 ans, 1m68, alezan brûlé, niveau CSO 100 cm. À vendre au centre équestre Equi 22 à Yffiniac (Côtes-d'Armor)."
+pere: "Danu af sydgaard"
+mere: "Une fleur de vie"
+pereDeMere: "Quack"
+seoTitle: "Oraia de Bihan braz — Magnifique jument anglo arabe facteur selle français à vendre | Equi 22 Yffiniac"
+seoDescription: "Jument Anglo arabe facteur Selle Français 2 ans, léopard, polyvalente. À vendre au centre équestre Equi 22 à Yffiniac (Côtes-d'Armor)."
 ---
 
-Sultan est un hongre Selle Français de 8 ans, idéal pour un cavalier confirmé souhaitant progresser en compétition ou continuer à concourir à bon niveau. Cheval de caractère mais très correct au travail, il a été préparé et monté régulièrement par notre équipe.
+Oraia de Bihan braz — Magnifique jument anglo arabe facteur selle français à vendre.
 
 ## Points forts
 
-- **Facile au quotidien** — Sultan se prête bien aux soins, se maréchale sans difficulté et supporte bien le transport.
-- **Bon galop naturel** — Son galop équilibré facilite la mise en place en fond de parcours.
-- **Expérimenté en concours** — Il a participé à de nombreux concours régionaux, habitué au paddock de détente et au stress des journées.
-- **Monté par des cavaliers variés** — Il a été confié à plusieurs cavaliers de niveau différent sans souci particulier de comportement.
+- **Facile au quotidien**
+- **Monté par des cavaliers variés**.
 
 ## Convient à
 
-Un cavalier Galop 6 ou plus, avec une expérience du saut d'obstacles, souhaitant un cheval pour la compétition régionale ou les loisirs actifs.
+Une personne souhaitant former un cheval à sa main ou cherchant une nouvelle poulinière de couleur.
 
 ## Informations complémentaires
 
-Passeport équin à jour, vaccinations en règle, bilan vétérinaire possible avant achat. Visite d'achat bienvenue au centre équestre Equi 22 à Yffiniac.
+RAS

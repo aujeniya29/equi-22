@@ -19,6 +19,7 @@ const { Content } = await render(entry);
 const {
   title, espece, race, anneeNaissance, sexe, taille, robe,
   niveau, disciplines, prix, vendu, photoPrincipale, photos,
+  pere, mere, pereDeMere,
   seoTitle, seoDescription,
 } = data;
 
@@ -148,6 +149,33 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
               </div>
             )}
           </dl>
+
+          <!-- Origines -->
+          {(pere || mere || pereDeMere) && (
+            <div>
+              <p class="text-xs text-base-content/50 uppercase tracking-wide mb-2">Origines</p>
+              <dl class="grid grid-cols-2 gap-3 text-sm">
+                {pere && (
+                  <div class="bg-base-200 rounded-lg p-3">
+                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Père</dt>
+                    <dd class="font-medium">{pere}</dd>
+                  </div>
+                )}
+                {mere && (
+                  <div class="bg-base-200 rounded-lg p-3">
+                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Mère</dt>
+                    <dd class="font-medium">{mere}</dd>
+                  </div>
+                )}
+                {pereDeMere && (
+                  <div class="bg-base-200 rounded-lg p-3 col-span-2">
+                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Père de mère</dt>
+                    <dd class="font-medium">{pereDeMere}</dd>
+                  </div>
+                )}
+              </dl>
+            </div>
+          )}
 
           <!-- Disciplines -->
           {disciplines && disciplines.length > 0 && (

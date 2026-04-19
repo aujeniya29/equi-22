@@ -86,7 +86,7 @@ pricingGroups:
   - title: "Équidés du club"
     subtitle: "Pensions, demi-pensions et tiers de pensions sur les poneys et chevaux du centre"
     notes:
-      - "Les tiers de pensions ne sont pas disponibles sur les chevaux de propiétaires"
+      - "Les tiers de pensions ne sont pas disponibles sur les chevaux de propriétaires"
       - "Chevaux au pair selon les besoins du club — conditions à voir ensemble"
     items:
       - label: "Pension pré troupeau — poney"

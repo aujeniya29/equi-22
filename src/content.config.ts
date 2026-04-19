@@ -52,7 +52,7 @@ const services = defineCollection({
     schedule: z.array(z.object({
       day: z.string(),
       time: z.string(),
-      level: z.string(),
+      level: z.string().optional(),
     })).optional(),
 
     // Animals (élevage)

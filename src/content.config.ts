@@ -94,6 +94,7 @@ const vente = defineCollection({
     taille: z.string().optional(),
     robe: z.string().optional(),
     niveau: z.string().optional(),
+    categorie: z.string().optional(),
     disciplines: z.array(z.string()).optional(),
     prix: z.string(),
     photoPrincipale: z.string().optional(),

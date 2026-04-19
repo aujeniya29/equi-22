@@ -3,7 +3,7 @@ title: "Oraia de Bihan braz"
 espece: "cheval"
 race: "Anglo-arabe facteur Selle Français"
 anneeNaissance: 2024
-sexe: "Jument"
+sexe: "jument"
 taille: "1m68"
 robe: "Léopard"
 categorie: "2 ans"

@@ -18,7 +18,7 @@ const { Content } = await render(entry);
 
 const {
   title, espece, race, anneeNaissance, sexe, taille, robe,
-  niveau, disciplines, prix, vendu, photoPrincipale, photos,
+  niveau, categorie, disciplines, prix, vendu, photoPrincipale, photos,
   pere, mere, pereDeMere,
   seoTitle, seoDescription,
 } = data;
@@ -146,6 +146,12 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
               <div class="bg-base-200 rounded-lg p-3 col-span-2">
                 <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Niveau</dt>
                 <dd class="font-medium">{niveau}</dd>
+              </div>
+            )}
+            {!niveau && categorie && (
+              <div class="bg-base-200 rounded-lg p-3 col-span-2">
+                <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Catégorie</dt>
+                <dd class="font-medium">{categorie}</dd>
               </div>
             )}
           </dl>

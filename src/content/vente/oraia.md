@@ -1,10 +1,8 @@
 ---
 title: "Oraia de Bihan braz"
-espece: "cheval"
 race: "Anglo-arabe facteur Selle Français"
 anneeNaissance: 2024
 sexe: "jument"
-taille: "1m68"
 robe: "Léopard"
 categorie: "2 ans"
 disciplines:
@@ -29,7 +27,6 @@ Oraia de Bihan braz — Magnifique jument anglo arabe facteur selle français à
 ## Points forts
 
 - **Facile au quotidien**
-- **Monté par des cavaliers variés**.
 
 ## Convient à
 

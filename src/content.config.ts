@@ -87,7 +87,6 @@ const vente = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/vente' }),
   schema: z.object({
     title: z.string(),
-    espece: z.enum(['cheval', 'poney']),
     race: z.string(),
     anneeNaissance: z.number().int(),
     sexe: z.enum(['hongre', 'jument', 'etalon']),

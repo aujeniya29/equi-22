@@ -6,7 +6,7 @@ anneeNaissance: 2024
 sexe: "Jument"
 taille: "1m68"
 robe: "Léopard"
-niveau: "2 ans"
+categorie: "2 ans"
 disciplines:
   - "CSO"
   - "Hunter"

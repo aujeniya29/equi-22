@@ -7,6 +7,15 @@ heroImage: "/src/assets/images/hero/balades.jpg"
 heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne près de la baie de Saint-Brieuc au centre équestre Equi 22"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les balades à cheval. Pourriez-vous me donner des informations sur les disponibilités et les tarifs ?"
 order: 7
+pricing:
+  - label: "Balade enfant"
+    price: "25"
+    unit: "balade"
+    highlight: false
+  - label: "Balade adulte"
+    price: "25"
+    unit: "balade"
+    highlight: false
 testimonial:
   quote: ""
   author: ""

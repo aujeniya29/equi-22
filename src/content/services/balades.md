@@ -17,8 +17,8 @@ pricing:
     unit: "balade"
     highlight: false
 testimonial:
-  quote: ""
-  author: ""
+  quote: "On se sent vraiment en sécurité, ce qui nous permet de profiter pleinement du paysage"
+  author: "Adrien - Toulousain en vacances à Yffiniac"
   stars: 5
 serviceType: "Balades à cheval"
 serviceDescription: "Balades à cheval et à poney encadrées dans la campagne autour d'Yffiniac, Côtes-d'Armor."
@@ -29,6 +29,8 @@ serviceDescription: "Balades à cheval et à poney encadrées dans la campagne a
 De nombreux chemins avoisinant le club sont destinés à des balades équestres à la campagne.
 Le club ayant un accès direct aux chemins environnants et à proximité de la mer, Équi 22 vous propose aussi des sorties à la plage, dans la baie de Saint-Brieuc.
 \
+\
 Le centre équestre d'Yffiniac propose également des journées de randonnée l'été !
+\
 \
 Les balades peuvent être effectuées par des cavaliers de tout niveaux confondus et sont ouvertes bien évidemment aux cavaliers extérieurs non licenciés. Le matériel de sécurité est prêté (bombe, selle, filet, tapis, brosses....) mais pensez à venir avec une tenue adaptée ! (Pantalon et chaussures)

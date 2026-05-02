@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    titre: 'Pension',
+    documents: [
+      { nom: 'Contrat de pension 2026', fichier: 'contrat de pension2026.pdf' },
+    ],
+  },
+  {
+    titre: 'Tiers de pension',
+    documents: [
+      { nom: 'Tiers de pension – chevaux de club', fichier: 'tier de pension chevaux de club.pdf' },
+    ],
+  },
+  {
+    titre: 'Demi-pension',
+    documents: [
+      { nom: 'Convention de demi-pension propriétaire 2026', fichier: 'CONVENTION DE DEMI PENSION PROPRIO2026.pdf' },
+      { nom: 'Demi-pension – chevaux de club 2026', fichier: 'demi pension chevaux de club2026.pdf' },
+    ],
+  },
+  {
+    titre: 'Saillie',
+    documents: [
+      { nom: 'Contrat de saillie – Edgard', fichier: 'contrat de saillie edgard.pdf' },
+      { nom: 'Contrat de saillie – Flashy', fichier: 'contrat saillie flashy.pdf' },
+      { nom: 'Contrat de saillie – Graham', fichier: 'contrat saillie graham.pdf' },
+    ],
+  },
+  {
+    titre: 'Dépôt-vente',
+    documents: [
+      { nom: 'Contrat de dépôt-vente 2026', fichier: 'depot vente 2026.pdf' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Documents contractuels"
+  description="Retrouvez ici tous les documents contractuels du centre équestre Équi 22 : contrats de pension, demi-pension, saillie et dépôt-vente."
+>
+  <section class="py-16 bg-base-100">
+    <div class="container mx-auto max-w-3xl px-4">
+
+      <h1 class="text-4xl font-serif text-base-content mb-4">Documents contractuels</h1>
+      <p class="text-base-content/70 mb-12 leading-relaxed">
+        Retrouvez ci-dessous les documents contractuels utilisés au centre. Chaque document est disponible en téléchargement au format PDF.
+      </p>
+
+      <div class="space-y-10">
+        {categories.map((cat) => (
+          <div>
+            <h2 class="text-2xl font-serif text-base-content mb-4 border-b border-base-300 pb-2">
+              {cat.titre}
+            </h2>
+            <ul class="space-y-3">
+              {cat.documents.map((doc) => (
+                <li>
+                  <a
+                    href={`/documents/${encodeURIComponent(doc.fichier)}`}
+                    download={doc.fichier}
+                    class="flex items-center gap-3 group p-3 rounded-xl hover:bg-base-200 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    <span class="text-primary shrink-0" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                      </svg>
+                    </span>
+                    <span class="text-base-content group-hover:text-primary transition-colors">
+                      {doc.nom}
+                    </span>
+                    <span class="ml-auto text-xs text-base-content/40 uppercase tracking-wide shrink-0">PDF</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -122,6 +122,10 @@ testimonial:
   quote: "Depuis que mes chevaux sont à Equi 22, je dors tranquille. Les installations sont impeccables et Aurélia me tient informée au moindre souci."
   author: "Claire, propriétaire de 2 chevaux"
   stars: 5
+documents:
+  - pension
+  - tiers-pension
+  - demi-pension
 serviceType: "Pension pour chevaux et poneys"
 serviceDescription: "Pension équine au centre équestre Equi 22 à Yffiniac. Box, paddock et pré avec alimentation de qualité, suivi vétérinaire et accès aux installations du centre."
 ---

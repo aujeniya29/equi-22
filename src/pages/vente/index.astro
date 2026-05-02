@@ -3,6 +3,10 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseCard from '../../components/HorseCard.astro';
 import { business } from '../../data/business';
+import DocumentLinks from '../../components/DocumentLinks.astro';
+import { getCategoriesBySlug } from '../../data/documents';
+
+const depotVenteCategories = getCategoriesBySlug(['depot-vente']);
 
 const horses = await getCollection('vente');
 const sorted = [...horses].sort((a, b) => {
@@ -96,8 +100,14 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
     </section>
   )}
 
+  <!-- Dépôt-vente -->
+  <DocumentLinks
+    categories={depotVenteCategories}
+    bgClass={sold.length > 0 ? 'bg-base-100' : 'bg-base-200'}
+  />
+
   <!-- CTA -->
-  <section class={`py-12 lg:py-16 ${sold.length > 0 ? 'bg-base-100' : 'bg-base-200'}`}>
+  <section class={`py-12 lg:py-16 ${sold.length > 0 ? 'bg-base-200' : 'bg-base-100'}`}>
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-4">
         Une question ? Envie de visiter ?

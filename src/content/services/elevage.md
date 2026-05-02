@@ -73,6 +73,8 @@ testimonial:
   quote: "Une jument en pleine confiance, un poulain magnifique — Equi 22 a suivi notre jument avec un soin exceptionnel tout au long de la gestation."
   author: "Nathalie, propriétaire de Caramel"
   stars: 5
+documents:
+  - saillie
 serviceType: "AnimalService"
 serviceDescription: "Élevage de chevaux à Yffiniac. Saillie, pension jument gestante, suivi poulain — Equi 22, centre équestre en Côtes-d'Armor."
 ---

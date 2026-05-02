@@ -77,6 +77,9 @@ const services = defineCollection({
       stars: z.number().int().min(1).max(5),
     }).optional(),
 
+    // Documents téléchargeables (slugs de catégories depuis src/data/documents.ts)
+    documents: z.array(z.string()).optional(),
+
     // Schema markup
     serviceType: z.string(),
     serviceDescription: z.string(),

@@ -59,8 +59,12 @@ pricingNotes:
   - "Licence FFE obligatoire pour tous : 30€ pour les mineurs, 40€ pour les adultes"
   - "Cotisation annuelle : 60€ pour les mineurs, 70€ pour les adultes"
   - "Cartes annuelles payables en 10 fois de septembre à juin"
+scheduleNotes:
+  - "Possibilité de rajouter des créneaux selon demande"
   - "10 cavaliers maximum par cours"
-  - "Pour les babys et les débutants, un accompagnateur est demandé pour plus de sécurité (Au minimum le premier trimestre)"
+  - "Cours maintenu à partir de 4 cavaliers — durée de séance adaptée si moins"
+  - "Moins de 4 cavaliers : cours reporté"
+  - "Pour les babys et les débutants, un accompagnateur est demandé pour plus de sécurité (au minimum le premier trimestre)"
 schedule:
   - day: "Mardi"
     time: "18h00 - 19h00"

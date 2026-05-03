@@ -94,13 +94,13 @@ const ctaBg        = BG[idx % 2];
         <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
       )}
       {hasSchedule && (
-        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} />
+        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} notes={data.scheduleNotes} />
       )}
     </Fragment>
   ) : (
     <Fragment>
       {hasSchedule && (
-        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} />
+        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} notes={data.scheduleNotes} />
       )}
       {hasPricing && (
         <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />

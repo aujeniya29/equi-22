@@ -8,9 +8,10 @@ interface ScheduleItem {
 interface Props {
   schedule: ScheduleItem[];
   bgClass?: string;
+  notes?: string[];
 }
 
-const { schedule, bgClass = 'bg-base-100' } = Astro.props;
+const { schedule, bgClass = 'bg-base-100', notes } = Astro.props;
 const hasLevels = schedule.some((s) => s.level);
 
 // Group by day, preserving order of first appearance
@@ -74,6 +75,16 @@ const grouped = days.reduce((acc, day) => {
         ))}
       </div>
 
+      {notes && notes.length > 0 && (
+        <ul class="mt-6 space-y-1">
+          {notes.map((note) => (
+            <li class="text-sm text-base-content/60 flex gap-2">
+              <span aria-hidden="true">—</span>
+              <span>{note}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   </section>
 )}

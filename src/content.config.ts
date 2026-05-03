@@ -80,6 +80,9 @@ const services = defineCollection({
     // Affiche le planning après les tarifs (au lieu d'avant)
     planningAfterPricing: z.boolean().default(false),
 
+    // Notes affichées sous le planning
+    scheduleNotes: z.array(z.string()).optional(),
+
     // Documents téléchargeables (slugs de catégories depuis src/data/documents.ts)
     documents: z.array(z.string()).optional(),
 

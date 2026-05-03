@@ -47,7 +47,11 @@ pricingNotes:
   - "Cotisation annuelle : 70€ (adultes)"
   - "Cartes annuelles payables en 10 fois de septembre à juin"
   - "Casque prêté pour les premières séances"
+scheduleNotes:
+  - "Possibilité de rajouter des créneaux selon demande"
   - "10 cavaliers maximum par cours"
+  - "Cours maintenu à partir de 4 cavaliers — durée de séance adaptée si moins"
+  - "Moins de 4 cavaliers : cours reporté"
 schedule:
   - day: "Mardi"
     time: "19h00 - 20h00"

@@ -1,0 +1,83 @@
+# ============================================================
+# Redirections 301 — Migration equi-22.fr vers nouveau site
+# Ordre important : règles spécifiques avant les attrape-tout
+# ============================================================
+
+# --- Pages de navigation principale ---
+/Colonne-flotante-acceuil_2.html / 301
+/Colonne-flotante-autre-pages_3.html / 301
+/Pole-competitions_4.html /competitions 301
+/Les-tarifs_6.html /tarifs 301
+/Pole-enseignement_7.html /cours-enfants 301
+/Balades-cheval-poney-cotes-armor-22_8.html /balades 301
+/Pole-pensions-demi-pensions_9.html /pension-chevaux 301
+/Stages_10.html /stages-vacances 301
+/Contactez-centre-equestre-pres-saint-brieuc_11.html /contact 301
+/Manege_14.html /a-propos 301
+/Carriere-exterieure_15.html /a-propos 301
+/Les-pres_16.html /a-propos 301
+/Les-ecuries_17.html /a-propos 301
+/Camion_18.html /a-propos 301
+/Centre-equestre-equi-yffiniac-22_21.html /a-propos 301
+/Les-infrastructures_23.html /a-propos 301
+/Actualites_28.html /blog 301
+/Club-house_29.html /a-propos 301
+/Nos-equides_40.html /a-propos 301
+/Planning-des-cours-2025-2026_52.html /cours-enfants 301
+/Pole-vente-depot-vente_55.html /vente 301
+/Pole-elevage_62.html /elevage 301
+/Carriere-couverte_63.html /a-propos 301
+/Club-house_64.html /a-propos 301
+/Ranch-shetlands_65.html /a-propos 301
+/Ranch-doubles-poneys_66.html /a-propos 301
+/Paddock_67.html /a-propos 301
+/Association-ace_70.html /a-propos 301
+/Les-tarifs_71.html /tarifs 301
+
+# --- Élevage : pages saillie (pattern) ---
+/Saillie-* /elevage 301
+/Nos-etalons-* /elevage 301
+
+# --- Élevage : lignée Bihan-braz et naissances ---
+/Petit-poulain-est_fiche_67.html /elevage 301
+/Naissance-2018-centre-equestre-equi_fiche_211.html /elevage 301
+/Flashy-entier-paint-horse-pleins-papiers_fiche_290.html /elevage 301
+/Ipnose-bihan-braz_fiche_305.html /elevage 301
+/Ipothese-bihanbraz-jolie-pouliche-ans_fiche_308.html /elevage 301
+/Kissy-pouliche-onc-nee-fevrier-2020_fiche_315.html /elevage 301
+/Joke-bihan-braz_fiche_334.html /elevage 301
+/Leia-bihan-braz-nee-13-03-2021_fiche_369.html /elevage 301
+/Lucius-bihan-braz_fiche_370.html /elevage 301
+/Joli-poulain-pie-vendre_fiche_374.html /elevage 301
+/Loops-bihan-braz-30-05-2021_fiche_378.html /elevage 301
+/Legende-bihan-braz-nee-13-06-2021_fiche_380.html /elevage 301
+/Mapoule-nee-28-03-2022_fiche_400.html /elevage 301
+/Naia-pouliche-pie-qualite-flashy-suzon_fiche_430.html /elevage 301
+/Neb-bihan-braz-nee-26-05-23_fiche_438.html /elevage 301
+/Oups-bihan-braz_fiche_448.html /elevage 301
+/Octave-bihan-braz_fiche_449.html /elevage 301
+/Ola-bihan-braz_fiche_451.html /elevage 301
+/Orsay-bihan-braz_fiche_452.html /elevage 301
+/Pilpoil-pumpkin_fiche_476.html /elevage 301
+/Pom-pot-bihan-braz_fiche_477.html /elevage 301
+/Pinkfloyd-bihan-braz_fiche_478.html /elevage 301
+
+# --- Vente : annonces de chevaux à vendre ---
+/Jolie-jument-pur-sang-ans_fiche_309.html /vente 301
+/Jeune-jument-pie_fiche_251.html /vente 301
+/Jument-concours_fiche_253.html /vente 301
+/Vendre-interne_fiche_256.html /vente 301
+/Ponette-1m35-5ans_fiche_318.html /vente 301
+/Joli-poulain-pie-vendre_fiche_374.html /vente 301
+/Gossip-girl-jument-paint-horse_fiche_391.html /vente 301
+/Amboise-epaillard-jument-selle-francais-environ-1m60_fiche_392.html /vente 301
+/Nashira_fiche_439.html /vente 301
+/Nevihta-nee-2-08-23-oc_fiche_440.html /vente 301
+/Nahama-jolie-pouliche-perlino-nee-23-04-23_fiche_441.html /vente 301
+/Nounours-19-05-23_fiche_442.html /vente 301
+/Joli-nada-mai-2023_fiche_443.html /vente 301
+
+# --- Attrape-tout : toutes les autres pages .html → blog ---
+# (actualités, événements, chevaux du club, concours...)
+# Le nouveau site n'a aucune URL en .html — aucun risque d'interférence.
+/*.html /blog 301

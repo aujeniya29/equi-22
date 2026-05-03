@@ -122,6 +122,13 @@ testimonial:
   quote: "Depuis que mes chevaux sont à Equi 22, je dors tranquille. Les installations sont impeccables et Aurélia me tient informée au moindre souci."
   author: "Claire, propriétaire de 2 chevaux"
   stars: 5
+schedule:
+  - day: "Vendredi"
+    time: "19h00 - 20h00"
+    level: "DP Proprios — Galop 4 et +"
+  - day: "Samedi"
+    time: "14h00 - 15h00"
+    level: "DP Proprios"
 documents:
   - pension
   - tiers-pension

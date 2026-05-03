@@ -122,6 +122,7 @@ testimonial:
   quote: "Depuis que mes chevaux sont à Equi 22, je dors tranquille. Les installations sont impeccables et Aurélia me tient informée au moindre souci."
   author: "Claire, propriétaire de 2 chevaux"
   stars: 5
+planningAfterPricing: true
 schedule:
   - day: "Vendredi"
     time: "19h00 - 20h00"

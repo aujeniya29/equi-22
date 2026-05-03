@@ -77,6 +77,9 @@ const services = defineCollection({
       stars: z.number().int().min(1).max(5),
     }).optional(),
 
+    // Affiche le planning après les tarifs (au lieu d'avant)
+    planningAfterPricing: z.boolean().default(false),
+
     // Documents téléchargeables (slugs de catégories depuis src/data/documents.ts)
     documents: z.array(z.string()).optional(),
 

@@ -12,6 +12,13 @@ interface Props {
 
 const { schedule, bgClass = 'bg-base-100' } = Astro.props;
 const hasLevels = schedule.some((s) => s.level);
+
+// Group by day, preserving order of first appearance
+const days = [...new Set(schedule.map((s) => s.day))];
+const grouped = days.reduce((acc, day) => {
+  acc[day] = schedule.filter((s) => s.day === day);
+  return acc;
+}, {} as Record<string, ScheduleItem[]>);
 ---
 
 {schedule && schedule.length > 0 && (
@@ -31,27 +38,42 @@ const hasLevels = schedule.some((s) => s.level);
             </tr>
           </thead>
           <tbody>
-            {schedule.map((slot) => (
-              <tr>
-                <td class="font-semibold text-primary">{slot.day}</td>
-                <td>{slot.time}</td>
-                {hasLevels && <td><span class="badge badge-outline">{slot.level}</span></td>}
-              </tr>
-            ))}
+            {days.map((day) =>
+              grouped[day].map((slot, i) => (
+                <tr class={i === 0 && grouped[day].length > 1 ? 'border-t border-base-300' : ''}>
+                  {i === 0 && (
+                    <td rowspan={grouped[day].length} class="font-semibold text-primary align-top pt-4">
+                      {day}
+                    </td>
+                  )}
+                  <td>{slot.time}</td>
+                  {hasLevels && <td><span class="badge badge-outline">{slot.level}</span></td>}
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
 
-      <!-- Mobile cards — each row visually distinct -->
-      <div class="lg:hidden space-y-3">
-        {schedule.map((slot) => (
-          <div class="card border border-base-300 bg-base-100 p-4">
-            <p class="font-semibold text-primary">{slot.day}</p>
-            <p class="text-sm text-base-content/70 mt-1">{slot.time}</p>
-            {slot.level && <span class="badge badge-outline mt-2">{slot.level}</span>}
+      <!-- Mobile : une section par jour -->
+      <div class="lg:hidden space-y-6">
+        {days.map((day) => (
+          <div>
+            <h3 class="font-semibold text-primary mb-3">{day}</h3>
+            <div class="space-y-2 pl-4 border-l-2 border-primary/30">
+              {grouped[day].map((slot) => (
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-sm text-base-content/80">{slot.time}</span>
+                  {slot.level && (
+                    <span class="badge badge-outline">{slot.level}</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
+
     </div>
   </section>
 )}

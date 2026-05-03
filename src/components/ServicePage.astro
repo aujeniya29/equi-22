@@ -33,14 +33,24 @@ const hasAnimals = !!(data.animals && data.animals.length > 0);
 const hasDocuments = !!(data.documents && data.documents.length > 0);
 const hasTestimonial = !!data.testimonial;
 const documentCategories = hasDocuments ? getCategoriesBySlug(data.documents!) : [];
+const planningAfterPricing = data.planningAfterPricing ?? false;
 
 const BG = ['bg-base-200', 'bg-base-100'] as const;
 let idx = 0;
-const proseBg      = BG[idx++ % 2]; // always bg-base-200
-const planningBg   = BG[idx % 2];   // bg-base-100 (computed even if absent, to keep idx correct)
-if (hasSchedule) idx++;
-const pricingBg    = BG[idx % 2];
-if (hasPricing) idx++;
+const proseBg = BG[idx++ % 2]; // always bg-base-200
+let planningBg: string;
+let pricingBg: string;
+if (planningAfterPricing) {
+  pricingBg = BG[idx % 2];
+  if (hasPricing) idx++;
+  planningBg = BG[idx % 2];
+  if (hasSchedule) idx++;
+} else {
+  planningBg = BG[idx % 2];
+  if (hasSchedule) idx++;
+  pricingBg = BG[idx % 2];
+  if (hasPricing) idx++;
+}
 const animalsBg    = BG[idx % 2];
 if (hasAnimals) idx++;
 const documentsBg  = BG[idx % 2];
@@ -77,14 +87,25 @@ const ctaBg        = BG[idx % 2];
     </div>
   </section>
 
-  <!-- Planning Section (conditional) -->
-  {hasSchedule && (
-    <PlanningBlock schedule={data.schedule!} bgClass={planningBg} />
-  )}
-
-  <!-- Pricing Section (conditional) -->
-  {hasPricing && (
-    <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+  <!-- Planning / Pricing (order controlled by planningAfterPricing) -->
+  {planningAfterPricing ? (
+    <Fragment>
+      {hasPricing && (
+        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+      )}
+      {hasSchedule && (
+        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} />
+      )}
+    </Fragment>
+  ) : (
+    <Fragment>
+      {hasSchedule && (
+        <PlanningBlock schedule={data.schedule!} bgClass={planningBg} />
+      )}
+      {hasPricing && (
+        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+      )}
+    </Fragment>
   )}
 
   <!-- Animals Section (conditional, élevage only) -->

@@ -29,13 +29,13 @@ pricing:
     price: "230"
     unit: "carte"
     highlight: false
-  - label: "Carte 30h — payable en 10 fois"
-    price: "56"
-    unit: "mois"
+  - label: "Carte 30h"
+    price: "560"
+    unit: "carte"
     highlight: false
-  - label: "Carte 35h — payable en 10 fois"
-    price: "62"
-    unit: "mois"
+  - label: "Carte 35h"
+    price: "620"
+    unit: "carte"
     highlight: false
   - label: "Pack découverte 3 mois (10h + 1 stage)"
     price: "110"

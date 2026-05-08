@@ -62,8 +62,9 @@ animals:
   - nom: "Biscotte"
     role: "pouliniere"
     race: "Trait Breton"
-    photo: "biscotte.webp"
-    description: "Biscotte jument pp trait bretonne d'un joli alezan crins lavé"
+    anneeNaissance: 2011
+    photo: "biscotte.png"
+    description: "Jument Trait Breton d'1m55, poulinière depuis plusieurs années. Actuellement pleine de Jackpot d'Île de Batz."
   - nom: "Bahira Saint Germain"
     role: "pouliniere"
     race: "PFS"

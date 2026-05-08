@@ -11,6 +11,13 @@ export interface DocumentCategory {
 
 export const documentCategories: DocumentCategory[] = [
   {
+    slug: 'inscription',
+    titre: 'Inscription',
+    documents: [
+      { nom: 'Fiche d\'inscription', fichier: 'fiche_inscription.pdf' },
+    ],
+  },
+  {
     slug: 'pension',
     titre: 'Pension',
     documents: [

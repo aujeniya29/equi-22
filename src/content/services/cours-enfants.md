@@ -118,6 +118,8 @@ testimonial:
   quote: "Ma fille attend le mercredi avec impatience ! Les monitrices sont adorables et très pédagogues."
   author: "Sophie, maman de Léa (8 ans)"
   stars: 5
+documents:
+  - inscription
 serviceType: "EducationalService"
 serviceDescription: "Cours d'équitation pour enfants de 3 à 14 ans, du baby poney aux Galops, au centre équestre Equi 22 à Yffiniac."
 ---
@@ -128,7 +130,7 @@ Au centre équestre Equi 22, nous accueillons les enfants dès 3 ans avec des co
 
 ## Un environnement pédagogique et sécurisé
 
-Nos monitrices diplômées mettent tout en œuvre pour transmettre leur passion de l'équitation dans le respect du bien-être des poneys et des chevaux. La sécurité est notre priorité : **équipements homologués et adaptés à leur taille**, **poneys sélectionnés pour leur caractère calme et leur patience**, et **groupes de 6 enfants maximum pour un suivi personnalisé**. Vous pouvez confier votre enfant en toute sérénité.
+Nos monitrices diplômées mettent tout en œuvre pour transmettre leur passion de l'équitation dans le respect du bien-être des poneys et des chevaux. La sécurité est notre priorité : **équipements homologués et adaptés à leur taille**, **poneys sélectionnés pour leur caractère calme et leur patience**, et **groupes de 10 enfants maximum pour un suivi personnalisé**. Vous pouvez confier votre enfant en toute sérénité.
 
 ## Apprentissage et plaisir
 

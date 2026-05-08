@@ -75,6 +75,8 @@ testimonial:
   quote: "J'ai commencé à 42 ans sans jamais avoir touché un cheval. Aujourd'hui c'est mon moment de déconnexion préféré de la semaine."
   author: "Marc, cavalier depuis 2 ans"
   stars: 5
+documents:
+  - inscription
 serviceType: "Cours d'équitation pour adultes"
 serviceDescription: "Cours d'équitation pour adultes débutants et confirmés au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."
 ---

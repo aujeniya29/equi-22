@@ -16,6 +16,10 @@ pricing:
     price: "260"
     unit: "carte"
     highlight: false
+  - label: "Carte 20h (valable 6 mois)"
+    price: "400"
+    unit: "carte"
+    highlight: false
   - label: "Carte 30h — payable en 10 fois"
     price: "59"
     unit: "mois"

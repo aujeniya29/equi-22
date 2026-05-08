@@ -50,7 +50,7 @@ pricing:
     unit: "mois"
     highlight: false
   - label: "Pack prémium compétition annuel (2h/sem + 1 concours/mois)"
-    price: "220"
+    price: "210"
     unit: "mois"
     highlight: false
 pricingNotes:

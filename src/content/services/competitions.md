@@ -7,20 +7,64 @@ heroImage: "/src/assets/images/hero/competitions.jpg"
 heroImageAlt: "Cavalier franchissant un obstacle lors d'un concours de saut d'obstacles au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les compétitions équestres. Pourriez-vous me donner des informations sur le programme de la saison et les conditions de participation ?"
 order: 5
-pricing:
-  - label: "Séance de préparation CSO"
-    price: "30"
-    unit: "séance"
-    highlight: false
-  - label: "Pack Saison Compétition"
-    price: "180"
-    unit: "saison"
-    highlight: true
-  - label: "Participation aux frais de transport"
-    price: "1"
-    unit: "€/kilomètres"
-    highlight: false
+pricingGroups:
+  - title: "Préparation"
+    items:
+      - label: "Séance de préparation CSO"
+        price: "30"
+        unit: "séance"
+        highlight: false
+      - label: "Pack Saison Compétition"
+        price: "180"
+        unit: "saison"
+        highlight: true
+  - title: "Moins de 20 kms"
+    sectionLabel: "Tarifs incluant encadrement, transport, logistique et mise à disposition du cheval — selon l'éloignement du concours"
+    subtitle: "Distance depuis le club"
+    items:
+      - label: "1 tour"
+        price: "55"
+        unit: "concours"
+        highlight: false
+      - label: "2 tours"
+        price: "80"
+        unit: "concours"
+        highlight: false
+  - title: "20 à 50 kms"
+    subtitle: "Distance depuis le club"
+    items:
+      - label: "1 tour"
+        price: "65"
+        unit: "concours"
+        highlight: false
+      - label: "2 tours"
+        price: "90"
+        unit: "concours"
+        highlight: false
+  - title: "50 à 80 kms"
+    subtitle: "Distance depuis le club"
+    items:
+      - label: "1 tour"
+        price: "75"
+        unit: "concours"
+        highlight: false
+      - label: "2 tours"
+        price: "100"
+        unit: "concours"
+        highlight: false
+  - title: "80 à 100 kms"
+    subtitle: "Distance depuis le club"
+    items:
+      - label: "1 tour"
+        price: "95"
+        unit: "concours"
+        highlight: false
+      - label: "2 tours"
+        price: "120"
+        unit: "concours"
+        highlight: false
 pricingNotes:
+  - "Sorties en concours toutes les deux semaines en moyenne"
   - "Licence FFE obligatoire"
 testimonial:
   quote: "Mon premier concours, j'étais terrifiée. Avec le soutien de l'équipe, j'ai franchi mes premiers obstacles et j'en veux encore !"

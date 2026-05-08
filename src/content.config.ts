@@ -38,6 +38,7 @@ const services = defineCollection({
     pricingGroups: z.array(z.object({
       title: z.string(),
       subtitle: z.string().optional(),
+      sectionLabel: z.string().optional(),
       items: z.array(z.object({
         label: z.string(),
         price: z.string(),

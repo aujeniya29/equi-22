@@ -32,7 +32,7 @@ pricing:
     price: "130"
     unit: "mois"
     highlight: false
-  - label: "Pack fidélité annuel (35 cours + 3 stages)"
+  - label: "Pack fidélité annuel (35 cours + 4 stages)"
     price: "120"
     unit: "mois"
     highlight: true

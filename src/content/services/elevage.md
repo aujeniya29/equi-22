@@ -66,7 +66,7 @@ animals:
     race: "Trait Breton"
     anneeNaissance: 2011
     photo: "biscotte.png"
-    description: "Jument Trait Breton d'1m55, poulinière depuis plusieurs années."
+    description: "Jument Trait Breton d'1m55, poulinière depuis plusieurs années. Actuellement pleine de Jackpot d'Île de Batz."
   - nom: "Bahira Saint Germain"
     role: "pouliniere"
     race: "PFS"

@@ -8,8 +8,8 @@ heroImageAlt: "Groupe d'enfants souriant pendant un stage vacances équitation a
 whatsappMessage: "Bonjour, je suis intéressé(e) par les stages vacances équitation. Pourriez-vous me donner des informations sur les prochains stages et les places disponibles ?"
 order: 4
 pricingGroups:
-  - title: "Mini-stage poneys — dès 3 ans"
-    subtitle: "9h30–11h — prévoir un goûter"
+  - title: "Stage baby poney — dès 3 ans"
+    subtitle: "9h–11h — prévoir un goûter"
     items:
       - label: "Demi-journée"
         price: "25"
@@ -49,10 +49,39 @@ pricingGroups:
         price: "40"
         unit: "demi-journée"
         highlight: false
-  - title: "Stage semaine — été"
-    subtitle: "Lun–Ven, 9h–17h — prévoir déjeuner, 2 goûters et une tenue de rechange"
+  - title: "La semaine Perfecto"
+    subtitle: "Du lundi au vendredi, 9h–17h — tous niveaux — prévoir déjeuner, 2 goûters et une tenue de rechange"
     highlightedNotes:
       - "Apéro et spectacle organisés le vendredi soir"
+      - "Règlement à la réservation"
+    items:
+      - label: "Semaine — cavalier du club"
+        price: "280"
+        unit: "semaine"
+        highlight: false
+      - label: "Semaine — cavalier extérieur"
+        price: "300"
+        unit: "semaine"
+        highlight: false
+  - title: "La semaine extra fun"
+    subtitle: "Du lundi au vendredi, 9h–17h — pour cavaliers à l'aise aux 3 allures"
+    highlightedNotes:
+      - "Apéro et spectacle organisés le vendredi soir"
+      - "Règlement à la réservation"
+    items:
+      - label: "Semaine — cavalier du club"
+        price: "280"
+        unit: "semaine"
+        highlight: false
+      - label: "Semaine — cavalier extérieur"
+        price: "300"
+        unit: "semaine"
+        highlight: false
+  - title: "Stage spécial galop 3 et + — passage de galop"
+    subtitle: "Du lundi au vendredi, 9h–17h — pour cavaliers galop 3 et au-dessus"
+    highlightedNotes:
+      - "Apéro et spectacle organisés le vendredi soir"
+      - "Règlement à la réservation"
     items:
       - label: "Semaine — cavalier du club"
         price: "280"
@@ -120,15 +149,22 @@ Pour les stages été, l'ambiance monte d'un cran le vendredi soir : apéro et s
 - Goûter pour tous les stages
 - Pour les stages été : déjeuner, 2 goûters et une tenue de rechange
 
+## Calendrier été 2026
+
+| Formule | Dates | Public |
+|---|---|---|
+| La semaine Perfecto | 6 juillet – 20 août | Tous niveaux |
+| La semaine extra fun | 27 – 31 juillet | Cavaliers à l'aise aux 3 allures |
+| Stage spécial galop 3+ | Nous contacter | Galop 3 et au-dessus |
+
+
 ## Quand ont lieu nos stages ?
 
 Nous organisons des stages pendant **toutes les vacances scolaires, sauf à Noël** :
 
-- **Vacances de la Toussaint** — Demi-journées et stages découverte
-- **Vacances d'hiver** — Demi-journées et stages découverte
-- **Vacances de printemps** — Demi-journées, stages découverte et stages à thème
-- **Vacances d'été** — Stages semaine complète (lun–ven, 9h–17h), de juillet à mi-août
-
-> **Prochain stage à venir** — Les dates et les places disponibles sont communiquées par WhatsApp et sur nos réseaux sociaux. Contactez-nous pour rejoindre la liste d'attente ou réserver votre place dès l'ouverture des inscriptions.
+- **Vacances de la Toussaint**
+- **Vacances d'hiver**
+- **Vacances de printemps**
+- **Vacances d'été**
 
 Les stages affichent souvent complets plusieurs semaines à l'avance — n'attendez pas les dernières vacances pour réserver.

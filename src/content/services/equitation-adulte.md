@@ -42,10 +42,9 @@ pricing:
     highlight: false
 pricingNotes:
   - "Les cartes de 10 heures sont payables en 3 fois sans frais"
-  - "Les cartes de 20, 30 et 35 heures sont payables en 10 fois sans frais"
+  - "Les cartes de 20, 30 et 35 heures sont payables jusqu'à 10 fois sans frais, de septembre à juin"
   - "Licence FFE : 40€ (adultes)"
   - "Cotisation annuelle : 70€ (adultes)"
-  - "Cartes annuelles payables en 10 fois de septembre à juin"
   - "Casque prêté pour les premières séances"
 scheduleNotes:
   - "Possibilité de rajouter des créneaux selon demande"

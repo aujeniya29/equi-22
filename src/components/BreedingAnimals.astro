@@ -7,6 +7,8 @@ interface Animal {
   race?: string;
   anneeNaissance?: number;
   photo?: string;
+  photos?: string[];
+  photoPosition?: string;
   prix?: string;
   description: string;
   pere?: string;
@@ -57,37 +59,68 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map(async (animal) => {
-            const photoKey = animal.photo
-              ? `/src/assets/images/elevage/${animal.photo}`
-              : null;
-            const photoModule = photoKey && photoModules[photoKey]
-              ? await photoModules[photoKey]()
-              : null;
-            const photoSrc = photoModule?.default ?? null;
+            const photoKeys = [
+              animal.photo ? `/src/assets/images/elevage/${animal.photo}` : null,
+              ...(animal.photos ?? []).map(p => `/src/assets/images/elevage/${p}`),
+            ].filter((k): k is string => !!k);
+
+            const photoSrcs = (await Promise.all(
+              photoKeys.map(async (key) => {
+                const mod = photoModules[key];
+                return mod ? (await mod()).default : null;
+              })
+            )).filter((s): s is ImageMetadata => !!s);
 
             return (
-              <article class="card bg-base-100 shadow-sm border border-base-content/5 overflow-hidden">
-                {/* Photo or silhouette */}
-                <figure class="h-48 bg-base-200 flex items-center justify-center overflow-hidden">
-                  {photoSrc ? (
-                    <Image
-                      src={photoSrc}
-                      alt={`Photo de ${animal.nom}`}
-                      width={400}
-                      height={300}
-                      class="w-full h-full object-cover"
-                    />
+              <article class="card bg-base-100 shadow-sm border border-base-content/5 overflow-hidden" data-animal-card>
+                <figure class="relative aspect-square bg-base-200 overflow-hidden">
+                  {photoSrcs.length > 0 ? (
+                    <>
+                      {photoSrcs.map((src, i) => (
+                        <div
+                          class="carousel-slide absolute inset-0"
+                          data-slide={i}
+                          style={i > 0 ? 'display:none' : ''}
+                        >
+                          <Image
+                            src={src}
+                            alt={`Photo de ${animal.nom}${photoSrcs.length > 1 ? ` (${i + 1}/${photoSrcs.length})` : ''}`}
+                            width={400}
+                            height={533}
+                            class="w-full h-full object-contain"
+                          />
+                        </div>
+                      ))}
+                      {photoSrcs.length > 1 && (
+                        <>
+                          <button
+                            data-carousel-prev
+                            class="absolute left-2 top-1/2 -translate-y-1/2 btn btn-circle btn-xs bg-base-100/80 hover:bg-base-100 border-0 shadow"
+                            aria-label="Photo précédente"
+                          >‹</button>
+                          <button
+                            data-carousel-next
+                            class="absolute right-2 top-1/2 -translate-y-1/2 btn btn-circle btn-xs bg-base-100/80 hover:bg-base-100 border-0 shadow"
+                            aria-label="Photo suivante"
+                          >›</button>
+                          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            {photoSrcs.map((_, i) => (
+                              <div
+                                data-dot={i}
+                                class={`w-1.5 h-1.5 rounded-full transition-opacity ${i === 0 ? 'bg-white opacity-100' : 'bg-white opacity-40'}`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
+                    </>
                   ) : (
-                    <svg
-                      viewBox="0 0 120 80"
-                      class="w-32 h-24 text-base-content/20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      {/* Simple horse silhouette */}
-                      <path d="M95 18c-2-3-5-5-8-5l-3 1-2-4c-1-2-3-3-5-3h-6c-3 0-5 1-6 3l-4 8-10 4-8 2-8 6-5 8-3 10v10h6v-8l3-8 5-4 8-2 10-4 4-2 2 2v24h6V44l2-4 4-2h4l6 2 4 6v16h6V46l-2-8-3-6 4-7 4-5-1-2z" />
-                      <ellipse cx="25" cy="65" rx="12" ry="5" opacity=".3" />
-                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <svg viewBox="0 0 120 80" class="w-32 h-24 text-base-content/20" fill="currentColor" aria-hidden="true">
+                        <path d="M95 18c-2-3-5-5-8-5l-3 1-2-4c-1-2-3-3-5-3h-6c-3 0-5 1-6 3l-4 8-10 4-8 2-8 6-5 8-3 10v10h6v-8l3-8 5-4 8-2 10-4 4-2 2 2v24h6V44l2-4 4-2h4l6 2 4 6v16h6V46l-2-8-3-6 4-7 4-5-1-2z" />
+                        <ellipse cx="25" cy="65" rx="12" ry="5" opacity=".3" />
+                      </svg>
+                    </div>
                   )}
                 </figure>
 
@@ -134,3 +167,24 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
     ))}
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('[data-animal-card]').forEach((card) => {
+    const slides = Array.from(card.querySelectorAll<HTMLElement>('[data-slide]'));
+    if (slides.length <= 1) return;
+
+    const dots = Array.from(card.querySelectorAll<HTMLElement>('[data-dot]'));
+    let current = 0;
+
+    const show = (index: number) => {
+      slides[current].style.display = 'none';
+      dots[current]?.classList.replace('opacity-100', 'opacity-40');
+      current = ((index % slides.length) + slides.length) % slides.length;
+      slides[current].style.display = '';
+      dots[current]?.classList.replace('opacity-40', 'opacity-100');
+    };
+
+    card.querySelector('[data-carousel-prev]')?.addEventListener('click', () => show(current - 1));
+    card.querySelector('[data-carousel-next]')?.addEventListener('click', () => show(current + 1));
+  });
+</script>

@@ -63,6 +63,8 @@ const services = defineCollection({
       race: z.string().optional(),
       anneeNaissance: z.number().int().optional(),
       photo: z.string().optional(),
+      photos: z.array(z.string()).optional(),
+      photoPosition: z.string().optional(),
       prix: z.string().optional(),
       description: z.string(),
       pere: z.string().optional(),

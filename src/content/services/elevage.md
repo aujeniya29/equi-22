@@ -52,7 +52,9 @@ animals:
   - nom: "Jackyria Camara"
     role: "pouliniere"
     race: "Selle Français"
-    photo: "jackyria.webp"
+    photo: "jackyria1.jpg"
+    photos:
+      - "jackyria2.jpg"
     description: "Jakyria, selle francais pour des futurs cracks"
   - nom: "Fleur"
     role: "pouliniere"

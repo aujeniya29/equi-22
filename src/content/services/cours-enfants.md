@@ -142,7 +142,8 @@ Les cours enfants permettent d'acquérir progressivement les bases de l'équitat
 Chez nous, chaque enfant avance selon sa propre progression, de la première rencontre avec un poney aux galops fédéraux :
 
 - **Baby Poney (3–5 ans)** — Première découverte du poney en main. L'enfant apprend à toucher, brosser, et monter au pas avec aide. Objectif : créer un lien de confiance et de plaisir.
-- **Découverte (6-9 ans)** — Les bases de la monte : position, équilibre, arrêts et direction au pas et au trot. L'enfant gagne en autonomie sur le poney.
+- **Découverte (6–9 ans)** — Les bases de la monte : position, équilibre, arrêts et direction au pas et au trot. L'enfant gagne en autonomie sur le poney.
+- **Découverte (10 ans et +)** — Mêmes fondamentaux que pour les 6–9 ans, dans un groupe adapté aux enfants plus grands.
 - **Galop 1–2** — Premiers galops en groupe, exercices de souplesse sur le poney, découverte des différents poneys de l'écurie. Préparation aux premiers diplômes fédéraux.
 - **Galop 3–4** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
 - **Galop 5–7** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.

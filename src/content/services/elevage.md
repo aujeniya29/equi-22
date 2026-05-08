@@ -8,11 +8,11 @@ heroImageAlt: "Jument et poulain dans un pré verdoyant au centre équestre Equi
 whatsappMessage: "Bonjour, je suis intéressé(e) par votre activité d'élevage. Pourriez-vous me donner des informations sur vos étalons et vos services de saillie ?"
 order: 6
 pricing:
-  - label: "Pension jument seule pour Flashy et Jackpot"
+  - label: "Pension jument seule pour Flashy"
     price: "10"
     unit: "jour"
     highlight: false
-  - label: "Pension jument suitée pour Flashy et Jackpot"
+  - label: "Pension jument suitée pour Flashy"
     price: "13"
     unit: "jour"
     highlight: false
@@ -66,7 +66,7 @@ animals:
     race: "Trait Breton"
     anneeNaissance: 2011
     photo: "biscotte.png"
-    description: "Jument Trait Breton d'1m55, poulinière depuis plusieurs années. Actuellement pleine de Jackpot d'Île de Batz."
+    description: "Jument Trait Breton d'1m55, poulinière depuis plusieurs années."
   - nom: "Bahira Saint Germain"
     role: "pouliniere"
     race: "PFS"

@@ -119,6 +119,7 @@ testimonial:
   author: "Sophie, maman de Léa (8 ans)"
   stars: 5
 documents:
+  - reglement-interieur
   - inscription
 serviceType: "EducationalService"
 serviceDescription: "Cours d'équitation pour enfants de 3 à 14 ans, du baby poney aux Galops, au centre équestre Equi 22 à Yffiniac."

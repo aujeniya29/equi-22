@@ -74,6 +74,7 @@ testimonial:
   author: "Nathalie, propriétaire de Caramel"
   stars: 5
 documents:
+  - reglement-interieur
   - saillie
 serviceType: "AnimalService"
 serviceDescription: "Élevage de chevaux à Yffiniac. Saillie, pension jument gestante, suivi poulain — Equi 22, centre équestre en Côtes-d'Armor."

@@ -76,6 +76,7 @@ testimonial:
   author: "Marc, cavalier depuis 2 ans"
   stars: 5
 documents:
+  - reglement-interieur
   - inscription
 serviceType: "Cours d'équitation pour adultes"
 serviceDescription: "Cours d'équitation pour adultes débutants et confirmés au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."

@@ -11,6 +11,13 @@ export interface DocumentCategory {
 
 export const documentCategories: DocumentCategory[] = [
   {
+    slug: 'reglement-interieur',
+    titre: 'Règlement intérieur',
+    documents: [
+      { nom: 'Règlement intérieur du centre équestre', fichier: 'reglement_interieur.pdf' },
+    ],
+  },
+  {
     slug: 'inscription',
     titre: 'Inscription',
     documents: [

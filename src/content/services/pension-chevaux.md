@@ -131,6 +131,7 @@ schedule:
     time: "14h00 - 15h00"
     level: "DP Proprios"
 documents:
+  - reglement-interieur
   - pension
   - tiers-pension
   - demi-pension

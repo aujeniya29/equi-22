@@ -62,6 +62,13 @@ export const documentCategories: DocumentCategory[] = [
       { nom: 'Contrat de dépôt-vente 2026', fichier: 'depot vente 2026.pdf' },
     ],
   },
+  {
+    slug: 'ace',
+    titre: 'Association des Cavaliers (ACE)',
+    documents: [
+      { nom: 'Bulletin d\'adhésion ACE 22', fichier: 'bulletin_adhesion_ACE22.pdf' },
+    ],
+  },
 ];
 
 export function getCategoriesBySlug(slugs: string[]): DocumentCategory[] {

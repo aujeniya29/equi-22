@@ -10,7 +10,7 @@ export const mainMenu: NavLink[] = [
   { label: 'Stages vacances', href: '/stages-vacances' },
   { label: 'Compétitions', href: '/competitions' },
   { label: 'Élevage', href: '/elevage' },
-  { label: 'Vente', href: '/vente' },
+  { label: 'Vente & dépôt-vente', href: '/vente' },
   { label: 'Tarifs', href: '/tarifs' },
   { label: 'Blog', href: '/blog' },
   { label: 'À propos', href: '/a-propos' },

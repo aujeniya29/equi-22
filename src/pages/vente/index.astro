@@ -3,10 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseCard from '../../components/HorseCard.astro';
 import { business } from '../../data/business';
-import DocumentLinks from '../../components/DocumentLinks.astro';
-import { getCategoriesBySlug } from '../../data/documents';
-
-const depotVenteCategories = getCategoriesBySlug(['depot-vente']);
 
 const horses = await getCollection('vente');
 const sorted = [...horses].sort((a, b) => {
@@ -43,18 +39,18 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 ---
 
 <BaseLayout
-  title="Chevaux et poneys à vendre"
-  description="Découvrez les chevaux et poneys à vendre au centre équestre Equi 22 à Yffiniac. Fiches détaillées, galerie photos, contact direct."
+  title="Vente & dépôt-vente de chevaux et poneys — Équi 22"
+  description="Chevaux et poneys à vendre au centre équestre Équi 22 à Yffiniac. Dépôt-vente possible : nous gérons valorisation, communication et prises de rendez-vous."
   whatsappMessage={whatsappMessage}
 >
   <!-- Header -->
   <section class="py-12 lg:py-16 bg-base-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h1 class="text-3xl lg:text-4xl font-serif text-base-content mb-4">
-        Chevaux & Poneys à vendre
+        Vente & dépôt-vente
       </h1>
       <p class="text-base-content/70 max-w-2xl mx-auto">
-        Retrouvez ici nos annonces de vente. Chaque fiche détaille le profil, le niveau et les photos du cheval ou poney concerné. Contactez-nous pour organiser une visite.
+        Retrouvez nos annonces de vente et découvrez comment nous pouvons vous accompagner dans la vente de votre équidé en dépôt-vente.
       </p>
     </div>
   </section>
@@ -101,10 +97,59 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   )}
 
   <!-- Dépôt-vente -->
-  <DocumentLinks
-    categories={depotVenteCategories}
-    bgClass={sold.length > 0 ? 'bg-base-100' : 'bg-base-200'}
-  />
+  <section class={`py-12 lg:py-16 ${sold.length > 0 ? 'bg-base-100' : 'bg-base-200'}`}>
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-4">
+        Dépôt-vente de chevaux
+      </h2>
+      <p class="text-base-content/80 text-lg leading-relaxed mb-8">
+        Vous souhaitez vendre votre équidé ? Nous vous accompagnons à chaque étape, dans un cadre professionnel et transparent.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h3 class="text-base font-semibold text-primary uppercase tracking-wide mb-3">Ce que nous gérons</h3>
+          <ul class="space-y-2 text-base-content/80">
+            <li class="flex items-start gap-2"><span class="text-primary font-bold shrink-0 mt-0.5">•</span><span>Valorisation et travail de votre cheval</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary font-bold shrink-0 mt-0.5">•</span><span>Photos et communication</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary font-bold shrink-0 mt-0.5">•</span><span>Prise de rendez-vous avec les acheteurs</span></li>
+            <li class="flex items-start gap-2"><span class="text-primary font-bold shrink-0 mt-0.5">•</span><span>Aucun frais de pension pendant la durée du dépôt</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-primary uppercase tracking-wide mb-3">Vos engagements</h3>
+          <ul class="space-y-2 text-base-content/80">
+            <li class="flex items-start gap-2"><span class="text-primary font-bold shrink-0 mt-0.5">•</span><span>Soins courants à votre charge : vermifuge, vaccins, dentiste, ostéo, maréchalerie</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-base-content/80 leading-relaxed mb-8">
+        <p>
+          Un contrat est signé entre les deux parties. Vous fixez votre prix net vendeur, nous y ajoutons notre commission — sans surprise. Si la vente n'aboutit pas dans le premier mois, une réévaluation des conditions peut être envisagée ensemble ; la commission, elle, reste fixe.
+        </p>
+        <p class="text-sm text-base-content/60 italic">
+          Seuls les chevaux débourrés, en état physique et mental satisfaisant sont acceptés. Nous nous réservons le droit de refuser certains dossiers.
+        </p>
+      </div>
+
+      <a
+        href="/documents/depot%20vente%202026.pdf"
+        download="depot vente 2026.pdf"
+        class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-base-300 bg-base-100 hover:border-primary hover:shadow-md transition-all group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        <span class="text-primary shrink-0" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+          </svg>
+        </span>
+        <span class="font-medium text-base-content group-hover:text-primary transition-colors">
+          Contrat de dépôt-vente 2026
+        </span>
+        <span class="ml-2 text-xs text-base-content/40 uppercase tracking-wide">PDF</span>
+      </a>
+    </div>
+  </section>
 
   <!-- CTA -->
   <section class={`py-12 lg:py-16 ${sold.length > 0 ? 'bg-base-200' : 'bg-base-100'}`}>

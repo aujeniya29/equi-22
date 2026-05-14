@@ -34,6 +34,7 @@ const services = defineCollection({
     })).optional(),
     pricingNotes: z.array(z.string()).optional(),
     highlightedPricingNotes: z.array(z.string()).optional(),
+    discountPricingNotes: z.array(z.string()).optional(),
 
     // Pricing — grouped (used when tarifs need separate sections)
     pricingGroups: z.array(z.object({

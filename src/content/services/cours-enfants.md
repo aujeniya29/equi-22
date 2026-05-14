@@ -155,3 +155,7 @@ Chez nous, chaque enfant avance selon sa propre progression, de la première ren
 - **Galop 5–7** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
 
 Nos monitrices adaptent chaque séance au niveau des enfants.
+
+## Vous organisez une sortie scolaire ou une activité de groupe ?
+
+Équi 22 accueille également les **écoles, centres aérés et groupes organisés** avec des séances sur-mesure à partir de 12€ par enfant. [Découvrez notre offre sorties scolaires & groupes →](/sorties-scolaires)

@@ -34,10 +34,10 @@ interface Instructor {
 const instructors: Instructor[] = [
   {
     firstName: 'Aurélia',
-    role: 'Monitrice principale',
+    role: 'Gérante & Monitrice',
     personality: "Douce et attentionnée, Aurélia met les débutants à l'aise dès la première séance.",
     philosophy: "Apprendre l'équitation, c'est d'abord apprendre à écouter le cheval. On avance à votre rythme, jamais au mien.",
-    qualifications: "BPJEPS Équitation — 12 ans d'expérience",
+    qualifications: "BPJEPS Équitation · BFEE 2 Éthologie (Andy Booth) · BFEEH Entraîneur de Hunter — 20 ans d'expérience",
     imageSrc: aurelia,
     imageAlt: 'Aurélia, monitrice principale du centre équestre Équi 22',
   },
@@ -209,7 +209,24 @@ const galleryZones: GalleryZone[] = [
                 {instructor.philosophy}
                 <cite class="block text-xs mt-1 not-italic opacity-60">— {instructor.firstName}</cite>
               </blockquote>
-              <p class="text-xs text-base-content/60 font-medium mt-1">{instructor.qualifications}</p>
+              <div class="mt-1 flex flex-col gap-2">
+                {(() => {
+                  const [diplomasPart, experience] = instructor.qualifications.split('—').map(s => s.trim());
+                  const diplomas = diplomasPart.split('·').map(s => s.trim()).filter(Boolean);
+                  return (
+                    <>
+                      <div class="flex flex-wrap gap-1.5">
+                        {diplomas.map(d => (
+                          <span class="inline-block text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded-full">{d}</span>
+                        ))}
+                      </div>
+                      {experience && (
+                        <p class="text-xs font-semibold text-base-content/70">{experience}</p>
+                      )}
+                    </>
+                  );
+                })()}
+              </div>
             </div>
           </article>
         ))}

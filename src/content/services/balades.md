@@ -1,10 +1,10 @@
 ---
-title: "Balades à cheval près de la baie de Saint-Brieuc"
-description: "Chemins de campagne ou galops sur la plage — des balades encadrées pour tous les niveaux, du plus petit au plus grand."
-seoTitle: "Balades à cheval et à la plage — Yffiniac, baie de Saint-Brieuc | Equi 22"
+title: "Balades à cheval"
+description: "Chemins de campagne bretonne et sorties à la plage — des balades encadrées pour tous les niveaux, du plus petit au plus grand."
+seoTitle: "Balades à cheval Yffiniac, baie de Saint-Brieuc | Equi 22"
 seoDescription: "Balades à cheval à Yffiniac : chemins de campagne et sorties à la plage dans la baie de Saint-Brieuc. Tous niveaux, tous les mercredis. Réservation sur demande."
 heroImage: "/src/assets/images/hero/balades.jpg"
-heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne près de la baie de Saint-Brieuc au centre équestre Equi 22"
+heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les balades à cheval. Pourriez-vous me donner des informations sur les disponibilités et les tarifs ?"
 order: 7
 pricingGroups:
@@ -44,7 +44,7 @@ serviceDescription: "Balades à cheval et à poney encadrées dans la campagne a
 
 ## Des balades à cheval toute l'année
 
-De nombreux chemins autour du club se prêtent à des balades en campagne bretonne. Accessibles directement depuis le centre, ils traversent bocages, sous-bois et paysages de la baie de Saint-Brieuc — pour une vraie déconnexion au rythme du cheval.
+De nombreux chemins partent directement du club et traversent la campagne bretonne : bocages, sous-bois, chemins creux — pour une vraie déconnexion au rythme du cheval.
 
 Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavaliers du club et extérieurs. Elles se font **à la demande du lundi au samedi**, à partir de **5 cavaliers**. Le matériel de sécurité est prêté (casque, selle, filet, tapis, brosses) — venez simplement avec un pantalon et des chaussures adaptées.
 

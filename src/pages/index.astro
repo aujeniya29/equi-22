@@ -26,7 +26,7 @@ const serviceImages = await Promise.all(
   })
 );
 
-const allBlogPosts = await getCollection('blog');
+const allBlogPosts = await getCollection('actualites');
 const recentNews = [...allBlogPosts]
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);

@@ -6,7 +6,7 @@ import ContactForm from '../../components/ContactForm.astro';
 import { business } from '../../data/business.ts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('actualites');
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },

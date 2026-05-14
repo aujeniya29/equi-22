@@ -12,7 +12,7 @@ export const mainMenu: NavLink[] = [
   { label: 'Élevage', href: '/elevage' },
   { label: 'Vente & dépôt-vente', href: '/vente' },
   { label: 'Tarifs', href: '/tarifs' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Actualités', href: '/actualites' },
   { label: 'À propos', href: '/a-propos' },
   { label: 'Contact', href: '/contact' },
 ];

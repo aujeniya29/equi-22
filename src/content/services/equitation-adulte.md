@@ -16,7 +16,7 @@ pricing:
     price: "260"
     unit: "carte"
     highlight: false
-  - label: "Carte 20h (valable 6 mois)"
+  - label: "Carte 20h (Valable de Septembre à Juin)"
     price: "400"
     unit: "carte"
     highlight: false

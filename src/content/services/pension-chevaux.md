@@ -145,7 +145,7 @@ serviceDescription: "Pension équine au centre équestre Equi 22 à Yffiniac. Bo
 
 ## Ce qui est inclus dans votre pension
 
-- **Alimentation** — Foin à volonté distribué matin et soir, compléments alimentaires adaptés aux besoins de chaque cheval
+- **Alimentation** — Foin à volonté, compléments alimentaires adaptés aux besoins de chaque cheval
 - **Sortie quotidienne** — Accès au paddock tous les jours, quelle que soit la formule choisie
 - **Suivi vétérinaire** — Surveillance quotidienne par notre équipe, appel vétérinaire en cas de besoin
 - **Coordination maréchal-ferrant** — Organisation des rendez-vous, vous n'avez qu'à valider

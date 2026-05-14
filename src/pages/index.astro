@@ -4,7 +4,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ProfileRouting from '../components/ProfileRouting.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import NewsCard from '../components/NewsCard.astro';
 import homepageHero from '../assets/images/hero/banniere-accueil.webp';
 import GoogleReviews from '../components/GoogleReviews.astro';
 
@@ -27,11 +26,8 @@ const serviceImages = await Promise.all(
   })
 );
 
-// News section — build-time freshness filtering
-const cutoffDate = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
-const allNews = await getCollection('news');
-const recentNews = [...allNews]
-  .filter(item => item.data.date >= cutoffDate)
+const allBlogPosts = await getCollection('blog');
+const recentNews = [...allBlogPosts]
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 ---
@@ -112,9 +108,29 @@ const recentNews = [...allNews]
       <div class="max-w-5xl mx-auto px-4">
         <h2 id="news-heading" class="text-2xl lg:text-3xl font-serif text-center mb-8">Actualités</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentNews.map((item) => (
-            <NewsCard news={item} />
-          ))}
+          {recentNews.map((post) => {
+            const formattedDate = new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(post.data.date);
+            const displayDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+            return (
+              <article class="bg-base-100 rounded-2xl border border-base-200 p-6 flex flex-col gap-3 shadow-sm">
+                <time datetime={post.data.date.toISOString()} class="text-xs font-medium text-base-content/50 tracking-wide">
+                  {displayDate}
+                </time>
+                <h3 class="font-serif text-base text-base-content leading-snug">{post.data.title}</h3>
+                <p class="text-sm text-base-content/70 leading-relaxed flex-1">{post.data.excerpt}</p>
+                <a
+                  href={`/actualites/${post.id}`}
+                  aria-label={`Lire l'article : ${post.data.title}`}
+                  class="text-sm text-primary font-semibold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded self-start"
+                >
+                  Lire l'article →
+                </a>
+              </article>
+            );
+          })}
+        </div>
+        <div class="mt-8 text-center">
+          <a href="/actualites" class="btn btn-outline">Voir toutes les actualités</a>
         </div>
       </div>
     </section>

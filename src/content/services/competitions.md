@@ -8,18 +8,14 @@ heroImageAlt: "Cavalier franchissant un obstacle lors d'un concours de saut d'ob
 whatsappMessage: "Bonjour, je suis intéressé(e) par les compétitions équestres. Pourriez-vous me donner des informations sur le programme de la saison et les conditions de participation ?"
 order: 5
 pricingGroups:
-  - title: "Préparation"
+  - title: "Packs"
     items:
-      - label: "Séance de préparation CSO"
-        price: "30"
-        unit: "séance"
-        highlight: false
-      - label: "Pack Saison Compétition"
-        price: "180"
-        unit: "saison"
+      - label: "Pack Compétition - 1 heure de cours par semaine et 2 concours"
+        price: "200"
+        unit: "mois"
         highlight: true
   - title: "Moins de 20 kms"
-    sectionLabel: "Tarifs incluant encadrement, transport, logistique et mise à disposition du cheval — selon l'éloignement du concours"
+    sectionLabel: "Tarifs au concours : incluant encadrement, transport, logistique et mise à disposition du cheval — selon l'éloignement du concours"
     subtitle: "Distance depuis le club"
     items:
       - label: "1 tour"

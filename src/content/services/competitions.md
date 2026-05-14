@@ -10,7 +10,7 @@ order: 5
 pricingGroups:
   - title: "Packs"
     items:
-      - label: "Pack Compétition - 1 heure de cours par semaine et 2 concours"
+      - label: "Pack Compétition - 1 heure de cours par semaine et 2 concours par mois"
         price: "200"
         unit: "mois"
         highlight: true

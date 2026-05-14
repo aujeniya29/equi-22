@@ -92,7 +92,7 @@ pricingGroups:
         unit: "semaine"
         highlight: false
   - title: "Stage adulte"
-    subtitle: "Dimanche à la journée"
+    subtitle: "Dimanche à la journée - Perfectionnement, stage avec intervenant extérieur ou activités extérieures"
     items:
       - label: "Journée — cavalier du club"
         price: "70"
@@ -102,10 +102,10 @@ pricingGroups:
         price: "80"
         unit: "journée"
         highlight: false
-  - title: "Weekend passage de galop"
+  - title: "Weekend passage de galop ou de savoir éthologique"
     subtitle: "Weekend de 3 jours — ouvert à tous"
     items:
-      - label: "Weekend passage de galop"
+      - label: "Weekend passage de galop ou de savoir éthologique"
         price: "150"
         unit: "weekend"
         highlight: false
@@ -155,7 +155,7 @@ Pour les stages été, l'ambiance monte d'un cran le vendredi soir : apéro et s
 |---|---|---|
 | La semaine Perfecto | 6 juillet – 20 août | Tous niveaux |
 | La semaine extra fun | 27 – 31 juillet | Cavaliers à l'aise aux 3 allures |
-| Stage spécial galop 3+ | Nous contacter | Galop 3 et au-dessus |
+| Stage spécial galop 3+ | 24 - 28 août | Galop 3 et au-dessus |
 
 
 ## Quand ont lieu nos stages ?

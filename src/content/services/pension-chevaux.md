@@ -41,11 +41,11 @@ pricingGroups:
         price: "270"
         unit: "mois"
         highlight: false
-      - label: "Option confort (1h collectif + 1 cours part./mois)"
+      - label: "Option confort (1h de cours collectif / semaine + 1 cours part. / mois)"
         price: "70"
         unit: "mois"
         highlight: false
-      - label: "Option compétition (1h collectif + 1 concours + 1 cours part./mois)"
+      - label: "Option compétition (1h de cours collectif / semaine + 1 concours / mois + 1 cours part. / mois)"
         price: "150"
         unit: "mois"
         highlight: false

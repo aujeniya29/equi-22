@@ -33,6 +33,7 @@ const services = defineCollection({
       highlight: z.boolean().default(false),
     })).optional(),
     pricingNotes: z.array(z.string()).optional(),
+    highlightedPricingNotes: z.array(z.string()).optional(),
 
     // Pricing — grouped (used when tarifs need separate sections)
     pricingGroups: z.array(z.object({

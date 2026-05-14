@@ -29,6 +29,10 @@ pricing:
     price: "230"
     unit: "carte"
     highlight: false
+  - label: "Carte 20h"
+    price: "380"
+    unit: "carte"
+    highlight: false
   - label: "Carte 30h"
     price: "560"
     unit: "carte"
@@ -56,13 +60,14 @@ pricing:
 pricingNotes:
   - "Les cartes de 10 heures sont payables en 3 fois sans frais"
   - "Les cartes de 20, 30 et 35 heures sont payables jusqu'à 10 fois sans frais, de septembre à juin"
+highlightedPricingNotes:
   - "Licence FFE obligatoire pour tous : 30€ pour les mineurs, 40€ pour les adultes"
   - "Cotisation annuelle : 60€ pour les mineurs, 70€ pour les adultes"
 scheduleNotes:
   - "Possibilité de rajouter des créneaux selon demande"
   - "10 cavaliers maximum par cours"
-  - "Cours maintenu à partir de 4 cavaliers — durée de séance adaptée si moins"
-  - "Moins de 4 cavaliers : cours reporté"
+  - "Cours maintenu à partir de 4 cavaliers mais temps de séance adaptée"
+  - "Moins de 4 cavaliers : cours reporté ou annulé"
   - "Pour les babys et les débutants, un accompagnateur est demandé pour plus de sécurité (au minimum le premier trimestre)"
 schedule:
   - day: "Mardi"

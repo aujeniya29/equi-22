@@ -91,7 +91,7 @@ const ctaBg        = BG[idx % 2];
   {planningAfterPricing ? (
     <Fragment>
       {hasPricing && (
-        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} highlightedPricingNotes={data.highlightedPricingNotes} bgClass={pricingBg} />
       )}
       {hasSchedule && (
         <PlanningBlock schedule={data.schedule!} bgClass={planningBg} notes={data.scheduleNotes} />
@@ -103,7 +103,7 @@ const ctaBg        = BG[idx % 2];
         <PlanningBlock schedule={data.schedule!} bgClass={planningBg} notes={data.scheduleNotes} />
       )}
       {hasPricing && (
-        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} bgClass={pricingBg} />
+        <PricingTable pricing={data.pricing} pricingGroups={data.pricingGroups} pricingNotes={data.pricingNotes} highlightedPricingNotes={data.highlightedPricingNotes} bgClass={pricingBg} />
       )}
     </Fragment>
   )}

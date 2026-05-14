@@ -53,8 +53,8 @@ pricingNotes:
 scheduleNotes:
   - "Possibilité de rajouter des créneaux selon demande"
   - "10 cavaliers maximum par cours"
-  - "Cours maintenu à partir de 4 cavaliers — durée de séance adaptée si moins"
-  - "Moins de 4 cavaliers : cours reporté"
+  - "Cours maintenu à partir de 4 cavaliers mais temps de séance adaptée"
+  - "Moins de 4 cavaliers : cours reporté ou annulé"
 schedule:
   - day: "Mardi"
     time: "19h00 - 20h00"

@@ -19,10 +19,11 @@ interface Props {
   pricing?: PricingRow[];
   pricingGroups?: PricingGroup[];
   pricingNotes?: string[];
+  highlightedPricingNotes?: string[];
   bgClass?: string;
 }
 
-const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.props;
+const { pricing, pricingGroups, pricingNotes, highlightedPricingNotes, bgClass = 'bg-base-200' } = Astro.props;
 ---
 
 <section class={`py-12 lg:py-16 ${bgClass}`}>
@@ -170,8 +171,21 @@ const { pricing, pricingGroups, pricingNotes, bgClass = 'bg-base-200' } = Astro.
       </div>
     ) : null}
 
+    {highlightedPricingNotes && highlightedPricingNotes.length > 0 && (
+      <ul class="mt-6 space-y-2">
+        {highlightedPricingNotes.map((note) => (
+          <li class="flex items-start gap-2 border-l-2 border-warning bg-warning/10 px-3 py-2 rounded-r text-sm font-medium text-base-content">
+            <svg class="w-4 h-4 mt-0.5 text-warning shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+            </svg>
+            {note}
+          </li>
+        ))}
+      </ul>
+    )}
+
     {pricingNotes && pricingNotes.length > 0 && (
-      <ul class="mt-6 space-y-1 text-sm text-base-content/70">
+      <ul class="mt-4 space-y-1 text-sm text-base-content/70">
         {pricingNotes.map((note) => (
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 mt-0.5 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

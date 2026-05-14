@@ -39,10 +39,16 @@ export const documentCategories: DocumentCategory[] = [
     ],
   },
   {
-    slug: 'demi-pension',
+    slug: 'demi-pension-proprio',
     titre: 'Demi-pension',
     documents: [
       { nom: 'Convention de demi-pension propriétaire 2026', fichier: 'CONVENTION DE DEMI PENSION PROPRIO2026.pdf' },
+    ],
+  },
+  {
+    slug: 'demi-pension-club',
+    titre: 'Demi-pension',
+    documents: [
       { nom: 'Demi-pension – chevaux de club 2026', fichier: 'demi pension chevaux de club2026.pdf' },
     ],
   },

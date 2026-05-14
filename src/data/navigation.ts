@@ -6,7 +6,8 @@ export interface NavLink {
 export const mainMenu: NavLink[] = [
   { label: 'Cours enfants', href: '/cours-enfants' },
   { label: 'Équitation adulte', href: '/equitation-adulte' },
-  { label: 'Pension', href: '/pension-chevaux' },
+  { label: 'Pension propriétaires', href: '/pension-chevaux' },
+  { label: 'Demi & Tiers-pension', href: '/pension-equides-club' },
   { label: 'Stages vacances', href: '/stages-vacances' },
   { label: 'Compétitions', href: '/competitions' },
   { label: 'Élevage', href: '/elevage' },

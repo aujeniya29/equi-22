@@ -114,7 +114,7 @@ Le **Pack Saison Compétition** inclut 6 séances de préparation spécialisée 
 
 Nos cavaliers participent principalement aux concours régionaux organisés par les comités équestres bretons.
 
-> **Prochain concours à venir** — Le programme de la saison est partagé par WhatsApp et affiché à l'écurie dès que les dates sont publiées par les organisateurs. Contactez-nous pour rejoindre la liste de diffusion compétition.
+Les concours à venir sont annoncés sur <a href="https://www.facebook.com/equi22.centre.equestre.yffiniac/?locale=fr_FR" target="_blank" rel="noopener noreferrer" style="font-weight:bold"><svg style="display:inline-block;width:1em;height:1em;vertical-align:-0.125em;margin-right:0.25em" fill="#1877F2" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>notre page Facebook</a>. C'est le canal le plus rapide pour suivre le programme de la saison — pensez à vous abonner pour ne rien manquer.
 
 ## Une ambiance de club avant tout
 

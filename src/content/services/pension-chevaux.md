@@ -41,14 +41,6 @@ pricingGroups:
         price: "270"
         unit: "mois"
         highlight: false
-      - label: "Pension pré troupeau — poney (équidé du club)"
-        price: "270"
-        unit: "mois"
-        highlight: false
-      - label: "Pension pré troupeau — cheval (équidé du club)"
-        price: "300"
-        unit: "mois"
-        highlight: false
       - label: "Option confort (1h de cours collectif / semaine + 1 cours part. / mois)"
         price: "70"
         unit: "mois"

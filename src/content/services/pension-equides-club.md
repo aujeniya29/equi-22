@@ -11,6 +11,14 @@ pricingGroups:
   - title: "Équidés du club"
     subtitle: "Demi-pensions et tiers de pensions sur les poneys et chevaux du centre"
     items:
+      - label: "Pension pré troupeau — poney (équidé du club)"
+        price: "270"
+        unit: "mois"
+        highlight: false
+      - label: "Pension pré troupeau — cheval (équidé du club)"
+        price: "300"
+        unit: "mois"
+        highlight: false
       - label: "Demi-pension pré troupeau — poney"
         price: "180"
         unit: "mois"

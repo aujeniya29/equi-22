@@ -10,6 +10,8 @@ interface Animal {
   photos?: string[];
   photoPosition?: string;
   prix?: string;
+  prixReservation?: string;
+  prixPoulainVivant?: string;
   description: string;
   pere?: string;
   mere?: string;
@@ -72,7 +74,7 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
             )).filter((s): s is ImageMetadata => !!s);
 
             return (
-              <article class="card bg-base-100 shadow-sm border border-base-content/5 overflow-hidden" data-animal-card>
+              <article class="card bg-base-100 shadow-sm border border-base-content/5 overflow-hidden flex flex-col" data-animal-card>
                 <figure class="relative aspect-square bg-base-200 overflow-hidden">
                   {photoSrcs.length > 0 ? (
                     <>
@@ -124,7 +126,7 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
                   )}
                 </figure>
 
-                <div class="card-body p-4 gap-2">
+                <div class="card-body p-4 gap-2 flex-1">
                   <h4 class="card-title text-lg font-serif">{animal.nom}</h4>
 
                   {(animal.race || animal.anneeNaissance) && (
@@ -145,12 +147,6 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
 
                   <p class="text-sm text-base-content/80 leading-relaxed">{animal.description}</p>
 
-                  {animal.prix && prixLabels[role] && (
-                    <p class="text-sm font-medium text-primary mt-1">
-                      {prixLabels[role]} : {animal.prix}
-                    </p>
-                  )}
-
                   {animal.palmares && animal.palmares.length > 0 && (
                     <div class="flex flex-wrap gap-1 mt-1">
                       {animal.palmares.map((entry) => (
@@ -159,6 +155,28 @@ const photoModules = import.meta.glob<{ default: ImageMetadata }>(
                     </div>
                   )}
                 </div>
+
+                {animal.prixReservation && (
+                  <div class="border-t border-base-content/10 bg-base-200/60 px-4 py-3">
+                    <p class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-2">Tarif saillie</p>
+                    <dl class="grid grid-cols-[1fr_auto] gap-x-4 gap-y-1 text-sm">
+                      <dt class="text-base-content/70">À la réservation</dt>
+                      <dd class="font-semibold text-primary text-right">{animal.prixReservation}</dd>
+                      {animal.prixPoulainVivant != null && (
+                        <>
+                          <dt class="text-base-content/70">Solde poulain vivant</dt>
+                          <dd class="font-semibold text-primary text-right">{animal.prixPoulainVivant}</dd>
+                        </>
+                      )}
+                    </dl>
+                  </div>
+                )}
+
+                {!animal.prixReservation && animal.prix && prixLabels[role] && (
+                  <div class="border-t border-base-content/10 bg-base-200/60 px-4 py-3">
+                    <p class="text-sm font-medium text-primary">{prixLabels[role]} : {animal.prix}</p>
+                  </div>
+                )}
               </article>
             );
           })}

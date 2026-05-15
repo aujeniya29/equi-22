@@ -68,6 +68,8 @@ const services = defineCollection({
       photos: z.array(z.string()).optional(),
       photoPosition: z.string().optional(),
       prix: z.string().optional(),
+      prixReservation: z.string().optional(),
+      prixPoulainVivant: z.string().optional(),
       description: z.string(),
       pere: z.string().optional(),
       mere: z.string().optional(),

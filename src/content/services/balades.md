@@ -3,7 +3,7 @@ title: "Balades à cheval"
 description: "Chemins de campagne bretonne et sorties à la plage — des balades encadrées pour tous les niveaux, du plus petit au plus grand."
 seoTitle: "Balades à cheval Yffiniac, baie de Saint-Brieuc | Equi 22"
 seoDescription: "Balades à cheval à Yffiniac : chemins de campagne et sorties à la plage dans la baie de Saint-Brieuc. Tous niveaux. Balades plage le mercredi en été, à la demande hors saison."
-heroImage: "/src/assets/images/hero/balades.jpg"
+heroImage: "/src/assets/images/balades/balades1.jpg"
 heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les balades à cheval. Pourriez-vous me donner des informations sur les disponibilités et les tarifs ?"
 order: 8
@@ -43,6 +43,13 @@ pricingGroups:
         price: "60"
         unit: "balade"
         highlight: false
+galleryImages:
+  - src: "/src/assets/images/balades/balades1.jpg"
+    alt: "Cavaliers en balade à cheval dans la campagne bretonne au centre équestre Équi 22"
+  - src: "/src/assets/images/balades/balades2.jpg"
+    alt: "Balade à cheval sur les chemins bretons depuis le centre équestre Équi 22 à Yffiniac"
+  - src: "/src/assets/images/balades/balades3.jpg"
+    alt: "Sortie à cheval en extérieur au centre équestre Équi 22 à Yffiniac"
 testimonial:
   quote: "On se sent vraiment en sécurité, ce qui nous permet de profiter pleinement du paysage"
   author: "Adrien - Toulousain en vacances à Yffiniac"

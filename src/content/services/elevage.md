@@ -6,7 +6,7 @@ seoDescription: "Élevage de chevaux à Yffiniac, près de Saint-Brieuc. Étalon
 heroImage: "/src/assets/images/elevage_small.jpg"
 heroImageAlt: "Jument et poulain dans un pré verdoyant au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par votre activité d'élevage. Pourriez-vous me donner des informations sur vos étalons et vos services de saillie ?"
-order: 6
+order: 7
 pricing:
   - label: "Pension jument seule pour Flashy"
     price: "10"

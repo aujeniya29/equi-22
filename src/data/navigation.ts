@@ -10,6 +10,7 @@ export const mainMenu: NavLink[] = [
   { label: 'Demi & Tiers-pension', href: '/pension-equides-club' },
   { label: 'Stages vacances', href: '/stages-vacances' },
   { label: 'Compétitions', href: '/competitions' },
+  { label: 'Mountain Trail & Éthologie', href: '/mountain-trail-ethologie' },
   { label: 'Élevage', href: '/elevage' },
   { label: 'Vente & dépôt-vente', href: '/vente' },
   { label: 'Tarifs', href: '/tarifs' },

@@ -6,7 +6,7 @@ seoDescription: "Organisez votre sortie scolaire ou séance centre aéré au cen
 heroImage: "/src/assets/images/hero/stages-vacances.jpg"
 heroImageAlt: "Enfants en séance équestre encadrée au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je souhaite organiser une sortie scolaire ou une séance groupe au centre équestre Equi 22. Pourriez-vous me donner des informations ?"
-order: 8
+order: 9
 pricing:
   - label: "Groupe de 10 cavaliers et plus"
     price: "12"

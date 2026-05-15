@@ -73,7 +73,6 @@ animals:
   - nom: "Bahira Saint Germain"
     role: "pouliniere"
     race: "PFS"
-    photo: "heops.webp"
     description: "Poulinière par Rexter d'Or"
 testimonial:
   quote: "Une jument en pleine confiance, un poulain magnifique — Equi 22 a suivi notre jument avec un soin exceptionnel tout au long de la gestation."

@@ -3,7 +3,7 @@ title: "Demi & Tiers-pension"
 description: "Montez et prenez soin d'un poney ou cheval du club à Yffiniac. Demi-pension et tiers-pension disponibles sur la cavalerie d'Équi 22."
 seoTitle: "Demi-pension & Tiers-pension chevaux de club Yffiniac | Equi 22"
 seoDescription: "Demi-pension et tiers-pension sur les poneys et chevaux du club à Yffiniac près de Saint-Brieuc. Formules flexibles pour cavaliers autonomes sans les contraintes de la propriété."
-heroImage: "/src/assets/images/hero/pension-chevaux.jpg"
+heroImage: "/src/assets/images/hero/dp-tiers.jpg"
 heroImageAlt: "Poneys et chevaux du club au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis interesse(e) par une demi-pension ou un tiers de pension sur un equide du club. Pourriez-vous me donner des informations ?"
 order: 4

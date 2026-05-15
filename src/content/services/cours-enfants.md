@@ -41,19 +41,19 @@ pricing:
     price: "620"
     unit: "carte"
     highlight: false
-  - label: "Pack découverte 3 mois (10h + 1 stage)"
+  - label: "Pack découverte 3 mois (10 heures de cours collectifs + 1 stage)"
     price: "110"
     unit: "mois"
     highlight: false
-  - label: "Pack fidélité annuel (35 cours + 4 stages)"
+  - label: "Pack fidélité annuel (35 heures de cours collectifs + 4 stages)"
     price: "100"
     unit: "mois"
     highlight: true
-  - label: "Pack nature & découverte annuel (10h + balades)"
+  - label: "Pack nature & découverte annuel (10 heures de cours collectifs + 10 heures de balades)"
     price: "45"
     unit: "mois"
     highlight: false
-  - label: "Pack prémium compétition annuel (2h/sem + 1 concours/mois)"
+  - label: "Pack prémium compétition annuel (2 heures de cours collectifs par semaine + 1 concours par mois)"
     price: "210"
     unit: "mois"
     highlight: false

@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
-import { Picture } from 'astro:assets';
+import { Picture, Image } from 'astro:assets';
+import aurelia from '../assets/images/team/aurelia.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './Hero.astro';
 import PlanningBlock from './PlanningBlock.astro';
@@ -52,6 +53,9 @@ const resolvedGalleryImages = hasGallery
 const BG = ['bg-base-200', 'bg-base-100'] as const;
 let idx = 0;
 const proseBg = BG[idx++ % 2]; // always bg-base-200
+const hasCredential = !!data.credentialHighlight;
+const credentialBg = BG[idx % 2];
+if (hasCredential) idx++;
 const galleryBg = BG[idx % 2];
 if (hasGallery) idx++;
 let planningBg: string;
@@ -102,6 +106,38 @@ const ctaBg        = BG[idx % 2];
       </div>
     </div>
   </section>
+
+  <!-- Credential Highlight (optional) -->
+  {data.credentialHighlight && (
+    <section class={`py-10 lg:py-12 ${credentialBg}`}>
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="bg-base-200 rounded-2xl p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-secondary/30">
+            <Image
+              src={aurelia}
+              alt="Aurélia, gérante et monitrice du centre équestre Équi 22"
+              width={112}
+              height={112}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+              <span class="font-serif text-lg text-base-content">Aurélia</span>
+              <span class="text-xs font-semibold text-primary uppercase tracking-wide">Gérante &amp; Monitrice</span>
+            </div>
+            <p class="text-base-content/70 text-sm leading-relaxed mb-3">{data.credentialHighlight.text}</p>
+            <div class="flex flex-wrap gap-2">
+              {data.credentialHighlight.badges.map((badge) => (
+                <span class="inline-block text-xs font-medium bg-primary/10 text-primary px-2.5 py-1 rounded-full">{badge}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Gallery Section (optional) -->
   {hasGallery && (

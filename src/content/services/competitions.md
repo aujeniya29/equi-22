@@ -86,6 +86,21 @@ Le CSO est la discipline phare de notre club. Nos cavaliers participent à des �
 
 Plus technique, le Hunter juge à la fois la régularité des allures, l'expression du cheval et la fluidité du parcours. Une discipline qui récompense la qualité de la relation entre le cavalier et son cheval — parfaite pour ceux qui aiment le travail de précision.
 
+<div style="margin-top:1.5rem;margin-bottom:0.5rem;background:#EEF2F8;border-radius:1rem;padding:1.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start">
+  <img src="/team/aurelia.jpg" alt="Aurélia, gérante et monitrice du centre équestre Équi 22" style="width:6rem;height:6rem;border-radius:9999px;object-fit:cover;flex-shrink:0;border:3px solid rgba(78,100,128,0.3)" loading="lazy" />
+  <div style="flex:1;min-width:200px">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:0.75rem;margin-bottom:0.5rem">
+      <span style="font-family:'DM Serif Display',serif;font-size:1.125rem;color:#1E293B">Aurélia</span>
+      <span style="font-size:0.7rem;font-weight:700;color:#2874b6;text-transform:uppercase;letter-spacing:0.06em">Gérante &amp; Monitrice</span>
+    </div>
+    <p style="font-size:0.875rem;line-height:1.6;color:rgba(30,41,59,0.7);margin:0 0 0.75rem">Titulaire du <strong style="color:#1E293B">BFEEH Entraîneur de Hunter</strong>, Aurélia a développé une expertise pointue dans cette discipline exigeante, alliant précision technique et qualité de la relation cheval-cavalier.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+      <span style="font-size:0.75rem;font-weight:500;background:rgba(40,116,182,0.1);color:#2874b6;padding:0.25rem 0.625rem;border-radius:9999px">BFEEH Entraîneur de Hunter</span>
+      <span style="font-size:0.75rem;font-weight:500;background:rgba(40,116,182,0.1);color:#2874b6;padding:0.25rem 0.625rem;border-radius:9999px">BPJEPS Équitation</span>
+    </div>
+  </div>
+</div>
+
 ### Dressage
 
 Le dressage, c'est apprendre à communiquer avec son cheval dans la subtilité et la précision. Une discipline accessible à tous, où la complicité entre cavalier et monture devient le cœur de chaque séance.

@@ -90,6 +90,12 @@ const services = defineCollection({
     // Notes affichées sous le planning
     scheduleNotes: z.array(z.string()).optional(),
 
+    // Carte de mise en avant d'une certification (affichée après le texte)
+    credentialHighlight: z.object({
+      text: z.string(),
+      badges: z.array(z.string()),
+    }).optional(),
+
     // Galerie photos (optionnelle, affichée après le texte)
     galleryImages: z.array(z.object({
       src: z.string(),

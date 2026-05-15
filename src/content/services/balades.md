@@ -2,7 +2,7 @@
 title: "Balades à cheval"
 description: "Chemins de campagne bretonne et sorties à la plage — des balades encadrées pour tous les niveaux, du plus petit au plus grand."
 seoTitle: "Balades à cheval Yffiniac, baie de Saint-Brieuc | Equi 22"
-seoDescription: "Balades à cheval à Yffiniac : chemins de campagne et sorties à la plage dans la baie de Saint-Brieuc. Tous niveaux, tous les mercredis. Réservation sur demande."
+seoDescription: "Balades à cheval à Yffiniac : chemins de campagne et sorties à la plage dans la baie de Saint-Brieuc. Tous niveaux. Balades plage le mercredi en été, à la demande hors saison."
 heroImage: "/src/assets/images/hero/balades.jpg"
 heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les balades à cheval. Pourriez-vous me donner des informations sur les disponibilités et les tarifs ?"
@@ -21,8 +21,17 @@ pricingGroups:
         price: "25"
         unit: "balade"
         highlight: false
+  - title: "Randonnées à la journée"
+    subtitle: "Galop 4 minimum — organisation à la demande — tarif selon la destination"
+    highlightedNotes:
+      - "Prévoir déjeuner et goûter"
+    items:
+      - label: "Randonnée à la journée"
+        price: "90 – 130"
+        unit: "journée"
+        highlight: false
   - title: "Balades à la plage"
-    subtitle: "Tous les mercredis — départ 13h au centre, arrivée 14h sur la plage"
+    subtitle: "Le mercredi en été — départ 13h au centre, arrivée 14h sur la plage. À la demande hors été."
     highlightedNotes:
       - "Possible à la demande selon les marées — groupe de 5 cavaliers minimum"
     items:
@@ -48,13 +57,13 @@ De nombreux chemins partent directement du club et traversent la campagne breton
 
 Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavaliers du club et extérieurs. Elles se font **à la demande du lundi au samedi**, à partir de **5 cavaliers**. Le matériel de sécurité est prêté (casque, selle, filet, tapis, brosses) — venez simplement avec un pantalon et des chaussures adaptées.
 
-Nous proposons également des **journées de randonnée** l'été.
+Nous proposons également des **randonnées à la journée**, organisées à la demande pour les cavaliers à partir du **Galop 4**. Le tarif varie de **90 à 130 €** selon la destination. Prévoyez déjeuner et goûter.
 
 ## Balades à la plage — la baie de Saint-Brieuc à cheval
 
-Chaque **mercredi**, nous organisons une sortie à la plage dans la baie de Saint-Brieuc : rendez-vous au centre équestre à **13h** pour une arrivée sur la plage à **14h**. Une expérience unique, pour les petits comme les grands.
+En été, une sortie à la plage est organisée chaque **mercredi** dans la baie de Saint-Brieuc : rendez-vous au centre équestre à **13h** pour une arrivée sur la plage à **14h**. Une expérience unique, pour les petits comme les grands.
 
-Les sorties plage sont également disponibles **à la demande**, en fonction des marées, pour les groupes de **5 cavaliers minimum**.
+Hors été, les balades plage sont disponibles **à la demande**, en fonction des marées, pour les groupes de **5 cavaliers minimum**.
 
 ### Informations pratiques
 

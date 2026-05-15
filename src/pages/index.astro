@@ -68,7 +68,7 @@ const recentNews = [...allBlogPosts]
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         <p class="font-serif text-lg text-base-content">Prêt(e) à vous inscrire ?</p>
-        <p class="text-sm text-base-content/60 mt-1">Téléchargez notre fiche d'inscription et remettez-la nous lors de votre première venue.</p>
+        <p class="text-sm text-base-content/70 mt-1">Téléchargez notre fiche d'inscription et remettez-la nous lors de votre première venue.</p>
       </div>
       <a
         href="/documents/fiche_inscription.pdf"
@@ -88,7 +88,7 @@ const recentNews = [...allBlogPosts]
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         <p class="font-serif text-lg text-base-content">L'Association des Cavaliers (ACE)</p>
-        <p class="text-sm text-base-content/60 mt-1">L'ACE rassemble les cavaliers et les familles du centre autour de la vie associative du club : sorties, événements, échanges. Adhérer, c'est s'impliquer dans la communauté équestre d'Équi 22 et contribuer à son dynamisme.</p>
+        <p class="text-sm text-base-content/70 mt-1">L'ACE rassemble les cavaliers et les familles du centre autour de la vie associative du club : sorties, événements, échanges. Adhérer, c'est s'impliquer dans la communauté équestre d'Équi 22 et contribuer à son dynamisme.</p>
       </div>
       <a
         href="/documents/bulletin_adhesion_ACE22.pdf"
@@ -115,7 +115,7 @@ const recentNews = [...allBlogPosts]
               const displayDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
               return (
                 <article class="bg-base-100 rounded-2xl border border-base-200 p-6 flex flex-col gap-3 shadow-sm">
-                  <time datetime={post.data.date.toISOString()} class="text-xs font-medium text-base-content/50 tracking-wide">
+                  <time datetime={post.data.date.toISOString()} class="text-xs font-medium text-base-content/75 tracking-wide">
                     {displayDate}
                   </time>
                   <h3 class="font-serif text-base text-base-content leading-snug">{post.data.title}</h3>
@@ -136,7 +136,7 @@ const recentNews = [...allBlogPosts]
           </div>
         </>
       ) : (
-        <p class="text-base-content/60 text-center py-6">Les prochaines actualités du club arrivent bientôt.</p>
+        <p class="text-base-content/70 text-center py-6">Les prochaines actualités du club arrivent bientôt.</p>
       )}
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">

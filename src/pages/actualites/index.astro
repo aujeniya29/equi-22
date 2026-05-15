@@ -23,7 +23,7 @@ const formatDate = (date: Date) =>
         </p>
 
         {posts.length === 0 ? (
-          <p class="text-base-content/60 text-center py-16">
+          <p class="text-base-content/70 text-center py-16">
             Nos premiers articles arrivent bientôt !
           </p>
         ) : (
@@ -33,7 +33,7 @@ const formatDate = (date: Date) =>
                 <article class="border-b border-base-300 pb-10">
                   <time
                     datetime={post.data.date.toISOString()}
-                    class="text-sm text-base-content/50 uppercase tracking-wide"
+                    class="text-sm text-base-content/75 uppercase tracking-wide"
                   >
                     {formatDate(post.data.date)}
                   </time>

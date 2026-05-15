@@ -62,7 +62,7 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
   <!-- Header -->
   <section class="py-10 lg:py-14 bg-base-200">
     <div class="max-w-6xl mx-auto px-4">
-      <nav class="text-sm text-base-content/50 mb-4">
+      <nav class="text-sm text-base-content/75 mb-4">
         <a href="/vente" class="hover:text-primary transition-colors">← Retour aux annonces</a>
       </nav>
 
@@ -75,7 +75,7 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
           <span class="badge badge-error badge-lg font-bold uppercase tracking-wide">Vendu</span>
         )}
       </div>
-      <p class="text-base-content/60 text-lg">
+      <p class="text-base-content/70 text-lg">
         {race} · {sexeLabels[sexe]} · {ageLabel}
         {taille && ` · ${taille}`}
         {robe && ` · ${robe}`}
@@ -115,38 +115,38 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
           <!-- Key stats -->
           <dl class="grid grid-cols-2 gap-3 text-sm">
             <div class="bg-base-200 rounded-lg p-3">
-              <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Sexe</dt>
+              <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Sexe</dt>
               <dd class="font-medium">{sexeLabels[sexe]}</dd>
             </div>
             <div class="bg-base-200 rounded-lg p-3">
-              <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Race</dt>
+              <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Race</dt>
               <dd class="font-medium">{race}</dd>
             </div>
             <div class="bg-base-200 rounded-lg p-3">
-              <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Âge</dt>
+              <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Âge</dt>
               <dd class="font-medium">{anneeNaissance} — {ageLabel}</dd>
             </div>
             {taille && (
               <div class="bg-base-200 rounded-lg p-3">
-                <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Taille</dt>
+                <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Taille</dt>
                 <dd class="font-medium">{taille}</dd>
               </div>
             )}
             {robe && (
               <div class="bg-base-200 rounded-lg p-3">
-                <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Robe</dt>
+                <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Robe</dt>
                 <dd class="font-medium">{robe}</dd>
               </div>
             )}
             {niveau && (
               <div class="bg-base-200 rounded-lg p-3 col-span-2">
-                <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Niveau</dt>
+                <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Niveau</dt>
                 <dd class="font-medium">{niveau}</dd>
               </div>
             )}
             {!niveau && categorie && (
               <div class="bg-base-200 rounded-lg p-3 col-span-2">
-                <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Catégorie</dt>
+                <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Catégorie</dt>
                 <dd class="font-medium">{categorie}</dd>
               </div>
             )}
@@ -155,23 +155,23 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
           <!-- Origines -->
           {(pere || mere || pereDeMere) && (
             <div>
-              <p class="text-xs text-base-content/50 uppercase tracking-wide mb-2">Origines</p>
+              <p class="text-xs text-base-content/75 uppercase tracking-wide mb-2">Origines</p>
               <dl class="grid grid-cols-2 gap-3 text-sm">
                 {pere && (
                   <div class="bg-base-200 rounded-lg p-3">
-                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Père</dt>
+                    <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Père</dt>
                     <dd class="font-medium">{pere}</dd>
                   </div>
                 )}
                 {mere && (
                   <div class="bg-base-200 rounded-lg p-3">
-                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Mère</dt>
+                    <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Mère</dt>
                     <dd class="font-medium">{mere}</dd>
                   </div>
                 )}
                 {pereDeMere && (
                   <div class="bg-base-200 rounded-lg p-3 col-span-2">
-                    <dt class="text-base-content/50 text-xs uppercase tracking-wide mb-0.5">Père de mère</dt>
+                    <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Père de mère</dt>
                     <dd class="font-medium">{pereDeMere}</dd>
                   </div>
                 )}
@@ -182,7 +182,7 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
           <!-- Disciplines -->
           {disciplines && disciplines.length > 0 && (
             <div>
-              <p class="text-xs text-base-content/50 uppercase tracking-wide mb-2">Disciplines</p>
+              <p class="text-xs text-base-content/75 uppercase tracking-wide mb-2">Disciplines</p>
               <div class="flex flex-wrap gap-2">
                 {disciplines.map((d) => (
                   <span class="badge badge-outline">{d}</span>

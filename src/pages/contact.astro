@@ -36,7 +36,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 
             <!-- Phone -->
             <div>
-              <p class="text-sm font-semibold text-base-content/60 uppercase tracking-wide mb-1">Téléphone</p>
+              <p class="text-sm font-semibold text-base-content/70 uppercase tracking-wide mb-1">Téléphone</p>
               <a
                 href={phoneUrl}
                 class="text-lg font-medium text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded min-h-[44px] inline-flex items-center"
@@ -48,7 +48,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 
             <!-- WhatsApp -->
             <div>
-              <p class="text-sm font-semibold text-base-content/60 uppercase tracking-wide mb-1">WhatsApp</p>
+              <p class="text-sm font-semibold text-base-content/70 uppercase tracking-wide mb-1">WhatsApp</p>
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -62,7 +62,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 
             <!-- Email -->
             <div>
-              <p class="text-sm font-semibold text-base-content/60 uppercase tracking-wide mb-1">Email</p>
+              <p class="text-sm font-semibold text-base-content/70 uppercase tracking-wide mb-1">Email</p>
               <a
                 href={`mailto:${business.email}`}
                 class="text-lg font-medium text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded min-h-[44px] inline-flex items-center"
@@ -74,7 +74,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 
             <!-- Address -->
             <div>
-              <p class="text-sm font-semibold text-base-content/60 uppercase tracking-wide mb-1">Adresse</p>
+              <p class="text-sm font-semibold text-base-content/70 uppercase tracking-wide mb-1">Adresse</p>
               <p class="text-base-content">
                 {business.address}<br />
                 {business.postalCode} {business.city}
@@ -83,7 +83,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 
             <!-- Opening hours -->
             <div>
-              <p class="text-sm font-semibold text-base-content/60 uppercase tracking-wide mb-3">Horaires</p>
+              <p class="text-sm font-semibold text-base-content/70 uppercase tracking-wide mb-3">Horaires</p>
               <table class="w-full text-sm" aria-label="Horaires d'ouverture">
                 <tbody>
                   {business.openingHours.map((entry) => (

@@ -99,7 +99,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
         <p>
           Un contrat est signé entre les deux parties. Vous fixez votre prix net vendeur, nous y ajoutons notre commission — sans surprise. Si la vente n'aboutit pas dans le premier mois, une réévaluation des conditions peut être envisagée ensemble ; la commission, elle, reste fixe.
         </p>
-        <p class="text-sm text-base-content/60 italic">
+        <p class="text-sm text-base-content/70 italic">
           Seuls les chevaux débourrés, en état physique et mental satisfaisant sont acceptés. Nous nous réservons le droit de refuser certains dossiers.
         </p>
       </div>
@@ -139,7 +139,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   ) : (
     <section class="py-16 lg:py-24 bg-base-200">
       <div class="max-w-2xl mx-auto px-4 text-center">
-        <p class="text-base-content/60 text-lg">
+        <p class="text-base-content/70 text-lg">
           Aucune annonce disponible pour le moment. Revenez bientôt ou contactez-nous directement.
         </p>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-6">
@@ -153,7 +153,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   {sold.length > 0 && (
     <section class="py-12 lg:py-16 bg-base-100">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-serif text-base-content/60 mb-6">Déjà partis</h2>
+        <h2 class="text-xl font-serif text-base-content/70 mb-6">Déjà partis</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sold.map((horse) => (
             <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />

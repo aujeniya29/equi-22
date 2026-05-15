@@ -24,6 +24,10 @@ pricing:
     price: "8"
     unit: "jour"
     highlight: false
+  - label: "Pension poulinage (surveillance H24, aide à la mise bas, soins mère & poulain, première manipulation)"
+    price: "400"
+    unit: "mois"
+    highlight: false
 pricingNotes:
   - "Contrat d'élevage signé avant toute saillie"
   - "Bilan vétérinaire de la jument recommandé avant mise à la reproduction"
@@ -100,6 +104,12 @@ Nous accueillons les juments en pension gestante dans des conditions optimales :
 \
 Grâce au système Easy foal, nous assurons une surveillance continue des juments pleine. Cela permet une présence lors de la mise bas et une aide à la prise du colostrum.
 Nous sommes également en lien avec la cabinet vétérinaire de Lamballe afin de faire face aux imprévus. 
+
+## Pension poulinage
+
+Nous proposons une pension poulinage complète pour accompagner votre jument dans les semaines entourant la mise bas. Grâce au système Easy Foal, la jument est surveillée en continu, 24h/24, ce qui nous permet d'être présents dès le début du travail.
+
+Nos prestations incluent l'aide à la mise bas, la surveillance et l'aide à la tétée si le poulain en a besoin, ainsi que les soins quotidiens de la mère et du poulain. Nous assurons également la première manipulation du poulain, étape essentielle pour poser de bonnes bases comportementales dès les premiers jours.
 
 ## Les poulains grandissent bien ici
 

@@ -61,5 +61,5 @@ Le tiers de pension vous permet de venir monter ou travailler en liberté deux f
 ## Conditions
 
 - Formules disponibles sur la cavalerie du club uniquement
-- Cavalier au pair possible selon les besoins du club — conditions à voir ensemble
+- Pour les demis-pensions : Un cours collectif offert, jusqu'à 3 séances en autonomie et priorité lors des activités du club
 - Contrat signé avant le début de la formule

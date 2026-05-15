@@ -3,7 +3,7 @@ title: "Scolaires & groupes"
 description: "Des séances encadrées sur-mesure pour les écoles, centres aérés et groupes — à partir de 12€ par enfant."
 seoTitle: "Sortie scolaire équitation Yffiniac Côtes-d'Armor | Equi 22"
 seoDescription: "Organisez votre sortie scolaire ou séance centre aéré au centre équestre Equi 22 à Yffiniac. Séances adaptées à tous les âges, encadrement qualifié, à partir de 12€ par enfant."
-heroImage: "/src/assets/images/hero/stages-vacances.jpg"
+heroImage: "/src/assets/images/scolaires/scolaires3.jpg"
 heroImageAlt: "Enfants en séance équestre encadrée au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je souhaite organiser une sortie scolaire ou une séance groupe au centre équestre Equi 22. Pourriez-vous me donner des informations ?"
 order: 9
@@ -21,6 +21,13 @@ highlightedPricingNotes:
 pricingNotes:
   - "Séances adaptées à l'âge et au nombre de cavaliers"
   - "Réservation obligatoire — contactez-nous pour vérifier les disponibilités"
+galleryImages:
+  - src: "/src/assets/images/scolaires/scolaires1.jpg"
+    alt: "Séance équestre encadrée pour un groupe scolaire au centre équestre Équi 22 à Yffiniac"
+  - src: "/src/assets/images/scolaires/scolaires2.jpg"
+    alt: "Enfants découvrant les poneys lors d'une sortie scolaire au centre équestre Équi 22"
+  - src: "/src/assets/images/scolaires/scolaires3.jpg"
+    alt: "Groupe d'enfants en activité équestre au centre Équi 22 à Yffiniac"
 serviceType: "EducationalService"
 serviceDescription: "Sorties scolaires et séances équestres pour groupes au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."
 ---

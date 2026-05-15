@@ -90,6 +90,12 @@ const services = defineCollection({
     // Notes affichées sous le planning
     scheduleNotes: z.array(z.string()).optional(),
 
+    // Galerie photos (optionnelle, affichée après le texte)
+    galleryImages: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+    })).optional(),
+
     // Documents téléchargeables (slugs de catégories depuis src/data/documents.ts)
     documents: z.array(z.string()).optional(),
 

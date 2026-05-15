@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from './Hero.astro';
 import PlanningBlock from './PlanningBlock.astro';
@@ -35,9 +36,24 @@ const hasTestimonial = !!data.testimonial;
 const documentCategories = hasDocuments ? getCategoriesBySlug(data.documents!) : [];
 const planningAfterPricing = data.planningAfterPricing ?? false;
 
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}'
+);
+const hasGallery = !!(data.galleryImages && data.galleryImages.length > 0);
+const resolvedGalleryImages = hasGallery
+  ? await Promise.all(
+      data.galleryImages!.map(async ({ src, alt }) => ({
+        src: (await allImages[src]()).default,
+        alt,
+      }))
+    )
+  : [];
+
 const BG = ['bg-base-200', 'bg-base-100'] as const;
 let idx = 0;
 const proseBg = BG[idx++ % 2]; // always bg-base-200
+const galleryBg = BG[idx % 2];
+if (hasGallery) idx++;
 let planningBg: string;
 let pricingBg: string;
 if (planningAfterPricing) {
@@ -86,6 +102,29 @@ const ctaBg        = BG[idx % 2];
       </div>
     </div>
   </section>
+
+  <!-- Gallery Section (optional) -->
+  {hasGallery && (
+    <section class={`py-12 lg:py-16 ${galleryBg}`}>
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {resolvedGalleryImages.map(({ src, alt }) => (
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-base-300">
+              <Picture
+                src={src}
+                formats={['avif', 'webp']}
+                fallbackFormat="webp"
+                alt={alt}
+                widths={[400, 800]}
+                sizes="(min-width: 640px) 33vw, 100vw"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Planning / Pricing (order controlled by planningAfterPricing) -->
   {planningAfterPricing ? (

@@ -167,4 +167,4 @@ Nous organisons des stages pendant **toutes les vacances scolaires, sauf à Noë
 - **Vacances de printemps**
 - **Vacances d'été**
 
-Les stages affichent souvent complets plusieurs semaines à l'avance — n'attendez pas les dernières vacances pour réserver.
+Les stages affichent souvent complets plusieurs semaines à l'avance — n'attendez pas la dernière minute pour réserver.

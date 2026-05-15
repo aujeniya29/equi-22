@@ -60,7 +60,7 @@ export const business: BusinessInfo = {
   },
   googleReviews: {
     rating: 4.3,
-    reviewCount: 200,
+    reviewCount: 213,
     // TODO: Replace with actual Google Business Profile URL once available from client
     googleBusinessUrl: 'https://share.google/dgf0rQXBTQyYYMt4f',
   },

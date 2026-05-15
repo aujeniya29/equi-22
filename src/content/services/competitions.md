@@ -108,7 +108,7 @@ Pas encore à ce niveau ? Parlez-en à votre monitrice — une saison de prépar
 
 ## Préparer un concours sérieusement
 
-Le **Pack Saison Compétition** inclut 6 séances de préparation spécialisée + l'accompagnement de votre coach sur les concours auxquels vous participez.
+Le **Pack Saison Compétition** inclut 4 cours collectifs et 2 concours par mois, avec l'accompagnement de votre coach à chaque sortie.
 
 ## Le calendrier des concours
 

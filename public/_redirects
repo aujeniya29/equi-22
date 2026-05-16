@@ -20,7 +20,7 @@
 /Camion_18.html /a-propos 301
 /Centre-equestre-equi-yffiniac-22_21.html /a-propos 301
 /Les-infrastructures_23.html /a-propos 301
-/Actualites_28.html /blog 301
+/Actualites_28.html /actualites 301
 /Club-house_29.html /a-propos 301
 /Nos-equides_40.html /a-propos 301
 /Planning-des-cours-2025-2026_52.html /cours-enfants 301
@@ -80,4 +80,4 @@
 # --- Attrape-tout : toutes les autres pages .html → blog ---
 # (actualités, événements, chevaux du club, concours...)
 # Le nouveau site n'a aucune URL en .html — aucun risque d'interférence.
-/*.html /blog 301
+/*.html /actualites 301

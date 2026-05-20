@@ -6,7 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://equi22.fr',
+  site: 'https://equi-22.fr',
   output: 'static',
   trailingSlash: 'never',
   integrations: [sitemap()],

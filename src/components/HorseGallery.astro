@@ -8,20 +8,24 @@ interface Props {
 
 const { images, horseName } = Astro.props;
 
+const mainImage = images[0];
+const isPortrait = mainImage && mainImage.height > mainImage.width;
+const aspectClass = isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]';
+
 // At least one image required to render the gallery
 if (images.length === 0) return;
 ---
 
 <div class="space-y-3">
   <!-- Main photo -->
-  <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-base-200">
+  <div class={`relative ${aspectClass} rounded-xl overflow-hidden bg-base-200`}>
     {images.map((img, i) => (
       <Image
         src={img}
         alt={i === 0 ? `Photo principale de ${horseName}` : `Photo ${i + 1} de ${horseName}`}
         width={800}
         height={600}
-        class={`gallery-img w-full h-full object-cover absolute inset-0 transition-opacity duration-200 ${i === 0 ? '' : 'opacity-0 pointer-events-none'}`}
+        class={`gallery-img w-full h-full object-cover object-center absolute inset-0 transition-opacity duration-200 ${i === 0 ? '' : 'opacity-0 pointer-events-none'}`}
         data-index={i}
         loading={i === 0 ? 'eager' : 'lazy'}
       />

@@ -129,7 +129,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
         {available.length > 0 && sold.length > 0 && (
           <h2 class="text-xl font-serif text-base-content mb-6">Disponibles</h2>
         )}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {available.map((horse) => (
             <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
           ))}
@@ -154,7 +154,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
     <section class="py-12 lg:py-16 bg-base-100">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-xl font-serif text-base-content/70 mb-6">Déjà partis</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {sold.map((horse) => (
             <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
           ))}

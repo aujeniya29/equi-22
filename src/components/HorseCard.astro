@@ -18,6 +18,9 @@ const sexeLabels: Record<string, string> = {
   jument: 'Jument',
   etalon: 'Étalon',
 };
+
+const isPortrait = heroImage && heroImage.height > heroImage.width;
+const aspectClass = isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]';
 ---
 
 <article class={`bg-base-100 rounded-2xl shadow-md overflow-hidden motion-safe:hover:shadow-lg motion-safe:hover:-translate-y-1 motion-safe:transition-[box-shadow,transform] motion-safe:duration-200 ${vendu ? 'opacity-70' : ''}`}>
@@ -27,14 +30,14 @@ const sexeLabels: Record<string, string> = {
     aria-label={`Voir la fiche de ${title}`}
   >
     <!-- Photo -->
-    <div class="relative aspect-[4/3] overflow-hidden bg-base-200">
+    <div class={`relative ${aspectClass} overflow-hidden bg-base-200`}>
       {heroImage ? (
         <Image
           src={heroImage}
           alt={`Photo de ${title}`}
           width={400}
           height={300}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-center"
           loading="lazy"
         />
       ) : (

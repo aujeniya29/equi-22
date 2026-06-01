@@ -20,6 +20,7 @@ const formatDate = (date: Date) =>
   date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const isEventArticle = post.data.tags.includes('événement');
+const isInscriptionArticle = post.data.tags.includes('inscriptions');
 
 const whatsappNumber = business.whatsapp.replace(/[^\d]/g, '');
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Bonjour, j'ai lu votre article et je souhaite en savoir plus sur vos cours.")}`;
@@ -72,6 +73,28 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("
           Remplissez le formulaire ci-dessous, on vous rappelle dans les 24h pour confirmer les disponibilités et répondre à vos questions.
         </p>
         <ContactForm variant="evenement" />
+      </div>
+    </section>
+  ) : isInscriptionArticle ? (
+    <section
+      class="py-16 bg-base-200"
+      aria-labelledby="inscription-cta-heading"
+    >
+      <div class="container mx-auto max-w-2xl px-4 text-center">
+        <h2 id="inscription-cta-heading" class="text-3xl font-serif text-base-content mb-4">
+          S'inscrire pour la saison 2026/27
+        </h2>
+        <p class="text-base-content/70 mb-8">
+          Téléchargez la fiche d'inscription, complétez-la et remettez-la directement au club lors de la fête du club ou à l'accueil.
+        </p>
+        <a
+          href="/documents/fiche_inscription.pdf"
+          download
+          class="btn btn-primary"
+          aria-label="Télécharger la fiche d'inscription"
+        >
+          Télécharger la fiche d'inscription
+        </a>
       </div>
     </section>
   ) : (

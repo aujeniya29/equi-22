@@ -5,6 +5,11 @@ interface ScheduleItem {
   level?: string;
 }
 
+interface TimeGroup {
+  time: string;
+  slots: ScheduleItem[];
+}
+
 interface Props {
   schedule: ScheduleItem[];
   bgClass?: string;
@@ -14,12 +19,17 @@ interface Props {
 const { schedule, bgClass = 'bg-base-100', notes } = Astro.props;
 const hasLevels = schedule.some((s) => s.level);
 
-// Group by day, preserving order of first appearance
+// Group by day, then by time — slots sharing the same day+time are parallel
 const days = [...new Set(schedule.map((s) => s.day))];
 const grouped = days.reduce((acc, day) => {
-  acc[day] = schedule.filter((s) => s.day === day);
+  const daySlots = schedule.filter((s) => s.day === day);
+  const times = [...new Set(daySlots.map((s) => s.time))];
+  acc[day] = times.map((time) => ({
+    time,
+    slots: daySlots.filter((s) => s.time === time),
+  }));
   return acc;
-}, {} as Record<string, ScheduleItem[]>);
+}, {} as Record<string, TimeGroup[]>);
 ---
 
 {schedule && schedule.length > 0 && (
@@ -40,15 +50,26 @@ const grouped = days.reduce((acc, day) => {
           </thead>
           <tbody>
             {days.map((day) =>
-              grouped[day].map((slot, i) => (
-                <tr class={i === 0 && grouped[day].length > 1 ? 'border-t border-base-300' : ''}>
+              grouped[day].map((group, i) => (
+                <tr class={i === 0 ? 'border-t border-base-300' : ''}>
                   {i === 0 && (
                     <td rowspan={grouped[day].length} class="font-semibold text-primary align-top pt-4">
                       {day}
                     </td>
                   )}
-                  <td>{slot.time}</td>
-                  {hasLevels && <td><span class="badge badge-outline">{slot.level}</span></td>}
+                  <td class="tabular-nums">{group.time}</td>
+                  {hasLevels && (
+                    <td>
+                      <div class="flex flex-wrap items-center gap-2">
+                        {group.slots.map((slot) => (
+                          <span class="badge badge-outline">{slot.level}</span>
+                        ))}
+                        {group.slots.length > 1 && (
+                          <span class="text-xs text-base-content/50 italic">en parallèle</span>
+                        )}
+                      </div>
+                    </td>
+                  )}
                 </tr>
               ))
             )}
@@ -62,11 +83,14 @@ const grouped = days.reduce((acc, day) => {
           <div>
             <h3 class="font-semibold text-primary mb-3">{day}</h3>
             <div class="space-y-2 pl-4 border-l-2 border-primary/30">
-              {grouped[day].map((slot) => (
+              {grouped[day].map((group) => (
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="text-sm text-base-content/80">{slot.time}</span>
-                  {slot.level && (
+                  <span class="text-sm text-base-content/80 tabular-nums">{group.time}</span>
+                  {group.slots.map((slot) => slot.level && (
                     <span class="badge badge-outline">{slot.level}</span>
+                  ))}
+                  {group.slots.length > 1 && (
+                    <span class="text-xs text-base-content/50 italic">en parallèle</span>
                   )}
                 </div>
               ))}

@@ -59,9 +59,6 @@ scheduleNotes:
   - "Cours maintenu à partir de 4 cavaliers mais temps de séance adaptée"
   - "Moins de 4 cavaliers : cours reporté ou annulé"
 schedule:
-  - day: "Mardi"
-    time: "19h00 - 20h00"
-    level: "Intermédiaires"
   - day: "Mercredi"
     time: "19h30 - 20h30"
     level: "Intermédiaires"
@@ -104,4 +101,4 @@ Beaucoup de nos cavaliers adultes décrivent leur séance hebdomadaire comme un 
 
 ## Sessions en soirée et le week-end
 
-Nous savons que votre emploi du temps est chargé. C'est pourquoi nous proposons des créneaux en soirée (mardi et jeudi) et le samedi après-midi. Trouvez le moment qui vous convient et venez essayer.
+Nous savons que votre emploi du temps est chargé. C'est pourquoi nous proposons des créneaux en soirée (mercredi, jeudi et vendredi) et le samedi après-midi. Trouvez le moment qui vous convient et venez essayer.

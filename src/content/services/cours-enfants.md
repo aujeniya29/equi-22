@@ -72,9 +72,6 @@ scheduleNotes:
   - "Moins de 4 cavaliers : cours reporté ou annulé"
   - "Pour les babys et les débutants, un accompagnateur est demandé pour plus de sécurité (au minimum le premier trimestre)"
 schedule:
-  - day: "Mardi"
-    time: "18h00 - 19h00"
-    level: "Galop 1/2"
   - day: "Mercredi"
     time: "10h00 - 11h00"
     level: "Baby poney"

@@ -4,9 +4,10 @@ import { business } from '../data/business.ts';
 interface Props {
   serviceType?: string;
   serviceDescription?: string;
+  serviceName?: string;
 }
 
-const { serviceType, serviceDescription } = Astro.props;
+const { serviceType, serviceDescription, serviceName } = Astro.props;
 
 const dayMapping: Record<string, string[]> = {
   'Lundi - Vendredi': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -30,7 +31,7 @@ const siteUrl = Astro.site?.href || 'https://equi22.fr';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['SportsClub', 'LocalBusiness'],
   name: business.name,
   url: siteUrl,
   telephone: business.phone,
@@ -51,21 +52,42 @@ const localBusinessSchema = {
   sameAs: [business.social.facebook, business.social.instagram],
 };
 
-const serviceSchema = serviceType && serviceDescription ? {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: serviceType,
-  description: serviceDescription,
-  provider: {
-    '@type': 'LocalBusiness',
-    name: business.name,
-    url: siteUrl,
-  },
-  areaServed: {
-    '@type': 'City',
-    name: business.city,
-  },
-} : null;
+let serviceSchema = null;
+if (serviceType && serviceDescription) {
+  if (serviceType === 'EducationalOccupationalProgram') {
+    serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOccupationalProgram',
+      name: serviceName || serviceType,
+      description: serviceDescription,
+      provider: {
+        '@type': 'SportsClub',
+        name: business.name,
+        url: siteUrl,
+      },
+      areaServed: {
+        '@type': 'City',
+        name: business.city,
+      },
+    };
+  } else {
+    serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: serviceType,
+      description: serviceDescription,
+      provider: {
+        '@type': 'SportsClub',
+        name: business.name,
+        url: siteUrl,
+      },
+      areaServed: {
+        '@type': 'City',
+        name: business.city,
+      },
+    };
+  }
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />

@@ -47,7 +47,8 @@ export const business: BusinessInfo = {
   whatsapp: '+33 6 22 16 64 52',
   email: 'equi22.yffiniac@gmail.com',
   openingHours: [
-    { days: 'Lundi - Samedi', hours: '8h00 - 20h00' },
+    { days: 'Lundi - Vendredi', hours: '8h00 - 20h00' },
+    { days: 'Samedi', hours: '8h00 - 20h00' },
     { days: 'Dimanche', hours: 'Fermé' },
   ],
   gps: {

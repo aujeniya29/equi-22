@@ -13,6 +13,7 @@ interface Props {
   canonicalPath?: string;
   serviceType?: string;
   serviceDescription?: string;
+  serviceName?: string;
   whatsappMessage?: string;
   noindex?: boolean;
 }
@@ -25,13 +26,15 @@ const {
   canonicalPath: canonicalPathProp,
   serviceType,
   serviceDescription,
+  serviceName,
   whatsappMessage,
   noindex = false,
 } = Astro.props;
 
 const siteName = 'Équi 22';
 const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const pageTitle = isHomepage ? 'Équi 22 — Centre Équestre Yffiniac' : `${title} | Équi 22`;
+const cleanTitle = title.replace(/\s*\|\s*[ÉE]qui\s*22\b.*/i, '').trim();
+const pageTitle = isHomepage ? 'Équi 22 — Centre Équestre Yffiniac' : `${cleanTitle} | Équi 22`;
 const resolvedCanonical = new URL(
   (canonicalPathProp || Astro.url.pathname).replace(/\/$/, '') || '/',
   Astro.site
@@ -62,7 +65,7 @@ const umamiId = import.meta.env.UMAMI_ID;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <SchemaMarkup serviceType={serviceType} serviceDescription={serviceDescription} />
+    <SchemaMarkup serviceType={serviceType} serviceDescription={serviceDescription} serviceName={serviceName} />
     {umamiId && (
       <script is:inline async src="https://cloud.umami.is/script.js" data-website-id={umamiId} data-domains="equi-22.fr"></script>
     )}

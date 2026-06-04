@@ -124,7 +124,7 @@ testimonial:
 documents:
   - reglement-interieur
   - inscription
-serviceType: "EducationalService"
+serviceType: "EducationalOccupationalProgram"
 serviceDescription: "Cours d'équitation pour enfants de 3 à 14 ans, du baby poney aux Galops, au centre équestre Equi 22 à Yffiniac."
 ---
 

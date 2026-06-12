@@ -76,6 +76,9 @@
 /Nounours-19-05-23_fiche_442.html /vente 301
 /Joli-nada-mai-2023_fiche_443.html /vente 301
 
+# --- Ancien CMS PHP ---
+/index.php / 301
+
 # --- Attrape-tout : toutes les autres pages .html → blog ---
 # (actualités, événements, chevaux du club, concours...)
 # Le nouveau site n'a aucune URL en .html — aucun risque d'interférence.

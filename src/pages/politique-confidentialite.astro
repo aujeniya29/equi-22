@@ -131,12 +131,11 @@ const lastUpdated = '22 février 2026';
           <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
         </ul>
         <p class="mt-4 text-base-content/80 leading-relaxed">
-          Pour exercer ces droits, contactez-nous par email à{' '}
-          <a
-            href={`mailto:${business.email}`}
+          Pour exercer ces droits, <a
+            href="/contact"
             class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
           >
-            {business.email}
+            contactez-nous via le formulaire
           </a>.
           Nous répondrons dans un délai de 30 jours.
         </p>
@@ -166,10 +165,10 @@ const lastUpdated = '22 février 2026';
           {business.address}<br />
           {business.postalCode} {business.city}<br />
           <a
-            href={`mailto:${business.email}`}
+            href="/contact"
             class="link link-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded"
           >
-            {business.email}
+            Formulaire de contact
           </a>
         </address>
       </section>

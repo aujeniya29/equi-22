@@ -60,7 +60,7 @@ serviceDescription: "Balades à cheval et à poney encadrées dans la campagne a
 
 ## Des balades à cheval toute l'année
 
-De nombreux chemins partent directement du club et traversent la campagne bretonne : bocages, sous-bois, chemins creux — pour une vraie déconnexion au rythme du cheval.
+Envie d'une **balade à cheval en Bretagne** ? De nombreux chemins partent directement du club et traversent la campagne bretonne : bocages, sous-bois, chemins creux — pour une vraie déconnexion au rythme du cheval.
 
 Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavaliers du club et extérieurs. Elles se font **à la demande du lundi au samedi**, à partir de **5 cavaliers**. Le matériel de sécurité est prêté (casque, selle, filet, tapis, brosses) — venez simplement avec un pantalon et des chaussures adaptées.
 

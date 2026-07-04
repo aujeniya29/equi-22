@@ -36,7 +36,9 @@ const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '';
 const cleanTitle = title.replace(/\s*\|\s*[ÉE]qui\s*22\b.*/i, '').trim();
 const pageTitle = isHomepage ? 'Équi 22 — Centre Équestre Yffiniac' : `${cleanTitle} | Équi 22`;
 const resolvedCanonical = new URL(
-  (canonicalPathProp || Astro.url.pathname).replace(/\/$/, '') || '/',
+  (canonicalPathProp || Astro.url.pathname)
+    .replace(/\.html$/, '')
+    .replace(/\/$/, '') || '/',
   Astro.site
 ).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;

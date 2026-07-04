@@ -24,6 +24,33 @@ const isInscriptionArticle = post.data.tags.includes('inscriptions');
 
 const whatsappNumber = business.whatsapp.replace(/[^\d]/g, '');
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Bonjour, j'ai lu votre article et je souhaite en savoir plus sur vos cours.")}`;
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.seoDescription,
+  image: new URL(post.data.ogImage || '/og-default.jpg', Astro.site).href,
+  datePublished: post.data.date.toISOString(),
+  dateModified: post.data.date.toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: business.name,
+    url: Astro.site?.href,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: business.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/logo.png', Astro.site).href,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': new URL(`/actualites/${post.id}`, Astro.site).href,
+  },
+};
 ---
 
 <BaseLayout
@@ -32,6 +59,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("
   ogImage={post.data.ogImage}
   ogType="article"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+
   <Breadcrumb
     items={[
       { label: 'Accueil', href: '/' },

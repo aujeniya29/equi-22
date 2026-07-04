@@ -4,7 +4,7 @@ date: 2026-07-01
 tags: ["balade à cheval", "Bretagne", "randonnée équestre"]
 seoTitle: "Balade à cheval en Bretagne — Côtes-d'Armor | Équi 22"
 seoDescription: "Vivez une balade à cheval en Bretagne, au cœur de la campagne des Côtes-d'Armor. Chemins bretons au départ d'Yffiniac, tous niveaux, encadrement professionnel."
-ogImage: "/src/assets/images/hero/balades.jpg"
+ogImage: "/og/balade-a-cheval-bretagne.jpg"
 excerpt: "Bocages, chemins creux et sous-bois : la campagne bretonne se découvre autrement au pas du cheval. Voici à quoi ressemble une balade à cheval en Bretagne, au départ d'Yffiniac."
 ---
 

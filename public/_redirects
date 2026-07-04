@@ -76,6 +76,18 @@
 /Nounours-19-05-23_fiche_442.html /vente 301
 /Joli-nada-mai-2023_fiche_443.html /vente 301
 
+# --- Anciens documents PDF (ancien CMS : /article/.../dossierXXX/) ---
+/article/photo/dossier313/v2reglement_interieur_2025_2026_equi22.pdf /documents/reglement_interieur.pdf 301
+/article/photo/dossier309/inscription_2025_2026.pdf /documents/fiche_inscription.pdf 301
+/article/photo/dossier313/complement_reglement_interieur.pdf /documents/reglement_interieur.pdf 301
+# Étalons / élevage (anciennes présentations et contrats saillie)
+/article/photo/dossier230/edgard_2024.pdf /elevage 301
+/article/photo/dossier227/flashy_2024.pdf /elevage 301
+/article/photo/dossier272/graham_2024.pdf /elevage 301
+/article/photo/dossier258/contrat_resa_in_utero.pdf /elevage 301
+# Attrape-tout : tout autre ancien fichier /article/* → actualités
+/article/* /actualites 301
+
 # --- Ancien CMS PHP ---
 /index.php / 301
 

@@ -14,7 +14,13 @@ export default defineConfig({
     // Aligne l'URL servie sur le sitemap, le canonical et les liens internes (tous sans slash).
     format: 'file',
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Page utilitaire (répertoire de PDF) : accessible via les liens internes,
+      // mais sans valeur en résultat de recherche → noindex + hors sitemap.
+      filter: (page) => !page.endsWith('/contrats'),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

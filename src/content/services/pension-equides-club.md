@@ -62,4 +62,4 @@ Le tiers de pension vous permet de venir monter ou travailler en liberté deux f
 
 - Formules disponibles sur la cavalerie du club uniquement
 - Pour les demis-pensions : Un cours collectif offert, jusqu'à 3 séances en autonomie et priorité lors des activités du club
-- Contrat signé avant le début de la formule
+- Contrat signé avant le début de la formule — [voir nos documents contractuels](/contrats)

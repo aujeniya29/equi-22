@@ -66,6 +66,8 @@ Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavali
 
 Nous proposons également des **randonnées à la journée**, organisées à la demande pour les cavaliers à partir du **Galop 4**. Le tarif varie de **90 à 130 €** selon la destination. Prévoyez déjeuner et goûter.
 
+Envie d'aller plus loin dans la relation avec votre monture ? Nos séances de [mountain trail et d'éthologie](/mountain-trail-ethologie) travaillent la confiance et le franchissement d'obstacles naturels — une excellente préparation avant de partir en extérieur.
+
 ## Balades à la plage — la baie de Saint-Brieuc à cheval
 
 En été, une sortie à la plage est organisée chaque **mercredi** dans la baie de Saint-Brieuc : rendez-vous au centre équestre à **13h** pour une arrivée sur la plage à **14h**. Une expérience unique, pour les petits comme les grands.

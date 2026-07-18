@@ -119,4 +119,6 @@ Nos prestations incluent l'aide à la mise bas, la surveillance et l'aide à la 
 
 Vous souhaitez saillir votre jument, mettre en pension une jument gestante, ou simplement en savoir plus sur nos reproducteurs disponibles ? Contactez-nous pour un échange personnalisé — chaque projet est unique et mérite une attention particulière.\
 \
+Le contrat d'élevage est signé avant toute saillie : [consultez-le ainsi que nos autres documents contractuels](/contrats).\
+\
 **À noter :** Tout nos poulains sont disponibles à la réservation dès la naissance et jusqu'à leurs 2 ans révolus. Nous proposons également la possibilité de réserver votre futur poulain "in-utero". 

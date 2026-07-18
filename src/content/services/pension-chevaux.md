@@ -130,7 +130,7 @@ On ne vous dira pas "nous aimons les chevaux" — on vous montre comment :
 
 ## Nos formules de pension
 
-Que vous choisissiez la pension box/paddock, le paddock individuel ou la pension pré, le niveau de soin est identique. Seul l'hébergement change — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous.
+Que vous choisissiez la pension box/paddock, le paddock individuel ou la pension pré, le niveau de soin est identique. Seul l'hébergement change — l'alimentation, le suivi et l'accès aux installations sont les mêmes pour tous. Chaque formule fait l'objet d'un contrat écrit — vous pouvez [consulter nos documents contractuels](/contrats) en amont de votre visite.
 
 ### Box / paddock individuel
 
@@ -147,5 +147,7 @@ La vie au grand air dans nos prairies bretonnes. Idéal pour les chevaux au repo
 ### Demi-pension propriétaire
 
 Votre cheval est en pension chez nous et vous souhaitez le partager avec le centre équestre ? La demi-pension propriétaire se fait directement avec Équi 22 : votre cheval est utilisé par notre équipe, dans la limite de 8 heures par semaine.
+
+Vous n'êtes pas propriétaire mais souhaitez monter régulièrement ? Nos formules de [demi-pension et tiers-pension sur la cavalerie du club](/pension-equides-club) répondent au même besoin, sans l'engagement de la propriété.
 
 ## Venez visiter.

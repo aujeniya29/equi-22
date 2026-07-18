@@ -153,6 +153,8 @@ Chez nous, chaque enfant avance selon sa propre progression, de la première ren
 
 Nos monitrices adaptent chaque séance au niveau des enfants.
 
+Nous proposons également des séances d'[éthologie et de mountain trail](/mountain-trail-ethologie) le samedi après-midi — un travail à pied qui complète la monte et renforce la relation avec le cheval.
+
 ## Vous organisez une sortie scolaire ou une activité de groupe ?
 
 Équi 22 accueille également les **écoles, centres aérés et groupes organisés** avec des séances sur-mesure à partir de 12€ par enfant. [Découvrez notre offre sorties scolaires & groupes →](/sorties-scolaires)

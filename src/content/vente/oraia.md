@@ -18,6 +18,7 @@ mere: "Une Fleur De Vie"
 pereDeMere: "Quack (AA)"
 seoTitle: "Oraia de Bihan Braz — pouliche léopard à vendre | Equi 22"
 seoDescription: "Oraia de Bihan Braz, pouliche Anglo European Stud Book née en 2024, robe léopard. Polyvalente CSO, dressage, CCE, loisir. À vendre à Yffiniac (22)."
+ogImage: "/og/vente-oraia.jpg"
 ---
 
 Oraia est une pouliche curieuse et facile à vivre. Habituée aux humains et à toutes les manipulations d'usage. Elle sera idéale pour toutes disciplines niveau amateur ou pour de l'élevage.

@@ -109,6 +109,7 @@ const productSchema = {
 <BaseLayout
   title={seoTitle}
   description={seoDescription}
+  ogImage={data.ogImage ?? '/og/vente.jpg'}
   whatsappMessage={whatsappMessage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />

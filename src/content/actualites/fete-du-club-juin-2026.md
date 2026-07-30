@@ -4,7 +4,7 @@ date: 2026-06-01
 tags: ["concours", "vie du club", "inscriptions"]
 seoTitle: "Fête du Club & Concours Interne — le 28 juin | Équi 22 Yffiniac"
 seoDescription: "Le 28 juin, Équi 22 organise sa fête du club avec un concours interne ouvert à tous les niveaux, un déjeuner sur place et des photographes. Inscriptions 2026/27 ouvertes."
-ogImage: "/actualites/image_fete_du_club.jpg"
+ogImage: "/og/fete-du-club-juin-2026.jpg"
 excerpt: "Le 28 juin, venez fêter le club avec un concours interne pour tous les niveaux, un déjeuner sur place et des photographes. Les inscriptions 2026/27 seront aussi ouvertes ce jour-là !"
 ---
 

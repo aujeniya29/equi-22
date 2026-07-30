@@ -136,6 +136,8 @@ const vente = defineCollection({
     photoPrincipale: z.string().optional(),
     photos: z.array(z.string()).optional(),
     vendu: z.boolean().default(false),
+    // Image de partage dédiée (1200x630). À défaut, /og/vente.jpg est utilisée.
+    ogImage: z.string().optional(),
     pere: z.string().optional(),
     mere: z.string().optional(),
     pereDeMere: z.string().optional(),

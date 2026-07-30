@@ -35,7 +35,7 @@ serviceDescription: "Sorties scolaires et séances équestres pour groupes au ce
 
 ## Une activité équestre clé en main pour vos groupes
 
-Le centre équestre Équi 22 accueille les écoles, centres aérés et groupes organisés pour des séances d'équitation encadrées et adaptées. Que ce soit pour une découverte du poney, une initiation à l'équitation ou une animation thématique.
+Le centre équestre Équi 22 accueille les écoles, centres aérés et groupes organisés pour des séances d'équitation encadrées et adaptées. Que ce soit pour une découverte du poney, une initiation à l'équitation ou une animation thématique. Les enfants qui souhaitent continuer après la sortie retrouvent le même encadrement en [cours d'équitation enfants](/cours-enfants) ou en [stage pendant les vacances](/stages-vacances).
 
 ## Adapté à tous les âges
 
@@ -47,4 +47,4 @@ La sécurité est notre priorité absolue. Nous exigeons la présence d'au moins
 
 ## Comment réserver ?
 
-Contactez-nous par téléphone ou WhatsApp pour vérifier les disponibilités et organiser votre venue. Nous vous conseillons de réserver au minimum **2 semaines à l'avance**, surtout en période scolaire.
+[Contactez-nous](/contact) par téléphone ou WhatsApp pour vérifier les disponibilités et organiser votre venue. Nous vous conseillons de réserver au minimum **2 semaines à l'avance**, surtout en période scolaire.

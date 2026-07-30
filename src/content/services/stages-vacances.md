@@ -125,9 +125,9 @@ serviceDescription: "Stages équitation pendant les vacances scolaires au centre
 
 Nos stages vacances permettent aux enfants de vivre l'équitation de l'intérieur : monter à cheval bien sûr, mais aussi apprendre à s'occuper des poneys, comprendre leurs besoins et créer un vrai lien. À la fin de la semaine, votre enfant repart avec une vraie autonomie — et l'impatience du prochain stage.
 
-Les stages enfants sont ouverts **dès 3 ans**, de tous niveaux — du grand débutant qui n'a jamais approché un poney jusqu'aux cavaliers déjà licenciés. Nous formons des groupes homogènes par niveau et par âge (10 participants maximum) pour que chacun progresse à son rythme.
+Les stages enfants sont ouverts **dès 3 ans**, de tous niveaux — du grand débutant qui n'a jamais approché un poney jusqu'aux cavaliers déjà licenciés. Nous formons des groupes homogènes par niveau et par âge (10 participants maximum) pour que chacun progresse à son rythme. Pour un suivi à l'année plutôt qu'en période de vacances, voyez nos [cours d'équitation enfants](/cours-enfants).
 
-Nous proposons également des **stages adultes** le dimanche à la journée, ainsi que des **weekends de 3 jours passage de galop** ouverts à tous.
+Nous proposons également des **stages adultes** le dimanche à la journée — dans le prolongement de nos [cours pour adultes](/equitation-adulte) — ainsi que des **weekends de 3 jours passage de galop** ouverts à tous. Les prix de chaque formule sont sur la page [tarifs](/tarifs).
 
 ## Au programme du stage
 

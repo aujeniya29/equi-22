@@ -30,9 +30,9 @@ Oraia est une pouliche curieuse et facile à vivre. Habituée aux humains et à 
 
 ## Convient à
 
-Toute personne voulant créer une belle relation avec un jeune cheval, pour valorisation ou pour un élevage de chevaux de couleur.
+Toute personne voulant créer une belle relation avec un jeune cheval, pour valorisation ou pour un [élevage de chevaux de couleur](/elevage).
 
-Un encadrement adapté par des professionnels vous est conseillé pour le débourrage et le dressage d'un jeune cheval.
+Un encadrement adapté par des professionnels vous est conseillé pour le débourrage et le dressage d'un jeune cheval. Si vous cherchez où l'héberger, nous proposons aussi la [pension pour propriétaires](/pension-chevaux) sur place.
 
 ## Informations complémentaires
 

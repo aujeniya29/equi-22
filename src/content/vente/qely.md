@@ -25,7 +25,7 @@ seoDescription: "Qely de Bihan Braz, pouliche Irish part bred née en 2026, robe
 Qely de Bihan braz — Née le 12 mars 2026 - Toisera environ 1m45 - Un joli mélange entre une mère Irish cob black silver et un papa Connemara crème aux yeux bleus
 \
 \
-Ne louper pas cette poupée très curieuse qui aura toutes les manipulations de base et qui sera à jour de tout.
+Ne louper pas cette poupée très curieuse qui aura toutes les manipulations de base et qui sera à jour de tout. Nous proposons également l'[élevage équin](/elevage) et la [pension pour propriétaires](/pension-chevaux) sur place.
 
 
 ## Points forts

@@ -107,7 +107,7 @@ Le dressage, c'est apprendre à communiquer avec son cheval dans la subtilité e
 
 ### Mountain trail
 
-Le mountain trail démontre la qualité de la relation homme-cheval et vise à montrer **confiance, courage et calme**. En compétition le cavalier est jugé sur sa qualité relationnelle avec son cheval, la discrétion de ses demandes et utilisation de ses aides, la qualité de chaque  franchissement de dispositif, les trajectoires ...
+Le [mountain trail](/mountain-trail-ethologie) démontre la qualité de la relation homme-cheval et vise à montrer **confiance, courage et calme**. En compétition le cavalier est jugé sur sa qualité relationnelle avec son cheval, la discrétion de ses demandes et utilisation de ses aides, la qualité de chaque  franchissement de dispositif, les trajectoires ...
 Le cheval est jugé sur sa franchise, sa capacité à faire confiance à son cavalier mais également sa capacité à évaluer par lui même l'obstacle à franchir.
 
 ## Conditions de participation
@@ -123,7 +123,7 @@ Pas encore à ce niveau ? Parlez-en à votre monitrice — une saison de prépar
 
 ## Préparer un concours sérieusement
 
-Le **Pack Saison Compétition** inclut 4 cours collectifs et 2 concours par mois, avec l'accompagnement de votre coach à chaque sortie.
+Le **Pack Saison Compétition** inclut 4 cours collectifs et 2 concours par mois, avec l'accompagnement de votre coach à chaque sortie. Le détail des formules et des forfaits figure dans [nos tarifs](/tarifs).
 
 ## Le calendrier des concours
 
@@ -135,4 +135,4 @@ Les concours à venir sont annoncés sur <a href="https://www.facebook.com/equi2
 
 Ce que nos compétiteurs retiennent souvent, ce n'est pas leur classement — c'est le trajet en van avec leurs amis, l'adrénaline du paddock de détente, et le café chaud après le passage en piste. La compétition est une façon de vivre l'équitation autrement, en équipe, dans une ambiance que seuls ceux qui l'ont vécu peuvent vraiment décrire.
 
-Envie de tenter l'aventure ? Parlez-en à votre monitrice, ou envoyez-nous un message.
+Envie de tenter l'aventure ? Parlez-en à votre monitrice, ou [envoyez-nous un message](/contact).

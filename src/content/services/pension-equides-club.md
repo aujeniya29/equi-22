@@ -49,7 +49,7 @@ serviceDescription: "Demi-pension et tiers-pension sur les poneys et chevaux du 
 
 ## Monter sans être propriétaire
 
-Vous aimez les chevaux et souhaitez vous en occuper régulièrement, sans les contraintes de la propriété ? Équi 22 propose des formules de demi-pension et de tiers-pension sur la cavalerie du club — à Yffiniac, entre campagne et littoral breton.
+Vous aimez les chevaux et souhaitez vous en occuper régulièrement, sans les contraintes de la propriété ? Équi 22 propose des formules de demi-pension et de tiers-pension sur la cavalerie du club — à Yffiniac, entre campagne et littoral breton. Si vous êtes déjà propriétaire, c'est notre [pension pour propriétaires](/pension-chevaux) qui vous concerne.
 
 ## Demi-pension
 
@@ -64,3 +64,4 @@ Le tiers de pension vous permet de venir monter ou travailler en liberté deux f
 - Formules disponibles sur la cavalerie du club uniquement
 - Pour les demis-pensions : Un cours collectif offert, jusqu'à 3 séances en autonomie et priorité lors des activités du club
 - Contrat signé avant le début de la formule — [voir nos documents contractuels](/contrats)
+- Le tarif de chaque formule est indiqué sur la page [tarifs](/tarifs)

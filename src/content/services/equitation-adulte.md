@@ -91,7 +91,7 @@ Vous n'êtes jamais monté à cheval ? Vous avez arrêté il y a 20 ans ? Peu im
 
 ## Des cours pensés pour les adultes
 
-Nos cours adultes se déroulent en petits groupes réservés aux adultes, pour que vous vous sentiez à l'aise dès la première séance. Nos monitrices adaptent chaque exercice à votre niveau et à vos objectifs personnels : découverte, balade, perfectionnement ou simplement le plaisir d'être avec les chevaux.
+Nos cours adultes se déroulent en petits groupes réservés aux adultes, pour que vous vous sentiez à l'aise dès la première séance. Nos monitrices adaptent chaque exercice à votre niveau et à vos objectifs personnels : découverte, [balade en extérieur](/balades), perfectionnement ou simplement le plaisir d'être avec les chevaux.
 
 Les chevaux de notre centre sont sélectionnés pour leur calme et leur patience — des partenaires idéaux pour débuter en toute confiance.
 
@@ -101,4 +101,6 @@ Beaucoup de nos cavaliers adultes décrivent leur séance hebdomadaire comme un 
 
 ## Sessions en soirée et le week-end
 
-Nous savons que votre emploi du temps est chargé. C'est pourquoi nous proposons des créneaux en soirée (mercredi, jeudi et vendredi) et le samedi après-midi. Trouvez le moment qui vous convient et venez essayer.
+Nous savons que votre emploi du temps est chargé. C'est pourquoi nous proposons des créneaux en soirée (mercredi, jeudi et vendredi) et le samedi après-midi. Trouvez le moment qui vous convient et venez essayer — les [tarifs et formules](/tarifs) sont détaillés à part.
+
+Envie de monter plus souvent qu'une fois par semaine ? Nos formules de [demi-pension et tiers-pension](/pension-equides-club) sur la cavalerie du club permettent de venir deux à trois fois par semaine, sans les contraintes de la propriété.

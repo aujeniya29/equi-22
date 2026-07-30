@@ -122,4 +122,6 @@ Vous souhaitez saillir votre jument, mettre en pension une jument gestante, ou s
 \
 Le contrat d'élevage est signé avant toute saillie : [consultez-le ainsi que nos autres documents contractuels](/contrats).\
 \
-**À noter :** Tout nos poulains sont disponibles à la réservation dès la naissance et jusqu'à leurs 2 ans révolus. Nous proposons également la possibilité de réserver votre futur poulain "in-utero". 
+Les jeunes chevaux et poneys actuellement disponibles sont présentés sur notre page [vente et dépôt-vente](/vente).\
+\
+**À noter :** Tous nos poulains sont disponibles à la réservation dès la naissance et jusqu'à leurs 2 ans révolus. Nous proposons également la possibilité de réserver votre futur poulain "in-utero". 

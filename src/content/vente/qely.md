@@ -18,11 +18,11 @@ vendu: false
 pere: "Connemara crème aux yeux bleus"
 mere: "Irish cob black silver"
 pereDeMere: "-"
-seoTitle: "Qely de Bihan braz — Un joli mélange entre une mère Irsh cob black silver et un papa Connemara crème aux yeux bleus à vendre | Equi 22 Yffiniac"
-seoDescription: "Qely de Bihan braz — Un joli mélange entre une mère Irsh cob black silver et un papa Connemara crème aux yeux bleus. À vendre au centre équestre Equi 22 à Yffiniac (Côtes-d'Armor)."
+seoTitle: "Qely de Bihan Braz — pouliche à vendre à Yffiniac | Equi 22"
+seoDescription: "Qely de Bihan Braz, pouliche Irish part bred née en 2026, robe isabelle silver. À vendre au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."
 ---
 
-Qely de Bihan braz — Née le 12 mars 2026 - Toisera environ 1m45 - Un joli mélange entre une mère Irsh cob black silver et un papa Connemara crème aux yeux bleus
+Qely de Bihan braz — Née le 12 mars 2026 - Toisera environ 1m45 - Un joli mélange entre une mère Irish cob black silver et un papa Connemara crème aux yeux bleus
 \
 \
 Ne louper pas cette poupée très curieuse qui aura toutes les manipulations de base et qui sera à jour de tout.

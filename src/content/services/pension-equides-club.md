@@ -42,6 +42,7 @@ pricingGroups:
 documents:
   - tiers-pension
   - demi-pension-club
+ctaLabel: "la demi-pension et la tiers-pension"
 serviceType: "Demi-pension et tiers-pension sur les équidés du club"
 serviceDescription: "Demi-pension et tiers-pension sur les poneys et chevaux du centre équestre Equi 22 à Yffiniac. Formules flexibles pour cavaliers autonomes, sans les contraintes de la propriété."
 ---

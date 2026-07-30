@@ -1,2 +1,8 @@
 /documents/*
   X-Robots-Tag: noindex, nofollow
+
+# Les noms de fichiers sous /_astro/ sont hashés par le contenu : une
+# modification change l'URL. Le TTL de 4 h par défaut de Cloudflare Pages
+# imposait donc des revalidations inutiles aux visiteurs récurrents.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -213,7 +213,7 @@ const ctaBg        = BG[idx % 2];
   <section class={`py-12 lg:py-16 ${ctaBg}`}>
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-4">
-        Envie d'en savoir plus sur nos {data.title.toLowerCase()} ?
+        Envie d'en savoir plus sur {data.ctaLabel ?? `nos ${data.title.toLowerCase()}`} ?
       </h2>
       <p class="text-base-content/70 mb-8 max-w-xl mx-auto">
         Appelez-nous ou envoyez un message WhatsApp pour toute question.

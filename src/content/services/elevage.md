@@ -85,7 +85,8 @@ testimonial:
 documents:
   - reglement-interieur
   - saillie
-serviceType: "AnimalService"
+ctaLabel: "notre élevage équin"
+serviceType: "Élevage équin, saillie et pension de juments gestantes"
 serviceDescription: "Élevage de chevaux à Yffiniac. Saillie, pension jument gestante, suivi poulain — Equi 22, centre équestre en Côtes-d'Armor."
 ---
 

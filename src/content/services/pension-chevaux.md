@@ -100,6 +100,7 @@ documents:
   - reglement-interieur
   - pension
   - demi-pension-proprio
+ctaLabel: "notre pension pour propriétaires"
 serviceType: "Pension pour chevaux et poneys propriétaires"
 serviceDescription: "Pension pour chevaux propriétaires au centre équestre Equi 22 à Yffiniac. Box, paddock et pré avec alimentation de qualité, suivi vétérinaire et accès aux installations du centre."
 ---

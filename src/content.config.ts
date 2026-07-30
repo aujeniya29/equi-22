@@ -105,7 +105,16 @@ const services = defineCollection({
     // Documents téléchargeables (slugs de catégories depuis src/data/documents.ts)
     documents: z.array(z.string()).optional(),
 
+    // Groupe nominal utilisé dans le CTA de bas de page
+    // (« Envie d'en savoir plus sur ___ ? »), article inclus.
+    // Sans ce champ le libellé est dérivé du titre, ce qui donne des tournures
+    // fautives dès que le titre n'est pas un pluriel (« nos élevage équin »).
+    ctaLabel: z.string().optional(),
+
     // Schema markup
+    // Texte descriptif de la prestation (propriété `serviceType` de Service).
+    // Ne pas y mettre un nom de @type Schema.org, sauf
+    // « EducationalOccupationalProgram » qui est traité comme un vrai @type.
     serviceType: z.string(),
     serviceDescription: z.string(),
   }),

@@ -28,7 +28,8 @@ galleryImages:
     alt: "Enfants découvrant les poneys lors d'une sortie scolaire au centre équestre Équi 22"
   - src: "/src/assets/images/scolaires/scolaires3.jpg"
     alt: "Groupe d'enfants en activité équestre au centre Équi 22 à Yffiniac"
-serviceType: "EducationalService"
+ctaLabel: "nos sorties scolaires et séances de groupe"
+serviceType: "Séances équestres pour groupes scolaires et centres aérés"
 serviceDescription: "Sorties scolaires et séances équestres pour groupes au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."
 ---
 

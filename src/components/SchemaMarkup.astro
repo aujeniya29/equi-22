@@ -15,10 +15,14 @@ const dayMapping: Record<string, string[]> = {
   'Dimanche': ['Sunday'],
 };
 
+// « 8h00 » → « 08:00 » : le type Time de Schema.org suit XSD et exige une heure
+// sur 2 chiffres. « 8:00 » est invalide et était émis sur toutes les pages.
+const toIsoTime = (t: string) => t.replace('h', ':').padStart(5, '0');
+
 const openingHoursSpecification = business.openingHours
   .filter((entry) => entry.hours !== 'Fermé')
   .map((entry) => {
-    const [opens, closes] = entry.hours.split(' - ').map((t) => t.replace('h', ':'));
+    const [opens, closes] = entry.hours.split(' - ').map(toIsoTime);
     return {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: dayMapping[entry.days] || [],
@@ -36,9 +40,23 @@ if (!Astro.site) {
 }
 const siteUrl = Astro.site.href;
 
+// Identifiant unique de l'entité : les autres blocs (Service, BlogPosting) le
+// référencent au lieu de redéclarer un nœud anonyme, sinon rien n'indique aux
+// moteurs qu'il s'agit du même établissement.
+const ORG_ID = `${siteUrl}#organization`;
+
+// Zone desservie réelle : l'adresse est à Yffiniac, la clientèle vient du
+// bassin de Saint-Brieuc. Déclaré une fois, réutilisé par les Service.
+const areaServed = [
+  { '@type': 'City', name: business.city },
+  { '@type': 'City', name: 'Saint-Brieuc' },
+  { '@type': 'AdministrativeArea', name: "Côtes-d'Armor" },
+];
+
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['SportsClub', 'LocalBusiness'],
+  '@id': ORG_ID,
   name: business.name,
   url: siteUrl,
   image: new URL('/og-default.jpg', siteUrl).href,
@@ -59,40 +77,37 @@ const localBusinessSchema = {
     longitude: business.gps.longitude,
   },
   openingHoursSpecification,
+  areaServed,
+  hasMap: business.googleReviews.googleBusinessUrl,
   sameAs: [business.social.facebook, business.social.instagram],
 };
 
-let serviceSchema = null;
+let serviceSchema: Record<string, unknown> | null = null;
 if (serviceType && serviceDescription) {
-  if (serviceType === 'EducationalOccupationalProgram') {
-    serviceSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'EducationalOccupationalProgram',
-      name: serviceName || serviceType,
-      description: serviceDescription,
-      provider: {
-        '@type': 'SportsClub',
-        name: business.name,
-        url: siteUrl,
-      },
-    };
-  } else {
-    serviceSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: serviceType,
-      description: serviceDescription,
-      provider: {
-        '@type': 'SportsClub',
-        name: business.name,
-        url: siteUrl,
-      },
-      areaServed: {
-        '@type': 'City',
-        name: business.city,
-      },
-    };
-  }
+  // Seul `EducationalOccupationalProgram` est un @type Schema.org à part entière.
+  // Pour tout le reste, `serviceType` est une propriété *texte* de Service
+  // (« le type de prestation proposée ») — pas un @type. L'utiliser comme `name`
+  // faisait sortir « AnimalService » / « EducationalService » dans un champ censé
+  // être lisible par un humain.
+  const isProgram = serviceType === 'EducationalOccupationalProgram';
+  // Même normalisation que le canonical de BaseLayout : `build.format: 'file'`
+  // fait apparaître un `.html` dans Astro.url.pathname, qui ne doit jamais
+  // ressortir dans une URL publique.
+  const pageUrl = new URL(
+    Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/',
+    siteUrl
+  ).href;
+
+  serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': isProgram ? 'EducationalOccupationalProgram' : 'Service',
+    '@id': `${pageUrl}#service`,
+    name: serviceName || serviceType,
+    description: serviceDescription,
+    url: pageUrl,
+    provider: { '@id': ORG_ID },
+    ...(isProgram ? {} : { serviceType, areaServed }),
+  };
 }
 ---
 

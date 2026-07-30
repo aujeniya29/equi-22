@@ -164,6 +164,13 @@ const actualites = defineCollection({
     seoDescription: z.string(),
     ogImage: z.string().optional(),
     excerpt: z.string(),
+    // Auteur nommé : sur un contenu de conseil, savoir qui parle est le
+    // principal signal E-E-A-T, et les qualifications existent déjà (/a-propos).
+    // Surchargeable article par article (ex. author: "Inès").
+    author: z.object({
+      name: z.string(),
+      role: z.string(),
+    }).default({ name: 'Aurélia', role: 'Gérante et monitrice diplômée BPJEPS' }),
   }),
 });
 

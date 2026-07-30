@@ -1,9 +1,9 @@
 ---
-title: "Balade à cheval en Bretagne : la campagne des Côtes-d'Armor au rythme du cheval"
+title: "Balade à cheval autour de Saint-Brieuc : les chemins du bocage au départ d'Yffiniac"
 date: 2026-07-01
-tags: ["balade à cheval", "Bretagne", "randonnée équestre"]
-seoTitle: "Balade à cheval en Bretagne — Côtes-d'Armor | Équi 22"
-seoDescription: "Vivez une balade à cheval en Bretagne, au cœur de la campagne des Côtes-d'Armor. Chemins bretons au départ d'Yffiniac, tous niveaux, encadrement professionnel."
+tags: ["balade à cheval", "Saint-Brieuc", "Yffiniac", "randonnée équestre"]
+seoTitle: "Balade à cheval Saint-Brieuc et Yffiniac | Équi 22"
+seoDescription: "Balade à cheval au départ d'Yffiniac, près de Saint-Brieuc : chemins creux et bocage des Côtes-d'Armor. Tous niveaux, matériel prêté, 25 € la balade."
 ogImage: "/og/balade-a-cheval-bretagne.jpg"
 excerpt: "Bocages, chemins creux et sous-bois : la campagne bretonne se découvre autrement au pas du cheval. Voici à quoi ressemble une balade à cheval en Bretagne, au départ d'Yffiniac."
 ---

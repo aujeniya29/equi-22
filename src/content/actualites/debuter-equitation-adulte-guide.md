@@ -40,7 +40,7 @@ En partant de zéro, un cavalier adulte assidu atteint généralement le galop 1
 
 Notre approche pour les adultes tient en une ligne : **pas de jugement, pas de pression**.
 
-Les cours débutants ont lieu le **samedi matin de 10h à 11h**, en petit groupe (10 cavaliers maximum). L'ambiance est détendue, le rythme est le vôtre. Nos monitrices s'adaptent à chaque cavalier — vos objectifs ne sont pas les mêmes que ceux du voisin, et c'est très bien ainsi.
+Nos [cours d'équitation pour adultes](/equitation-adulte) débutants ont lieu le **samedi matin de 10h à 11h**, en petit groupe (10 cavaliers maximum). L'ambiance est détendue, le rythme est le vôtre. Nos monitrices s'adaptent à chaque cavalier — vos objectifs ne sont pas les mêmes que ceux du voisin, et c'est très bien ainsi.
 
 Pour les horaires en semaine, nous proposons des créneaux en **soirée** — mercredi, jeudi et vendredi — pensés pour les actifs qui ne peuvent pas venir la journée.
 
@@ -67,7 +67,7 @@ Les cartes sont payables en plusieurs fois sans frais. Et si vous y amenez un au
 
 ## Par où commencer ?
 
-La meilleure façon de savoir si l'équitation vous convient, c'est d'essayer. Réservez une heure d'essai — une séance sans engagement pour faire connaissance avec les chevaux et le centre, encadrée par l'une de nos monitrices diplômées.
+La meilleure façon de savoir si l'équitation vous convient, c'est d'essayer. Réservez une heure d'essai — une séance sans engagement pour faire connaissance avec les chevaux et le centre, encadrée par l'une de nos monitrices diplômées. Le détail des créneaux et des formules est sur la page [équitation adulte](/equitation-adulte).
 
 Vous pouvez nous [contacter via le formulaire](/contact), nous appeler ou nous envoyer un message WhatsApp. On vous répond rapidement et on trouve ensemble le créneau qui vous convient.
 

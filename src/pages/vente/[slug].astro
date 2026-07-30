@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseGallery from '../../components/HorseGallery.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { business } from '../../data/business';
 
 export async function getStaticPaths() {
@@ -44,6 +45,12 @@ for (const filename of allPhotoFilenames) {
   if (mod) {
     const { default: img } = await mod();
     resolvedImages.push(img);
+  } else {
+    // Sans cet avertissement, une annonce dont les photos manquent se construit
+    // sans erreur et se publie sans aucune image (ni à l'écran, ni en schema).
+    console.warn(
+      `[vente] ${entry.id} : photo introuvable « ${filename} » (attendue dans src/assets/images/vente/${entry.id}/)`
+    );
   }
 }
 
@@ -52,6 +59,51 @@ const whatsappNumber = business.whatsapp.replace(/[^\d]/g, '');
 const whatsappMessage = `Bonjour, je suis intéressé(e) par ${title} (${race}, ${prix}). Pourriez-vous me donner plus d'informations et convenir d'une visite ?`;
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
+
+// --- Données structurées Product/Offer ---
+// Ces pages sont des annonces avec un prix : sans Product, le seul schema
+// présent était le LocalBusiness global, ce qui ne décrivait pas l'annonce.
+const siteHref = Astro.site!.href;
+// `build.format: 'file'` met un .html dans pathname — même normalisation que le canonical.
+const canonicalUrl = new URL(
+  Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/',
+  siteHref
+).href;
+
+// « 10 000 € HT » → « 10000 ». Les prix affichés sont hors taxes (TVA variable
+// selon la destination de l'acheteur), d'où valueAddedTaxIncluded: false.
+const priceNumeric = prix.replace(/[^\d]/g, '');
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${canonicalUrl}#product`,
+  name: title,
+  description: seoDescription,
+  url: canonicalUrl,
+  category: 'Chevaux et poneys à vendre',
+  ...(resolvedImages.length > 0
+    ? { image: resolvedImages.map((img) => new URL(img.src, siteHref).href) }
+    : {}),
+  additionalProperty: [
+    { name: 'Race', value: race },
+    { name: 'Sexe', value: sexeLabels[sexe] ?? sexe },
+    { name: 'Année de naissance', value: String(anneeNaissance) },
+    ...(robe ? [{ name: 'Robe', value: robe }] : []),
+    ...(taille ? [{ name: 'Taille', value: taille }] : []),
+    ...(niveau ? [{ name: 'Niveau', value: niveau }] : []),
+    ...(disciplines?.length ? [{ name: 'Disciplines', value: disciplines.join(', ') }] : []),
+  ].map((p) => ({ '@type': 'PropertyValue', ...p })),
+  offers: {
+    '@type': 'Offer',
+    url: canonicalUrl,
+    price: priceNumeric,
+    priceCurrency: 'EUR',
+    valueAddedTaxIncluded: false,
+    availability: vendu ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+    seller: { '@id': `${siteHref}#organization` },
+  },
+};
 ---
 
 <BaseLayout
@@ -59,6 +111,16 @@ const phoneUrl = `tel:${business.phone.replace(/\s/g, '')}`;
   description={seoDescription}
   whatsappMessage={whatsappMessage}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+
+  <Breadcrumb
+    items={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Vente & dépôt-vente', href: '/vente' },
+      { label: title },
+    ]}
+  />
+
   <!-- Header -->
   <section class="py-10 lg:py-14 bg-base-200">
     <div class="max-w-6xl mx-auto px-4">

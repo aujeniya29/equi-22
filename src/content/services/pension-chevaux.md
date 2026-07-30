@@ -96,6 +96,17 @@ schedule:
   - day: "Samedi"
     time: "14h00 - 15h00"
     level: "DP Proprios"
+galleryImages:
+  - src: "/src/assets/images/gallery/boxes-1.jpg"
+    alt: "Couloir de l'écurie du centre équestre Équi 22 à Yffiniac, bordé de boxes individuels"
+  - src: "/src/assets/images/gallery/carrieres-2.jpg"
+    alt: "Manège couvert et éclairé du centre équestre Équi 22, utilisable en soirée"
+  - src: "/src/assets/images/gallery/carrieres-1.jpg"
+    alt: "Carrière extérieure sablée du centre équestre Équi 22, avec un cavalier à l'entraînement"
+  - src: "/src/assets/images/gallery/paddocks-1.jpg"
+    alt: "Paddocks clôturés en bois pour les chevaux en pension à Équi 22, Yffiniac"
+  - src: "/src/assets/images/gallery/paddocks-2.jpg"
+    alt: "Chevaux au pré au centre équestre Équi 22 à Yffiniac, en Côtes-d'Armor"
 documents:
   - reglement-interieur
   - pension
@@ -151,4 +162,8 @@ Votre cheval est en pension chez nous et vous souhaitez le partager avec le cent
 
 Vous n'êtes pas propriétaire mais souhaitez monter régulièrement ? Nos formules de [demi-pension et tiers-pension sur la cavalerie du club](/pension-equides-club) répondent au même besoin, sans l'engagement de la propriété.
 
-## Venez visiter.
+## Venez visiter
+
+La meilleure façon de juger une pension, c'est de la voir. Appelez-nous au [06 22 16 64 52](tel:+33622166452) pour convenir d'un créneau : nous vous faisons visiter les écuries, les paddocks et les prés, et nous répondons à vos questions sur place.
+
+Le centre est situé Route de la Barre, à Yffiniac, aux portes de Saint-Brieuc. [Obtenir l'itinéraire](https://www.google.com/maps/dir/?api=1&destination=48.463969,-2.70077)

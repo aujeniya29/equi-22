@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { business } from '../data/business';
 
 const services = await getCollection('services');
@@ -27,6 +28,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   description="Tarifs équitation à Yffiniac : cours enfants, adulte, pension chevaux, stages vacances, compétitions. Comparez les formules Equi 22."
   whatsappMessage={whatsappMessage}
 >
+
+  <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Nos tarifs' }]} />
   <!-- Page header -->
   <section class="py-12 lg:py-16 bg-base-200">
     <div class="max-w-4xl mx-auto px-4 text-center">

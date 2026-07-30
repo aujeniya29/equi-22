@@ -10,6 +10,7 @@ import PricingTable from './PricingTable.astro';
 import Testimonial from './Testimonial.astro';
 import GoogleReviews from './GoogleReviews.astro';
 import BreedingAnimals from './BreedingAnimals.astro';
+import Breadcrumb from './Breadcrumb.astro';
 import DocumentLinks from './DocumentLinks.astro';
 import { getCategoriesBySlug } from '../data/documents';
 import { business } from '../data/business';
@@ -98,6 +99,8 @@ const ctaBg        = BG[idx % 2];
     imageSrc={heroImage}
     imageAlt={data.heroImageAlt}
   />
+
+  <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: data.title }]} />
 
   <!-- Promise / Narrative Content (from Markdown body) -->
   <section class={`py-12 lg:py-16 ${proseBg}`}>

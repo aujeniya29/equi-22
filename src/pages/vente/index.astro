@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseCard from '../../components/HorseCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { business } from '../../data/business';
 
 const horses = await getCollection('vente');
@@ -43,6 +44,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   description="Chevaux et poneys à vendre au centre équestre Équi 22 à Yffiniac. Dépôt-vente possible : nous gérons valorisation, communication et prises de rendez-vous."
   whatsappMessage={whatsappMessage}
 >
+
+  <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'Vente & dépôt-vente' }]} />
   <!-- Header -->
   <section class="py-12 lg:py-16 bg-base-200">
     <div class="max-w-4xl mx-auto px-4 text-center">

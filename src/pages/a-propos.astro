@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { business } from '../data/business';
 import GoogleReviews from '../components/GoogleReviews.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 import aProposHero from '../assets/images/hero/a-propos-new.jpg';
 import aurelia from '../assets/images/team/aurelia.jpg';
@@ -109,6 +110,8 @@ const galleryZones: GalleryZone[] = [
   description="Découvrez l'histoire du centre équestre Équi 22 à Yffiniac, notre pédagogie bienveillante et notre équipe d'enseignants passionnés."
   whatsappMessage={whatsappMessage}
 >
+
+  <Breadcrumb items={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]} />
   <Hero
     title="Équi 22 — Notre histoire"
     description="Un centre équestre ancré en Bretagne, guidé par la bienveillance et le respect du cheval."

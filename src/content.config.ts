@@ -144,16 +144,6 @@ const vente = defineCollection({
   }),
 });
 
-const news = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    excerpt: z.string(),
-    link: z.string().optional(),
-  }),
-});
-
 const actualites = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/actualites' }),
   schema: z.object({
@@ -174,4 +164,4 @@ const actualites = defineCollection({
   }),
 });
 
-export const collections = { services, news, actualites, vente };
+export const collections = { services, actualites, vente };

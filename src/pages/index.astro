@@ -28,7 +28,7 @@ const serviceImages = await Promise.all(
 );
 
 const allBlogPosts = await getCollection('actualites');
-const recentNews = [...allBlogPosts]
+const recentPosts = [...allBlogPosts]
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 ---
@@ -143,10 +143,10 @@ const recentNews = [...allBlogPosts]
   <section class="py-12 bg-base-100" aria-labelledby="news-heading">
     <div class="max-w-5xl mx-auto px-4">
       <h2 id="news-heading" class="text-2xl lg:text-3xl font-serif text-center mb-8">Actualités</h2>
-      {recentNews.length > 0 ? (
+      {recentPosts.length > 0 ? (
         <>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recentNews.map((post) => {
+            {recentPosts.map((post) => {
               const formattedDate = new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(post.data.date);
               const displayDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
               return (

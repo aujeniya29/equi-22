@@ -1,5 +1,21 @@
-# Bots IA — blocage entraînement et scraping
+# ============================================================
+# robots.txt — equi-22.fr
+#
+# Distinction volontaire entre deux familles de bots IA :
+#   - entraînement de modèles   → bloqués (aucun coût en visibilité)
+#   - recherche / citations IA  → autorisés (sinon le site disparaît
+#                                 des réponses ChatGPT / Perplexity / Claude)
+#
+# ⚠️ Un réglage Cloudflare (Security → Bots) peut renvoyer un 403 à certains
+# bots indépendamment de ce fichier. Vérifier avec :
+#   curl -A "ClaudeBot" -o /dev/null -w "%{http_code}" https://equi-22.fr/
+# ============================================================
+
+# --- Bots d'entraînement de modèles : bloqués ---
 User-agent: Amazonbot
+Disallow: /
+
+User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Applebot-Extended
@@ -11,28 +27,38 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: CloudflareBrowserRenderingCrawler
+User-agent: cohere-ai
 Disallow: /
 
 User-agent: GPTBot
 Disallow: /
 
-User-agent: Google-Extended
-Disallow: /
-
 User-agent: meta-externalagent
 Disallow: /
 
-User-agent: OAI-SearchBot
+# Service de rendu interne Cloudflare — sans rapport avec la visibilité IA
+User-agent: CloudflareBrowserRenderingCrawler
 Disallow: /
+
+# --- Bots de recherche / citations IA en temps réel : autorisés ---
+# Ce sont eux qui déterminent si le site peut être cité dans les réponses.
+# OAI-SearchBot alimente la recherche ChatGPT (≠ GPTBot, qui est l'entraînement).
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-# Moteurs de recherche — accès complet
+# Google-Extended volontairement absent = autorisé.
+# → site éligible aux AI Overviews / AI Mode (indissociable de
+#   l'entraînement Gemini chez Google). Aucun impact sur Googlebot
+#   ni sur le classement Google Search classique.
+
+# --- Moteurs de recherche : accès complet ---
 User-agent: *
 Allow: /
+
 Sitemap: https://equi-22.fr/sitemap-index.xml

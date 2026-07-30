@@ -27,7 +27,14 @@ const openingHoursSpecification = business.openingHours
     };
   });
 
-const siteUrl = Astro.site?.href || 'https://equi22.fr';
+// Pas de fallback : un domaine erroné ici corromprait silencieusement toutes les
+// URLs absolues du JSON-LD (url, image, logo). Mieux vaut casser le build.
+if (!Astro.site) {
+  throw new Error(
+    'Astro.site non configuré — définir `site` dans astro.config.mjs avant de builder.'
+  );
+}
+const siteUrl = Astro.site.href;
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',

@@ -2,7 +2,7 @@
 title: "Débuter en équitation quand on est adulte : le guide complet"
 date: 2026-06-20
 tags: ["équitation adulte", "débutant", "conseils"]
-seoTitle: "Débuter en équitation adulte à Yffiniac | Guide complet — Équi 22"
+seoTitle: "Débuter l'équitation adulte à Yffiniac | Équi 22"
 seoDescription: "Vous voulez débuter l'équitation à l'âge adulte près de Saint-Brieuc ? Découvrez nos conseils pratiques et nos cours débutants à Yffiniac, Côtes-d'Armor."
 ogImage: "/og/debuter-equitation-adulte.jpg"
 excerpt: "On n'est jamais trop vieux pour monter à cheval. Voici tout ce qu'il faut savoir pour se lancer dans l'équitation adulte — sans appréhension, au bon rythme."

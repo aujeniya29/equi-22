@@ -33,7 +33,9 @@ const {
 
 const siteName = 'Équi 22';
 const isHomepage = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const cleanTitle = title.replace(/\s*\|\s*[ÉE]qui\s*22\b.*/i, '').trim();
+// Accepte tous les séparateurs utilisés en rédaction (|, -, –, —) pour éviter
+// un suffixe « | Équi 22 » dupliqué quand l'auteur l'a déjà mis dans le titre.
+const cleanTitle = title.replace(/\s*[|\-–—]\s*[ÉE]qui\s*22\b.*/i, '').trim();
 const pageTitle = isHomepage ? 'Équi 22 — Centre Équestre Yffiniac' : `${cleanTitle} | Équi 22`;
 const resolvedCanonical = new URL(
   (canonicalPathProp || Astro.url.pathname)

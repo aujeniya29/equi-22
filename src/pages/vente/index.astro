@@ -6,16 +6,27 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import { business } from '../../data/business';
 
 const horses = await getCollection('vente');
-const sorted = [...horses].sort((a, b) => {
-  // Available horses first, then sold
-  if (a.data.vendu !== b.data.vendu) return a.data.vendu ? 1 : -1;
-  // Within each group: most recent first
-  return b.data.anneeNaissance - a.data.anneeNaissance;
-});
 
 const allVenteImages = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/images/vente/**/*.{jpg,jpeg,png,webp}'
 );
+
+// Une annonce dont la photo manque affiche un placeholder gris : la reléguer
+// derrière celles qui en ont une, pour ne pas ouvrir la liste dessus.
+const hasPhoto = (horse: (typeof horses)[number]) =>
+  Boolean(
+    horse.data.photoPrincipale &&
+      allVenteImages[`/src/assets/images/vente/${horse.id}/${horse.data.photoPrincipale}`]
+  );
+
+const sorted = [...horses].sort((a, b) => {
+  // Available horses first, then sold
+  if (a.data.vendu !== b.data.vendu) return a.data.vendu ? 1 : -1;
+  // Then those with a photo
+  if (hasPhoto(a) !== hasPhoto(b)) return hasPhoto(a) ? -1 : 1;
+  // Within each group: most recent first
+  return b.data.anneeNaissance - a.data.anneeNaissance;
+});
 
 // Pre-resolve main photo for each horse
 const heroImages = new Map<string, ImageMetadata>();
@@ -40,8 +51,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
 ---
 
 <BaseLayout
-  title="Vente & dépôt-vente de chevaux et poneys"
-  description="Chevaux et poneys à vendre au centre équestre Équi 22 à Yffiniac. Dépôt-vente possible : nous gérons valorisation, communication et prises de rendez-vous."
+  title="Chevaux à vendre & dépôt-vente en Bretagne"
+  description="Chevaux et poneys à vendre en Côtes-d'Armor, près de Saint-Brieuc. Équi 22 assure aussi le dépôt-vente : valorisation, photos, visites et contrat encadré."
   ogImage="/og/vente.jpg"
   whatsappMessage={whatsappMessage}
 >
@@ -51,36 +62,80 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
   <section class="py-12 lg:py-16 bg-base-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h1 class="text-3xl lg:text-4xl font-serif text-base-content mb-4">
-        Vente & dépôt-vente
+        Chevaux à vendre & dépôt-vente en Bretagne
       </h1>
       <p class="text-base-content/70 max-w-2xl mx-auto">
-        Retrouvez nos annonces de vente et découvrez comment nous pouvons vous accompagner dans la vente de votre équidé en dépôt-vente.
-        Nous pratiquons aussi l'<a href="/elevage" class="text-primary hover:underline">élevage équin</a>
-        à Yffiniac : étalons, poulinières et poulains à réserver.
+        Équi 22 est un centre équestre et un élevage situé à Yffiniac, aux portes de Saint-Brieuc,
+        dans les Côtes-d'Armor. Vous trouverez ici les chevaux et poneys que nous avons à vendre —
+        et, si c'est vous qui vendez, la formule de dépôt-vente qui nous confie la valorisation
+        et la commercialisation de votre équidé. Nous pratiquons aussi l'<a href="/elevage" class="text-primary hover:underline">élevage équin</a>
+        sur place : étalons de couleurs, poulinières et poulains à réserver.
       </p>
     </div>
   </section>
 
-  <!-- Work in progress banner -->
-  <div class="bg-warning/15 border-y border-warning/30">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center gap-3 text-warning-content">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 text-warning" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l5.654-4.654m5.65-4.652 3.033-2.498a2.626 2.626 0 0 1 3.71 3.71l-2.498 3.033m-5.245-5.245-2.993-2.993a2.626 2.626 0 0 0-3.71 3.71l2.993 2.993" />
-      </svg>
-      <p class="text-sm font-medium text-base-content/80">
-        Cette page est en cours de conception — les annonces seront publiées prochainement.
-      </p>
-    </div>
-  </div>
+  <!-- Available horses -->
+  {available.length > 0 ? (
+    <section class="py-12 lg:py-16 bg-base-100">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-3">
+          Chevaux et poneys à vendre
+        </h2>
+        <p class="text-base-content/70 mb-8 max-w-3xl">
+          Nos annonces du moment, visibles sur place à Yffiniac (22120), à quinze minutes de
+          Saint-Brieuc. Chaque cheval est présenté avec ses origines, sa robe, ses aptitudes et
+          son prix — et reste disponible à l'essai sur rendez-vous.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          {available.map((horse) => (
+            <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="py-16 lg:py-24 bg-base-100">
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <p class="text-base-content/70 text-lg">
+          Aucune annonce disponible pour le moment. Revenez bientôt ou contactez-nous directement.
+        </p>
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-6">
+          Nous contacter par WhatsApp
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Sold horses (if any) -->
+  {sold.length > 0 && (
+    <section class="py-12 lg:py-16 bg-base-200">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-xl font-serif text-base-content/70 mb-6">Déjà partis</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          {sold.map((horse) => (
+            <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Dépôt-vente -->
   <section class="py-12 lg:py-16 bg-base-100">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-4">
-        Dépôt-vente de chevaux
+        Vendre votre cheval : le dépôt-vente
       </h2>
-      <p class="text-base-content/80 text-lg leading-relaxed mb-8">
-        Vous souhaitez vendre votre équidé ? Nous vous accompagnons à chaque étape, dans un cadre professionnel et transparent.
+      <p class="text-base-content/80 text-lg leading-relaxed mb-6">
+        Vendre un cheval demande du temps : le maintenir en travail, faire des photos qui lui
+        rendent justice, filtrer les demandes, organiser les essais. Le dépôt-vente consiste à
+        nous confier tout cela. Votre équidé vit au centre, à Yffiniac, il est monté et présenté
+        par notre équipe, et vous n'intervenez qu'au moment de la vente.
+      </p>
+      <p class="text-base-content/80 leading-relaxed mb-8">
+        Nous accueillons des chevaux et poneys de toute la Bretagne — Côtes-d'Armor,
+        Ille-et-Vilaine, Morbihan, Finistère. Le centre est à quinze minutes de Saint-Brieuc
+        et directement accessible depuis la RN12.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -101,12 +156,50 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
         </div>
       </div>
 
+      <h3 class="text-xl font-serif text-base-content mb-4">Comment se passe un dépôt-vente</h3>
+      <ol class="space-y-3 text-base-content/80 leading-relaxed mb-8 list-decimal pl-5 marker:text-primary marker:font-semibold">
+        <li>
+          <strong class="text-base-content">Nous voyons le cheval.</strong> Vous nous décrivez son
+          âge, son niveau et son caractère ; nous convenons d'un rendez-vous pour l'évaluer.
+          Seuls les chevaux débourrés et en bon état physique et mental sont acceptés.
+        </li>
+        <li>
+          <strong class="text-base-content">Nous fixons le prix ensemble.</strong> Vous annoncez
+          votre prix net vendeur — la somme que vous voulez toucher. Notre commission s'ajoute
+          par-dessus, elle ne se prélève pas dessus.
+        </li>
+        <li>
+          <strong class="text-base-content">Le contrat est signé</strong> avant l'arrivée du
+          cheval, et précise la durée, la commission et la répartition des frais.
+        </li>
+        <li>
+          <strong class="text-base-content">Le cheval arrive au centre</strong> et entre au
+          travail. Aucun frais de pension ne vous est facturé pendant le dépôt ; les soins
+          courants (vermifuge, vaccins, dentiste, ostéopathe, maréchalerie) restent à votre charge.
+        </li>
+        <li>
+          <strong class="text-base-content">Nous le présentons.</strong> Photos, annonce, réponses
+          aux acheteurs et organisation des essais sur place : vous n'avez pas à vous déplacer.
+        </li>
+        <li>
+          <strong class="text-base-content">La vente se conclut</strong> et vous percevez votre
+          prix net vendeur. Si rien ne se concrétise le premier mois, nous réexaminons les
+          conditions ensemble — la commission, elle, ne bouge pas.
+        </li>
+      </ol>
+
       <div class="space-y-3 text-base-content/80 leading-relaxed mb-8">
         <p>
-          Un contrat est signé entre les deux parties. Vous fixez votre prix net vendeur, nous y ajoutons notre commission — sans surprise. Si la vente n'aboutit pas dans le premier mois, une réévaluation des conditions peut être envisagée ensemble ; la commission, elle, reste fixe.
+          Le dépôt-vente n'est pas notre seule activité : Équi 22 est aussi un
+          <a href="/elevage" class="text-primary hover:underline">élevage</a> et une
+          <a href="/pension-chevaux" class="text-primary hover:underline">pension pour propriétaires</a>.
+          Votre cheval est donc pris en charge par une équipe qui vit avec des chevaux au
+          quotidien, pas par un intermédiaire. L'ensemble de nos
+          <a href="/contrats" class="text-primary hover:underline">documents contractuels</a>
+          est consultable en amont.
         </p>
         <p class="text-sm text-base-content/70 italic">
-          Seuls les chevaux débourrés, en état physique et mental satisfaisant sont acceptés. Nous nous réservons le droit de refuser certains dossiers.
+          Nous nous réservons le droit de refuser certains dossiers.
         </p>
       </div>
 
@@ -128,49 +221,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
     </div>
   </section>
 
-  <!-- Available horses -->
-  {available.length > 0 ? (
-    <section class="py-12 lg:py-16 bg-base-200">
-      <div class="max-w-6xl mx-auto px-4">
-        {available.length > 0 && sold.length > 0 && (
-          <h2 class="text-xl font-serif text-base-content mb-6">Disponibles</h2>
-        )}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-          {available.map((horse) => (
-            <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
-          ))}
-        </div>
-      </div>
-    </section>
-  ) : (
-    <section class="py-16 lg:py-24 bg-base-200">
-      <div class="max-w-2xl mx-auto px-4 text-center">
-        <p class="text-base-content/70 text-lg">
-          Aucune annonce disponible pour le moment. Revenez bientôt ou contactez-nous directement.
-        </p>
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-6">
-          Nous contacter par WhatsApp
-        </a>
-      </div>
-    </section>
-  )}
-
-  <!-- Sold horses (if any) -->
-  {sold.length > 0 && (
-    <section class="py-12 lg:py-16 bg-base-100">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-xl font-serif text-base-content/70 mb-6">Déjà partis</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-          {sold.map((horse) => (
-            <HorseCard horse={horse} heroImage={heroImages.get(horse.id)} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
   <!-- CTA -->
-  <section class="py-12 lg:py-16 bg-base-100">
+  <section class="py-12 lg:py-16 bg-base-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h2 class="text-2xl lg:text-3xl font-serif text-base-content mb-4">
         Une question ? Envie de visiter ?

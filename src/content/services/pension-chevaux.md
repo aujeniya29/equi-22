@@ -163,6 +163,8 @@ Votre cheval est en pension chez nous et vous souhaitez le partager avec le cent
 
 Vous n'êtes pas propriétaire mais souhaitez monter régulièrement ? Nos formules de [demi-pension et tiers-pension sur la cavalerie du club](/pension-equides-club) répondent au même besoin, sans l'engagement de la propriété.
 
+Et si votre projet est au contraire de vous séparer de votre cheval, nous proposons le [dépôt-vente](/vente) : il reste hébergé au centre, remis au travail et présenté aux acheteurs par notre équipe, sans frais de pension pendant la durée du dépôt.
+
 ## Venez visiter
 
 La meilleure façon de juger une pension, c'est de la voir. Appelez-nous au [06 22 16 64 52](tel:+33622166452) pour convenir d'un créneau : nous vous faisons visiter les écuries, les paddocks et les prés, et nous répondons à vos questions sur place.

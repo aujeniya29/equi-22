@@ -1,6 +1,6 @@
 # SEO Équi 22 — Suivi & prochaines étapes
 
-_Dernière mise à jour : 2026-09-02_
+_Dernière mise à jour : 2026-09-03_
 
 > Ce fichier est le point de reprise. Il est écrit pour être lu sans contexte préalable : ce qui est fait, ce qui reste, qui doit agir, et les pièges rencontrés.
 
@@ -104,6 +104,100 @@ d'une page majeure, et en dégradation depuis 10,0).
 **Indexation : 22 URLs du sitemap sur 23 sont indexées.** La seule exception est traitée
 dans « À surveiller ».
 
+
+### Session du 2026-09-03 — portes ouvertes du 12 septembre
+
+**Constat le plus urgent, hors code : l'affiche de la cliente imprime `www.equi22.fr`,
+qui n'existe pas.** `dig` ne renvoie rien, `whois` renvoie `NOT FOUND` chez l'AFNIC : le
+domaine n'est pas déposé. Toute personne qui saisit l'adresse de l'affiche tombe sur une
+erreur de navigateur. Deux réponses, cumulables : **déposer `equi22.fr`** (~10 €/an) et le
+rediriger en 301 vers `equi-22.fr` — ce qui rattrape les affiches déjà diffusées et ferme la
+porte à un dépôt par un tiers — et **corriger le visuel** avant toute nouvelle impression.
+C'est le deuxième passage de ce domaine fantôme sur le projet : il était déjà affiché à tort
+dans les mentions légales, corrigé le 30/07.
+
+**Arbitrage : page permanente plutôt qu'article daté.** Un article
+`actualites/porte-ouverte-septembre-2026` ne vaut plus rien le 13 septembre. `/portes-ouvertes`
+est reconduite d'une édition à l'autre : elle accumule les liens des agendas locaux et absorbe
+l'ancienne URL du CMS `Portes-ouvertes-…_fiche_276.html`, que Google sert toujours et qui
+tombait jusqu'ici dans l'attrape-tout `/*.html` — donc en soft 404 sur le blog.
+
+**Positionnement : la saison, pas l'événement.** « porte ouverte centre équestre yffiniac » n'a
+aucun volume, et une page publiée à 9 jours n'a pas le temps de se positionner. En revanche
+septembre est le pic de « inscription équitation » / « cours poney enfant ». La page est donc
+construite sur **inscriptions 2026/2027**, la porte ouverte étant le moment de conversion.
+Elle continue de travailler après le 12.
+
+**Livré**
+- `src/pages/portes-ouvertes.astro` — 429 mots, schema `Event`, fil d'Ariane, 6 liens internes
+  contextuels (`/cours-enfants`, `/equitation-adulte`, `/stages-vacances`, `/competitions`,
+  `/tarifs`, `/pension-chevaux`). Titre 57 car., description 157 car.
+- `src/data/portes-ouvertes.ts` — données de l'édition isolées : **reconduire une année = éditer
+  ce seul fichier**. Dates absolues partout (« samedi 12 septembre 2026 », jamais « ce samedi »),
+  pour que la page reste exacte même sans redéploiement après l'événement.
+- `src/components/PortesOuvertesBanner.astro` — bandeau d'accueil sous le hero. Deux garde-fous :
+  `editionAVenir` évalué au build, **plus** un script inline qui le retire côté navigateur si la
+  date de fin est dépassée. Sans le second, faute de déploiement après le 12, l'accueil
+  continuerait d'annoncer un rendez-vous révolu.
+- `public/_redirects` — `/Portes-ouvertes-* /portes-ouvertes 301`, placée **avant** l'attrape-tout.
+  Splat plutôt que slug exact : le libellé complet de l'ancienne URL n'est pas connu.
+  ⚠️ Non testable en local (`astro preview` n'applique pas `_redirects`) — **à vérifier en
+  production après déploiement**.
+- `public/og/portes-ouvertes.jpg` — 1200×630, recadré sur la bande haute de l'affiche
+  (« PORTE OUVERTE » + « SAMEDI 12/09/26 » lisibles en aperçu). Décodé après génération, pas
+  seulement vérifié par son en-tête.
+- L'affiche passe par `astro:assets` (`src/assets/images/portes-ouvertes/`), donc avec
+  `width`/`height` — l'erreur de `fete-du-club-juin-2026.md` n'est pas reproduite.
+- **L'affiche publiée est retouchée sur un seul point** : l'URL du pied de page, imprimée
+  « www.equi22.fr » (domaine non déposé), est remise à « www.equi-22.fr ». Publier le visuel
+  d'origine sur le site reviendrait à renvoyer les lecteurs vers une erreur de navigateur.
+  Retouche faite au pixel : fond marine plat mesuré à `RGB(0,41,81)`, texte recomposé en
+  Helvetica Neue Medium 20 px, calé sur la bbox d'encre d'origine (136×18 px, centre x 514,5)
+  — largeur finale 143 px, même graisse, même ligne de base.
+  L'original de la cliente est conservé intact dans
+  `docs/affiche-portes-ouvertes-2026-original-cliente.jpg` — dossier **non versionné**, comme
+  les autres visuels bruts de la cliente. La description de la retouche ci-dessus est donc la
+  seule trace pérenne : ne pas la supprimer.
+  ⚠️ Les images OG (`/og/portes-ouvertes.jpg`, `/og/portes-ouvertes-gbp.jpg`) sont des
+  recadrages de la **bande haute** de l'affiche : elles ne contiennent pas le pied de page,
+  donc pas l'URL. Rien à régénérer de ce côté.
+  → **Transmettre le fichier corrigé à la cliente** pour ses partages Facebook/Instagram : le
+  site est réparé, pas ce qu'elle diffuse.
+- `mainMenu` (pied de page + menu mobile) reçoit « Portes ouvertes ». Pas la barre desktop : la
+  page ne doit pas rester orpheline une fois le bandeau retiré, sans occuper une place hors saison.
+
+**Décisions de balisage**
+- `Event` est légitime : les résultats enrichis Événement sont toujours servis, contrairement à
+  `FAQPage` (retiré le 07/05/2026) et `HowTo` (déprécié). Gain SERP attendu modeste pour un
+  événement local ; l'intérêt réel est la lisibilité par Maps et par les moteurs de réponse.
+- **`offers` volontairement absent.** L'affiche n'annonce aucun tarif, ni pour l'entrée ni pour
+  les balades à poney. Écrire « gratuit » serait une invention.
+
+**En attente de la cliente**
+- **L'entrée est-elle libre ?** Si oui → ajouter `isAccessibleForFree: true` et un `offers` à 0 €
+  dans le schema, et l'écrire sur la page (c'est un argument d'affluence).
+- **Les balades à poney sont-elles payantes ?**
+- **Faut-il s'inscrire à l'avance** pour les balades ou les spectacles, ou tout est-il libre ?
+- **Horaire des spectacles** — un créneau annoncé ferait venir les gens à une heure précise.
+
+**Hors site — c'est là que se joue l'affluence, pas dans le SEO**
+Aucune de ces actions n'est du code, et toutes valent plus que la page elle-même pour le 12 :
+1. **Post « Événement » sur la fiche Google Business Profile** — la fiche pèse 70-80 % du trafic
+   local. Le plus rentable, ~10 min.
+2. **Ouest-France Infolocale** (soumission gratuite, publication + lien) et **Le Télégramme**.
+3. **Agenda de la mairie d'Yffiniac** et bulletin municipal.
+4. **Côtes d'Armor Tourisme** — l'audit a trouvé la fiche du club indexée mais en **404** :
+   occasion de la faire réparer *et* d'y faire annoncer l'événement.
+5. **Fiche club FFE** (`cde22.ffe.com`), où l'affiliation est déjà confirmée.
+
+Ces soumissions sont le seul levier qui serve **à la fois** l'affluence du 12 et le SEO : ce sont
+des backlinks locaux, et c'est précisément ce qui manque le plus au site (backlinks en Tier 0).
+
+**Après l'événement**
+- Republier la page en mode « édition passée » (automatique au prochain build) et y ajouter une
+  rétrospective en photos — matière pour `/a-propos` et pour les réseaux.
+- Vérifier en Search Console que `/portes-ouvertes` est indexée et que l'ancienne URL
+  `Portes-ouvertes-…` bascule bien vers elle.
 
 ---
 

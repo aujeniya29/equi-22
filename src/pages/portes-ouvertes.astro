@@ -1,0 +1,299 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Hero from '../components/Hero.astro';
+import { business, mapsDirectionsUrl } from '../data/business';
+import {
+  edition,
+  editionAVenir,
+  dateLongue,
+  dateLongueMinuscule,
+  dateCourte,
+  heureDebut,
+  heureFin,
+  plageHoraire,
+} from '../data/portes-ouvertes';
+
+import heroImage from '../assets/images/hero/cours-enfants.jpg';
+// Affiche fournie par la cliente, avec **une seule retouche** : l'URL du pied de
+// page, imprimée « www.equi22.fr » — un domaine qui n'est pas déposé — a été
+// remise à « www.equi-22.fr ». Publier le visuel d'origine reviendrait à
+// renvoyer les lecteurs vers une erreur de navigateur.
+// Original intact : `docs/affiche-portes-ouvertes-2026-original-cliente.jpg` (non versionné).
+// Détail de la retouche : SEO-A-FAIRE.md, session du 2026-09-03.
+import affiche from '../assets/images/portes-ouvertes/affiche-portes-ouvertes-2026.jpg';
+
+const whatsappMessage = `Bonjour, je souhaite venir aux portes ouvertes du ${dateLongueMinuscule} et j'ai une question.`;
+
+if (!Astro.site) {
+  throw new Error('Astro.site non configuré — définir `site` dans astro.config.mjs.');
+}
+const siteUrl = Astro.site.href;
+const pageUrl = new URL('/portes-ouvertes', siteUrl).href;
+
+// Schema Event : contrairement à FAQPage (retiré par Google le 07/05/2026) et à
+// HowTo (déprécié), les résultats enrichis Événement sont toujours servis. Le
+// gain SERP restera modeste pour un événement local, mais le balisage rend la
+// date et le lieu lisibles par Maps et par les moteurs de réponse.
+//
+// `offers` est volontairement absent : l'affiche n'annonce aucun tarif, ni pour
+// l'entrée ni pour les balades à poney. Déclarer « gratuit » serait une
+// invention. À ajouter dès que la cliente confirme (voir SEO-A-FAIRE.md).
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  '@id': `${pageUrl}#edition-${edition.annee}`,
+  name: `Portes ouvertes du centre équestre Équi 22 — ${dateLongueMinuscule}`,
+  description:
+    `Après-midi portes ouvertes au centre équestre Équi 22, à Yffiniac : inscriptions ${edition.saison}, ` +
+    'balades à poney, visite des écuries, spectacles et démonstrations, restauration sur place.',
+  startDate: edition.debut,
+  endDate: edition.fin,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  image: new URL('/og/portes-ouvertes.jpg', siteUrl).href,
+  url: pageUrl,
+  location: {
+    '@type': 'Place',
+    name: business.name,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: business.address,
+      addressLocality: business.city,
+      postalCode: business.postalCode,
+      addressCountry: 'FR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: business.gps.latitude,
+      longitude: business.gps.longitude,
+    },
+  },
+  organizer: { '@id': `${siteUrl}#organization` },
+  performer: { '@id': `${siteUrl}#organization` },
+};
+
+const infosPratiques = [
+  { label: 'Date', valeur: dateLongue },
+  { label: 'Horaires', valeur: `${heureDebut} – ${heureFin}` },
+  { label: 'Lieu', valeur: `${business.name}, ${business.address}, ${business.postalCode} ${business.city}` },
+  { label: 'Public', valeur: 'Petits et grands, cavaliers ou non' },
+];
+---
+
+<BaseLayout
+  title={`Portes ouvertes du ${dateCourte} à ${business.city}`}
+  description={`Portes ouvertes du centre équestre Équi 22 à Yffiniac, ${dateLongueMinuscule} ${plageHoraire} : inscriptions ${edition.saison}, balades à poney et visite des écuries.`}
+  ogImage="/og/portes-ouvertes.jpg"
+  whatsappMessage={whatsappMessage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
+  <Breadcrumb
+    items={[{ label: 'Accueil', href: '/' }, { label: 'Portes ouvertes' }]}
+  />
+
+  {!editionAVenir && (
+    <aside class="bg-base-300 px-4 py-4" aria-label="Statut de l'édition">
+      <p class="max-w-3xl mx-auto text-sm text-base-content/80">
+        <strong>L'édition {edition.annee} a eu lieu.</strong> Le club se visite toute l'année :
+        {' '}<a href="/contact" class="text-primary font-medium hover:underline">contactez-nous</a>
+        {' '}pour convenir d'un passage, et les
+        {' '}<a href="/actualites" class="text-primary font-medium hover:underline">actualités</a>
+        {' '}annoncent la prochaine édition.
+      </p>
+    </aside>
+  )}
+
+  <Hero
+    title={`Portes ouvertes du centre équestre — ${dateLongue.toLowerCase()}`}
+    description={`Une après-midi 100 % cheval à Yffiniac, ${plageHoraire}. Venez visiter le club, rencontrer l'équipe et inscrire votre enfant — ou vous-même — pour la saison ${edition.saison}.`}
+    imageSrc={heroImage}
+    imageAlt="Jeunes cavalières à poney lors d'un cours au centre équestre Équi 22 à Yffiniac"
+  />
+
+  <!-- Informations pratiques : reprises en texte, jamais uniquement sur l'affiche
+       (une image n'est lisible ni par Google ni par un lecteur d'écran). -->
+  <section class="py-10 bg-base-200" aria-labelledby="pratique-heading">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 id="pratique-heading" class="sr-only">Informations pratiques</h2>
+      <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {infosPratiques.map((info) => (
+          <div class="bg-base-100 rounded-2xl border border-base-300 p-5">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-base-content/60">
+              {info.label}
+            </dt>
+            <dd class="mt-1 text-base-content font-medium leading-snug">{info.valeur}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:justify-center">
+        <a
+          href={mapsDirectionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary min-h-[44px]"
+        >
+          Obtenir l'itinéraire
+        </a>
+        <a href={`tel:${business.phone.replace(/\s/g, '')}`} class="btn btn-outline min-h-[44px]">
+          Appeler le {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-100" aria-labelledby="presentation-heading">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 id="presentation-heading" class="text-2xl lg:text-3xl font-serif mb-6">
+        Une après-midi pour découvrir le club, sans engagement
+      </h2>
+      <div class="space-y-4 text-base-content/80 text-lg leading-relaxed">
+        <p>
+          Le <strong>{dateLongueMinuscule}</strong>, de {heureDebut} à {heureFin},
+          <strong> Équi 22 ouvre ses portes</strong> à Yffiniac, dans les Côtes-d'Armor. C'est
+          l'occasion de pousser la porte du centre équestre sans rendez-vous : voir les
+          installations, rencontrer les monitrices, poser les questions qu'on n'ose pas poser au
+          téléphone, et laisser les enfants approcher les poneys.
+        </p>
+        <p>
+          La journée s'adresse autant aux familles qui hésitent encore à inscrire un enfant qu'aux
+          adultes qui envisagent de (re)monter à cheval, aux propriétaires en recherche d'une
+          {' '}
+          <a href="/pension-chevaux" class="text-primary font-medium hover:underline">pension</a>,
+          ou simplement aux curieux du coin. Aucun niveau n'est requis, et il n'est pas nécessaire
+          d'avoir déjà monté.
+        </p>
+        <p>
+          Le club se trouve à quelques minutes de <strong>Saint-Brieuc</strong>, Langueux et
+          Trégueux : venez à l'heure qui vous arrange entre {heureDebut} et {heureFin}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-200" aria-labelledby="programme-heading">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 id="programme-heading" class="text-2xl lg:text-3xl font-serif text-center mb-10">
+        Au programme
+      </h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {edition.programme.map((item) => (
+          <li class="bg-base-100 rounded-2xl border border-base-300 p-6">
+            <h3 class="font-serif text-lg text-base-content mb-2">{item.titre}</h3>
+            <p class="text-base-content/75 leading-relaxed">{item.detail}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-100" aria-labelledby="inscriptions-heading">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 id="inscriptions-heading" class="text-2xl lg:text-3xl font-serif mb-6">
+        Inscriptions {edition.saison} : c'est le bon moment
+      </h2>
+      <div class="space-y-4 text-base-content/80 text-lg leading-relaxed">
+        <p>
+          Les <strong>inscriptions pour la saison {edition.saison}</strong> se font sur place ce
+          jour-là. Vous pouvez gagner du temps en téléchargeant la fiche d'inscription à l'avance,
+          en la complétant chez vous et en l'apportant remplie — l'équipe s'occupe du reste.
+        </p>
+        <p>
+          Pour préparer votre venue, les créneaux et les tarifs sont déjà en ligne :
+          <a href="/cours-enfants" class="text-primary font-medium hover:underline">cours pour enfants et poney</a>,
+          <a href="/equitation-adulte" class="text-primary font-medium hover:underline">cours pour adultes</a>,
+          <a href="/stages-vacances" class="text-primary font-medium hover:underline">stages pendant les vacances</a>,
+          <a href="/competitions" class="text-primary font-medium hover:underline">compétitions</a>, ainsi que
+          l'<a href="/tarifs" class="text-primary font-medium hover:underline">ensemble des tarifs</a>.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a
+          href="/documents/fiche_inscription.pdf"
+          download="fiche_inscription.pdf"
+          class="btn btn-primary min-h-[44px]"
+        >
+          Télécharger la fiche d'inscription
+        </a>
+        <a href="/tarifs" class="btn btn-outline min-h-[44px]">Consulter les tarifs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-200" aria-labelledby="affiche-heading">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 id="affiche-heading" class="text-2xl lg:text-3xl font-serif text-center mb-8">
+        L'affiche de l'édition {edition.annee}
+      </h2>
+      <figure class="max-w-md mx-auto">
+        <Image
+          src={affiche}
+          alt={`Affiche des portes ouvertes du centre équestre Équi 22 à Yffiniac, ${dateLongueMinuscule} de ${heureDebut} à ${heureFin} : inscriptions, balades à poney, visite des écuries, restauration sur place et spectacles.`}
+          widths={[400, 800]}
+          sizes="(min-width: 768px) 448px, 100vw"
+          format="webp"
+          quality={78}
+          loading="lazy"
+          class="w-full h-auto rounded-2xl shadow-md"
+        />
+        <figcaption class="mt-3 text-sm text-base-content/70 text-center">
+          Toutes les informations de l'affiche sont reprises en texte ci-dessus. N'hésitez pas à la partager autour de vous.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-100" aria-labelledby="venir-heading">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 id="venir-heading" class="text-2xl lg:text-3xl font-serif mb-6">Comment venir</h2>
+      <div class="space-y-4 text-base-content/80 text-lg leading-relaxed">
+        <p>
+          Le centre équestre est situé <strong>{business.address}, {business.postalCode} {business.city}</strong>,
+          au hameau du Ruset. C'est une route de campagne sans numéro :
+          <strong> saisir l'adresse seule dans un GPS ne mène pas au bon endroit</strong>. Utilisez
+          le bouton ci-dessous, qui pointe les coordonnées exactes de l'entrée
+          ({business.gps.latitude}, {business.gps.longitude}).
+        </p>
+      </div>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4">
+        <a
+          href={mapsDirectionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary min-h-[44px]"
+        >
+          Ouvrir l'itinéraire
+        </a>
+        <a href="/contact" class="btn btn-outline min-h-[44px]">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 lg:py-16 bg-base-200" aria-labelledby="cta-heading">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 id="cta-heading" class="text-2xl lg:text-3xl font-serif mb-4">
+        Une question avant de venir ?
+      </h2>
+      <p class="text-base-content/75 mb-8">
+        Appelez-nous ou écrivez-nous : nous répondons rapidement, y compris pour les questions les
+        plus simples.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={`tel:${business.phone.replace(/\s/g, '')}`} class="btn btn-primary min-h-[44px]">
+          {business.phone}
+        </a>
+        <a href="/contact" class="btn btn-outline min-h-[44px]">Formulaire de contact</a>
+        <a
+          href={business.social.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline min-h-[44px]"
+        >
+          Suivre le club sur Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

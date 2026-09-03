@@ -38,6 +38,11 @@ export const desktopMenu: DesktopMenuItem[] = [
 ];
 
 export const mainMenu: NavLink[] = [
+  // Présent au pied de page et dans le menu mobile, pas dans la barre desktop :
+  // la page `/portes-ouvertes` est permanente et ne doit pas rester orpheline
+  // une fois le bandeau d'accueil retiré, sans pour autant occuper une place
+  // dans la navigation principale hors saison.
+  { label: 'Portes ouvertes', href: '/portes-ouvertes' },
   { label: 'Cours enfants', href: '/cours-enfants' },
   { label: 'Équitation adulte', href: '/equitation-adulte' },
   { label: 'Pension propriétaires', href: '/pension-chevaux' },

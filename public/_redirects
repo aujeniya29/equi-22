@@ -94,6 +94,14 @@
 # --- Ancien CMS PHP ---
 /index.php / 301
 
+# --- Portes ouvertes (ancien CMS) ---
+# `Portes-ouvertes-...-yffiniac_fiche_276.html` est toujours servie par Google
+# comme résultat indexé (constat de l'audit du 30/07/2026, confirmé). Sans cette
+# règle elle tombe dans l'attrape-tout ci-dessous et atterrit sur le blog, ce que
+# Google traite en soft 404. Splat plutôt que slug exact : le libellé complet de
+# l'ancienne URL n'est pas connu avec certitude.
+/Portes-ouvertes-* /portes-ouvertes 301
+
 # --- Attrape-tout : toutes les autres pages .html → blog ---
 # (actualités, événements, chevaux du club, concours...)
 # Le nouveau site n'a aucune URL en .html — aucun risque d'interférence.

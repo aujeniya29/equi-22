@@ -1,0 +1,42 @@
+---
+/**
+ * Bandeau d'annonce des portes ouvertes, affiché en page d'accueil.
+ *
+ * Deux garde-fous, parce que le site est statique et déployé depuis `main` :
+ *  1. `editionAVenir` est évalué **au build** — un build antérieur à l'événement
+ *     produit un bandeau valide, un build postérieur ne l'émet pas du tout.
+ *  2. Un script inline le retire côté navigateur si la date de fin est dépassée.
+ *     Sans lui, faute de nouveau déploiement après l'événement, l'accueil
+ *     continuerait d'annoncer un rendez-vous révolu — le pire des deux erreurs.
+ */
+import { edition, editionAVenir, dateLongueMinuscule, plageHoraire } from '../data/portes-ouvertes';
+---
+
+{editionAVenir && (
+  <aside
+    id="bandeau-portes-ouvertes"
+    data-fin={edition.fin}
+    aria-label="Annonce : portes ouvertes"
+    class="bg-primary text-primary-content"
+  >
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+      <p class="flex-1 leading-snug">
+        <span class="font-serif text-lg block sm:inline">Portes ouvertes {dateLongueMinuscule}</span>
+        <span class="opacity-90"> — {plageHoraire}. Inscriptions {edition.saison}, balades à poney, visite des écuries et spectacles.</span>
+      </p>
+      <a
+        href="/portes-ouvertes"
+        class="btn btn-sm bg-primary-content text-primary border-none hover:brightness-95 shrink-0 min-h-[44px]"
+      >
+        Voir le programme
+      </a>
+    </div>
+  </aside>
+
+  <script is:inline>
+    (function () {
+      var el = document.getElementById('bandeau-portes-ouvertes');
+      if (el && Date.now() > new Date(el.dataset.fin).getTime()) el.remove();
+    })();
+  </script>
+)}

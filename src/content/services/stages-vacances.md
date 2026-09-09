@@ -7,7 +7,7 @@ ogImage: "/og/stages-vacances.jpg"
 heroImage: "/src/assets/images/hero/stages-vacances.jpg"
 heroImageAlt: "Groupe d'enfants souriant pendant un stage vacances équitation au centre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les stages vacances équitation. Pourriez-vous me donner des informations sur les prochains stages et les places disponibles ?"
-order: 4
+order: 6
 pricingGroups:
   - title: "Stage baby poney — dès 3 ans"
     subtitle: "9h–11h — prévoir un goûter"

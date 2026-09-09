@@ -6,7 +6,7 @@ seoDescription: "Mountain trail et éthologie équestre au centre équestre Équ
 heroImage: "/src/assets/images/loisirs/ethologie2.jpg"
 heroImageAlt: "Éthologie équestre au centre équestre Équi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par vos activités loisirs (mountain trail, éthologie). Pourriez-vous me donner plus d'informations ?"
-order: 5
+order: 7
 serviceType: "Mountain Trail et Éthologie équestre"
 serviceDescription: "Mountain trail et éthologie équestre au centre équestre Équi 22 à Yffiniac. Disciplines loisirs accessibles à tous les niveaux pour approfondir la relation cheval-cavalier."
 ---

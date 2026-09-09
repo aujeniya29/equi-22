@@ -7,7 +7,7 @@ ogImage: "/og/pension-equides-club.jpg"
 heroImage: "/src/assets/images/hero/dp-tiers.jpg"
 heroImageAlt: "Poneys et chevaux du club au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis interesse(e) par une demi-pension ou un tiers de pension sur un equide du club. Pourriez-vous me donner des informations ?"
-order: 4
+order: 5
 pricingGroups:
   - title: "Équidés du club"
     subtitle: "Demi-pensions et tiers de pensions sur les poneys et chevaux du centre"
@@ -58,7 +58,7 @@ La demi-pension vous permet de monter un poney ou un cheval du club deux à troi
 
 ## Tiers-pension
 
-Le tiers de pension vous permet de venir monter ou travailler en liberté deux fois par semaine. Cette formule est idéale pour les cavaliers autonomes qui veulent progresser à leur rythme — elle ne comprend aucun cours.
+Le tiers de pension vous permet de venir monter ou travailler en liberté deux fois par semaine. Cette formule est idéale pour les cavaliers autonomes qui veulent progresser à leur rythme — elle ne comprend aucun cours. Si vous souhaitez malgré tout un encadrement ponctuel, les [cours particuliers de 30 minutes](/cours-particuliers) se prennent à la séance, sans engagement.
 
 ## Conditions
 

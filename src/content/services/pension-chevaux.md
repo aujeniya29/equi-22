@@ -7,7 +7,7 @@ ogImage: "/og/pension-chevaux.jpg"
 heroImage: "/src/assets/images/hero/pension-proprietaires.webp"
 heroImageAlt: "Installations de pension pour chevaux au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis interesse(e) par la pension pour mon cheval/poney. Pourriez-vous me donner des informations sur les formules et organiser une visite des installations ?"
-order: 3
+order: 4
 pricingGroups:
   - title: "Pensions"
     subtitle: "Pensions pour les propriétaires"
@@ -164,6 +164,8 @@ Votre cheval est en pension chez nous et vous souhaitez le partager avec le cent
 Vous n'êtes pas propriétaire mais souhaitez monter régulièrement ? Nos formules de [demi-pension et tiers-pension sur la cavalerie du club](/pension-equides-club) répondent au même besoin, sans l'engagement de la propriété.
 
 Et si votre projet est au contraire de vous séparer de votre cheval, nous proposons le [dépôt-vente](/vente) : il reste hébergé au centre, remis au travail et présenté aux acheteurs par notre équipe, sans frais de pension pendant la durée du dépôt.
+
+Enfin, pour travailler un point précis avec votre propre cheval, les [cours particuliers de 30 minutes](/cours-particuliers) sont ouverts à tous les pensionnaires, à la séance ou par carte de dix.
 
 ## Venez visiter
 

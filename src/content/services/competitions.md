@@ -7,7 +7,7 @@ ogImage: "/og/competitions.jpg"
 heroImage: "/src/assets/images/hero/competitions-equestres.jpg"
 heroImageAlt: "Cavalier franchissant un obstacle lors d'un concours de saut d'obstacles au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les compétitions équestres. Pourriez-vous me donner des informations sur le programme de la saison et les conditions de participation ?"
-order: 6
+order: 8
 pricingGroups:
   - title: "Packs"
     items:

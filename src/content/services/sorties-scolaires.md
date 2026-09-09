@@ -7,7 +7,7 @@ ogImage: "/og/sorties-scolaires.jpg"
 heroImage: "/src/assets/images/scolaires/scolaires3.jpg"
 heroImageAlt: "Enfants en séance équestre encadrée au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je souhaite organiser une sortie scolaire ou une séance groupe au centre équestre Equi 22. Pourriez-vous me donner des informations ?"
-order: 9
+order: 11
 pricing:
   - label: "Groupe de 10 cavaliers et plus"
     price: "12"

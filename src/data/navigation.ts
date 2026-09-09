@@ -16,6 +16,7 @@ export const desktopMenu: DesktopMenuItem[] = [
     items: [
       { label: 'Cours enfants', href: '/cours-enfants' },
       { label: 'Équitation adulte', href: '/equitation-adulte' },
+      { label: 'Cours particuliers', href: '/cours-particuliers' },
       { label: 'Stages vacances', href: '/stages-vacances' },
       { label: 'Compétitions', href: '/competitions' },
       { label: 'Mountain Trail & Éthologie', href: '/mountain-trail-ethologie' },
@@ -45,6 +46,7 @@ export const mainMenu: NavLink[] = [
   { label: 'Portes ouvertes', href: '/portes-ouvertes' },
   { label: 'Cours enfants', href: '/cours-enfants' },
   { label: 'Équitation adulte', href: '/equitation-adulte' },
+  { label: 'Cours particuliers', href: '/cours-particuliers' },
   { label: 'Pension propriétaires', href: '/pension-chevaux' },
   { label: 'Demi & Tiers-pension', href: '/pension-equides-club' },
   { label: 'Stages vacances', href: '/stages-vacances' },

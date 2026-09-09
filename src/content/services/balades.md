@@ -7,7 +7,7 @@ ogImage: "/og/balades.jpg"
 heroImage: "/src/assets/images/balades/balades1.jpg"
 heroImageAlt: "Cavaliers en balade à cheval dans la campagne bretonne au centre équestre Equi 22 à Yffiniac"
 whatsappMessage: "Bonjour, je suis intéressé(e) par les balades à cheval. Pourriez-vous me donner des informations sur les disponibilités et les tarifs ?"
-order: 8
+order: 10
 pricingGroups:
   - title: "Balades à la campagne"
     subtitle: "À la demande, du lundi au samedi — groupe de 5 cavaliers minimum"

@@ -104,4 +104,6 @@ Beaucoup de nos cavaliers adultes décrivent leur séance hebdomadaire comme un 
 
 Nous savons que votre emploi du temps est chargé. C'est pourquoi nous proposons des créneaux en soirée (mercredi, jeudi et vendredi) et le samedi après-midi. Trouvez le moment qui vous convient et venez essayer — les [tarifs et formules](/tarifs) sont détaillés à part.
 
+Si aucun créneau ne colle à votre semaine, ou si vous préférez vos premières séances sans public, les [cours particuliers de 30 minutes](/cours-particuliers) se prennent sur rendez-vous.
+
 Envie de monter plus souvent qu'une fois par semaine ? Nos formules de [demi-pension et tiers-pension](/pension-equides-club) sur la cavalerie du club permettent de venir deux à trois fois par semaine, sans les contraintes de la propriété.

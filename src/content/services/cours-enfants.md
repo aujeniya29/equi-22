@@ -151,7 +151,7 @@ Chez nous, chaque enfant avance selon sa propre progression, de la première ren
 - **Galop 3–4** — Techniques de monte approfondies, travail au saut d'obstacles et en extérieur. Autonomie complète avec le cheval.
 - **Galop 5–7** — Niveau confirmé et compétition. Maîtrise du saut d'obstacles, du dressage et des sorties en extérieur, préparation aux compétitions.
 
-Nos monitrices adaptent chaque séance au niveau des enfants.
+Nos monitrices adaptent chaque séance au niveau des enfants. Et si votre enfant a besoin d'un temps rien qu'à lui — pour reprendre confiance après une chute, débloquer un point qui résiste ou démarrer sans l'intimidation du groupe — nous proposons aussi des [cours particuliers de 30 minutes](/cours-particuliers).
 
 Nous proposons également des séances d'[éthologie et de mountain trail](/mountain-trail-ethologie) le samedi après-midi — un travail à pied qui complète la monte et renforce la relation avec le cheval.
 

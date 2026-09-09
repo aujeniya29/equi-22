@@ -112,6 +112,16 @@ Destination : `src/assets/images/team/`
 
 ---
 
+## 3bis. Hero – Page "Cours particuliers"
+
+**Destination :** `src/assets/images/hero/cours-particuliers.jpg`
+**Usage dans le code :** `src/content/services/cours-particuliers.md` (champ `heroImage`)
+**Statut :** ✅ OK — recadrage de `Mountain trail/IMG_8396.JPG` (1920×1280) en 1920×700. Le recadrage sort volontairement la plateforme de mountain trail du champ, pour que la photo se lise comme une séance de travail en carrière et non comme une autre discipline.
+
+> Si une photo de monitrice avec **un seul** cavalier apparaît un jour, elle serait encore meilleure : le face-à-face est l'argument de la page.
+
+---
+
 ## 4. Vente – Sultan
 
 Destination : `src/assets/images/vente/sultan/`  

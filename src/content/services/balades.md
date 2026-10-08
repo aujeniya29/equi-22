@@ -13,6 +13,8 @@ pricingGroups:
     subtitle: "À la demande, du lundi au samedi — groupe de 5 cavaliers minimum"
     highlightedNotes:
       - "Possible à la demande — groupe de 5 cavaliers minimum"
+      - "Accompagnateur obligatoire, avec des chaussures adaptées"
+      - "Merci d'arriver 20 minutes avant le départ"
     items:
       - label: "Balade enfant"
         price: "25"
@@ -63,7 +65,7 @@ serviceDescription: "Balades à cheval et à poney encadrées dans la campagne a
 
 Envie d'une **balade à cheval en Bretagne** ? De nombreux chemins partent directement du club et traversent la campagne bretonne : bocages, sous-bois, chemins creux — pour une vraie déconnexion au rythme du cheval.
 
-Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavaliers du club et extérieurs. Elles se font **à la demande du lundi au samedi**, à partir de **5 cavaliers**. Le matériel de sécurité est prêté (casque, selle, filet, tapis, brosses) — venez simplement avec un pantalon et des chaussures adaptées.
+Les balades sont ouvertes à **tous les niveaux**, enfants comme adultes, cavaliers du club et extérieurs. Elles se font **à la demande du lundi au samedi**, à partir de **5 cavaliers**. Le matériel de sécurité est prêté (casque, selle, filet, tapis, brosses) — venez simplement avec un pantalon et des chaussures adaptées. Un accompagnateur est obligatoire, lui aussi en chaussures adaptées, et nous vous demandons d'arriver **20 minutes avant** le départ.
 
 Nous proposons également des **randonnées à la journée**, organisées à la demande pour les cavaliers à partir du **Galop 4**. Le tarif varie de **90 à 130 €** selon la destination. Prévoyez déjeuner et goûter.
 

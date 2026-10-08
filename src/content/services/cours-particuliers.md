@@ -53,10 +53,12 @@ Vous montez sur un équidé du club ou sur le vôtre, au même tarif.
 
 ## Ce qu'on peut y travailler
 
+Toutes les disciplines pratiquées au club : **dressage**, **obstacle**, **hunter**, et **travail à pied** — éthologie, liberté, [mountain trail](/mountain-trail-ethologie).
+
 Les demandes qui reviennent le plus souvent :
 
 - **Reprendre confiance** après une chute, un arrêt prolongé ou une mauvaise expérience — à son rythme, sans personne pour regarder.
-- **Débloquer un point technique** qui résiste depuis des mois : une position, un départ au galop, une abord d'obstacle.
+- **Débloquer un point technique** qui résiste depuis des mois : une position, un départ au galop, un abord d'obstacle.
 - **Préparer un galop** ou une échéance de compétition, avec un travail ciblé sur ce qui manque.
 - **Progresser plus vite** quand une séance par semaine ne suffit plus.
 - **Démarrer en douceur** pour un enfant que le groupe intimide, ou un adulte qui préfère ses premières séances sans public.

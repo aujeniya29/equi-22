@@ -9,8 +9,12 @@ heroImageAlt: "Groupe d'enfants souriant pendant un stage vacances équitation a
 whatsappMessage: "Bonjour, je suis intéressé(e) par les stages vacances équitation. Pourriez-vous me donner des informations sur les prochains stages et les places disponibles ?"
 order: 6
 pricingGroups:
-  - title: "Stage baby poney — dès 3 ans"
-    subtitle: "9h–11h — prévoir un goûter"
+  - sectionLabel: "Toutes les vacances (sauf Noël)"
+    title: "Stage baby poney — dès 3 ans"
+    subtitle: "Lundi, mardi, jeudi, vendredi, 9h30–11h — prévoir un goûter"
+    highlightedNotes:
+      - "Accompagnateur obligatoire"
+      - "Règlement obligatoire à l'inscription"
     items:
       - label: "Demi-journée"
         price: "25"
@@ -20,8 +24,8 @@ pricingGroups:
         price: "100"
         unit: "forfait"
         highlight: false
-  - title: "Stage découverte — dès 6 ans"
-    subtitle: "9h30–12h — prévoir un goûter"
+  - title: "Stage découverte et/ou galop — dès 6 ans"
+    subtitle: "Lundi, mardi, jeudi, vendredi, 9h30–12h — découverte, perfectionnement ou passage d'examens — prévoir un goûter"
     items:
       - label: "Demi-journée — cavalier du club"
         price: "30"
@@ -31,11 +35,11 @@ pricingGroups:
         price: "35"
         unit: "demi-journée"
         highlight: false
-      - label: "Forfait 4 demi-journées (lun, mar, jeu, ven) — cavalier du club"
+      - label: "Forfait 4 demi-journées — cavalier du club"
         price: "110"
         unit: "forfait"
         highlight: false
-      - label: "Forfait 4 demi-journées (lun, mar, jeu, ven) — cavalier extérieur"
+      - label: "Forfait 4 demi-journées — cavalier extérieur"
         price: "120"
         unit: "forfait"
         highlight: false
@@ -50,7 +54,42 @@ pricingGroups:
         price: "40"
         unit: "demi-journée"
         highlight: false
-  - title: "La semaine Perfecto"
+  - sectionLabel: "Toussaint 2026 — l'après-midi et la journée complète"
+    title: "Semaine Perfecto (Toussaint) — du 19 au 23 octobre"
+    subtitle: "Lundi, mardi, jeudi, vendredi, 14h–17h — préparation à la compétition, passage de galop possible — prévoir un goûter"
+    items:
+      - label: "Semaine — cavalier du club"
+        price: "150"
+        unit: "semaine"
+        highlight: false
+      - label: "Semaine — cavalier extérieur"
+        price: "180"
+        unit: "semaine"
+        highlight: false
+  - title: "Semaine Top Fun — du 26 au 30 octobre"
+    subtitle: "Lundi, mardi, jeudi, vendredi, 14h–17h — spectacle, pony games, rando et autres découvertes — prévoir un goûter"
+    items:
+      - label: "Semaine — cavalier du club"
+        price: "150"
+        unit: "semaine"
+        highlight: false
+      - label: "Semaine — cavalier extérieur"
+        price: "180"
+        unit: "semaine"
+        highlight: false
+  - title: "Nouveau : la journée complète"
+    subtitle: "Les deux stages de la même semaine, le matin et l'après-midi — semaine au choix — prévoir déjeuner, 2 goûters et une tenue de rechange"
+    items:
+      - label: "Semaine en journée complète — cavalier du club"
+        price: "250"
+        unit: "semaine"
+        highlight: true
+      - label: "Semaine en journée complète — cavalier extérieur"
+        price: "280"
+        unit: "semaine"
+        highlight: true
+  - sectionLabel: "Vacances d'été"
+    title: "La semaine Perfecto (été)"
     subtitle: "Du lundi au vendredi, 9h–17h — tous niveaux — prévoir déjeuner, 2 goûters et une tenue de rechange"
     highlightedNotes:
       - "Apéro et spectacle organisés le vendredi soir"
@@ -64,7 +103,7 @@ pricingGroups:
         price: "300"
         unit: "semaine"
         highlight: false
-  - title: "La semaine extra fun"
+  - title: "La semaine extra fun (été)"
     subtitle: "Du lundi au vendredi, 9h–17h — pour cavaliers à l'aise aux 3 allures"
     highlightedNotes:
       - "Apéro et spectacle organisés le vendredi soir"
@@ -78,7 +117,7 @@ pricingGroups:
         price: "300"
         unit: "semaine"
         highlight: false
-  - title: "Stage spécial galop 3 et + — passage de galop"
+  - title: "Stage spécial galop 3 et + — passage de galop (été)"
     subtitle: "Du lundi au vendredi, 9h–17h — pour cavaliers galop 3 et au-dessus"
     highlightedNotes:
       - "Apéro et spectacle organisés le vendredi soir"
@@ -92,7 +131,8 @@ pricingGroups:
         price: "300"
         unit: "semaine"
         highlight: false
-  - title: "Stage adulte"
+  - sectionLabel: "Adultes et week-ends"
+    title: "Stage adulte"
     subtitle: "Dimanche à la journée - Perfectionnement, stage avec intervenant extérieur ou activités extérieures"
     items:
       - label: "Journée — cavalier du club"
@@ -148,15 +188,27 @@ Pour les stages été, l'ambiance monte d'un cran le vendredi soir : apéro et s
 - Bottes ou chaussures à talon (minimum 1 cm)
 - Tenue confortable et adaptée au mouvement
 - Goûter pour tous les stages
-- Pour les stages été : déjeuner, 2 goûters et une tenue de rechange
+- Pour la journée complète et les stages d'été : déjeuner, 2 goûters et une tenue de rechange
 
-## Calendrier été 2026
+## Programme des vacances de la Toussaint 2026
 
-| Formule | Dates | Public |
+Les stages ont lieu le **lundi, mardi, jeudi et vendredi** — pas de stage le mercredi.
+
+| | Semaine 1 — du 19 au 23 octobre | Semaine 2 — du 26 au 30 octobre |
 |---|---|---|
-| La semaine Perfecto | 6 juillet – 20 août | Tous niveaux |
-| La semaine extra fun | 27 – 31 juillet | Cavaliers à l'aise aux 3 allures |
-| Stage spécial galop 3+ | 24 - 28 août | Galop 3 et au-dessus |
+| **Matin, 9h30–12h** | Stage découverte et/ou galop | Stage découverte et/ou galop |
+| **Après-midi, 14h–17h** | Semaine Perfecto : préparation à la compétition, passage de galop possible | Semaine Top Fun : spectacle, pony games, rando |
+| **Journée complète** | Les deux stages : 250 € club / 280 € extérieur | Les deux stages : 250 € club / 280 € extérieur |
+
+Le stage baby poney (dès 3 ans) a lieu les deux semaines, de 9h30 à 11h.
+
+## Les semaines d'été
+
+| Formule | Public |
+|---|---|
+| La semaine Perfecto | Tous niveaux |
+| La semaine extra fun | Cavaliers à l'aise aux 3 allures |
+| Stage spécial galop 3+ | Galop 3 et au-dessus |
 
 
 ## Quand ont lieu nos stages ?

@@ -60,6 +60,12 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(w
             <div class="space-y-10">
               {service.data.pricingGroups.map((group) => (
                 <div>
+                  {group.sectionLabel && (
+                    <div class="mb-4 mt-2">
+                      <p class="text-xl font-serif text-base-content">{group.sectionLabel}</p>
+                      <div class="h-px bg-base-content/15 mt-3"></div>
+                    </div>
+                  )}
                   <div class="mb-4 border-b border-base-content/15 pb-2">
                     <h3 class="text-lg font-semibold text-base-content">{group.title}</h3>
                     {group.subtitle && <p class="text-sm text-base-content/70 mt-0.5">{group.subtitle}</p>}

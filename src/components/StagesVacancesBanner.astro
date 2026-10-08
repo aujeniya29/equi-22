@@ -1,0 +1,44 @@
+---
+/**
+ * Bandeau d'annonce des stages des vacances, affiché en page d'accueil.
+ *
+ * Même principe que `PortesOuvertesBanner` : non émis par un build postérieur
+ * à la fin des stages, et retiré côté navigateur si la date est dépassée sans
+ * nouveau déploiement.
+ *
+ * Reconduire pour d'autres vacances = modifier `fin`, le texte et l'ancre.
+ */
+
+/** Fin du dernier stage — vendredi 30 octobre, 17h (heure d'hiver, +01:00). */
+const fin = '2026-10-30T17:00:00+01:00';
+const aVenir = Date.now() < new Date(fin).getTime();
+---
+
+{aVenir && (
+  <aside
+    id="bandeau-stages-vacances"
+    data-fin={fin}
+    aria-label="Annonce : stages des vacances de la Toussaint"
+    class="bg-secondary text-secondary-content"
+  >
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+      <p class="flex-1 leading-snug">
+        <span class="font-serif text-lg block sm:inline">Stages de la Toussaint, du 19 au 30 octobre</span>
+        <span class="opacity-90"> — semaine Perfecto puis semaine Top Fun l'après-midi. Nouveau : la journée complète, matin et après-midi.</span>
+      </p>
+      <a
+        href="/stages-vacances#programme-des-vacances-de-la-toussaint-2026"
+        class="btn btn-sm bg-secondary-content text-secondary border-none hover:brightness-95 shrink-0 min-h-[44px]"
+      >
+        Voir le programme
+      </a>
+    </div>
+  </aside>
+
+  <script is:inline>
+    (function () {
+      var el = document.getElementById('bandeau-stages-vacances');
+      if (el && Date.now() > new Date(el.dataset.fin).getTime()) el.remove();
+    })();
+  </script>
+)}

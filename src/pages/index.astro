@@ -7,6 +7,7 @@ import ServiceCard from '../components/ServiceCard.astro';
 import homepageHero from '../assets/images/hero/banniere-accueil.webp';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import PortesOuvertesBanner from '../components/PortesOuvertesBanner.astro';
+import StagesVacancesBanner from '../components/StagesVacancesBanner.astro';
 import { business } from '../data/business';
 
 const whatsappMessage = "Bonjour, je suis intéressé(e) par les activités du centre équestre Équi 22.";
@@ -50,6 +51,7 @@ const recentPosts = [...allBlogPosts]
   </Hero>
 
   <PortesOuvertesBanner />
+  <StagesVacancesBanner />
 
   <!-- Google reviews trust signal — between hero and service cards -->
   <section aria-label="Avis Google" class="flex justify-center py-6 bg-base-100">

@@ -66,3 +66,5 @@ Le tiers de pension vous permet de venir monter ou travailler en liberté deux f
 - Pour les demis-pensions : Un cours collectif offert, jusqu'à 3 séances en autonomie et priorité lors des activités du club
 - Contrat signé avant le début de la formule — [voir nos documents contractuels](/contrats)
 - Le tarif de chaque formule est indiqué sur la page [tarifs](/tarifs)
+
+Vous hésitez entre les deux ? Notre article [demi-pension ou tiers-pension : que choisir ?](/actualites/demi-pension-ou-tiers-pension) compare les formules point par point.

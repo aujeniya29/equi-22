@@ -12,7 +12,7 @@ disciplines:
   - "Loisir"
 prix: "10 000 € HT"
 photoPrincipale: "/vente/oraia-01.jpeg"
-vendu: false
+vendu: "Non"
 pere: "Danu Af Sydgaad (Knabstrupper)"
 mere: "Une Fleur De Vie"
 pereDeMere: "Quack (AA)"

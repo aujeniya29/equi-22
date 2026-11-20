@@ -154,7 +154,12 @@ const vente = defineCollection({
     // (voir src/utils/vente.ts).
     photoPrincipale: optString,
     photos: optStringList,
-    vendu: z.boolean().nullish().transform((v) => v ?? false),
+    // « Oui »/« Non » depuis Pages CMS (liste déroulante), booléen dans les
+    // fichiers plus anciens. Vide = pas vendu.
+    vendu: z
+      .union([z.boolean(), z.string()])
+      .nullish()
+      .transform((v) => (typeof v === 'string' ? ['oui', 'true'].includes(v.trim().toLowerCase()) : v ?? false)),
     // Image de partage dédiée (1200x630). À défaut, /og/vente.jpg est utilisée.
     ogImage: optString,
     pere: optString,

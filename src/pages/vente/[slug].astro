@@ -155,7 +155,7 @@ const productSchema = {
             <p class={`text-3xl font-bold ${vendu ? 'text-base-content/40 line-through' : 'text-primary'}`}>
               {prix}
             </p>
-            {vendu && <p class="text-error font-semibold mt-1">Ce cheval a trouvé preneur</p>}
+            {vendu && <p class="text-error font-semibold mt-1">Ce cheval est vendu</p>}
           </div>
 
           <!-- Key stats -->
@@ -300,9 +300,8 @@ const productSchema = {
 
         <!-- Maillage interne fixe : ne dépend pas de ce que la cliente écrit. -->
         <p>
-          Vous cherchez où l’installer ? Nous proposons la
+          Nous proposons également l’<a href="/elevage">élevage équin</a> et la
           <a href="/pension-chevaux">pension pour propriétaires</a> sur place, à Yffiniac.
-          Découvrez aussi notre <a href="/elevage">élevage équin</a>.
         </p>
       </div>
     </div>

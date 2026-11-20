@@ -23,7 +23,7 @@ content:
       template: "{title}.md"
       field: false
     view:
-      fields: [title, prix, vendu]
+      fields: [title, vendu]
       primary: title
       sort: [title]
     fields:
@@ -33,10 +33,14 @@ content:
         required: true
         description: "Le nom complet, ex. : Oraia de Bihan Braz"
 
+      # Liste Oui/Non plutôt que booléen : la liste des annonces afficherait
+      # sinon « true/false ». Le schéma accepte les deux formes.
       - name: vendu
         label: Vendu
-        type: boolean
-        description: "Cocher quand le cheval est vendu : l'annonce reste visible avec un bandeau « Vendu »."
+        type: select
+        description: "Choisir Oui quand le cheval est vendu : l'annonce reste visible avec un bandeau « Vendu »."
+        options:
+          values: [Non, Oui]
 
       - name: prix
         label: Prix

@@ -10,7 +10,7 @@ disciplines:
   - "Hunter"
   - "Dressage"
 prix: "2 500 € HT"
-vendu: false
+vendu: "Non"
 pere: "Connemara crème aux yeux bleus"
 mere: "Irish cob black silver"
 pointsForts:

@@ -120,29 +120,54 @@ const services = defineCollection({
   }),
 });
 
+// Les annonces de vente sont éditées par la cliente via Pages CMS (.pages.yml).
+// Un champ laissé vide dans le CMS peut arriver sous forme de chaîne vide ou de
+// null : on normalise tout en `undefined` pour que les gabarits n'aient qu'un
+// seul cas « absent » à gérer, et qu'un champ vide ne casse jamais le build.
+const optString = z
+  .string()
+  .nullish()
+  .transform((v) => (v && v.trim() ? v.trim() : undefined));
+const optStringList = z
+  .array(z.string().nullish())
+  .nullish()
+  .transform((v) => {
+    const list = (v ?? []).map((s) => s?.trim()).filter((s): s is string => Boolean(s));
+    return list.length ? list : undefined;
+  });
+
 const vente = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/vente' }),
   schema: z.object({
-    title: z.string(),
-    race: z.string(),
-    anneeNaissance: z.number().int(),
+    title: z.string().trim().min(1),
+    race: z.string().trim().min(1),
+    anneeNaissance: z.coerce.number().int().min(1990),
     sexe: z.enum(['hongre', 'jument', 'etalon']),
-    taille: z.string().optional(),
-    robe: z.string().optional(),
-    niveau: z.string().optional(),
-    categorie: z.string().optional(),
-    disciplines: z.array(z.string()).optional(),
-    prix: z.string(),
-    photoPrincipale: z.string().optional(),
-    photos: z.array(z.string()).optional(),
-    vendu: z.boolean().default(false),
+    taille: optString,
+    robe: optString,
+    niveau: optString,
+    categorie: optString,
+    disciplines: optStringList,
+    prix: z.string().trim().min(1),
+    // Chemins tels qu'écrits par Pages CMS (« /vente/xxx.jpg ») ou simple nom de
+    // fichier : seul le nom compte, résolu dans src/assets/images/vente/
+    // (voir src/utils/vente.ts).
+    photoPrincipale: optString,
+    photos: optStringList,
+    vendu: z.boolean().nullish().transform((v) => v ?? false),
     // Image de partage dédiée (1200x630). À défaut, /og/vente.jpg est utilisée.
-    ogImage: z.string().optional(),
-    pere: z.string().optional(),
-    mere: z.string().optional(),
-    pereDeMere: z.string().optional(),
-    seoTitle: z.string(),
-    seoDescription: z.string(),
+    ogImage: optString,
+    pere: optString,
+    mere: optString,
+    pereDeMere: optString,
+    // Sections guidées, affichées sous la description libre.
+    pointsForts: optStringList,
+    convientA: optString,
+    infosComplementaires: optString,
+    // Facultatifs : générés à partir des caractéristiques s'ils sont absents
+    // (la cliente n'a pas à s'occuper du SEO).
+    seoTitle: optString,
+    seoDescription: optString,
   }),
 });
 

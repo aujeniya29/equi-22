@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseGallery from '../../components/HorseGallery.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { business } from '../../data/business';
+import { ageLabel, resolveAllVentePhotos, seoDescription, seoTitle, sexeLabels } from '../../utils/vente';
 
 export async function getStaticPaths() {
   const horses = await getCollection('vente');
@@ -19,40 +20,21 @@ const { Content } = await render(entry);
 
 const {
   title, race, anneeNaissance, sexe, taille, robe,
-  niveau, categorie, disciplines, prix, vendu, photoPrincipale, photos,
+  niveau, categorie, disciplines, prix, vendu,
   pere, mere, pereDeMere,
-  seoTitle, seoDescription,
+  pointsForts, convientA, infosComplementaires,
 } = data;
 
-const age = new Date().getFullYear() - anneeNaissance;
-const ageLabel = age <= 1 ? `${age} an` : `${age} ans`;
-const sexeLabels: Record<string, string> = { hongre: 'Hongre', jument: 'Jument', etalon: 'Étalon' };
+const age = ageLabel(anneeNaissance);
+const pageTitle = seoTitle(entry);
+const pageDescription = seoDescription(entry);
+const resolvedImages = await resolveAllVentePhotos(entry);
 
-// Resolve all photos for this horse
-const allVenteImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/vente/**/*.{jpg,jpeg,png,webp}'
-);
-
-const allPhotoFilenames = [
-  ...(photoPrincipale ? [photoPrincipale] : []),
-  ...(photos ?? []),
-];
-
-const resolvedImages: ImageMetadata[] = [];
-for (const filename of allPhotoFilenames) {
-  const key = `/src/assets/images/vente/${entry.id}/${filename}`;
-  const mod = allVenteImages[key];
-  if (mod) {
-    const { default: img } = await mod();
-    resolvedImages.push(img);
-  } else {
-    // Sans cet avertissement, une annonce dont les photos manquent se construit
-    // sans erreur et se publie sans aucune image (ni à l'écran, ni en schema).
-    console.warn(
-      `[vente] ${entry.id} : photo introuvable « ${filename} » (attendue dans src/assets/images/vente/${entry.id}/)`
-    );
-  }
-}
+// Les champs texte du CMS sont des zones de saisie simples : une ligne vide
+// sépare deux paragraphes.
+// Apostrophes typographiques, comme le rendu Markdown du corps de l'annonce.
+const paragraphs = (text: string) =>
+  text.split(/\n\s*\n/).map((p) => p.trim().replace(/'/g, '\u2019')).filter(Boolean);
 
 // WhatsApp message pre-filled with horse name
 const whatsappNumber = business.whatsapp.replace(/[^\d]/g, '');
@@ -79,7 +61,7 @@ const productSchema = {
   '@type': 'Product',
   '@id': `${canonicalUrl}#product`,
   name: title,
-  description: seoDescription,
+  description: pageDescription,
   url: canonicalUrl,
   category: 'Chevaux et poneys à vendre',
   ...(resolvedImages.length > 0
@@ -97,9 +79,10 @@ const productSchema = {
   offers: {
     '@type': 'Offer',
     url: canonicalUrl,
-    price: priceNumeric,
-    priceCurrency: 'EUR',
-    valueAddedTaxIncluded: false,
+    // « Prix sur demande » : pas de prix chiffré, on n'en invente pas.
+    ...(priceNumeric
+      ? { price: priceNumeric, priceCurrency: 'EUR', valueAddedTaxIncluded: false }
+      : {}),
     availability: vendu ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
     seller: { '@id': `${siteHref}#organization` },
   },
@@ -107,8 +90,8 @@ const productSchema = {
 ---
 
 <BaseLayout
-  title={seoTitle}
-  description={seoDescription}
+  title={pageTitle}
+  description={pageDescription}
   ogImage={data.ogImage ?? '/og/vente.jpg'}
   whatsappMessage={whatsappMessage}
 >
@@ -139,7 +122,7 @@ const productSchema = {
         )}
       </div>
       <p class="text-base-content/70 text-lg">
-        {race} · {sexeLabels[sexe]} · {ageLabel}
+        {race} · {sexeLabels[sexe]} · {age}
         {taille && ` · ${taille}`}
         {robe && ` · ${robe}`}
       </p>
@@ -187,7 +170,7 @@ const productSchema = {
             </div>
             <div class="bg-base-200 rounded-lg p-3">
               <dt class="text-base-content/75 text-xs uppercase tracking-wide mb-0.5">Âge</dt>
-              <dd class="font-medium">{anneeNaissance} — {ageLabel}</dd>
+              <dd class="font-medium">{anneeNaissance} — {age}</dd>
             </div>
             {taille && (
               <div class="bg-base-200 rounded-lg p-3">
@@ -291,6 +274,36 @@ const productSchema = {
     <div class="max-w-4xl mx-auto px-4">
       <div class="prose prose-lg max-w-none">
         <Content />
+
+        {pointsForts && (
+          <>
+            <h2 id="points-forts">Points forts</h2>
+            <ul>
+              {pointsForts.map((p) => <li><strong>{p}</strong></li>)}
+            </ul>
+          </>
+        )}
+
+        {convientA && (
+          <>
+            <h2 id="convient-à">Convient à</h2>
+            {paragraphs(convientA).map((p) => <p>{p}</p>)}
+          </>
+        )}
+
+        {infosComplementaires && (
+          <>
+            <h2 id="informations-complémentaires">Informations complémentaires</h2>
+            {paragraphs(infosComplementaires).map((p) => <p>{p}</p>)}
+          </>
+        )}
+
+        <!-- Maillage interne fixe : ne dépend pas de ce que la cliente écrit. -->
+        <p>
+          Vous cherchez où l’installer ? Nous proposons la
+          <a href="/pension-chevaux">pension pour propriétaires</a> sur place, à Yffiniac.
+          Découvrez aussi notre <a href="/elevage">élevage équin</a>.
+        </p>
       </div>
     </div>
   </section>

@@ -1,0 +1,167 @@
+# Configuration de Pages CMS (https://pagescms.org)
+# Interface d'édition des annonces de vente pour la cliente.
+# Chaque enregistrement = un commit sur main = un déploiement Cloudflare Pages.
+# Le schéma de référence reste src/content.config.ts (collection `vente`) :
+# toute modification ici doit rester compatible avec lui.
+
+media:
+  input: src/assets/images/vente
+  output: /vente
+  # Noms aléatoires : évite qu'une photo « IMG_1234.jpg » en écrase une autre.
+  rename: random
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: vente
+    label: Chevaux à vendre
+    type: collection
+    path: src/content/vente
+    format: yaml-frontmatter
+    # Le nom du fichier (donc l'adresse de la page) est tiré du nom du cheval,
+    # sans que la cliente ait à s'en occuper.
+    filename:
+      template: "{title}.md"
+      field: false
+    view:
+      fields: [title, prix, vendu]
+      primary: title
+      sort: [title]
+    fields:
+      - name: title
+        label: Nom du cheval
+        type: string
+        required: true
+        description: "Le nom complet, ex. : Oraia de Bihan Braz"
+
+      - name: vendu
+        label: Vendu
+        type: boolean
+        description: "Cocher quand le cheval est vendu : l'annonce reste visible avec un bandeau « Vendu »."
+
+      - name: prix
+        label: Prix
+        type: string
+        required: true
+        description: "Avec l'unité, ex. : 10 000 € HT"
+
+      - name: photoPrincipale
+        label: Photo principale
+        type: image
+        description: "La photo affichée en premier et dans la liste des annonces."
+
+      - name: photos
+        label: Autres photos
+        type: image
+        description: "Elles s'affichent dans l'ordre où vous les ajoutez."
+        options:
+          multiple:
+            max: 12
+
+      - name: race
+        label: Race
+        type: string
+        required: true
+        description: "Ex. : Anglo European Stud Book, Irish part bred, Connemara…"
+
+      - name: sexe
+        label: Sexe
+        type: select
+        required: true
+        options:
+          values:
+            - name: jument
+              label: Jument / pouliche
+            - name: etalon
+              label: Étalon / poulain
+            - name: hongre
+              label: Hongre
+
+      - name: anneeNaissance
+        label: Année de naissance
+        type: number
+        required: true
+
+      - name: robe
+        label: Robe
+        type: string
+
+      - name: taille
+        label: Taille
+        type: string
+        description: "Ex. : 1,58 m"
+
+      - name: categorie
+        label: Catégorie
+        type: string
+        description: "Petit badge à côté du nom, ex. : Foal, 2 ans, Poney D…"
+
+      - name: niveau
+        label: Niveau
+        type: string
+        description: "Ex. : Débourré, sorti en CSO Club 1…"
+
+      - name: disciplines
+        label: Disciplines
+        type: select
+        options:
+          multiple: true
+          values:
+            - CSO
+            - Dressage
+            - CCE
+            - Hunter
+            - Loisir
+            - Endurance
+            - Attelage
+            - Western
+            - Pony-games
+            - Équitation de travail
+            - Élevage
+
+      - name: pere
+        label: Père
+        type: string
+
+      - name: mere
+        label: Mère
+        type: string
+
+      - name: pereDeMere
+        label: Père de mère
+        type: string
+
+      - name: body
+        label: Présentation
+        type: rich-text
+        description: "Quelques phrases sur le caractère et l'histoire du cheval."
+        options:
+          format: markdown
+          media: false
+          switcher: false
+
+      - name: pointsForts
+        label: Points forts
+        type: string
+        list: true
+        description: "Un point fort par ligne, ex. : Super caractère"
+
+      - name: convientA
+        label: Convient à
+        type: text
+        description: "Pour quel cavalier ou quel projet ? Laisser une ligne vide pour changer de paragraphe."
+
+      - name: infosComplementaires
+        label: Informations complémentaires
+        type: text
+        description: "Conditions de paiement, TVA, évolution du prix…"
+
+      # Gérés par Aurélien : masqués dans l'interface, mais conservés.
+      - name: ogImage
+        type: string
+        hidden: true
+      - name: seoTitle
+        type: string
+        hidden: true
+      - name: seoDescription
+        type: string
+        hidden: true

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { ageLabel, sexeLabels } from '../utils/vente';
 
 interface Props {
   horse: CollectionEntry<'vente'>;
@@ -10,14 +11,7 @@ interface Props {
 const { horse, heroImage } = Astro.props;
 const { title, race, anneeNaissance, sexe, niveau, categorie, prix, vendu } = horse.data;
 
-const age = new Date().getFullYear() - anneeNaissance;
-const ageLabel = age <= 1 ? `${age} an` : `${age} ans`;
-
-const sexeLabels: Record<string, string> = {
-  hongre: 'Hongre',
-  jument: 'Jument',
-  etalon: 'Étalon',
-};
+const age = ageLabel(anneeNaissance);
 
 const isPortrait = heroImage && heroImage.height > heroImage.width;
 const aspectClass = isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]';
@@ -64,7 +58,7 @@ const aspectClass = isPortrait ? 'aspect-[3/4]' : 'aspect-[4/3]';
       </div>
 
       <p class="text-sm text-base-content/70">
-        {race} · {sexeLabels[sexe]} · {ageLabel}
+        {race} · {sexeLabels[sexe]} · {age}
       </p>
 
       {niveau && (

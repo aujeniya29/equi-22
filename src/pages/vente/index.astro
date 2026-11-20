@@ -4,20 +4,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HorseCard from '../../components/HorseCard.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { business } from '../../data/business';
+import { hasVentePhoto, resolveVentePhoto } from '../../utils/vente';
 
 const horses = await getCollection('vente');
 
-const allVenteImages = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/vente/**/*.{jpg,jpeg,png,webp}'
-);
-
 // Une annonce dont la photo manque affiche un placeholder gris : la reléguer
 // derrière celles qui en ont une, pour ne pas ouvrir la liste dessus.
-const hasPhoto = (horse: (typeof horses)[number]) =>
-  Boolean(
-    horse.data.photoPrincipale &&
-      allVenteImages[`/src/assets/images/vente/${horse.id}/${horse.data.photoPrincipale}`]
-  );
+const hasPhoto = (horse: (typeof horses)[number]) => hasVentePhoto(horse.data.photoPrincipale);
 
 const sorted = [...horses].sort((a, b) => {
   // Available horses first, then sold
@@ -32,13 +25,8 @@ const sorted = [...horses].sort((a, b) => {
 const heroImages = new Map<string, ImageMetadata>();
 await Promise.all(
   sorted.map(async (horse) => {
-    if (!horse.data.photoPrincipale) return;
-    const key = `/src/assets/images/vente/${horse.id}/${horse.data.photoPrincipale}`;
-    const mod = allVenteImages[key];
-    if (mod) {
-      const { default: img } = await mod();
-      heroImages.set(horse.id, img);
-    }
+    const img = await resolveVentePhoto(horse, horse.data.photoPrincipale);
+    if (img) heroImages.set(horse.id, img);
   })
 );
 

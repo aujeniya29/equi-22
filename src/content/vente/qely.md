@@ -1,5 +1,5 @@
 ---
-title: "Qely de Bihan braz"
+title: "Qely de Bihan Braz"
 race: "Irish part bred"
 anneeNaissance: 2026
 sexe: "jument"
@@ -10,29 +10,16 @@ disciplines:
   - "Hunter"
   - "Dressage"
 prix: "2 500 € HT"
-photoPrincipale: "sultan-01.jpg"
-photos:
-  - "sultan-02.jpg"
-  - "sultan-03.jpg"
 vendu: false
 pere: "Connemara crème aux yeux bleus"
 mere: "Irish cob black silver"
-pereDeMere: "-"
+pointsForts:
+  - "Sa belle robe isabelle silver"
+infosComplementaires: "Payable en plusieurs fois jusqu'à son sevrage à 6/8 mois selon votre demande."
 seoTitle: "Qely de Bihan Braz — pouliche à vendre à Yffiniac | Equi 22"
 seoDescription: "Qely de Bihan Braz, pouliche Irish part bred née en 2026, robe isabelle silver. À vendre au centre équestre Equi 22 à Yffiniac, Côtes-d'Armor."
 ---
 
-Qely de Bihan braz — Née le 12 mars 2026 - Toisera environ 1m45 - Un joli mélange entre une mère Irish cob black silver et un papa Connemara crème aux yeux bleus
-\
-\
-Ne louper pas cette poupée très curieuse qui aura toutes les manipulations de base et qui sera à jour de tout. Nous proposons également l'[élevage équin](/elevage) et la [pension pour propriétaires](/pension-chevaux) sur place.
+Qely de Bihan Braz est née le 12 mars 2026 et toisera environ 1,45 m. Un joli mélange entre une mère Irish cob black silver et un papa Connemara crème aux yeux bleus.
 
-
-## Points forts
-
-- **Sa belle robe isabelle silver**
-
-
-## Informations complémentaires
-
-Payable en plusieurs fois jusqu'à son sevrage à 6/8 mois selon votre demande.
+Ne loupez pas cette poupée très curieuse, qui aura toutes les manipulations de base et sera à jour de tout.

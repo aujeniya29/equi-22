@@ -1,6 +1,6 @@
 ---
 title: Test
-vendu: false
+vendu: true
 prix: 3500€ HT
 photoPrincipale: /vente/mwp0pit5-wofkoxrg.jpeg
 race: Pur sang

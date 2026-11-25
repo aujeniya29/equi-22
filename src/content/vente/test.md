@@ -15,7 +15,7 @@ prix: "3000 HT"
 photoPrincipale: "/vente/test-6db663c7.jpg"
 photos:
   - "/vente/test-a5a403ab.jpg"
-vendu: "Non"
+vendu: "Oui"
 pere: "Cima"
 mere: "Sunday"
 pereDeMere: "Beeak"

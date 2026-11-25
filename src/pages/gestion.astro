@@ -212,7 +212,7 @@ const sexes = [
 
         <div id="zone-suppression" class="flex flex-col items-center gap-2 py-6">
           <a id="lien-annonce" target="_blank" class="link">Voir l'annonce sur le site</a>
-          <button type="button" id="btn-supprimer" class="btn btn-ghost text-error mt-4">Supprimer cette annonce</button>
+          <button type="button" id="btn-supprimer" class="btn btn-outline btn-error mt-4">Supprimer cette annonce</button>
           <p class="text-xs text-base-content/50 text-center max-w-xs">Pour un cheval vendu, préférez « Ce cheval est vendu » : l'annonce reste en ligne, ce qui rassure les futurs acheteurs.</p>
         </div>
 
@@ -232,6 +232,18 @@ const sexes = [
         <p id="attente-texte" class="text-lg">Enregistrement…</p>
       </div>
     </div>
+
+    <!-- Confirmation dessinée dans la page : Safari sur iPhone peut bloquer
+         sans prévenir les fenêtres natives confirm(). -->
+    <dialog id="confirmation" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box flex flex-col gap-4">
+        <p id="confirmation-texte" class="text-lg"></p>
+        <div class="grid grid-cols-2 gap-3">
+          <button type="button" id="confirmation-non" class="btn btn-lg">Annuler</button>
+          <button type="button" id="confirmation-oui" class="btn btn-lg btn-primary"></button>
+        </div>
+      </div>
+    </dialog>
 
     <template id="tpl-carte">
       <li>
@@ -354,8 +366,19 @@ const sexes = [
       // ----------------------------------------------------------------- liste
       let chevaux: ChevalEnregistre[] = [];
 
+      // Dernière action enregistrée. Juste après une écriture, GitHub renvoie
+      // parfois encore l'ancienne version pendant quelques secondes : on
+      // applique donc nous-mêmes le résultat connu par-dessus la liste relue.
+      let derniereAction: { id: string; cheval: ChevalEnregistre | null } | null = null;
+
       async function chargerListe() {
         ({ chevaux } = await api<{ chevaux: ChevalEnregistre[] }>('/chevaux'));
+        if (derniereAction) {
+          const { id, cheval } = derniereAction;
+          chevaux = chevaux.filter((c) => c.id !== id);
+          if (cheval) chevaux.push(cheval);
+          chevaux.sort((a, b) => Number(a.vendu) - Number(b.vendu) || a.title.localeCompare(b.title, 'fr'));
+        }
         const ul = $('#liste');
         ul.replaceChildren(
           ...chevaux.map((c) => {
@@ -546,9 +569,37 @@ const sexes = [
 
       const modifie = () => JSON.stringify(lireFormulaire()) !== etatInitial;
 
-      function fermerFiche() {
-        if (modifie() && !confirm('Quitter sans enregistrer vos modifications ?')) {
+      function confirmer(texte: string, oui: string, danger = false): Promise<boolean> {
+        const dialog = $<HTMLDialogElement>('#confirmation');
+        const btnOui = $('#confirmation-oui');
+        $('#confirmation-texte').textContent = texte;
+        btnOui.textContent = oui;
+        btnOui.classList.toggle('btn-error', danger);
+        btnOui.classList.toggle('btn-primary', !danger);
+        dialog.showModal();
+        return new Promise((resolve) => {
+          const fin = (choix: boolean) => {
+            btnOui.removeEventListener('click', ok);
+            $('#confirmation-non').removeEventListener('click', non);
+            dialog.removeEventListener('cancel', non);
+            dialog.close();
+            resolve(choix);
+          };
+          const ok = () => fin(true);
+          const non = (ev?: Event) => { ev?.preventDefault(); fin(false); };
+          btnOui.addEventListener('click', ok);
+          $('#confirmation-non').addEventListener('click', non);
+          dialog.addEventListener('cancel', non);
+        });
+      }
+
+      async function fermerFiche() {
+        if (modifie()) {
+          // On reste sur la fiche le temps de la question.
           history.pushState({ fiche: true }, '');
+          if (!(await confirmer('Quitter sans enregistrer vos modifications ?', 'Quitter'))) return;
+          etatInitial = JSON.stringify(lireFormulaire());
+          history.back(); // repasse ici, sans modification cette fois
           return;
         }
         afficher('liste');
@@ -628,11 +679,10 @@ const sexes = [
             .filter((p) => p.cle.startsWith(TEMP_PREFIX) && p.blobSha)
             .map((p) => ({ temp: p.cle, blobSha: p.blobSha! }));
           const corps: SaveRequest = { cheval, nouvellesPhotos };
-          if (enCours) {
-            await api(`/chevaux/${enCours.id}`, { method: 'PUT', body: JSON.stringify(corps) });
-          } else {
-            await api('/chevaux', { method: 'POST', body: JSON.stringify(corps) });
-          }
+          const { cheval: enregistre } = enCours
+            ? await api<{ cheval: ChevalEnregistre }>(`/chevaux/${enCours.id}`, { method: 'PUT', body: JSON.stringify(corps) })
+            : await api<{ cheval: ChevalEnregistre }>('/chevaux', { method: 'POST', body: JSON.stringify(corps) });
+          derniereAction = { id: enregistre.id, cheval: enregistre };
           await retourListe(`C'est enregistré ✓ Le site sera à jour d'ici 5 minutes environ.`);
         } catch (e) {
           if (e instanceof NonConnecte) return afficher('connexion');
@@ -643,10 +693,11 @@ const sexes = [
       });
 
       $('#btn-supprimer').addEventListener('click', async () => {
-        if (!enCours || !confirm(`Supprimer définitivement l'annonce de ${enCours.title} ?`)) return;
+        if (!enCours || !(await confirmer(`Supprimer définitivement l'annonce de ${enCours.title} ?`, 'Supprimer', true))) return;
         try {
           attente('Suppression…');
           await api(`/chevaux/${enCours.id}`, { method: 'DELETE' });
+          derniereAction = { id: enCours.id, cheval: null };
           await retourListe(`L'annonce est supprimée. Elle disparaîtra du site d'ici 5 minutes environ.`);
         } catch (e) {
           if (e instanceof NonConnecte) return afficher('connexion');

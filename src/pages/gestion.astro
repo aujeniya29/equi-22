@@ -683,7 +683,7 @@ const sexes = [
             ? await api<{ cheval: ChevalEnregistre }>(`/chevaux/${enCours.id}`, { method: 'PUT', body: JSON.stringify(corps) })
             : await api<{ cheval: ChevalEnregistre }>('/chevaux', { method: 'POST', body: JSON.stringify(corps) });
           derniereAction = { id: enregistre.id, cheval: enregistre };
-          await retourListe(`C'est enregistré ✓ Le site sera à jour d'ici 5 minutes environ.`);
+          await retourListe(`C'est enregistré ✓ Le site sera à jour d'ici 2 minutes environ.`);
         } catch (e) {
           if (e instanceof NonConnecte) return afficher('connexion');
           erreurFiche((e as Error).message);
@@ -698,7 +698,7 @@ const sexes = [
           attente('Suppression…');
           await api(`/chevaux/${enCours.id}`, { method: 'DELETE' });
           derniereAction = { id: enCours.id, cheval: null };
-          await retourListe(`L'annonce est supprimée. Elle disparaîtra du site d'ici 5 minutes environ.`);
+          await retourListe(`L'annonce est supprimée. Elle disparaîtra du site d'ici 2 minutes environ.`);
         } catch (e) {
           if (e instanceof NonConnecte) return afficher('connexion');
           erreurFiche((e as Error).message);

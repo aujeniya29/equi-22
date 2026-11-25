@@ -266,12 +266,25 @@ export function versCheval(f: Fichier): ChevalEnregistre {
     pere: str(d.pere),
     mere: str(d.mere),
     pereDeMere: str(d.pereDeMere),
-    body: f.body,
+    body: decoderPresentation(f.body),
     pointsForts: liste(d.pointsForts),
     convientA: str(d.convientA),
     infosComplementaires: str(d.infosComplementaires),
     photos: [...new Set(photos)],
   };
+}
+
+// La présentation devient du Markdown, et le Markdown laisse passer le HTML
+// brut et les liens : un texte collé d'ailleurs (ou malveillant) pourrait
+// casser la page ou y injecter un script. On neutralise « < » (balises HTML)
+// et « [ » (liens et images), et on fait l'inverse à la lecture pour que
+// l'interface montre le texte tel qu'il a été tapé.
+export function encoderPresentation(texte: string): string {
+  return texte.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\[/g, '\\[');
+}
+
+export function decoderPresentation(texte: string): string {
+  return texte.replace(/\\\[/g, '[').replace(/&lt;/g, '<').replace(/&amp;/g, '&');
 }
 
 /** Champs gérés par l'interface, dans l'ordre où ils sont écrits. */
@@ -327,7 +340,7 @@ export function ecrireFichier(c: Cheval, existant?: Fichier): string {
   }
 
   const yaml = stringify(data, { lineWidth: 0, defaultStringType: 'QUOTE_DOUBLE', defaultKeyType: 'PLAIN' });
-  const body = propre(c.body);
+  const body = encoderPresentation(propre(c.body));
   return `---\n${yaml}---\n${body ? `\n${body}\n` : ''}`;
 }
 

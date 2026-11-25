@@ -6,3 +6,8 @@
 # imposait donc des revalidations inutiles aux visiteurs récurrents.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Interface de gestion des annonces (et son API) : jamais indexée ni mise en cache.
+/gestion*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

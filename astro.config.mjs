@@ -18,7 +18,8 @@ export default defineConfig({
     sitemap({
       // Page utilitaire (répertoire de PDF) : accessible via les liens internes,
       // mais sans valeur en résultat de recherche → noindex + hors sitemap.
-      filter: (page) => !page.endsWith('/contrats'),
+      // /gestion : interface d'administration des annonces (noindex).
+      filter: (page) => !page.endsWith('/contrats') && !page.endsWith('/gestion'),
     }),
   ],
   vite: {

@@ -1,0 +1,662 @@
+---
+// Interface de gestion des chevaux à vendre, pensée pour la cliente sur son
+// téléphone. Page statique : toutes les données passent par les Pages Functions
+// de functions/gestion/api/ (lecture et écriture dans le dépôt GitHub).
+// Hors sitemap (astro.config.mjs) et noindex (ici et dans public/_headers).
+import '../styles/global.css';
+import { DISCIPLINES } from '../../functions/_lib/shared';
+
+const sexes = [
+  { value: 'jument', label: 'Jument / pouliche' },
+  { value: 'etalon', label: 'Étalon / poulain' },
+  { value: 'hongre', label: 'Hongre' },
+];
+---
+
+<!doctype html>
+<html lang="fr" data-theme="equi22">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#2874b6" />
+    <meta name="apple-mobile-web-app-title" content="Ventes Équi 22" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <title>Mes chevaux à vendre — Équi 22</title>
+  </head>
+  <body class="bg-base-200 min-h-dvh">
+    <!-- Chargement initial -->
+    <div id="vue-chargement" class="min-h-dvh grid place-items-center">
+      <span class="loading loading-spinner loading-lg text-primary"></span>
+    </div>
+
+    <!-- Connexion -->
+    <main id="vue-connexion" class="hidden min-h-dvh grid place-items-center p-6">
+      <form id="form-connexion" class="card bg-base-100 shadow w-full max-w-sm">
+        <div class="card-body gap-4">
+          <img src="/logo.png" alt="" class="h-16 w-auto mx-auto" />
+          <h1 class="text-2xl font-serif text-center">Mes chevaux à vendre</h1>
+          <!-- Champ « username » caché : permet au téléphone de mémoriser le mot de passe. -->
+          <input type="text" name="username" autocomplete="username" value="equi22" class="hidden" readonly />
+          <label class="flex flex-col gap-1">
+            <span class="font-medium">Mot de passe</span>
+            <input name="password" type="password" autocomplete="current-password" required class="input input-bordered w-full" />
+          </label>
+          <p id="erreur-connexion" class="text-error hidden"></p>
+          <button class="btn btn-primary btn-lg">Se connecter</button>
+          <p class="text-sm text-base-content/60 text-center">Vous resterez connectée sur ce téléphone.</p>
+        </div>
+      </form>
+    </main>
+
+    <!-- Liste des chevaux -->
+    <main id="vue-liste" class="hidden max-w-xl mx-auto p-4 pb-16">
+      <header class="flex items-center justify-between py-2">
+        <h1 class="text-2xl font-serif">Mes chevaux à vendre</h1>
+        <img src="/logo.png" alt="" class="h-10 w-auto" />
+      </header>
+
+      <div id="bandeau" class="hidden alert alert-success my-3" role="status"></div>
+
+      <button id="btn-ajouter" class="btn btn-primary btn-lg w-full my-3">＋ Ajouter un cheval</button>
+
+      <ul id="liste" class="flex flex-col gap-3"></ul>
+      <p id="liste-vide" class="hidden text-center text-base-content/60 py-8">Aucune annonce pour l'instant.</p>
+
+      <footer class="mt-10 flex flex-col items-center gap-3 text-sm">
+        <a href="/vente" target="_blank" class="link">Voir la page « Chevaux à vendre » du site</a>
+        <button id="btn-deconnexion" class="link text-base-content/60">Se déconnecter</button>
+      </footer>
+    </main>
+
+    <!-- Fiche d'un cheval -->
+    <main id="vue-fiche" class="hidden max-w-xl mx-auto pb-32">
+      <header class="sticky top-0 z-10 bg-base-200/95 backdrop-blur flex items-center gap-2 px-2 py-2 border-b border-base-300">
+        <button id="btn-retour" class="btn btn-ghost">← Retour</button>
+        <h1 id="titre-fiche" class="text-lg font-semibold truncate"></h1>
+      </header>
+
+      <form id="form-cheval" class="flex flex-col gap-4 p-4" novalidate>
+        <label id="bloc-vendu" class="card bg-base-100 shadow-sm cursor-pointer">
+          <div class="card-body flex-row items-center justify-between py-4">
+            <div>
+              <p class="font-semibold">Ce cheval est vendu</p>
+              <p class="text-sm text-base-content/60">L'annonce reste visible avec un bandeau « Vendu ».</p>
+            </div>
+            <input type="checkbox" name="vendu" class="toggle toggle-success toggle-lg" />
+          </div>
+        </label>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-3">
+            <h2 class="card-title">Photos</h2>
+            <p class="text-sm text-base-content/60">La première est la photo principale, affichée dans la liste des annonces.</p>
+            <ul id="photos" class="grid grid-cols-3 gap-2"></ul>
+            <label class="btn btn-outline btn-primary w-full">
+              ＋ Ajouter des photos
+              <input id="input-photos" type="file" accept="image/*" multiple class="hidden" />
+            </label>
+          </div>
+        </section>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title">L'essentiel</h2>
+            <label class="champ" data-champ="title">
+              <span>Nom du cheval *</span>
+              <input name="title" class="input input-bordered w-full" autocapitalize="words" placeholder="Ex. : Oraia de Bihan Braz" />
+            </label>
+            <label class="champ" data-champ="prix">
+              <span>Prix *</span>
+              <input name="prix" class="input input-bordered w-full" placeholder="Ex. : 10 000 € HT" />
+            </label>
+            <fieldset class="champ" data-champ="sexe">
+              <legend>Sexe *</legend>
+              <div class="grid grid-cols-3 gap-2">
+                {sexes.map((s) => (
+                  <label class="btn btn-outline h-auto min-h-12 py-2 leading-tight has-checked:bg-primary has-checked:text-primary-content has-checked:border-primary">
+                    <input type="radio" name="sexe" value={s.value} class="hidden" />
+                    {s.label}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <label class="champ" data-champ="anneeNaissance">
+              <span>Année de naissance *</span>
+              <input name="anneeNaissance" class="input input-bordered w-full" inputmode="numeric" maxlength="4" placeholder="Ex. : 2022" />
+            </label>
+            <label class="champ" data-champ="race">
+              <span>Race *</span>
+              <input name="race" list="races" class="input input-bordered w-full" placeholder="Ex. : Connemara, Irish part bred…" />
+              <datalist id="races"></datalist>
+            </label>
+          </div>
+        </section>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title">Description</h2>
+            <label class="champ">
+              <span>Présentation</span>
+              <small>Quelques phrases sur son caractère et son histoire. Laissez une ligne vide pour changer de paragraphe.</small>
+              <textarea name="body" rows="6" class="textarea textarea-bordered w-full"></textarea>
+            </label>
+            <label class="champ">
+              <span>Points forts</span>
+              <small>Un point fort par ligne.</small>
+              <textarea name="pointsForts" rows="3" class="textarea textarea-bordered w-full" placeholder={'Super caractère\nTrès beau physique'}></textarea>
+            </label>
+            <label class="champ">
+              <span>Convient à</span>
+              <small>Pour quel cavalier ou quel projet ?</small>
+              <textarea name="convientA" rows="3" class="textarea textarea-bordered w-full"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title">Caractéristiques</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="champ">
+                <span>Robe</span>
+                <input name="robe" class="input input-bordered w-full" placeholder="Ex. : Bai" />
+              </label>
+              <label class="champ">
+                <span>Taille</span>
+                <input name="taille" class="input input-bordered w-full" placeholder="Ex. : 1,58 m" />
+              </label>
+            </div>
+            <label class="champ">
+              <span>Catégorie</span>
+              <small>Petit badge à côté du nom.</small>
+              <input name="categorie" class="input input-bordered w-full" placeholder="Ex. : Foal, 2 ans, Poney D…" />
+            </label>
+            <label class="champ">
+              <span>Niveau</span>
+              <input name="niveau" class="input input-bordered w-full" placeholder="Ex. : Débourré, sorti en CSO Club 1…" />
+            </label>
+            <fieldset class="champ">
+              <legend>Disciplines</legend>
+              <div class="flex flex-wrap gap-2">
+                {DISCIPLINES.map((d) => (
+                  <label class="btn btn-sm btn-outline rounded-full has-checked:bg-primary has-checked:text-primary-content has-checked:border-primary">
+                    <input type="checkbox" name="disciplines" value={d} class="hidden" />
+                    {d}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title">Origines</h2>
+            <label class="champ"><span>Père</span><input name="pere" class="input input-bordered w-full" /></label>
+            <label class="champ"><span>Mère</span><input name="mere" class="input input-bordered w-full" /></label>
+            <label class="champ"><span>Père de mère</span><input name="pereDeMere" class="input input-bordered w-full" /></label>
+          </div>
+        </section>
+
+        <section class="card bg-base-100 shadow-sm">
+          <div class="card-body gap-4">
+            <h2 class="card-title">Informations complémentaires</h2>
+            <label class="champ">
+              <small>Conditions de paiement, TVA, évolution du prix…</small>
+              <textarea name="infosComplementaires" rows="3" class="textarea textarea-bordered w-full"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <div id="zone-suppression" class="flex flex-col items-center gap-2 py-6">
+          <a id="lien-annonce" target="_blank" class="link">Voir l'annonce sur le site</a>
+          <button type="button" id="btn-supprimer" class="btn btn-ghost text-error mt-4">Supprimer cette annonce</button>
+          <p class="text-xs text-base-content/50 text-center max-w-xs">Pour un cheval vendu, préférez « Ce cheval est vendu » : l'annonce reste en ligne, ce qui rassure les futurs acheteurs.</p>
+        </div>
+
+        <div class="fixed bottom-0 inset-x-0 z-10 bg-base-100 border-t border-base-300 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+          <div class="max-w-xl mx-auto">
+            <p id="erreur-fiche" class="text-error text-sm mb-2 hidden" role="alert"></p>
+            <button id="btn-enregistrer" class="btn btn-primary btn-lg w-full">Enregistrer</button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- Enregistrement en cours -->
+    <div id="attente" class="hidden fixed inset-0 z-50 bg-base-100/90 grid place-items-center p-6">
+      <div class="flex flex-col items-center gap-4 text-center">
+        <span class="loading loading-spinner loading-lg text-primary"></span>
+        <p id="attente-texte" class="text-lg">Enregistrement…</p>
+      </div>
+    </div>
+
+    <template id="tpl-carte">
+      <li>
+        <button class="card card-side bg-base-100 shadow-sm w-full text-left overflow-hidden active:scale-[0.99] transition">
+          <figure class="w-24 h-24 shrink-0 bg-base-300 grid place-items-center text-xs text-base-content/50 text-center"><img alt="" class="w-full h-full object-cover" loading="lazy" /></figure>
+          <div class="card-body p-3 gap-1 justify-center min-w-0">
+            <p class="nom font-semibold truncate"></p>
+            <p class="prix text-sm text-base-content/70"></p>
+            <span class="statut badge"></span>
+          </div>
+          <span class="self-center pr-4 text-2xl text-base-content/30" aria-hidden="true">›</span>
+        </button>
+      </li>
+    </template>
+
+    <template id="tpl-photo">
+      <li class="relative aspect-square rounded-lg overflow-hidden bg-base-300">
+        <img alt="" class="w-full h-full object-cover" />
+        <span class="principale hidden absolute top-1 left-1 badge badge-primary badge-sm">Principale</span>
+        <span class="envoi hidden absolute inset-0 grid place-items-center bg-base-100/60"><span class="loading loading-spinner"></span></span>
+        <span class="echec hidden absolute inset-0 grid place-items-center bg-error/70 text-error-content text-xs text-center p-1">Échec de l'envoi</span>
+        <div class="absolute bottom-1 inset-x-1 flex justify-between">
+          <button type="button" class="premier btn btn-xs btn-circle bg-base-100/90" aria-label="Mettre en photo principale">★</button>
+          <button type="button" class="retirer btn btn-xs btn-circle bg-base-100/90" aria-label="Retirer la photo">✕</button>
+        </div>
+      </li>
+    </template>
+
+    <style is:global>
+      /* iOS zoome sur tout champ dont le texte fait moins de 16 px. */
+      input, select, textarea { font-size: 16px !important; }
+      .champ { display: flex; flex-direction: column; gap: 0.25rem; }
+      .champ > span, .champ > legend { font-weight: 500; }
+      .champ > small { color: color-mix(in oklab, var(--color-base-content) 60%, transparent); }
+      .champ.invalide input, .champ.invalide .btn { border-color: var(--color-error); }
+      .champ .message-erreur { color: var(--color-error); font-size: 0.875rem; }
+    </style>
+
+    <script>
+      import {
+        erreursCheval,
+        TEMP_PREFIX,
+        type Cheval,
+        type ChevalEnregistre,
+        type NouvellePhoto,
+        type SaveRequest,
+      } from '../../functions/_lib/shared';
+
+      // ---------------------------------------------------------------- outils
+      const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) =>
+        root.querySelector(sel) as T;
+
+      class NonConnecte extends Error {}
+
+      async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
+        let res: Response;
+        try {
+          res = await fetch(`/gestion/api${path}`, {
+            ...init,
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json', ...init.headers },
+          });
+        } catch {
+          throw new Error('Pas de connexion internet ? Vérifiez puis réessayez.');
+        }
+        const data = await res.json().catch(() => ({}));
+        if (res.status === 401 && path !== '/login') throw new NonConnecte();
+        if (!res.ok) throw new Error(data.error ?? `Erreur ${res.status}. Réessayez.`);
+        return data as T;
+      }
+
+      const vues = ['chargement', 'connexion', 'liste', 'fiche'] as const;
+      type Vue = (typeof vues)[number];
+      function afficher(vue: Vue) {
+        for (const v of vues) $(`#vue-${v}`).classList.toggle('hidden', v !== vue);
+        window.scrollTo(0, 0);
+      }
+
+      function attente(texte: string | null) {
+        $('#attente').classList.toggle('hidden', texte === null);
+        if (texte) $('#attente-texte').textContent = texte;
+      }
+
+      const urlPhoto = (name: string) => `/gestion/api/photo/${encodeURIComponent(name)}`;
+
+      // ------------------------------------------------------------- connexion
+      async function demarrer() {
+        try {
+          await chargerListe();
+        } catch (e) {
+          if (e instanceof NonConnecte) return afficher('connexion');
+          afficher('liste');
+          bandeau((e as Error).message, 'erreur');
+        }
+      }
+
+      $<HTMLFormElement>('#form-connexion').addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        const form = ev.currentTarget as HTMLFormElement;
+        const btn = $<HTMLButtonElement>('button', form);
+        const err = $('#erreur-connexion');
+        btn.disabled = true;
+        err.classList.add('hidden');
+        try {
+          await api('/login', { method: 'POST', body: JSON.stringify({ password: (form.elements.namedItem('password') as HTMLInputElement).value }) });
+          await demarrer();
+        } catch (e) {
+          err.textContent = (e as Error).message;
+          err.classList.remove('hidden');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      $('#btn-deconnexion').addEventListener('click', async () => {
+        await api('/logout', { method: 'POST' }).catch(() => {});
+        afficher('connexion');
+      });
+
+      // ----------------------------------------------------------------- liste
+      let chevaux: ChevalEnregistre[] = [];
+
+      async function chargerListe() {
+        ({ chevaux } = await api<{ chevaux: ChevalEnregistre[] }>('/chevaux'));
+        const ul = $('#liste');
+        ul.replaceChildren(
+          ...chevaux.map((c) => {
+            const li = ($<HTMLTemplateElement>('#tpl-carte').content.cloneNode(true) as DocumentFragment).firstElementChild!;
+            const img = $<HTMLImageElement>('img', li);
+            if (c.photos[0]) img.src = urlPhoto(c.photos[0]);
+            else img.replaceWith('Pas de photo');
+            $('.nom', li).textContent = c.title;
+            $('.prix', li).textContent = c.prix;
+            const statut = $('.statut', li);
+            statut.textContent = c.vendu ? 'Vendu' : 'En vente';
+            statut.classList.add(c.vendu ? 'badge-neutral' : 'badge-success');
+            $('button', li).addEventListener('click', () => ouvrirFiche(c));
+            return li;
+          })
+        );
+        $('#liste-vide').classList.toggle('hidden', chevaux.length > 0);
+        $('#races').replaceChildren(
+          ...[...new Set(chevaux.map((c) => c.race).filter(Boolean))].map((r) => Object.assign(document.createElement('option'), { value: r }))
+        );
+        afficher('liste');
+      }
+
+      function bandeau(texte: string, type: 'succes' | 'erreur' = 'succes') {
+        const b = $('#bandeau');
+        b.textContent = texte;
+        b.classList.toggle('alert-success', type === 'succes');
+        b.classList.toggle('alert-error', type === 'erreur');
+        b.classList.remove('hidden');
+      }
+
+      $('#btn-ajouter').addEventListener('click', () => ouvrirFiche(null));
+
+      // ---------------------------------------------------------------- photos
+      interface Photo {
+        cle: string; // nom du fichier, ou nom provisoire « nouvelle:… »
+        src: string;
+        etat: 'ok' | 'envoi' | 'echec';
+        blobSha?: string;
+        envoi?: Promise<void>;
+      }
+      let photos: Photo[] = [];
+
+      async function redimensionner(file: File): Promise<Blob> {
+        const url = URL.createObjectURL(file);
+        try {
+          const img = new Image();
+          img.src = url;
+          await img.decode();
+          // 1600 px : même taille que les photos envoyées jusqu'ici, et un build
+          // qui reste rapide (chaque photo est encodée en AVIF à la publication).
+          const echelle = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight));
+          const canvas = document.createElement('canvas');
+          canvas.width = Math.round(img.naturalWidth * echelle);
+          canvas.height = Math.round(img.naturalHeight * echelle);
+          canvas.getContext('2d')!.drawImage(img, 0, 0, canvas.width, canvas.height);
+          return await new Promise<Blob>((ok, ko) =>
+            canvas.toBlob((b) => (b ? ok(b) : ko(new Error('conversion'))), 'image/jpeg', 0.85)
+          );
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      }
+
+      function enBase64(blob: Blob): Promise<string> {
+        return new Promise((ok, ko) => {
+          const r = new FileReader();
+          r.onload = () => ok(String(r.result).split(',')[1]);
+          r.onerror = () => ko(r.error);
+          r.readAsDataURL(blob);
+        });
+      }
+
+      function ajouterPhoto(file: File) {
+        const photo: Photo = { cle: TEMP_PREFIX + crypto.randomUUID(), src: '', etat: 'envoi' };
+        photos.push(photo);
+        photo.envoi = (async () => {
+          try {
+            const blob = await redimensionner(file);
+            photo.src = URL.createObjectURL(blob);
+            afficherPhotos();
+            const { blobSha } = await api<{ blobSha: string }>('/photo', {
+              method: 'POST',
+              body: JSON.stringify({ content: await enBase64(blob), encoding: 'base64' }),
+            });
+            photo.blobSha = blobSha;
+            photo.etat = 'ok';
+          } catch (e) {
+            if (e instanceof NonConnecte) throw e;
+            photo.etat = 'echec';
+          }
+          afficherPhotos();
+        })();
+        afficherPhotos();
+      }
+
+      function afficherPhotos() {
+        $('#photos').replaceChildren(
+          ...photos.map((p, i) => {
+            const li = ($<HTMLTemplateElement>('#tpl-photo').content.cloneNode(true) as DocumentFragment).firstElementChild!;
+            const img = $<HTMLImageElement>('img', li);
+            if (p.src) img.src = p.src;
+            $('.principale', li).classList.toggle('hidden', i !== 0);
+            $('.premier', li).classList.toggle('invisible', i === 0);
+            $('.envoi', li).classList.toggle('hidden', p.etat !== 'envoi');
+            $('.echec', li).classList.toggle('hidden', p.etat !== 'echec');
+            $('.premier', li).addEventListener('click', () => {
+              photos.splice(i, 1);
+              photos.unshift(p);
+              afficherPhotos();
+            });
+            $('.retirer', li).addEventListener('click', () => {
+              photos.splice(i, 1);
+              afficherPhotos();
+            });
+            return li;
+          })
+        );
+      }
+
+      $<HTMLInputElement>('#input-photos').addEventListener('change', (ev) => {
+        const input = ev.currentTarget as HTMLInputElement;
+        for (const f of input.files ?? []) ajouterPhoto(f);
+        input.value = '';
+      });
+
+      // ----------------------------------------------------------------- fiche
+      const form = $<HTMLFormElement>('#form-cheval');
+      let enCours: ChevalEnregistre | null = null;
+      let etatInitial = '';
+
+      const champ = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+      const lignes = (s: string) => s.split('\n').map((l) => l.trim()).filter(Boolean);
+
+      function lireFormulaire(): Cheval {
+        const annee = champ('anneeNaissance').value.trim();
+        return {
+          title: champ('title').value,
+          vendu: (champ('vendu') as HTMLInputElement).checked,
+          prix: champ('prix').value,
+          race: champ('race').value,
+          sexe: (form.querySelector<HTMLInputElement>('input[name=sexe]:checked')?.value ?? '') as Cheval['sexe'],
+          anneeNaissance: /^\d{4}$/.test(annee) ? Number(annee) : null,
+          robe: champ('robe').value,
+          taille: champ('taille').value,
+          categorie: champ('categorie').value,
+          niveau: champ('niveau').value,
+          disciplines: [...form.querySelectorAll<HTMLInputElement>('input[name=disciplines]:checked')].map((i) => i.value),
+          pere: champ('pere').value,
+          mere: champ('mere').value,
+          pereDeMere: champ('pereDeMere').value,
+          body: champ('body').value,
+          pointsForts: lignes(champ('pointsForts').value),
+          convientA: champ('convientA').value,
+          infosComplementaires: champ('infosComplementaires').value,
+          photos: photos.map((p) => p.cle),
+        };
+      }
+
+      function remplirFormulaire(c: ChevalEnregistre | null) {
+        form.reset();
+        if (c) {
+          for (const k of ['title', 'prix', 'race', 'robe', 'taille', 'categorie', 'niveau', 'pere', 'mere', 'pereDeMere', 'body', 'convientA', 'infosComplementaires'] as const) {
+            champ(k).value = c[k];
+          }
+          champ('anneeNaissance').value = c.anneeNaissance ? String(c.anneeNaissance) : '';
+          champ('pointsForts').value = c.pointsForts.join('\n');
+          (champ('vendu') as HTMLInputElement).checked = c.vendu;
+          form.querySelectorAll<HTMLInputElement>('input[name=sexe]').forEach((i) => (i.checked = i.value === c.sexe));
+          form.querySelectorAll<HTMLInputElement>('input[name=disciplines]').forEach((i) => (i.checked = c.disciplines.includes(i.value)));
+        }
+        photos = (c?.photos ?? []).map((name) => ({ cle: name, src: urlPhoto(name), etat: 'ok' }));
+        afficherPhotos();
+      }
+
+      function ouvrirFiche(c: ChevalEnregistre | null, historique = true) {
+        enCours = c;
+        remplirFormulaire(c);
+        effacerErreurs();
+        $('#titre-fiche').textContent = c ? c.title : 'Nouveau cheval';
+        $('#bloc-vendu').classList.toggle('hidden', !c);
+        $('#zone-suppression').classList.toggle('hidden', !c);
+        if (c) $<HTMLAnchorElement>('#lien-annonce').href = `/vente/${c.id}`;
+        etatInitial = JSON.stringify(lireFormulaire());
+        if (historique) history.pushState({ fiche: true }, '');
+        afficher('fiche');
+      }
+
+      const modifie = () => JSON.stringify(lireFormulaire()) !== etatInitial;
+
+      function fermerFiche() {
+        if (modifie() && !confirm('Quitter sans enregistrer vos modifications ?')) {
+          history.pushState({ fiche: true }, '');
+          return;
+        }
+        afficher('liste');
+      }
+
+      // Le bouton « Retour » et le geste retour du téléphone passent tous deux par l'historique.
+      $('#btn-retour').addEventListener('click', () => history.back());
+      window.addEventListener('popstate', () => {
+        if (!$('#vue-fiche').classList.contains('hidden')) fermerFiche();
+      });
+      window.addEventListener('beforeunload', (ev) => {
+        if (!$('#vue-fiche').classList.contains('hidden') && modifie()) ev.preventDefault();
+      });
+
+      function effacerErreurs() {
+        form.querySelectorAll('.champ.invalide').forEach((el) => el.classList.remove('invalide'));
+        form.querySelectorAll('.message-erreur').forEach((el) => el.remove());
+        $('#erreur-fiche').classList.add('hidden');
+      }
+
+      // Une erreur disparaît dès que le champ concerné est modifié.
+      form.addEventListener('input', (ev) => {
+        const bloc = (ev.target as HTMLElement).closest('.champ.invalide');
+        if (!bloc) return;
+        bloc.classList.remove('invalide');
+        bloc.querySelector('.message-erreur')?.remove();
+        if (!form.querySelector('.champ.invalide')) $('#erreur-fiche').classList.add('hidden');
+      });
+
+      function erreurFiche(texte: string) {
+        const p = $('#erreur-fiche');
+        p.textContent = texte;
+        p.classList.remove('hidden');
+      }
+
+      // Revenir à la liste après un enregistrement, sans repasser par la confirmation.
+      async function retourListe(message: string) {
+        etatInitial = JSON.stringify(lireFormulaire());
+        await chargerListe();
+        bandeau(message);
+        if (history.state?.fiche) history.back();
+      }
+
+      form.addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        effacerErreurs();
+        const cheval = lireFormulaire();
+
+        const erreurs = erreursCheval(cheval);
+        const champs = Object.keys(erreurs) as (keyof Cheval)[];
+        if (champs.length) {
+          for (const k of champs) {
+            const bloc = form.querySelector(`[data-champ="${k}"]`);
+            if (!bloc) continue;
+            bloc.classList.add('invalide');
+            bloc.append(Object.assign(document.createElement('p'), { className: 'message-erreur', textContent: erreurs[k] }));
+          }
+          form.querySelector('.champ.invalide')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          erreurFiche('Il manque des informations (en rouge).');
+          return;
+        }
+
+        try {
+          const enAttente = photos.filter((p) => p.etat === 'envoi');
+          if (enAttente.length) {
+            attente(`Envoi des photos… (${enAttente.length} restante${enAttente.length > 1 ? 's' : ''})`);
+            await Promise.all(enAttente.map((p) => p.envoi));
+          }
+          if (photos.some((p) => p.etat === 'echec')) {
+            attente(null);
+            erreurFiche("Certaines photos n'ont pas pu être envoyées. Retirez-les (✕) puis ajoutez-les à nouveau.");
+            return;
+          }
+
+          attente('Enregistrement…');
+          const nouvellesPhotos: NouvellePhoto[] = photos
+            .filter((p) => p.cle.startsWith(TEMP_PREFIX) && p.blobSha)
+            .map((p) => ({ temp: p.cle, blobSha: p.blobSha! }));
+          const corps: SaveRequest = { cheval, nouvellesPhotos };
+          if (enCours) {
+            await api(`/chevaux/${enCours.id}`, { method: 'PUT', body: JSON.stringify(corps) });
+          } else {
+            await api('/chevaux', { method: 'POST', body: JSON.stringify(corps) });
+          }
+          await retourListe(`C'est enregistré ✓ Le site sera à jour d'ici 5 minutes environ.`);
+        } catch (e) {
+          if (e instanceof NonConnecte) return afficher('connexion');
+          erreurFiche((e as Error).message);
+        } finally {
+          attente(null);
+        }
+      });
+
+      $('#btn-supprimer').addEventListener('click', async () => {
+        if (!enCours || !confirm(`Supprimer définitivement l'annonce de ${enCours.title} ?`)) return;
+        try {
+          attente('Suppression…');
+          await api(`/chevaux/${enCours.id}`, { method: 'DELETE' });
+          await retourListe(`L'annonce est supprimée. Elle disparaîtra du site d'ici 5 minutes environ.`);
+        } catch (e) {
+          if (e instanceof NonConnecte) return afficher('connexion');
+          erreurFiche((e as Error).message);
+        } finally {
+          attente(null);
+        }
+      });
+
+      demarrer();
+    </script>
+  </body>
+</html>
